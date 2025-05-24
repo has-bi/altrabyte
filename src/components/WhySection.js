@@ -1,3 +1,4 @@
+// components/WhySection.js - Apple Minimalist Style
 "use client";
 import React from "react";
 
@@ -6,157 +7,157 @@ const WhyAltraByteSection = () => {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          strokeWidth={1.5}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
           />
         </svg>
       ),
-      title: "Local + Global Experience",
+      title: "Regional + Global Experience",
       description:
-        "From FMCG giants to fast-moving startups, we understand the realities of Southeast Asia — and beyond.",
+        "Deep understanding of Southeast Asian markets combined with proven global enterprise expertise.",
     },
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          strokeWidth={1.5}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
           />
         </svg>
       ),
-      title: "Practical, Not Theoretical",
+      title: "Practical Implementation",
       description:
-        "We've built dashboards, pipelines, and automations that actually run inside large companies — not just PowerPoint decks.",
+        "We build systems that actually work in production environments, not just impressive demos.",
     },
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          strokeWidth={1.5}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
           />
         </svg>
       ),
       title: "Executive-First Approach",
       description:
-        "We speak business, not tech jargon — connecting insights directly to operational impact.",
+        "We speak business language and connect technical solutions directly to measurable outcomes.",
     },
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          strokeWidth={1.5}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
           />
         </svg>
       ),
-      title: "Partners, Not Just Vendors",
+      title: "Strategic Partnership",
       description:
-        "You're not hiring a vendor — you're gaining a strategic ally, focused on building sustainable systems with your team.",
+        "Long-term collaboration focused on sustainable growth rather than one-off project delivery.",
     },
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          strokeWidth={1.5}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
           />
         </svg>
       ),
       title: "Operational Continuity",
       description:
-        "Your data and automation keep running — no matter who comes or goes.",
+        "Enterprise-grade systems designed for reliability, scalability, and continuous operation.",
     },
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          strokeWidth={1.5}
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
+            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
           />
         </svg>
       ),
-      title: "Future-Ready by Design",
+      title: "Future-Ready Architecture",
       description:
-        "Our solutions evolve with your business — built to scale, adapt, and stay relevant over time.",
+        "Solutions built to evolve with your business needs and emerging technologies.",
     },
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="section bg-gray-50">
+      <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
             Why AltraByte
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-secondary max-w-2xl mx-auto">
             We bring deep regional expertise and proven enterprise experience to
-            every engagement
+            every engagement.
           </p>
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="group space-y-6 p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300"
+              className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm group"
             >
               {/* Icon */}
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+              <div className="inline-flex items-center justify-center w-10 h-10 bg-primary-light text-primary rounded-xl mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                 {advantage.icon}
               </div>
 
               {/* Content */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900 leading-tight">
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold text-primary leading-tight">
                   {advantage.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm text-secondary leading-relaxed">
                   {advantage.description}
                 </p>
               </div>
@@ -165,19 +166,14 @@ const WhyAltraByteSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 lg:mt-20">
-          <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
-            <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 text-gray-700 font-semibold rounded-xl border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
-              View Our Process
-            </button>
+        <div className="text-center mt-16">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
+            <button className="btn-primary">Schedule Consultation</button>
           </div>
 
           {/* Trust Signal */}
-          <p className="text-sm text-gray-500 mt-6">
-            Join 500+ companies that chose AltraByte for their digital
+          <p className="text-xs text-muted">
+            Join 10+ companies that chose AltraByte for their digital
             transformation
           </p>
         </div>

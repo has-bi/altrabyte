@@ -106,10 +106,10 @@ p {
 /* Button Components - Apple-like subtlety */
 @layer components {
   .btn-primary {
-    @apply px-6 py-2.5 font-medium rounded-xl transition-all duration-200;
+    @apply px-5 py-2 font-medium rounded-xl transition-all duration-200;
     background-color: var(--color-primary);
     color: white;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     border: none;
     cursor: pointer;
   }
@@ -120,11 +120,11 @@ p {
   }
 
   .btn-secondary {
-    @apply px-6 py-2.5 font-medium rounded-xl transition-all duration-200;
+    @apply px-5 py-2 font-medium rounded-xl transition-all duration-200;
     border: 1px solid var(--border-medium);
     color: var(--text-primary);
     background-color: transparent;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     cursor: pointer;
   }
 
@@ -137,7 +137,7 @@ p {
   .btn-tertiary {
     @apply font-medium transition-all duration-200;
     color: var(--text-primary);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     text-decoration: none;
     cursor: pointer;
     border: none;
@@ -167,7 +167,15 @@ p {
 /* Section Spacing - Apple-like generous whitespace */
 @layer components {
   .section {
-    @apply py-16 lg:py-24;
+    @apply py-5 lg:py-24;
+  }
+
+  .section-start {
+    @apply pb-5 lg:py-24;
+  }
+
+  .section-end {
+    @apply pt-5 lg:py-24;
   }
 
   .container {
@@ -367,7 +375,7 @@ p {
 
 /* Refined Focus States */
 *:focus {
-  outline: 2px solid var(--color-secondary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 8px;
 }

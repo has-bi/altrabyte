@@ -5,11 +5,11 @@ import React, { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const companies = [
-    "E-commerce Leaders",
-    "FMCG Giants",
-    "Mining Operations",
-    "EdTech Platforms",
+    "E-commerce Teams",
+    "Manufacturing Leaders",
     "Healthcare Systems",
+    "Mining Operations",
+    "Technology Companies",
   ];
 
   const [currentCompany, setCurrentCompany] = useState(0);
@@ -23,7 +23,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-white flex items-center">
+    <section className="section-start bg-white flex items-center">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left Content */}
@@ -43,6 +43,7 @@ const HeroSection = () => {
                 <br />
                 decisions for{" "}
                 <span className="text-gray-400 transition-colors duration-500">
+                  <br />
                   {companies[currentCompany]}
                 </span>
               </h1>
@@ -55,7 +56,7 @@ const HeroSection = () => {
 
             {/* CTA - Minimal */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-gray-900 text-white font-medium rounded-2xl hover:bg-gray-800 transition-colors duration-200 hover:-translate-y-0.5 transform">
+              <button className="px-8 py-4 bg-primary text-white font-medium rounded-2xl hover:bg-indigo-400 transition-colors duration-200 hover:-translate-y-0.5 transform">
                 Our Solutions
               </button>
               <button className="px-8 py-4 border border-gray-200 text-gray-900 font-medium rounded-2xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200">

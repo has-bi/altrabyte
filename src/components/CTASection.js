@@ -1,84 +1,105 @@
-// components/CTASection.js - Minimalist Redesign
+// components/CTASection.js - Compelling & Minimal with Highlighted Background
 "use client";
 
 import React from "react";
 
 const FinalCTASection = () => {
   return (
-    <section className="py-32 bg-white">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <section className="section-end bg-gradient-to-br from-indigo-500 via-indigo-200 to-indigo-300 relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-secondary/5 rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="container relative">
         {/* Main CTA Content */}
-        <div className="space-y-12">
+        <div className="max-w-3xl mx-auto text-center space-y-12">
           {/* Header */}
           <div className="space-y-6">
-            <h2 className="text-4xl lg:text-5xl font-semibold text-primary leading-tight">
-              Ready to transform
+            <h2 className="text-3xl lg:text-4xl font-semibold text-primary leading-tight">
+              Ready to unlock the value
               <br />
-              your data strategy?
+              hidden in your data?
             </h2>
 
-            <p className="text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
-              Schedule a free discovery session and explore how our enterprise
-              solutions can accelerate your digital transformation.
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Most enterprises are sitting on goldmines of untapped data. We
+              help you turn that data into competitive advantages, cost savings,
+              and growth opportunities.
             </p>
           </div>
 
-          {/* Value Points - Clean List */}
-          <div className="space-y-4 max-w-lg mx-auto">
-            {[
-              "30-minute strategy consultation",
-              "Custom ROI analysis for your industry",
-              "No commitment, just strategic insights",
-            ].map((point, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-3 text-secondary"
-              >
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
-                <span>{point}</span>
+          {/* Value Proposition Card */}
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-sm">
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-primary">
+                What you get in our free consultation:
+              </h3>
+
+              <div className="grid sm:grid-cols-2 gap-6 text-left">
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <div className="text-sm font-medium text-primary">
+                        Data Opportunity Assessment
+                      </div>
+                      <div className="text-xs text-muted">
+                        We'll identify your biggest data opportunities
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <div className="text-sm font-medium text-primary">
+                        ROI Estimation
+                      </div>
+                      <div className="text-xs text-muted">
+                        Ballpark savings and efficiency gains
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <div className="text-sm font-medium text-primary">
+                        Strategic Roadmap
+                      </div>
+                      <div className="text-xs text-muted">
+                        Step-by-step transformation plan
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <div className="text-sm font-medium text-primary">
+                        Industry Benchmarks
+                      </div>
+                      <div className="text-xs text-muted">
+                        How you compare to industry leaders
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="pt-4">
-            <button className="inline-flex items-center px-12 py-4 bg-primary text-white font-medium text-lg rounded-2xl hover:bg-primary-hover transition-all duration-200 hover:-translate-y-0.5 transform shadow-sm hover:shadow-md">
-              Schedule Consultation
-              <svg
-                className="ml-3 w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </button>
-          </div>
-
-          {/* Trust Signal */}
-          <div className="pt-8">
-            <p className="text-muted">
-              Join 500+ enterprises that chose AltraByte for their data
-              transformation
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom Status */}
-        <div className="flex justify-center items-center space-x-8 mt-16 pt-12 border-t border-gray-100 text-sm text-muted">
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>Typically respond within 4 hours</span>
-          </div>
-          <div className="hidden sm:block w-px h-4 bg-gray-200"></div>
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-secondary rounded-full"></div>
-            <span>Free consultation, no commitment</span>
+          {/* CTA Buttons */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <button className="btn-primary shadow-lg hover:shadow-xl">
+                Schedule Free Consultation
+              </button>
+            </div>
           </div>
         </div>
       </div>
