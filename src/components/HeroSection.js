@@ -1,234 +1,120 @@
+// components/HeroSection.js - Minimalist Redesign
 "use client";
 
 import React, { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const industries = [
-    { name: "E-commerce", metric: "40% efficiency gain" },
-    { name: "FMCG", metric: "60% cost reduction" },
-    { name: "Mining", metric: "35% process optimization" },
-    { name: "EdTech", metric: "50% user engagement" },
-    { name: "Healthcare", metric: "45% operational efficiency" },
-    { name: "Manufacturing", metric: "55% waste reduction" },
-    { name: "Finance", metric: "70% faster processing" },
+  const companies = [
+    "E-commerce Leaders",
+    "FMCG Giants",
+    "Mining Operations",
+    "EdTech Platforms",
+    "Healthcare Systems",
   ];
 
-  const [currentIndustry, setCurrentIndustry] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [currentCompany, setCurrentCompany] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
-
-      setTimeout(() => {
-        setCurrentIndustry((prev) => (prev + 1) % industries.length);
-        setIsAnimating(false);
-      }, 400);
-    }, 4000);
+      setCurrentCompany((prev) => (prev + 1) % companies.length);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-      {/* Geometric Background Elements */}
-      <div className="absolute inset-0">
-        {/* Diagonal Lines */}
-        <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-slate-600/30 to-transparent transform rotate-12 origin-top"></div>
-        <div className="absolute top-0 right-32 w-px h-full bg-gradient-to-b from-transparent via-slate-500/20 to-transparent transform rotate-12 origin-top"></div>
-
-        {/* Glow Effects */}
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/4 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="min-h-screen flex items-center">
+    <section className="min-h-screen bg-white flex items-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left Content */}
-          <div className="flex-1 max-w-2xl space-y-8">
-            {/* Status Badge */}
-            <div className="flex items-center space-x-2 mb-8">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-slate-300">
-                Available for Enterprise Solutions
+          <div className="space-y-12">
+            {/* Status */}
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-gray-600 font-medium">
+                Available for new projects
               </span>
             </div>
 
-            {/* Main Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-tight">
-                Turning Data into
+            {/* Main Headline - Clean Typography */}
+            <div className="space-y-8">
+              <h1 className="text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
+                Data-driven
                 <br />
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Decisions
+                decisions for{" "}
+                <span className="text-gray-400 transition-colors duration-500">
+                  {companies[currentCompany]}
                 </span>
-                <br />
-                <span className="text-slate-300">for enterprises!</span>
               </h1>
+
+              <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+                We transform enterprise data into strategic advantages through
+                analytics, AI, and intelligent automation.
+              </p>
             </div>
 
-            {/* Description */}
-            <p className="text-xl text-slate-400 leading-relaxed max-w-xl">
-              We're your partner in enterprise data transformation, AI
-              automation, and RPA solutions for every stage of your digital
-              journey.
-            </p>
-
-            {/* Industries Dynamic Section */}
-            <div className="space-y-4 py-4">
-              <p className="text-slate-500 font-medium">Proven Results in:</p>
-
-              <div className="h-16 flex flex-col justify-center">
-                <div className="text-2xl sm:text-3xl font-semibold text-white mb-1">
-                  <span
-                    className={`inline-block transition-all duration-500 ease-out ${
-                      isAnimating
-                        ? "opacity-0 transform translate-y-4"
-                        : "opacity-100 transform translate-y-0"
-                    }`}
-                  >
-                    {industries[currentIndustry].name}
-                  </span>
-                </div>
-                <div className="text-sm text-cyan-400 font-medium">
-                  <span
-                    className={`inline-block transition-all duration-500 ease-out ${
-                      isAnimating
-                        ? "opacity-0 transform translate-y-2"
-                        : "opacity-100 transform translate-y-0"
-                    }`}
-                    style={{ transitionDelay: "100ms" }}
-                  >
-                    {industries[currentIndustry].metric}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="group px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg transition-all duration-300 hover:bg-slate-100 hover:shadow-lg hover:shadow-white/10 focus:outline-none focus:ring-4 focus:ring-white/20">
+            {/* CTA - Minimal */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="px-8 py-4 bg-gray-900 text-white font-medium rounded-2xl hover:bg-gray-800 transition-colors duration-200 hover:-translate-y-0.5 transform">
                 Our Solutions
               </button>
-
-              <button className="group px-8 py-4 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:border-slate-500 hover:bg-slate-800/50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-500/20">
-                View Case Studies
+              <button className="px-8 py-4 border border-gray-200 text-gray-900 font-medium rounded-2xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200">
+                Case Studies
               </button>
-            </div>
-
-            {/* Enterprise Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 max-w-md">
-              <div className="text-center">
-                <div className="text-xl font-bold text-white mb-1">$2.5M+</div>
-                <div className="text-xs text-slate-500">Avg. Savings</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl font-bold text-white mb-1">50+</div>
-                <div className="text-xs text-slate-500">Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl font-bold text-white mb-1">98%</div>
-                <div className="text-xs text-slate-500">Success Rate</div>
-              </div>
             </div>
           </div>
 
-          {/* Right Visual Element */}
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <div className="relative w-96 h-96 lg:w-[500px] lg:h-[500px]">
-              {/* Main 3D Floating Object */}
+          {/* Right Visual - Minimal & Clean */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+              {/* Simple Geometric Shape */}
               <div
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
                 style={{
-                  animation: "float-3d 8s ease-in-out infinite",
+                  animation: "float 6s ease-in-out infinite",
                 }}
               >
-                <div
-                  className="w-80 h-80 lg:w-96 lg:h-96 rounded-full relative transform transition-all duration-1000 hover:scale-105"
-                  style={{
-                    background: `
-                      conic-gradient(
-                        from 0deg,
-                        #8b5cf6 0deg,
-                        #a855f7 72deg,
-                        #c084fc 144deg,
-                        #e879f9 216deg,
-                        #f0abfc 288deg,
-                        #8b5cf6 360deg
-                      )
-                    `,
-                    filter:
-                      "drop-shadow(0 25px 50px rgba(139, 92, 246, 0.3)) drop-shadow(0 0 80px rgba(168, 85, 247, 0.2))",
-                  }}
-                >
-                  {/* Glass Overlay Effect */}
-                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm border border-white/20"></div>
-
-                  {/* Inner Glow */}
-                  <div className="absolute inset-8 rounded-full bg-gradient-to-br from-purple-400/30 to-blue-600/30 blur-xl"></div>
-
-                  {/* Center Content */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white/70">
-                      <div className="text-lg font-light mb-1">
-                        Data Analytics
-                      </div>
-                      <div className="text-xs opacity-60">3D Visualization</div>
-                    </div>
-                  </div>
-
-                  {/* Rotating Ring */}
-                  <div
-                    className="absolute inset-0 rounded-full border-2 border-cyan-400/30"
-                    style={{
-                      animation: "rotate-ring 12s linear infinite",
-                    }}
-                  >
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-2 h-2 bg-cyan-400 rounded-full"></div>
+                <div className="w-48 h-48 rounded-full bg-white shadow-lg flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-2xl bg-gray-900 flex items-center justify-center">
+                    <svg
+                      className="w-12 h-12 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Particles */}
-              <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-              <div className="absolute bottom-32 right-20 w-1 h-1 bg-purple-400 rounded-full animate-ping"></div>
+              {/* Subtle Floating Elements */}
               <div
-                className="absolute top-40 right-10 w-3 h-3 bg-cyan-300 rounded-full animate-bounce"
-                style={{ animationDelay: "1s" }}
+                className="absolute top-8 right-8 w-3 h-3 bg-gray-300 rounded-full"
+                style={{ animation: "float 4s ease-in-out infinite 1s" }}
               ></div>
               <div
-                className="absolute bottom-20 left-16 w-1 h-1 bg-white rounded-full animate-pulse"
-                style={{ animationDelay: "2s" }}
+                className="absolute bottom-12 left-12 w-2 h-2 bg-gray-400 rounded-full"
+                style={{ animation: "float 5s ease-in-out infinite 2s" }}
               ></div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Custom Animations */}
       <style jsx>{`
-        @keyframes float-3d {
+        @keyframes float {
           0%,
           100% {
-            transform: translateY(0px) rotateY(0deg);
-          }
-          25% {
-            transform: translateY(-10px) rotateY(5deg);
+            transform: translateY(0px);
           }
           50% {
-            transform: translateY(-15px) rotateY(0deg);
-          }
-          75% {
-            transform: translateY(-10px) rotateY(-5deg);
-          }
-        }
-
-        @keyframes rotate-ring {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
+            transform: translateY(-10px);
           }
         }
       `}</style>
