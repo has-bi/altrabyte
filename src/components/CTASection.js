@@ -1,104 +1,85 @@
-// components/CTASection.js - Compelling & Minimal with Highlighted Background
-"use client";
-
 import React from "react";
 
-const FinalCTASection = () => {
+const CTASection = () => {
   return (
-    <section className="section-end bg-gradient-to-br from-indigo-500 via-indigo-200 to-indigo-300 relative overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-secondary/5 rounded-full blur-2xl"></div>
-      </div>
-
-      <div className="container relative">
-        {/* Main CTA Content */}
-        <div className="max-w-3xl mx-auto text-center space-y-12">
-          {/* Header */}
-          <div className="space-y-6">
-            <h2 className="text-3xl lg:text-4xl font-semibold text-primary leading-tight">
-              Ready to unlock the value
-              <br />
-              hidden in your data?
-            </h2>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Most enterprises are sitting on goldmines of untapped data. We
-              help you turn that data into competitive advantages, cost savings,
-              and growth opportunities.
-            </p>
+    <section className="relative overflow-hidden bg-gray-50 py-16">
+      <div className="container mx-auto px-4">
+        {/* Main card container */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-purple-900 via-orange-800 to-orange-600">
+          {/* Abstract flowing background overlay */}
+          <div className="absolute inset-0 opacity-50">
+            <div className="absolute -left-20 -top-20 h-96 w-96 rotate-45 transform rounded-full bg-gradient-to-br from-purple-800 to-transparent blur-3xl"></div>
+            <div className="absolute -right-20 top-0 h-80 w-80 rotate-12 transform rounded-full bg-gradient-to-br from-orange-500 to-transparent blur-2xl"></div>
+            <div className="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 transform rounded-full bg-gradient-to-t from-orange-700 to-transparent blur-2xl"></div>
           </div>
 
-          {/* Value Proposition Card */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-sm">
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-primary">
-                What you get in our free consultation:
-              </h3>
-
-              <div className="grid sm:grid-cols-2 gap-6 text-left">
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <div className="text-sm font-medium text-primary">
-                        Data Opportunity Assessment
-                      </div>
-                      <div className="text-xs text-muted">
-                        We'll identify your biggest data opportunities
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <div className="text-sm font-medium text-primary">
-                        ROI Estimation
-                      </div>
-                      <div className="text-xs text-muted">
-                        Ballpark savings and efficiency gains
-                      </div>
-                    </div>
-                  </div>
+          {/* Content */}
+          <div className="relative z-10 px-8 py-16 lg:px-16 lg:py-20">
+            <div className="mx-auto max-w-4xl">
+              <div className="grid items-center gap-8 lg:grid-cols-2">
+                {/* Left content */}
+                <div className="space-y-6">
+                  <h2 className="text-3xl lg:text-4xl font-semibold text-primary leading-tight">
+                    Ready to unlock the value
+                    <br />
+                    hidden in your data?
+                  </h2>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Most enterprises are sitting on goldmines of untapped data.
+                    We help you turn that data into competitive advantages, cost
+                    savings, and growth opportunities.
+                  </p>
                 </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <div className="text-sm font-medium text-primary">
-                        Strategic Roadmap
+                {/* Right search/CTA section */}
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+                  {/* Input field */}
+                  <div className="relative flex-1">
+                    <div className="flex items-center rounded-2xl bg-white/95 p-4 backdrop-blur-sm">
+                      <div className="mr-3">
+                        <svg
+                          className="h-5 w-5 text-gray-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
                       </div>
-                      <div className="text-xs text-muted">
-                        Step-by-step transformation plan
-                      </div>
+                      <input
+                        type="text"
+                        placeholder="Enter your company email"
+                        className="flex-1 bg-transparent text-gray-700 placeholder-gray-400 outline-none"
+                      />
+                      <button className="ml-2 rounded-lg bg-gray-900 p-2 text-white hover:bg-gray-800">
+                        <svg
+                          className="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
+                        </svg>
+                      </button>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <div className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <div className="text-sm font-medium text-primary">
-                        Industry Benchmarks
-                      </div>
-                      <div className="text-xs text-muted">
-                        How you compare to industry leaders
-                      </div>
-                    </div>
-                  </div>
+                  {/* CTA Button */}
+                  <button className="rounded-2xl bg-gray-900 px-6 py-4 font-medium text-white transition-all hover:bg-gray-800 hover:shadow-lg">
+                    Book Discovery Call
+                  </button>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-              <button className="btn-primary shadow-lg hover:shadow-xl">
-                Schedule Free Consultation
-              </button>
             </div>
           </div>
         </div>
@@ -107,4 +88,4 @@ const FinalCTASection = () => {
   );
 };
 
-export default FinalCTASection;
+export default CTASection;
