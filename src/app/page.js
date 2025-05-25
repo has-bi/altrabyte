@@ -1,4 +1,4 @@
-// app/page.js
+// app/page.js - Updated with Section Separation
 import HeroSection from "../components/HeroSection";
 import TrustedBySection from "@/components/TrustedSection";
 import SolutionsOverview from "@/components/SolutionsOverview";
@@ -10,13 +10,34 @@ import FinalCTASection from "@/components/CTASection";
 export default function HomePage() {
   return (
     <div>
+      {/* Hero - White background */}
       <HeroSection />
-      <TrustedBySection />
+
+      {/* Trusted By - Gray background with top divider */}
+      <div className="section-divider">
+        <TrustedBySection />
+      </div>
+
+      {/* Solutions - White background */}
       <SolutionsOverview />
-      <WhyAltraByteSection />
+
+      {/* Why AltraByte - Gray background with subtle divider */}
+      <div className="section-divider">
+        <WhyAltraByteSection />
+      </div>
+
+      {/* Portfolio - White background */}
       <PortfolioSection />
-      <BlogSection />
-      <FinalCTASection />
+
+      {/* Blog - Gray background with divider */}
+      <div className="section-divider">
+        <BlogSection />
+      </div>
+
+      {/* Final CTA - White background with top divider */}
+      <div className="section-divider">
+        <FinalCTASection />
+      </div>
     </div>
   );
 }

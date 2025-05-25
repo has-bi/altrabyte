@@ -1,4 +1,4 @@
-// components/CTASection.js - Fixed Layout
+// components/CTASection.js - Updated with consistent backgrounds
 "use client";
 
 import React, { useState } from "react";
@@ -25,14 +25,14 @@ const CTASection = () => {
   };
 
   return (
-    <section className="section bg-gray-50">
+    <section className="section section-light">
       <div className="container">
         {/* Main CTA Card */}
-        <div className="relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-purple-600 border border-indigo-400 shadow-lg">
           {/* Background pattern */}
           <div className="absolute inset-0">
-            <div className="absolute -left-20 -top-20 h-96 w-96 rounded-full bg-primary-light opacity-30 blur-3xl"></div>
-            <div className="absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-secondary-light opacity-30 blur-3xl"></div>
+            <div className="absolute -left-20 -top-20 h-96 w-96 rounded-full bg-white/10 blur-3xl"></div>
+            <div className="absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-purple-400/20 blur-3xl"></div>
           </div>
 
           {/* Content */}
@@ -42,12 +42,14 @@ const CTASection = () => {
               <div className="space-y-8">
                 {/* Heading and Description */}
                 <div className="space-y-6">
-                  <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-primary leading-tight">
+                  <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-white leading-tight">
                     Ready to unlock the value
                     <br />
-                    <span className="text-secondary">hidden in your data?</span>
+                    <span className="text-indigo-100">
+                      hidden in your data?
+                    </span>
                   </h2>
-                  <p className="text-lg lg:text-xl text-secondary leading-relaxed max-w-3xl mx-auto">
+                  <p className="text-lg lg:text-xl text-indigo-50 leading-relaxed max-w-3xl mx-auto">
                     Most enterprises are sitting on goldmines of untapped data.
                     We help you turn that data into competitive advantages, cost
                     savings, and growth opportunities.
@@ -59,10 +61,10 @@ const CTASection = () => {
                   {!isSubmitted ? (
                     <>
                       {/* Email Input */}
-                      <div className="flex items-center rounded-2xl bg-gray-50 p-2 border border-gray-200 hover:border-gray-300 focus-within:border-primary transition-all duration-200">
+                      <div className="flex items-center rounded-2xl bg-white/90 backdrop-blur-sm p-2 border border-white/20 hover:border-white/40 focus-within:border-white transition-all duration-200">
                         <div className="flex items-center pl-4 pr-2">
                           <svg
-                            className="h-5 w-5 text-muted"
+                            className="h-5 w-5 text-gray-500"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -81,13 +83,13 @@ const CTASection = () => {
                           onChange={(e) => setEmail(e.target.value)}
                           onKeyPress={handleKeyPress}
                           placeholder="Enter your company email"
-                          className="flex-1 bg-transparent py-3 pr-4 text-primary placeholder-muted outline-none"
+                          className="flex-1 bg-transparent py-3 pr-4 text-gray-900 placeholder-gray-500 outline-none"
                         />
                       </div>
 
                       {/* CTA Button */}
                       <button
-                        className="btn-primary w-full"
+                        className="w-full px-6 py-3 bg-white text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-200 hover:-translate-y-0.5 transform shadow-lg"
                         onClick={() => {
                           // Handle discovery call booking
                           console.log("Book Discovery Call clicked");
@@ -99,9 +101,9 @@ const CTASection = () => {
                   ) : (
                     /* Success State */
                     <div className="text-center space-y-4 py-8">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary-light rounded-full mb-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
                         <svg
-                          className="w-8 h-8 text-secondary"
+                          className="w-8 h-8 text-white"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -114,10 +116,10 @@ const CTASection = () => {
                           />
                         </svg>
                       </div>
-                      <h3 className="text-xl font-semibold text-primary">
+                      <h3 className="text-xl font-semibold text-white">
                         Perfect! Check your inbox
                       </h3>
-                      <p className="text-secondary">
+                      <p className="text-indigo-100">
                         We'll send you our enterprise data strategy guide and
                         schedule a personalized consultation.
                       </p>
@@ -126,7 +128,7 @@ const CTASection = () => {
 
                   {/* Social Proof */}
                   <div className="text-center pt-4">
-                    <p className="text-sm text-muted">
+                    <p className="text-sm text-indigo-100">
                       Join 50+ enterprises already transforming their data
                       strategy
                     </p>

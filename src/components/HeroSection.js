@@ -1,4 +1,4 @@
-// components/HeroSection.js - Minimalist Redesign
+// components/HeroSection.js - Updated with consistent section class
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -23,8 +23,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="section-start bg-white flex items-center">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20">
+    <section className="section section-light flex items-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left Content */}
           <div className="space-y-12">

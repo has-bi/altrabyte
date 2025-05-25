@@ -200,6 +200,27 @@ p {
   .container {
     @apply max-w-6xl mx-auto px-6 lg:px-8;
   }
+
+  /* Section Separation Utilities */
+  .section-divider {
+    @apply border-t border-gray-100;
+  }
+
+  .section-divider-thick {
+    @apply border-t-2 border-gray-200;
+  }
+
+  .section-light {
+    @apply bg-white;
+  }
+
+  .section-gray {
+    @apply bg-gray-50;
+  }
+
+  .section-spaced {
+    @apply my-8 lg:my-12;
+  }
 }
 
 /* Text Color Utilities */

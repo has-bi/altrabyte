@@ -1,4 +1,4 @@
-// components/SolutionsOverview.js - Apple Minimalist Style
+// components/SolutionsOverview.js - Updated with consistent backgrounds
 "use client";
 import React, { useState } from "react";
 
@@ -48,7 +48,7 @@ const SolutionsOverview = () => {
   ];
 
   return (
-    <section className="section bg-gray-50">
+    <section className="section section-light">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
@@ -72,8 +72,8 @@ const SolutionsOverview = () => {
                   onClick={() => setActiveTab(index)}
                   className={`w-full text-left p-4 rounded-xl transition-all duration-200 ${
                     activeTab === index
-                      ? "bg-white shadow-sm border border-gray-200"
-                      : "hover:bg-white/50"
+                      ? "bg-gray-50 shadow-sm border border-gray-200"
+                      : "hover:bg-gray-50/50"
                   }`}
                 >
                   <div className="font-medium text-primary mb-1">
@@ -87,7 +87,7 @@ const SolutionsOverview = () => {
 
           {/* Content */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
               <div className="space-y-6">
                 <div className="space-y-3">
                   <h3 className="text-xl font-semibold text-primary">

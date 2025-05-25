@@ -1,4 +1,4 @@
-// components/PortfolioSection.js - Apple Minimalist Style
+// components/PortfolioSection.js - Updated with consistent backgrounds
 "use client";
 
 import React, { useState } from "react";
@@ -82,7 +82,7 @@ const PortfolioSection = () => {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section className="section bg-gray-50">
+    <section className="section section-light">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
@@ -118,7 +118,7 @@ const PortfolioSection = () => {
           {filteredItems.map((item, index) => (
             <article
               key={item.id}
-              className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm"
+              className="group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm"
             >
               <div className="space-y-4">
                 {/* Header */}
