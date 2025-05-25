@@ -42,7 +42,7 @@ const TrustedBySection = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+    <div className="sm:py-20 bg-gray-50 relative overflow-hidden">
       {/* Gradient fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
       <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
@@ -83,34 +83,6 @@ const TrustedBySection = () => {
             ))}
           </div>
         </div>
-
-        {/* Trust Indicators */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-12 border-t border-gray-100">
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              500+
-            </div>
-            <div className="text-sm text-gray-600">Enterprise Clients</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              15+
-            </div>
-            <div className="text-sm text-gray-600">Countries Served</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              $50M+
-            </div>
-            <div className="text-sm text-gray-600">Value Generated</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              99.9%
-            </div>
-            <div className="text-sm text-gray-600">Uptime SLA</div>
-          </div>
-        </div>
       </div>
 
       {/* Custom Styles */}
@@ -130,7 +102,7 @@ const TrustedBySection = () => {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 

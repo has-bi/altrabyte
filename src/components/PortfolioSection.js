@@ -82,7 +82,7 @@ const PortfolioSection = () => {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-gray-50">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">

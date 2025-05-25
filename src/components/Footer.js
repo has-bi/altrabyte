@@ -129,52 +129,6 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
-        {/* Newsletter Signup */}
-        <div className="py-8 border-t border-gray-200">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-            <div className="space-y-1">
-              <h3 className="text-sm font-semibold text-primary">
-                Stay updated with our insights
-              </h3>
-              <p className="text-xs text-muted">
-                Get the latest trends in data analytics and digital
-                transformation.
-              </p>
-            </div>
-
-            <div className="flex space-x-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-3 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors duration-200 w-64"
-              />
-              <button className="btn-primary text-xs px-4 py-2">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="py-6 border-t border-gray-200">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-            <div className="flex items-center space-x-4 text-xs text-muted">
-              <span>© 2024 AltraByte. All rights reserved.</span>
-            </div>
-
-            <div className="flex items-center space-x-6 text-xs text-muted">
-              <div className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-secondary rounded-full"></div>
-                <span>SOC 2 Compliant</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                <span>ISO 27001 Certified</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </footer>
   );
