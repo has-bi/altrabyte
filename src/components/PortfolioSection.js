@@ -87,7 +87,7 @@ const PortfolioSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
-            Selected Work
+            Portfolio Highlights
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
             Real solutions delivering measurable results for enterprise clients.
@@ -159,9 +159,6 @@ const PortfolioSection = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <button className="btn-secondary">View All Projects</button>
-          <p className="text-xs text-muted mt-3">
-            50+ successful projects across 15+ industries
-          </p>
         </div>
       </div>
     </section>

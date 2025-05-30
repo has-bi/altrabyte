@@ -10,40 +10,46 @@ const SolutionsOverview = () => {
       id: "data-analytics",
       title: "Data & Analytics",
       description:
-        "Transform scattered data into unified insights with real-time dashboards and automated reporting.",
+        "From unified dashboards to automated data pipelines, turn raw information into decisions.",
       features: [
-        "Custom dashboard development",
-        "Automated data pipelines",
-        "Real-time monitoring",
-        "Predictive analytics",
+        "Real-time reporting & dashboards",
+        "Automated data collection & transformation",
+        "Attribution modeling for better ROI tracking",
+        "A/B testing and performance insights",
+        "Customer journey mapping & segmentation",
       ],
-      metric: "3x faster insights",
+      metric:
+        "From unified dashboards to automated data pipelines, turn raw information into decisions.",
     },
     {
-      id: "ai-solutions",
-      title: "AI Solutions",
+      id: "gen-ai",
+      title: "Gen AI",
       description:
-        "Deploy intelligent automation and custom AI assistants trained on your business data.",
+        "Smart assistants and document automation tools trained on your workflows and vocabulary.",
       features: [
-        "Custom AI assistants",
-        "Document automation",
-        "Intelligent workflows",
-        "Natural language queries",
+        "Custom AI assistants for internal or client use",
+        "Automated document generation & summarization",
+        "Natural language query tools for your data",
+        "Email and message drafting with brand voice tuning",
+        "Knowledge base search with context-aware answers",
       ],
-      metric: "50% efficiency gain",
+      metric:
+        "Smart assistants and document automation tools trained on your workflows and vocabulary.",
     },
     {
-      id: "process-automation",
-      title: "Process Automation",
+      id: "rpa-automation",
+      title: "RPA Automation",
       description:
-        "Eliminate repetitive tasks with intelligent RPA solutions that integrate with existing systems.",
+        "Custom bots that eliminate repetitive tasks across eCommerce, operations, and social platforms.",
       features: [
-        "End-to-end automation",
-        "System integration",
-        "Quality assurance",
-        "Performance monitoring",
+        "Order processing and inventory syncing",
+        "Automated report generation",
+        "Customer support ticket routing",
+        "Invoice creation and reconciliation",
+        "Social media posting & comment moderation",
       ],
-      metric: "60% cost reduction",
+      metric:
+        "Custom bots that eliminate repetitive tasks across eCommerce, operations, and social platforms.",
     },
   ];
 
@@ -53,11 +59,12 @@ const SolutionsOverview = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
-            Our Solutions
+            Solutions Overview
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
-            Enterprise-grade solutions designed to accelerate your digital
-            transformation.
+            Explore our enterprise-grade solutions across Data & Analytics, Gen
+            AI, and RPA — all designed to reduce inefficiency, boost decision
+            speed, and scale with your business.
           </p>
         </div>
 

@@ -5,36 +5,24 @@ const TrustedBySection = () => {
   // Mock client logos - replace with your actual clients
   const clients = [
     {
-      name: "Microsoft",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=Microsoft",
+      name: "Paragon Corp",
+      logo: "https://www.paragon-innovation.com/static/media/paragon-corp.98d5977b.png",
     },
     {
-      name: "Google",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=Google",
+      name: "Rose All Day Cosmetics",
+      logo: "https://cdn.prod.website-files.com/6502a82cff431778b5d82829/65602fa2037d1d996bf6531f_black_logo.png",
     },
     {
-      name: "Amazon",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=Amazon",
+      name: "Amser PTE LTD",
+      logo: "https://amser.com/wp-content/uploads/2019/08/cropped-logo.png",
     },
     {
-      name: "IBM",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=IBM",
+      name: "RevoU",
+      logo: "https://storage.googleapis.com/danacita-website-v3-prd/website_v3/images/Logo-RevoU-5_1.original.png",
     },
     {
-      name: "Oracle",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=Oracle",
-    },
-    {
-      name: "SAP",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=SAP",
-    },
-    {
-      name: "Salesforce",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=Salesforce",
-    },
-    {
-      name: "Adobe",
-      logo: "https://via.placeholder.com/120x60/E5E7EB/6B7280?text=Adobe",
+      name: "Bitlabs",
+      logo: "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/1335/original/Bitlabs_Logo_-_Secondary_Full_Color.png",
     },
   ];
 
@@ -44,8 +32,8 @@ const TrustedBySection = () => {
   return (
     <div className="sm:py-20 bg-gray-50 relative overflow-hidden">
       {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
@@ -54,15 +42,15 @@ const TrustedBySection = () => {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Fortune 500 companies trust us to transform their data into
-            competitive advantages
+            We have delivered measurable impact for data-driven teams across the
+            region.
           </p>
         </div>
 
         {/* Logo Carousel */}
         <div className="relative">
           {/* Main Logo Strip */}
-          <div className="flex space-x-12 sm:space-x-16 lg:space-x-20 items-center">
+          <div className="flex items-center">
             {duplicatedClients.map((client, index) => (
               <div
                 key={`${client.name}-${index}`}
@@ -72,12 +60,20 @@ const TrustedBySection = () => {
                   animationDelay: "0s",
                 }}
               >
-                <div className="w-32 h-16 sm:w-36 sm:h-18 lg:w-40 lg:h-20 flex items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-50 group-hover:scale-105">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 group-hover:grayscale-0 transition-all duration-300"
-                  />
+                {/* Fixed width container for uniform spacing */}
+                <div className="w-40 sm:w-44 lg:w-48 h-16 sm:h-18 lg:h-20 flex items-center justify-center mx-6 sm:mx-8 lg:mx-10 p-4 rounded-lg transition-all duration-300 hover:bg-white/50 group-hover:scale-105">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 group-hover:grayscale-0 transition-all duration-300"
+                      style={{
+                        // Ensure minimum size for very small logos
+                        minWidth: "80px",
+                        minHeight: "32px",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
@@ -92,7 +88,7 @@ const TrustedBySection = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
           }
         }
 

@@ -60,11 +60,11 @@ const BlogSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
-            Latest Insights
+            Insights Preview
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
-            Strategic perspectives on data, automation, and digital
-            transformation from our expert team.
+            Strategic perspectives on data, automation, and comprehensive
+            digital transformation from our expert team.
           </p>
         </div>
 

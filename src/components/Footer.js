@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   const footerSections = [
@@ -82,7 +83,16 @@ const Footer = () => {
             {/* Logo & Description */}
             <div className="col-span-2 lg:col-span-2 space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-7 h-7 bg-primary rounded-lg"></div>
+                <div className="w-7 h-7 rounded-lg">
+                  <Image
+                    src="/images/Logogram - Purple.png"
+                    alt="AltraByte Logo"
+                    width={250}
+                    height={250}
+                    priority
+                    className="w-full h-full object-contain align-middle justify-center mx-auto"
+                  />
+                </div>
                 <span className="text-lg font-semibold text-primary">
                   AltraByte
                 </span>

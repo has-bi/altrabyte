@@ -43,16 +43,11 @@ const CTASection = () => {
                 {/* Heading and Description */}
                 <div className="space-y-6">
                   <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-white leading-tight">
-                    Ready to unlock the value
-                    <br />
-                    <span className="text-indigo-100">
-                      hidden in your data?
-                    </span>
+                    Ready to Act on Your Data?
                   </h2>
                   <p className="text-lg lg:text-xl text-indigo-50 leading-relaxed max-w-3xl mx-auto">
-                    Most enterprises are sitting on goldmines of untapped data.
-                    We help you turn that data into competitive advantages, cost
-                    savings, and growth opportunities.
+                    Reach out for a free discovery session and explore how our
+                    solutions could work in your business context.
                   </p>
                 </div>
 
@@ -95,7 +90,7 @@ const CTASection = () => {
                           console.log("Book Discovery Call clicked");
                         }}
                       >
-                        Book Discovery Call
+                        Schedule My Consultation
                       </button>
                     </>
                   ) : (
@@ -127,12 +122,6 @@ const CTASection = () => {
                   )}
 
                   {/* Social Proof */}
-                  <div className="text-center pt-4">
-                    <p className="text-sm text-indigo-100">
-                      Join 50+ enterprises already transforming their data
-                      strategy
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

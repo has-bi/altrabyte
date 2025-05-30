@@ -1,6 +1,7 @@
 // components/Header.js - Apple Minimalist Style
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo - Clean and minimal */}
           <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 bg-primary rounded-lg"></div>
+            <div className="w-7 h-7 rounded-lg">
+              <Image
+                src="/images/Logogram - Purple.png"
+                alt="AltraByte Logo"
+                width={250}
+                height={250}
+                priority
+                className="w-full h-full object-contain align-middle justify-center mx-auto"
+              />
+            </div>
             <span className="text-lg font-semibold text-primary">
               AltraByte
             </span>
