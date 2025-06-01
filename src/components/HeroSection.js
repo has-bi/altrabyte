@@ -46,7 +46,7 @@ const HeroSection = () => {
               </h1>
 
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-primary">
-                That Drive Growth in{" "}
+                Drive Growth in{" "}
                 <span className="relative inline-block min-w-[200px]">
                   <span
                     key={currentIndustry}
