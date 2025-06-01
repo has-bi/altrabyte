@@ -1,6 +1,23 @@
-// components/SolutionsOverview.js - Updated with consistent backgrounds
+// components/SolutionsOverview.js - Enhanced with bullet icons
 "use client";
 import React, { useState } from "react";
+import {
+  Activity,
+  Database,
+  Target,
+  TestTube,
+  Users,
+  MessageSquare,
+  FileText,
+  Search,
+  Mail,
+  HelpCircle,
+  ShoppingCart,
+  FileBarChart,
+  Headphones,
+  Receipt,
+  Share2,
+} from "lucide-react";
 
 const SolutionsOverview = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -12,11 +29,26 @@ const SolutionsOverview = () => {
       description:
         "From unified dashboards to automated data pipelines, turn raw information into decisions.",
       features: [
-        "Real-time reporting & dashboards",
-        "Automated data collection & transformation",
-        "Attribution modeling for better ROI tracking",
-        "A/B testing and performance insights",
-        "Customer journey mapping & segmentation",
+        {
+          text: "Real-time reporting & dashboards",
+          icon: Activity,
+        },
+        {
+          text: "Automated data collection & transformation",
+          icon: Database,
+        },
+        {
+          text: "Attribution modeling for better ROI tracking",
+          icon: Target,
+        },
+        {
+          text: "A/B testing and performance insights",
+          icon: TestTube,
+        },
+        {
+          text: "Customer journey mapping & segmentation",
+          icon: Users,
+        },
       ],
       metric:
         "From unified dashboards to automated data pipelines, turn raw information into decisions.",
@@ -27,11 +59,26 @@ const SolutionsOverview = () => {
       description:
         "Smart assistants and document automation tools trained on your workflows and vocabulary.",
       features: [
-        "Custom AI assistants for internal or client use",
-        "Automated document generation & summarization",
-        "Natural language query tools for your data",
-        "Email and message drafting with brand voice tuning",
-        "Knowledge base search with context-aware answers",
+        {
+          text: "Custom AI assistants for internal or client use",
+          icon: MessageSquare,
+        },
+        {
+          text: "Automated document generation & summarization",
+          icon: FileText,
+        },
+        {
+          text: "Natural language query tools for your data",
+          icon: Search,
+        },
+        {
+          text: "Email and message drafting with brand voice tuning",
+          icon: Mail,
+        },
+        {
+          text: "Knowledge base search with context-aware answers",
+          icon: HelpCircle,
+        },
       ],
       metric:
         "Smart assistants and document automation tools trained on your workflows and vocabulary.",
@@ -42,11 +89,26 @@ const SolutionsOverview = () => {
       description:
         "Custom bots that eliminate repetitive tasks across eCommerce, operations, and social platforms.",
       features: [
-        "Order processing and inventory syncing",
-        "Automated report generation",
-        "Customer support ticket routing",
-        "Invoice creation and reconciliation",
-        "Social media posting & comment moderation",
+        {
+          text: "Order processing and inventory syncing",
+          icon: ShoppingCart,
+        },
+        {
+          text: "Automated report generation",
+          icon: FileBarChart,
+        },
+        {
+          text: "Customer support ticket routing",
+          icon: Headphones,
+        },
+        {
+          text: "Invoice creation and reconciliation",
+          icon: Receipt,
+        },
+        {
+          text: "Social media posting & comment moderation",
+          icon: Share2,
+        },
       ],
       metric:
         "Custom bots that eliminate repetitive tasks across eCommerce, operations, and social platforms.",
@@ -96,24 +158,37 @@ const SolutionsOverview = () => {
           <div className="lg:col-span-3">
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
               <div className="space-y-6">
-                <div className="space-y-3">
-                  <h3 className="text-xl font-semibold text-primary">
-                    {solutions[activeTab].title}
-                  </h3>
-                  <p className="text-secondary leading-relaxed">
-                    {solutions[activeTab].description}
-                  </p>
-                </div>
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-primary">
+                  {solutions[activeTab].title}
+                </h3>
 
-                <div className="space-y-3">
+                {/* Description */}
+                <p className="text-secondary leading-relaxed">
+                  {solutions[activeTab].description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-4">
                   {solutions[activeTab].features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-1 h-1 bg-primary rounded-full"></div>
-                      <span className="text-sm text-secondary">{feature}</span>
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors duration-200"
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mt-0.5">
+                        {React.createElement(feature.icon, {
+                          className: "w-4 h-4 text-gray-600",
+                          strokeWidth: 1.5,
+                        })}
+                      </div>
+                      <span className="text-sm text-secondary leading-relaxed">
+                        {feature.text}
+                      </span>
                     </div>
                   ))}
                 </div>
 
+                {/* CTA */}
                 <div className="pt-2">
                   <button className="btn-tertiary">Learn more →</button>
                 </div>
