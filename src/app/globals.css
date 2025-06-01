@@ -58,7 +58,7 @@ html {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #e1e1fc;
   font-family: var(--font-plus-jakarta);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

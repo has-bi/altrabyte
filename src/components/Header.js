@@ -2,6 +2,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,45 +34,37 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+    <header className="backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - Clean and minimal */}
-          <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 rounded-lg">
-              <Image
-                src="/images/Logogram - Purple.png"
-                alt="AltraByte Logo"
-                width={250}
-                height={250}
-                priority
-                className="w-full h-full object-contain align-middle justify-center mx-auto"
-              />
+          <Link href={"/"}>
+            <div className="flex items-center space-x-2">
+              <div className="w-7 h-7 rounded-lg">
+                <Image
+                  src="/images/Logogram - Purple.png"
+                  alt="AltraByte Logo"
+                  width={250}
+                  height={250}
+                  priority
+                  className="w-full h-full object-contain align-middle justify-center mx-auto"
+                />
+              </div>
+              <span className="text-lg font-semibold text-primary">
+                AltraByte
+              </span>
             </div>
-            <span className="text-lg font-semibold text-primary">
-              AltraByte
-            </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-secondary text-sm hover:text-primary transition-colors duration-200"
-              >
-                {item.name}
-              </a>
-            ))}
-
-            {/* Solutions Dropdown */}
+            {/* Solutions Dropdown - Now First */}
             <div
               className="relative"
               onMouseEnter={() => setIsSolutionsOpen(true)}
               onMouseLeave={() => setIsSolutionsOpen(false)}
             >
-              <button className="text-secondary text-sm hover:text-primary transition-colors duration-200 flex items-center space-x-1">
+              <button className="text-primary text-sm hover:text-gray-800 transition-colors duration-200 flex items-center space-x-1 font-medium">
                 <span>Solutions</span>
                 <svg
                   className={`w-3 h-3 transition-transform duration-200 ${
@@ -110,6 +103,17 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            {/* Other Nav Items */}
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-primary text-sm hover:text-gray-800 transition-colors duration-200 font-medium"
+              >
+                {item.name}
+              </a>
+            ))}
           </nav>
 
           {/* CTA - Subtle */}
@@ -121,7 +125,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-secondary hover:text-primary transition-colors"
+              className="lg:hidden p-2 text-primary hover:text-gray-800 transition-colors"
             >
               <svg
                 className="w-5 h-5"
@@ -148,18 +152,8 @@ export default function Header() {
         {isMenuOpen && (
           <div className="lg:hidden border-t border-gray-100 py-4">
             <nav className="space-y-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-secondary text-sm hover:text-primary transition-colors py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-
-              <div className="pt-3 mt-3 border-t border-gray-100">
+              {/* Solutions First in Mobile Too */}
+              <div className="pb-3 mb-3 border-b border-gray-100">
                 <div className="text-primary text-sm font-medium mb-3">
                   Solutions
                 </div>
@@ -179,6 +173,18 @@ export default function Header() {
                   </a>
                 ))}
               </div>
+
+              {/* Other Nav Items */}
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block text-primary text-sm hover:text-gray-800 transition-colors py-2 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
 
               <div className="pt-4 mt-4 border-t border-gray-100">
                 <button className="w-full btn-primary">Get Started</button>

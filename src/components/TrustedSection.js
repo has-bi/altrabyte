@@ -56,7 +56,7 @@ const TrustedBySection = () => {
                 key={`${client.name}-${index}`}
                 className="flex-shrink-0 group cursor-pointer"
                 style={{
-                  animation: `scroll-logos 40s linear infinite`,
+                  animation: `scroll-logos 3s linear infinite`,
                   animationDelay: "0s",
                 }}
               >
