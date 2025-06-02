@@ -1,12 +1,13 @@
 // app/page.js - Updated with Section Separation
 import HeroSection from "../components/HeroSection";
 import TrustedBySection from "@/components/TrustedSection";
-import SolutionsOverview from "@/components/SolutionsOverview";
+import SolutionDifferentSection from "@/components/SolutionsOverview";
 import WhyAltraByteSection from "@/components/WhySection";
 import PortfolioSection from "@/components/PortfolioSection";
 import BlogSection from "@/components/BlogSection";
 import FinalCTASection from "@/components/CTASection";
 import PainSection from "@/components/PainSection";
+import AchieveSection from "@/components/AchieveSection";
 
 export default function HomePage() {
   return (
@@ -14,18 +15,17 @@ export default function HomePage() {
       {/* Hero - White background */}
       <HeroSection />
 
-      {/* Trusted By - Gray background with top divider */}
       <div className="section-divider">
         <TrustedBySection />
       </div>
 
-      {/* Pain Secttion  */}
+      <PainSection />
+
       <div className="section-divider">
-        <PainSection />
+        <SolutionDifferentSection />
       </div>
 
-      {/* Solutions - White background */}
-      <SolutionsOverview />
+      <AchieveSection />
 
       {/* Why AltraByte - Gray background with subtle divider */}
       <div className="section-divider">
