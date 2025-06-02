@@ -6,6 +6,7 @@ import WhyAltraByteSection from "@/components/WhySection";
 import PortfolioSection from "@/components/PortfolioSection";
 import BlogSection from "@/components/BlogSection";
 import FinalCTASection from "@/components/CTASection";
+import PainSection from "@/components/PainSection";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,11 @@ export default function HomePage() {
       {/* Trusted By - Gray background with top divider */}
       <div className="section-divider">
         <TrustedBySection />
+      </div>
+
+      {/* Pain Secttion  */}
+      <div className="section-divider">
+        <PainSection />
       </div>
 
       {/* Solutions - White background */}
