@@ -36,9 +36,9 @@ export default function HomePage() {
       <PortfolioSection />
 
       {/* Blog - Gray background with divider */}
-      <div className="section-divider">
+      {/* <div className="section-divider">
         <BlogSection />
-      </div>
+      </div> */}
 
       {/* Final CTA - White background with top divider */}
       <div className="section-divider">

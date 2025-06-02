@@ -109,11 +109,6 @@ const SolutionDifferentSection = () => {
       ref={sectionRef}
       className="section bg-white relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 via-transparent to-blue-50/50"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
-
       <div className="container relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
