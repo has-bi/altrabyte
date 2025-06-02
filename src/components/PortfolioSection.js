@@ -82,12 +82,12 @@ const PortfolioSection = () => {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section className="section section-light">
+    <section className="section section-light bg-white">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
-            Portfolio Highlights
+            Real Results From Real Work
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
             Real solutions delivering measurable results for enterprise clients.

@@ -5,9 +5,11 @@ import React, { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const industries = [
-    "FMCG",
-    "eCommerce",
+    "E-commerce",
+    "Retail",
+    "Logistics",
     "EdTech",
+    "FMCG",
     "Renewable Energy",
     "Banking",
   ];

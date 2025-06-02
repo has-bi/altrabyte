@@ -67,7 +67,7 @@ const WhyAltraByteSection = () => {
   ];
 
   return (
-    <section className="section bg-gray-50">
+    <section className="section bg-white">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-16">

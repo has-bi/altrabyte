@@ -26,10 +26,10 @@ const AchieveSection = () => {
       title: "Faster Decisions",
       icon: Brain,
       color: "blue",
-      gradient: "from-blue-400 to-indigo-500",
-      bgColor: "bg-blue-50",
-      textColor: "text-blue-600",
-      borderColor: "border-blue-200",
+      gradient: "from-orange-400 to-orange-500",
+      bgColor: "bg-orange-50",
+      textColor: "text-orange-600",
+      borderColor: "border-orange-200",
       benefits: [
         {
           text: "Real-time dashboards with business logic, not vanity metrics",
@@ -46,7 +46,7 @@ const AchieveSection = () => {
       title: "Less Manual Work",
       icon: Bot,
       color: "indigo",
-      gradient: "from-indigo-400 to-pink-500",
+      gradient: "from-indigo-400 to-indigo-500",
       bgColor: "bg-indigo-50",
       textColor: "text-indigo-600",
       borderColor: "border-indigo-200",

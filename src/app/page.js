@@ -28,9 +28,9 @@ export default function HomePage() {
       <AchieveSection />
 
       {/* Why AltraByte - Gray background with subtle divider */}
-      <div className="section-divider">
+      {/* <div className="section-divider">
         <WhyAltraByteSection />
-      </div>
+      </div> */}
 
       {/* Portfolio - White background */}
       <PortfolioSection />

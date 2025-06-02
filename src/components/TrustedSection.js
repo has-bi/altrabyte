@@ -42,8 +42,8 @@ const TrustedBySection = () => {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We have delivered measurable impact for data-driven teams across the
-            region.
+            We’ve helped teams cut reporting time, automate operations, and move
+            from chaos to clarity — fast.
           </p>
         </div>
 
