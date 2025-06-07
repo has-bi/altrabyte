@@ -45,6 +45,14 @@
   --border-light: var(--gray-100);
   --border-medium: var(--gray-200);
   --border-dark: var(--gray-300);
+
+  /* Solutions Page Colors */
+  --color-data-analytics: #f59e0b; /* Amber-500 untuk Data Analytics */
+  --color-data-analytics-light: #fef3c7; /* Amber-100 */
+  --color-genai: #8b5cf6; /* Purple-500 untuk GenAI */
+  --color-genai-light: #f3e8ff; /* Purple-100 */
+  --color-rpa: #10b981; /* Emerald-500 untuk RPA (existing secondary) */
+  --color-rpa-light: #d1fae5; /* Emerald-100 (existing secondary-light) */
 }
 
 /* Base Styles */
@@ -263,6 +271,22 @@ p {
 
   .border-secondary {
     border-color: var(--color-secondary);
+  }
+
+  .text-data-analytics {
+    color: var(--color-data-analytics);
+  }
+
+  .bg-data-analytics {
+    background-color: var(--color-data-analytics);
+  }
+
+  .bg-data-analytics-light {
+    background-color: var(--color-data-analytics-light);
+  }
+
+  .border-data-analytics {
+    border-color: var(--color-data-analytics);
   }
 }
 

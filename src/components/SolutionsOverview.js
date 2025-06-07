@@ -22,7 +22,7 @@ const SolutionDifferentSection = () => {
     {
       title: "Domain expertise",
       description:
-        "We've worked in e-commerce, retail, logistics, and banking. No long onboarding. No blank stares.",
+        "We've worked in E-commerce, Retail, Logistics, EdTech, FMCG, Renewable Energy, and Banking. No long onboarding. No blank stares.",
       icon: Users,
       color: "emerald",
       gradient: "from-emerald-400 to-teal-500",
