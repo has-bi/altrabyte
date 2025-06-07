@@ -3,6 +3,26 @@
 import React from "react";
 
 const SolutionsHero = () => {
+  const handleNavClick = (solutionId) => {
+    // Scroll to the solutions section
+    const solutionsSection = document.getElementById("solutions-offerings");
+    if (solutionsSection) {
+      solutionsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      // Wait for scroll to complete, then trigger card expansion
+      setTimeout(() => {
+        // Dispatch custom event to expand specific card
+        const event = new CustomEvent("expandSolutionCard", {
+          detail: { solutionId },
+        });
+        window.dispatchEvent(event);
+      }, 800); // Delay to allow smooth scroll to complete
+    }
+  };
+
   return (
     <section className="h-[50vh] min-h-[400px] flex items-center bg-[#E1E1FC] relative overflow-hidden">
       {/* Video Background */}
@@ -37,32 +57,32 @@ const SolutionsHero = () => {
               Solving the Right Problems, Fast
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-black leading-relaxed max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg lg:text-xl text-primary leading-relaxed max-w-3xl mx-auto px-4 sm:px-0">
               We help companies move from broken dashboards and manual work to
               scalable systems powered by data, automation, and AI.
             </p>
           </div>
 
-          {/* Quick Navigation - responsive */}
+          {/* Quick Navigation - with click handlers */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-4 sm:px-0">
-            <a
-              href="#data-analytics"
-              className="text-xs sm:text-sm border border-white/30 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 hover:border-white/50 hover:bg-white transition-all duration-200 shadow-sm text-primary font-medium whitespace-nowrap"
+            <button
+              onClick={() => handleNavClick("data-analytics")}
+              className="text-xs sm:text-sm border border-white/30 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 hover:border-white/50 hover:bg-white transition-all duration-200 shadow-sm text-primary font-medium whitespace-nowrap cursor-pointer"
             >
               Data Analytics
-            </a>
-            <a
-              href="#ai-automation"
-              className="text-xs sm:text-sm border border-white/30 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 hover:border-white/50 hover:bg-white transition-all duration-200 shadow-sm text-primary font-medium whitespace-nowrap"
+            </button>
+            <button
+              onClick={() => handleNavClick("ai-automation")}
+              className="text-xs sm:text-sm border border-white/30 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 hover:border-white/50 hover:bg-white transition-all duration-200 shadow-sm text-primary font-medium whitespace-nowrap cursor-pointer"
             >
               AI Automation
-            </a>
-            <a
-              href="#process-optimization"
-              className="text-xs sm:text-sm border border-white/30 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 hover:border-white/50 hover:bg-white transition-all duration-200 shadow-sm text-primary font-medium whitespace-nowrap"
+            </button>
+            <button
+              onClick={() => handleNavClick("process-optimization")}
+              className="text-xs sm:text-sm border border-white/30 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 hover:border-white/50 hover:bg-white transition-all duration-200 shadow-sm text-primary font-medium whitespace-nowrap cursor-pointer"
             >
               Process Optimization
-            </a>
+            </button>
           </div>
         </div>
       </div>

@@ -1,10 +1,11 @@
 // components/solutions/SolutionsOfferings.js
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BarChart3, Bot, RotateCcw, ArrowRight } from "lucide-react";
 
 const SolutionsOfferings = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [expandedCard, setExpandedCard] = useState(null); // For programmatic expansion
 
   const solutions = [
     {
@@ -71,8 +72,40 @@ const SolutionsOfferings = () => {
     },
   ];
 
+  // Listen for expand card events from hero navigation
+  useEffect(() => {
+    const handleExpandCard = (event) => {
+      const { solutionId } = event.detail;
+      const cardIndex = solutions.findIndex(
+        (solution) => solution.id === solutionId
+      );
+
+      if (cardIndex !== -1) {
+        setExpandedCard(cardIndex);
+        setHoveredCard(cardIndex);
+
+        // Auto-collapse after 5 seconds for better UX
+        setTimeout(() => {
+          setExpandedCard(null);
+          setHoveredCard(null);
+        }, 5000);
+      }
+    };
+
+    window.addEventListener("expandSolutionCard", handleExpandCard);
+
+    return () => {
+      window.removeEventListener("expandSolutionCard", handleExpandCard);
+    };
+  }, []);
+
+  // Determine if card should be shown as expanded
+  const isCardExpanded = (index) => {
+    return hoveredCard === index || expandedCard === index;
+  };
+
   return (
-    <section className="section bg-gray-50">
+    <section id="solutions-offerings" className="section bg-gray-50">
       <div className="container">
         <div className="max-w-4xl mx-auto">
           {/* Cards Container - 3 rows, stacked vertically */}
@@ -81,18 +114,28 @@ const SolutionsOfferings = () => {
               <div
                 key={solution.id}
                 className={`group cursor-pointer transition-all duration-700 ease-out ${
-                  hoveredCard === index
+                  isCardExpanded(index)
                     ? "transform scale-102 z-10"
-                    : hoveredCard !== null
+                    : hoveredCard !== null && hoveredCard !== index
                     ? "transform scale-98 opacity-80"
                     : ""
                 }`}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
+                onMouseEnter={() => {
+                  if (expandedCard === null) {
+                    // Only allow hover if not programmatically expanded
+                    setHoveredCard(index);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (expandedCard === null) {
+                    // Only allow hover out if not programmatically expanded
+                    setHoveredCard(null);
+                  }
+                }}
               >
                 <div
                   className={`bg-white rounded-3xl border border-gray-100 overflow-hidden transition-all duration-700 ${
-                    hoveredCard === index
+                    isCardExpanded(index)
                       ? "shadow-2xl border-gray-200"
                       : "shadow-lg hover:shadow-xl"
                   }`}
@@ -100,7 +143,7 @@ const SolutionsOfferings = () => {
                   {/* Card Content */}
                   <div
                     className={`transition-all duration-700 ${
-                      hoveredCard === index ? "p-8 lg:p-12" : "p-6 lg:p-8"
+                      isCardExpanded(index) ? "p-8 lg:p-12" : "p-6 lg:p-8"
                     }`}
                   >
                     {/* Always visible content */}
@@ -109,12 +152,12 @@ const SolutionsOfferings = () => {
                       <div className="flex items-start space-x-4 flex-1">
                         <div
                           className={`bg-gray-50 rounded-2xl flex items-center justify-center transition-all duration-500 ${
-                            hoveredCard === index ? "w-16 h-16" : "w-12 h-12"
+                            isCardExpanded(index) ? "w-16 h-16" : "w-12 h-12"
                           }`}
                         >
                           {React.createElement(solution.icon, {
                             className: `text-primary transition-all duration-500 ${
-                              hoveredCard === index ? "w-8 h-8" : "w-6 h-6"
+                              isCardExpanded(index) ? "w-8 h-8" : "w-6 h-6"
                             }`,
                             strokeWidth: 1.5,
                           })}
@@ -122,7 +165,7 @@ const SolutionsOfferings = () => {
                         <div className="flex-1 min-w-0">
                           <h3
                             className={`font-bold text-primary leading-tight transition-all duration-500 ${
-                              hoveredCard === index
+                              isCardExpanded(index)
                                 ? "text-2xl lg:text-3xl mb-3"
                                 : "text-xl lg:text-2xl mb-2"
                             }`}
@@ -131,7 +174,7 @@ const SolutionsOfferings = () => {
                           </h3>
                           <p
                             className={`text-secondary transition-all duration-500 ${
-                              hoveredCard === index
+                              isCardExpanded(index)
                                 ? "text-lg opacity-100"
                                 : "text-base opacity-90"
                             }`}
@@ -144,17 +187,17 @@ const SolutionsOfferings = () => {
                       {/* Right: Arrow indicator */}
                       <div
                         className={`transition-all duration-500 ${
-                          hoveredCard === index ? "opacity-0" : "opacity-60"
+                          isCardExpanded(index) ? "opacity-0" : "opacity-60"
                         }`}
                       >
                         <ArrowRight className="w-5 h-5 text-gray-400" />
                       </div>
                     </div>
 
-                    {/* Expanded Content - Only show when hovered */}
+                    {/* Expanded Content - Show when hovered OR programmatically expanded */}
                     <div
                       className={`transition-all duration-700 ${
-                        hoveredCard === index
+                        isCardExpanded(index)
                           ? "opacity-100 max-h-[2000px]"
                           : "opacity-0 max-h-0 overflow-hidden"
                       }`}
