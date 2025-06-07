@@ -1,12 +1,14 @@
-// components/Header.js - Apple Minimalist Style
+// components/Header.js - Updated with Solutions Navigation
 "use client";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const router = useRouter();
 
   const navItems = [
     { name: "Work", href: "/portfolio" },
@@ -20,18 +22,50 @@ export default function Header() {
       name: "Data & Analytics",
       href: "/solutions/data-analytics",
       description: "Transform data into insights",
+      solutionId: "data-analytics",
     },
     {
       name: "AI Solutions",
       href: "/solutions/gen-ai",
       description: "Intelligent automation",
+      solutionId: "ai-automation",
     },
     {
       name: "Process Automation",
       href: "/solutions/rpa-automation",
       description: "Streamline operations",
+      solutionId: "process-optimization",
     },
   ];
+
+  const handleSolutionClick = (solutionId) => {
+    // Navigate to solutions page
+    router.push("/solutions");
+
+    // Close dropdown
+    setIsSolutionsOpen(false);
+    setIsMenuOpen(false);
+
+    // Wait for navigation, then trigger card expansion
+    setTimeout(() => {
+      // Scroll to solutions offerings section
+      const solutionsSection = document.getElementById("solutions-offerings");
+      if (solutionsSection) {
+        solutionsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        // Trigger card expansion
+        setTimeout(() => {
+          const event = new CustomEvent("expandSolutionCard", {
+            detail: { solutionId },
+          });
+          window.dispatchEvent(event);
+        }, 800);
+      }
+    }, 100);
+  };
 
   return (
     <header className="backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
@@ -58,7 +92,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {/* Solutions Dropdown - Now First */}
+            {/* Solutions Dropdown - Updated with new navigation */}
             <div
               className="relative"
               onMouseEnter={() => setIsSolutionsOpen(true)}
@@ -87,10 +121,10 @@ export default function Header() {
               {isSolutionsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-100 py-4">
                   {solutions.map((solution) => (
-                    <a
-                      key={solution.name}
-                      href={solution.href}
-                      className="block px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
+                    <button
+                      key={solution.solutionId}
+                      onClick={() => handleSolutionClick(solution.solutionId)}
+                      className="w-full text-left block px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
                     >
                       <div className="text-sm font-medium text-primary mb-1">
                         {solution.name}
@@ -98,7 +132,7 @@ export default function Header() {
                       <div className="text-xs text-muted">
                         {solution.description}
                       </div>
-                    </a>
+                    </button>
                   ))}
                 </div>
               )}
@@ -158,11 +192,10 @@ export default function Header() {
                   Solutions
                 </div>
                 {solutions.map((solution) => (
-                  <a
-                    key={solution.name}
-                    href={solution.href}
-                    className="block py-2 hover:bg-gray-50 transition-colors rounded-lg px-3 -mx-3"
-                    onClick={() => setIsMenuOpen(false)}
+                  <button
+                    key={solution.solutionId}
+                    onClick={() => handleSolutionClick(solution.solutionId)}
+                    className="w-full text-left block py-2 hover:bg-gray-50 transition-colors rounded-lg px-3 -mx-3"
                   >
                     <div className="text-sm font-medium text-primary">
                       {solution.name}
@@ -170,7 +203,7 @@ export default function Header() {
                     <div className="text-xs text-muted">
                       {solution.description}
                     </div>
-                  </a>
+                  </button>
                 ))}
               </div>
 
