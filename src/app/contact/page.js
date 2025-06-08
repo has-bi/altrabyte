@@ -1,7 +1,8 @@
 // app/contact/page.js
 "use client";
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import { ArrowRight, Mail, CheckCircle2, AlertCircle } from "lucide-react";
+import { submitContactForm } from "./actions";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -10,12 +11,9 @@ export default function ContactPage() {
     company: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
-
-  // Get Formspree endpoint from environment variable
-  const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+  const [isPending, startTransition] = useTransition();
 
   const topics = [
     "Your goals and challenges",
@@ -34,17 +32,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setError("");
-
-    // Check if Formspree endpoint is configured
-    if (!FORMSPREE_ENDPOINT) {
-      setError(
-        "Form configuration error. Please contact us directly via email."
-      );
-      setIsSubmitting(false);
-      return;
-    }
 
     // Basic validation
     if (
@@ -53,7 +41,6 @@ export default function ContactPage() {
       !formData.message.trim()
     ) {
       setError("Please fill in all required fields");
-      setIsSubmitting(false);
       return;
     }
 
@@ -61,49 +48,26 @@ export default function ContactPage() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setError("Please enter a valid email address");
-      setIsSubmitting(false);
       return;
     }
 
-    try {
-      // Submit to Formspree
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          company: formData.company.trim() || "Not specified",
-          message: formData.message.trim(),
-          _replyto: formData.email.trim(),
-          _subject: `New contact form submission from ${formData.name.trim()}`,
-        }),
-      });
+    startTransition(async () => {
+      try {
+        const result = await submitContactForm(formData);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (result.success) {
+          setIsSubmitted(true);
+          setFormData({ name: "", email: "", company: "", message: "" });
+        } else {
+          setError(result.error || "Something went wrong. Please try again.");
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        setError(
+          "Something went wrong. Please try again or email us directly."
+        );
       }
-
-      const result = await response.json();
-
-      // Check if Formspree returned an error
-      if (result.error) {
-        throw new Error(result.error);
-      }
-
-      // Success
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", company: "", message: "" });
-    } catch (err) {
-      console.error("Form submission error:", err);
-      setError(
-        "Something went wrong sending your message. Please try again or email us directly."
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    });
   };
 
   return (
@@ -222,15 +186,6 @@ export default function ContactPage() {
                 {/* Right Side - Form */}
                 <div className="p-8 lg:p-12 bg-white/80 backdrop-blur-sm">
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Formspree honeypot field (hidden spam protection) */}
-                    <input
-                      type="text"
-                      name="_gotcha"
-                      style={{ display: "none" }}
-                      tabIndex="-1"
-                      autoComplete="off"
-                    />
-
                     {/* Name Field */}
                     <div>
                       <label
@@ -248,6 +203,7 @@ export default function ContactPage() {
                         placeholder="Your full name"
                         className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all duration-200 text-primary placeholder-gray-500"
                         required
+                        disabled={isPending}
                       />
                     </div>
 
@@ -268,6 +224,7 @@ export default function ContactPage() {
                         placeholder="Work email preferred"
                         className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all duration-200 text-primary placeholder-gray-500"
                         required
+                        disabled={isPending}
                       />
                     </div>
 
@@ -290,6 +247,7 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         placeholder="What company are you with?"
                         className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all duration-200 text-primary placeholder-gray-500"
+                        disabled={isPending}
                       />
                     </div>
 
@@ -310,6 +268,7 @@ export default function ContactPage() {
                         rows={4}
                         className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all duration-200 text-primary placeholder-gray-500 resize-vertical"
                         required
+                        disabled={isPending}
                       />
                     </div>
 
@@ -325,10 +284,10 @@ export default function ContactPage() {
                     <div className="pt-2">
                       <button
                         type="submit"
-                        disabled={isSubmitting}
+                        disabled={isPending}
                         className="group w-full flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-hover transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none"
                       >
-                        {isSubmitting ? (
+                        {isPending ? (
                           <span>Sending...</span>
                         ) : (
                           <>
