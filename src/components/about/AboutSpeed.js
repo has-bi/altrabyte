@@ -28,9 +28,9 @@ const AboutSpeed = () => {
   ];
 
   const sprintFeatures = [
-    "You'll see **working output within days**",
-    "We don't waste time on bloated documentation",
-    "We focus on **useful delivery, not slide decks**",
+    "Working output within days",
+    "No bloated documentation",
+    "Useful delivery, not slide decks",
   ];
 
   const colorClasses = {
@@ -115,7 +115,7 @@ const AboutSpeed = () => {
             </div>
           </div>
 
-          {/* Sprint Methodology - New Layout */}
+          {/* Sprint Methodology - 3 Column Layout */}
           <div className="bg-white rounded-3xl p-8 lg:p-10 border border-gray-100 shadow-sm">
             <div className="text-center mb-8">
               <h3 className="text-xl font-semibold text-primary mb-2">
@@ -123,21 +123,18 @@ const AboutSpeed = () => {
               </h3>
             </div>
 
-            {/* Horizontal Feature Cards */}
-            <div className="space-y-4 mb-8">
+            {/* 3 Column Feature Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
               {sprintFeatures.map((feature, index) => (
                 <div key={index} className="group">
-                  <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-300">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
-                        <CheckCircle2 className="w-6 h-6 text-primary transition-colors duration-300 group-hover:text-white" />
+                  <div className="bg-gray-50/50 rounded-xl p-6 border border-gray-100 hover:border-primary/20 hover:bg-white transition-all duration-300 text-center">
+                    <div className="space-y-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
+                        <CheckCircle2 className="w-5 h-5 text-primary transition-colors duration-300 group-hover:text-white" />
                       </div>
-                      <div className="flex-1">
-                        <p className="text-lg text-secondary leading-relaxed group-hover:text-primary transition-colors duration-300">
-                          {feature.replace(/\*\*/g, "")}{" "}
-                          {/* Remove markdown formatting */}
-                        </p>
-                      </div>
+                      <p className="text-base text-secondary leading-relaxed group-hover:text-primary transition-colors duration-300 font-medium">
+                        {feature}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -146,9 +143,9 @@ const AboutSpeed = () => {
 
             {/* Bottom Statement */}
             <div className="text-center">
-              <div className="inline-flex items-center px-8 py-4 bg-primary-light rounded-2xl border border-primary/20">
-                <Zap className="w-6 h-6 text-primary mr-3" />
-                <p className="text-primary font-semibold text-lg">
+              <div className="inline-flex items-center px-6 py-3 bg-primary/5 rounded-xl border border-primary/10">
+                <Zap className="w-5 h-5 text-primary mr-3" />
+                <p className="text-primary font-medium">
                   Less time explaining. More time building.
                 </p>
               </div>
