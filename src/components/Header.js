@@ -11,7 +11,7 @@ export default function Header() {
   const router = useRouter();
 
   const navItems = [
-    { name: "Work", href: "/portfolio" },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },
     // { name: "Insights", href: "/blog" },
     { name: "Contact", href: "/contact" },
