@@ -1,9 +1,8 @@
-// src/app/page.js
 import { getProjects } from "@/lib/notion";
 import HeroSection from "../components/HeroSection";
 import TrustedBySection from "@/components/TrustedSection";
 import SolutionDifferentSection from "@/components/SolutionsOverview";
-import PortfolioSectionNotion from "@/components/PortfolioSectionNotion";
+import PortfolioSection from "@/components/PortfolioSection";
 import FinalCTASection from "@/components/CTASection";
 import PainSection from "@/components/PainSection";
 import AchieveSection from "@/components/AchieveSection";
@@ -26,7 +25,7 @@ export default async function HomePage() {
         <SolutionDifferentSection />
       </div>
       <AchieveSection />
-      <PortfolioSectionNotion projects={projects} />
+      <PortfolioSection projects={projects} />
       <div className="section-divider">
         <FinalCTASection />
       </div>

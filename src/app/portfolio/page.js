@@ -1,7 +1,5 @@
-// src/app/portfolio/page.js
 import { getProjects } from "@/lib/notion";
 import PortfolioHero from "@/components/portfolio/PortfolioHero";
-import PortfolioFilter from "@/components/portfolio/PortfolioFilter";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import PortfolioTrust from "@/components/portfolio/PortfolioTrust";
 import PortfolioCTA from "@/components/portfolio/PortfolioCTA";

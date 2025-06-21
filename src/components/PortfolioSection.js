@@ -1,100 +1,32 @@
-// components/PortfolioSection.js - Updated with consistent backgrounds
 "use client";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
-import React, { useState } from "react";
-
-const PortfolioSection = () => {
+export default function PortfolioSection({ projects = [] }) {
   const [activeFilter, setActiveFilter] = useState("all");
-
-  const portfolioItems = [
-    {
-      id: 1,
-      title: "E-commerce Analytics Platform",
-      client: "Regional Retail Chain",
-      category: "data-analytics",
-      description:
-        "Real-time sales analytics and inventory optimization system for improved decision making.",
-      results: "40% efficiency increase",
-      year: "2024",
-    },
-    {
-      id: 2,
-      title: "Manufacturing Process Automation",
-      client: "FMCG Manufacturing",
-      category: "automation",
-      description:
-        "Automated quality control workflows and production reporting systems.",
-      results: "60% manual task reduction",
-      year: "2024",
-    },
-    {
-      id: 3,
-      title: "AI Customer Support Assistant",
-      client: "EdTech Platform",
-      category: "ai-solutions",
-      description:
-        "Intelligent chatbot for student queries and personalized course recommendations.",
-      results: "75% faster response times",
-      year: "2023",
-    },
-    {
-      id: 4,
-      title: "Supply Chain Intelligence",
-      client: "Mining Corporation",
-      category: "data-analytics",
-      description:
-        "Predictive analytics platform for optimizing supply chain operations.",
-      results: "30% logistics cost reduction",
-      year: "2023",
-    },
-    {
-      id: 5,
-      title: "Document Processing System",
-      client: "Healthcare Network",
-      category: "automation",
-      description:
-        "Automated patient record processing with compliance reporting capabilities.",
-      results: "85% faster processing",
-      year: "2024",
-    },
-    {
-      id: 6,
-      title: "Content Generation Platform",
-      client: "Marketing Agency",
-      category: "ai-solutions",
-      description:
-        "AI-powered content creation and campaign optimization tools.",
-      results: "50% content output increase",
-      year: "2023",
-    },
-  ];
 
   const filters = [
     { id: "all", label: "All" },
-    { id: "data-analytics", label: "Analytics" },
+    { id: "analytics", label: "Analytics" },
     { id: "automation", label: "Automation" },
-    { id: "ai-solutions", label: "AI Solutions" },
+    { id: "ai", label: "AI Solutions" },
   ];
 
-  const filteredItems =
-    activeFilter === "all"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === activeFilter);
+  const filteredItems = projects.slice(0, 6);
 
   return (
-    <section className="section section-light bg-white">
+    <section className="section bg-white">
       <div className="container">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
             Real Results From Real Work
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
-            Real solutions delivering measurable results for enterprise clients.
+            Live from our Notion workspace — real solutions for real clients.
           </p>
         </div>
 
-        {/* Filter Tabs */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex bg-gray-100 rounded-xl p-1">
             {filters.map((filter) => (
@@ -103,7 +35,7 @@ const PortfolioSection = () => {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeFilter === filter.id
-                    ? "bg-white text-primary shadow-sm "
+                    ? "bg-white text-primary shadow-sm"
                     : "text-secondary hover:text-primary"
                 }`}
               >
@@ -113,56 +45,52 @@ const PortfolioSection = () => {
           </div>
         </div>
 
-        {/* Portfolio Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
+          {filteredItems.map((project) => (
             <article
-              key={item.id}
+              key={project.id}
               className="group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm"
             >
               <div className="space-y-4">
-                {/* Header */}
-                <div className="flex items-start justify-between">
-                  <div className="text-xs text-muted font-medium">
-                    {item.client}
+                {project.coverImage && (
+                  <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                    <img
+                      src={project.coverImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="text-xs text-muted">{item.year}</div>
+                )}
+
+                <div className="flex items-center justify-between text-xs text-muted">
+                  <span>{project.client}</span>
+                  <span>{project.date}</span>
                 </div>
 
-                {/* Content */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-primary leading-tight group-hover:text-primary/80 transition-colors duration-200">
-                    {item.title}
-                  </h3>
+                <h3 className="text-lg font-semibold text-primary leading-tight">
+                  {project.title}
+                </h3>
 
-                  <p className="text-sm text-secondary leading-relaxed">
-                    {item.description}
+                {project.description && (
+                  <p className="text-sm text-secondary leading-relaxed line-clamp-2">
+                    {project.description}
                   </p>
+                )}
 
-                  {/* Results */}
-                  <div className="inline-flex items-center px-2 py-1 bg-secondary-light text-secondary text-xs font-medium rounded-md">
-                    {item.results}
-                  </div>
-                </div>
-
-                {/* Action */}
                 <div className="pt-2">
-                  <button className="btn-tertiary text-xs">
-                    View case study →
-                  </button>
+                  <span className="btn-tertiary text-xs">View case →</span>
                 </div>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <button className="btn-secondary">View All Projects</button>
+          <Link href="/portfolio" className="btn-secondary">
+            View All Projects ({projects.length})
+          </Link>
         </div>
       </div>
     </section>
   );
-};
-
-export default PortfolioSection;
+}

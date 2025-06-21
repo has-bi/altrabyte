@@ -1,7 +1,7 @@
-// src/components/portfolio/ProjectDetail.js
 "use client";
-import { ArrowLeft, ExternalLink, Calendar, Tag, Building } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import Link from "next/link";
+import { renderNotionBlock } from "@/lib/notion";
 
 export default function ProjectDetail({ project, content }) {
   const formatDate = (date) =>
@@ -9,193 +9,115 @@ export default function ProjectDetail({ project, content }) {
       ? new Date(date).toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
-          day: "numeric",
         })
       : "";
 
-  const renderBlock = (block) => {
-    const { type, id } = block;
-    const value = block[type];
-
-    switch (type) {
-      case "paragraph":
-        return (
-          <p key={id} className="text-secondary leading-relaxed mb-4">
-            {value.rich_text.map((text) => text.plain_text).join("")}
-          </p>
-        );
-      case "heading_1":
-        return (
-          <h2
-            key={id}
-            className="text-2xl font-semibold text-primary mt-8 mb-4"
-          >
-            {value.rich_text.map((text) => text.plain_text).join("")}
-          </h2>
-        );
-      case "heading_2":
-        return (
-          <h3 key={id} className="text-xl font-semibold text-primary mt-6 mb-3">
-            {value.rich_text.map((text) => text.plain_text).join("")}
-          </h3>
-        );
-      case "heading_3":
-        return (
-          <h4 key={id} className="text-lg font-semibold text-primary mt-4 mb-2">
-            {value.rich_text.map((text) => text.plain_text).join("")}
-          </h4>
-        );
-      case "bulleted_list_item":
-        return (
-          <li key={id} className="text-secondary leading-relaxed mb-2 ml-4">
-            {value.rich_text.map((text) => text.plain_text).join("")}
-          </li>
-        );
-      case "numbered_list_item":
-        return (
-          <li key={id} className="text-secondary leading-relaxed mb-2 ml-4">
-            {value.rich_text.map((text) => text.plain_text).join("")}
-          </li>
-        );
-      case "image":
-        const src =
-          value.type === "external" ? value.external.url : value.file.url;
-        return (
-          <div key={id} className="my-8">
-            <img
-              src={src}
-              alt="Project image"
-              className="w-full rounded-xl shadow-sm"
-            />
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div>
-      {/* Hero */}
-      <section className="py-20 bg-[#E1E1FC] relative overflow-hidden">
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto">
-            {/* Breadcrumb */}
-            <div className="mb-8">
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center text-primary hover:text-primary-hover transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Portfolio
-              </Link>
-            </div>
+    <div className="bg-white">
+      {/* Minimal Navigation */}
+      <nav className="py-6 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center text-primary hover:text-gray-600 transition-colors font-medium"
+          >
+            <ArrowLeft className="w-4 h-4 mr-3" />
+            Portfolio
+          </Link>
+        </div>
+      </nav>
 
-            {/* Hero Content */}
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 mb-4">
-                {project.client && (
-                  <div className="flex items-center space-x-2 text-secondary">
-                    <Building className="w-4 h-4" />
-                    <span className="font-medium">{project.client}</span>
-                  </div>
-                )}
-                {project.category && (
-                  <span className="px-3 py-1 bg-white/80 text-primary rounded-full text-sm font-medium">
-                    {project.category}
-                  </span>
-                )}
-                {project.featured && (
-                  <span className="px-3 py-1 bg-primary-light text-primary rounded-full text-sm font-medium">
-                    Featured
-                  </span>
-                )}
+      {/* Hero Section - Apple Style */}
+      <section className="pt-20 pb-12">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          {/* Subtle Metadata */}
+          <div className="flex items-center justify-center space-x-6 mb-8">
+            {project.client && (
+              <span className="text-secondary font-medium text-sm tracking-wide">
+                {project.client}
+              </span>
+            )}
+            {project.date && (
+              <div className="flex items-center space-x-2 text-secondary">
+                <Calendar className="w-3.5 h-3.5" />
+                <span className="font-medium text-sm tracking-wide">
+                  {formatDate(project.date)}
+                </span>
               </div>
-
-              <h1 className="text-4xl lg:text-5xl font-semibold text-primary leading-tight">
-                {project.title}
-              </h1>
-
-              {project.description && (
-                <p className="text-xl text-secondary leading-relaxed max-w-3xl">
-                  {project.description}
-                </p>
-              )}
-
-              {/* Meta Info */}
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                {project.date && (
-                  <div className="flex items-center space-x-2 text-secondary">
-                    <Calendar className="w-4 h-4" />
-                    <span>{formatDate(project.date)}</span>
-                  </div>
-                )}
-                {project.technologies?.length > 0 && (
-                  <div className="flex items-center space-x-2">
-                    <Tag className="w-4 h-4 text-secondary" />
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 bg-white/80 text-secondary rounded-md text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+            )}
+            {project.category && (
+              <span className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium tracking-wide">
+                {project.category}
+              </span>
+            )}
           </div>
+
+          {/* Main Title - Apple Typography */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary leading-[1.1] tracking-tight mb-8">
+            {project.title}
+          </h1>
+
+          {/* Subtitle */}
+          {project.description && (
+            <p className="text-l sm:text-xl text-secondary leading-relaxed max-w-3xl mx-auto font-normal">
+              {project.description}
+            </p>
+          )}
+
+          {/* Technologies - Clean Pills */}
+          {project.technologies?.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-3 mt-12">
+              {project.technologies.map((tech, idx) => (
+                <span
+                  key={idx}
+                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium tracking-wide hover:bg-gray-200 transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Cover Image */}
+      {/* Hero Image - Full Width */}
       {project.coverImage && (
-        <section className="py-12 bg-white">
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src={project.coverImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+        <section className="pb-20">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="rounded-3xl overflow-hidden bg-gray-50 shadow-2xl shadow-black/10">
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </section>
       )}
 
-      {/* Content */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              {content.map(renderBlock)}
-            </div>
+      {/* Content Section - Apple Reading Experience */}
+      {content && content.length > 0 && (
+        <section className="pb-20">
+          <div className="max-w-3xl mx-auto px-6">
+            <div className="space-y-8">{content.map(renderNotionBlock)}</div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Navigation */}
-      <section className="section bg-gray-50">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-primary">
-                Interested in similar results?
-              </h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/portfolio" className="btn-secondary">
-                  View More Projects
-                </Link>
-                <Link href="/contact" className="btn-primary">
-                  Discuss Your Project
-                </Link>
-              </div>
-            </div>
+      {/* Call to Action - Minimal & Clean */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h3 className="text-3xl font-semibold text-primary mb-6 tracking-tight">
+            Want to move this fast with your reporting?
+          </h3>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-hover transition-all duration-200 hover:-translate-y-0.5 transform shadow-lg"
+            >
+              Book a 30-min clarity call →
+            </Link>
           </div>
         </div>
       </section>

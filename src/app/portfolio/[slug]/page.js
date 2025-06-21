@@ -9,7 +9,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const project = await getProject(params.slug);
+  // Await params in Next.js 15
+  const { slug } = await params;
+  const project = await getProject(slug);
+
   if (!project) return { title: "Project Not Found" };
 
   return {
@@ -19,7 +22,10 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProjectPage({ params }) {
-  const project = await getProject(params.slug);
+  // Await params in Next.js 15
+  const { slug } = await params;
+  const project = await getProject(slug);
+
   if (!project) notFound();
 
   const content = await getProjectContent(project.id);
