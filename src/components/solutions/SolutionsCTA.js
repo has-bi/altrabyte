@@ -51,11 +51,6 @@ const SolutionsCTA = () => {
                     <ArrowRight className="ml-3 w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </a>
                 </div>
-
-                {/* Trust Signal */}
-                <p className="text-sm text-indigo-300 font-normal">
-                  Join 50+ companies that chose clarity over confusion.
-                </p>
               </div>
             </div>
           </div>
