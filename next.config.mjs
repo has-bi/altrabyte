@@ -26,7 +26,92 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
-      // Notion Images
+
+      // === SPECIFIC CLIENT DOMAINS (More reliable) ===
+      {
+        protocol: "https",
+        hostname: "www.paragon-innovation.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.prod.website-files.com",
+      },
+      {
+        protocol: "https",
+        hostname: "amser.com",
+      },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "coursereport-s3-production.global.ssl.fastly.net",
+      },
+
+      // === FLEXIBLE WILDCARD PATTERNS ===
+
+      // AWS Services
+      {
+        protocol: "https",
+        hostname: "*.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.*.amazonaws.com",
+      },
+
+      // Google Services
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.storage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.gstatic.com",
+      },
+
+      // CDN Services
+      {
+        protocol: "https",
+        hostname: "*.fastly.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.global.ssl.fastly.net",
+      },
+      {
+        protocol: "https",
+        hostname: "*.website-files.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.prod.website-files.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+
+      // === END WILDCARD PATTERNS ===
+
+      // Notion Images (keep existing)
       {
         protocol: "https",
         hostname: "www.notion.so",
@@ -39,37 +124,17 @@ const nextConfig = {
         protocol: "https",
         hostname: "s3.us-west-2.amazonaws.com",
       },
-      // Notion File URLs (mereka sering berubah)
       {
         protocol: "https",
         hostname: "file.notion.so",
       },
-      // Common CDNs yang mungkin lo pakai
+
+      // Development/Testing
       {
         protocol: "https",
-        hostname: "cdn.example.com",
+        hostname: "picsum.photos",
       },
-      {
-        protocol: "https",
-        hostname: "picsum.photos", // Lorem Picsum untuk placeholder
-      },
-      // Tambahan untuk media hosting yang sering dipakai
-      {
-        protocol: "https",
-        hostname: "cloudinary.com",
-      },
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-      },
-      {
-        protocol: "https",
-        hostname: "imgur.com",
-      },
-      {
-        protocol: "https",
-        hostname: "i.imgur.com",
-      },
+
       // GitHub untuk assets
       {
         protocol: "https",
@@ -79,11 +144,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "github.com",
       },
-      // Media Amazon S3 patterns (Notion files)
-      {
-        protocol: "https",
-        hostname: "*.amazonaws.com",
-      },
+
       // YouTube thumbnails
       {
         protocol: "https",
@@ -94,22 +155,18 @@ const nextConfig = {
         hostname: "i.ytimg.com",
       },
     ],
-    // Alternative: Disable image optimization for external images (NOT recommended for production)
+
+    // Image optimization settings
     unoptimized: false,
-
-    // Image formats yang disupport
     formats: ["image/webp", "image/avif"],
-
-    // Size limits
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-  },
 
-  // Enable experimental features if needed
-  //   experimental: {
-  //     // Enable if you want to use app directory features
-  //     serverComponentsExternalPackages: ["@notionhq/client"],
-  //   },
+    // Security settings for external images
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
 
   // Environment variables
   env: {
@@ -118,14 +175,7 @@ const nextConfig = {
 
   // Redirects (jika butuh)
   async redirects() {
-    return [
-      // Example redirect
-      // {
-      //   source: '/old-blog/:slug',
-      //   destination: '/blog/:slug',
-      //   permanent: true,
-      // },
-    ];
+    return [];
   },
 
   // Headers untuk security

@@ -35,7 +35,7 @@ const SolutionsHero = () => {
           playsInline
           className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 blur-sm scale-105 object-cover"
         >
-          <source src="/videos/hero-solutions.mp4" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 

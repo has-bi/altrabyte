@@ -2,7 +2,6 @@
 import React from "react";
 
 const TrustedBySection = () => {
-  // Mock client logos - replace with your actual clients
   const clients = [
     {
       name: "Paragon Corp",
@@ -26,9 +25,6 @@ const TrustedBySection = () => {
     },
   ];
 
-  // Duplicate for infinite scroll effect
-  const duplicatedClients = [...clients, ...clients];
-
   return (
     <div className="sm:py-20 bg-gray-50 relative overflow-hidden">
       {/* Gradient fade edges */}
@@ -42,25 +38,21 @@ const TrustedBySection = () => {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We’ve helped teams cut reporting time, automate operations, and move
+            We've helped teams cut reporting time, automate operations, and move
             from chaos to clarity — fast.
           </p>
         </div>
 
         {/* Logo Carousel */}
         <div className="relative">
-          {/* Main Logo Strip */}
-          <div className="flex items-center">
-            {duplicatedClients.map((client, index) => (
+          {/* Scrolling container */}
+          <div className="flex items-center animate-scroll">
+            {/* First set of logos */}
+            {clients.map((client, index) => (
               <div
-                key={`${client.name}-${index}`}
+                key={`first-${client.name}-${index}`}
                 className="flex-shrink-0 group cursor-pointer"
-                style={{
-                  animation: `scroll-logos 3s linear infinite`,
-                  animationDelay: "0s",
-                }}
               >
-                {/* Fixed width container for uniform spacing */}
                 <div className="w-40 sm:w-44 lg:w-48 h-16 sm:h-18 lg:h-20 flex items-center justify-center mx-6 sm:mx-8 lg:mx-10 p-4 rounded-lg transition-all duration-300 hover:bg-white/50 group-hover:scale-105">
                   <div className="w-full h-full flex items-center justify-center">
                     <img
@@ -68,7 +60,28 @@ const TrustedBySection = () => {
                       alt={`${client.name} logo`}
                       className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 group-hover:grayscale-0 transition-all duration-300"
                       style={{
-                        // Ensure minimum size for very small logos
+                        minWidth: "80px",
+                        minHeight: "32px",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Duplicate set for seamless loop */}
+            {clients.map((client, index) => (
+              <div
+                key={`second-${client.name}-${index}`}
+                className="flex-shrink-0 group cursor-pointer"
+              >
+                <div className="w-40 sm:w-44 lg:w-48 h-16 sm:h-18 lg:h-20 flex items-center justify-center mx-6 sm:mx-8 lg:mx-10 p-4 rounded-lg transition-all duration-300 hover:bg-white/50 group-hover:scale-105">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 group-hover:grayscale-0 transition-all duration-300"
+                      style={{
                         minWidth: "80px",
                         minHeight: "32px",
                       }}
@@ -83,7 +96,12 @@ const TrustedBySection = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
-        @keyframes scroll-logos {
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          width: max-content;
+        }
+
+        @keyframes scroll {
           0% {
             transform: translateX(0);
           }
@@ -92,9 +110,14 @@ const TrustedBySection = () => {
           }
         }
 
+        /* Pause animation on hover */
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.001s !important;
+          .animate-scroll {
+            animation: none;
           }
         }
       `}</style>

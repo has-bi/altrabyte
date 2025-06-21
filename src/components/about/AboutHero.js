@@ -14,7 +14,7 @@ const AboutHero = () => {
           playsInline
           className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 blur-sm scale-105 object-cover"
         >
-          <source src="/videos/hero-about.mp4" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/15"></div>
@@ -33,11 +33,10 @@ const AboutHero = () => {
               Why We Deliver Faster <br />
               Than Other Data Consultants
             </h1>
-            <p className="text-xl lg:text-2xl text-primary leading-relaxed max-w-3xl mx-auto">
-              We've worked inside the industries we serve.
-              <br />
-              That's why our solutions make sense from day one — and go live in
-              weeks, not quarters.
+            <p className="text-xl lg:text-xl text-primary leading-relaxed max-w-3xl mx-auto">
+              We've worked inside the industries we serve. That's why our
+              solutions make sense from day one — and go live in weeks, not
+              quarters.
             </p>
           </div>
         </div>

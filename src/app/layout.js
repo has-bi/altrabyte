@@ -18,8 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${plusJakarta.className} antialiased`}>
+        {/* Header is now self-contained with fixed positioning */}
         <Header />
-        <main className="min-h-screen">{children}</main>
+
+        {/* Main content with top padding to account for fixed header */}
+        <main className="min-h-screen pt-16">{children}</main>
+
         <Footer />
       </body>
     </html>

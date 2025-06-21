@@ -1,83 +1,10 @@
 "use client";
-import { useState } from "react";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 
 export default function PortfolioSection({ projects = [] }) {
-  const [activeFilter, setActiveFilter] = useState("all");
-
-  // Generate dynamic filters from actual project data
-  const generateFilters = () => {
-    if (!projects.length) return [{ id: "all", label: "All" }];
-
-    const allCategories = [
-      ...new Set(projects.map((p) => p.category).filter(Boolean)),
-    ];
-    const allTechnologies = [
-      ...new Set(projects.flatMap((p) => p.technologies || [])),
-    ];
-
-    const filters = [{ id: "all", label: "All" }];
-
-    // Add category filters
-    allCategories.forEach((cat) => {
-      filters.push({
-        id: cat.toLowerCase().replace(/\s+/g, "-"),
-        label: cat,
-        type: "category",
-      });
-    });
-
-    // Add popular technology filters
-    const popularTech = [
-      "React",
-      "Next.js",
-      "Python",
-      "AI",
-      "Analytics",
-      "Automation",
-    ];
-    popularTech.forEach((tech) => {
-      if (
-        allTechnologies.some((t) =>
-          t.toLowerCase().includes(tech.toLowerCase())
-        )
-      ) {
-        filters.push({
-          id: tech.toLowerCase().replace(/\s+/g, "-"),
-          label: tech,
-          type: "technology",
-        });
-      }
-    });
-
-    return filters;
-  };
-
-  const filters = generateFilters();
-
-  // Filter projects based on active filter
-  const filteredItems =
-    activeFilter === "all"
-      ? projects.slice(0, 6)
-      : projects
-          .filter((project) => {
-            const filter = filters.find((f) => f.id === activeFilter);
-            if (!filter) return false;
-
-            if (filter.type === "category") {
-              return (
-                project.category?.toLowerCase().replace(/\s+/g, "-") ===
-                activeFilter
-              );
-            } else if (filter.type === "technology") {
-              return project.technologies?.some((tech) =>
-                tech.toLowerCase().includes(filter.label.toLowerCase())
-              );
-            }
-            return false;
-          })
-          .slice(0, 6);
+  // Show top 4 projects
+  const displayProjects = projects.slice(0, 4);
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -90,52 +17,19 @@ export default function PortfolioSection({ projects = [] }) {
   return (
     <section className="section bg-white">
       <div className="container">
-        {/* Notion Data Indicator */}
-        {projects.length > 0 && (
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-green-700 text-sm font-medium">
-                Live from Notion
-              </span>
-            </div>
-          </div>
-        )}
-
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
             Real Results From Real Work
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
             {projects.length > 0
-              ? "Live from our Notion workspace — real solutions for real clients."
+              ? "Latest projects from our Notion workspace — real solutions for real clients."
               : "Our portfolio of data analytics, AI automation, and process optimization projects."}
           </p>
         </div>
 
-        {/* Dynamic Filters */}
-        {filters.length > 1 && (
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-gray-100 rounded-xl p-1">
-              {filters.map((filter) => (
-                <button
-                  key={filter.id}
-                  onClick={() => setActiveFilter(filter.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    activeFilter === filter.id
-                      ? "bg-white text-primary shadow-sm"
-                      : "text-secondary hover:text-primary"
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((project) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {displayProjects.map((project) => (
             <article
               key={project.id}
               className="group bg-gray-50 rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer h-[420px] flex flex-col overflow-hidden"
@@ -261,22 +155,6 @@ export default function PortfolioSection({ projects = [] }) {
             </article>
           ))}
         </div>
-
-        {/* No Results */}
-        {filteredItems.length === 0 && projects.length > 0 && (
-          <div className="text-center py-12">
-            <p className="text-secondary text-lg mb-4">
-              No projects found for "
-              {filters.find((f) => f.id === activeFilter)?.label}".
-            </p>
-            <button
-              onClick={() => setActiveFilter("all")}
-              className="text-primary hover:text-primary-hover font-medium"
-            >
-              Show all projects →
-            </button>
-          </div>
-        )}
 
         {/* Empty State */}
         {projects.length === 0 && (
