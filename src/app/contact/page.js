@@ -10,6 +10,17 @@ import {
 } from "lucide-react";
 import { submitContactForm } from "./actions";
 
+export const metadata = {
+  title: "Contact Us - Book Your Clarity Call",
+  description:
+    "Ready to transform your business with data analytics and AI automation? Book a 30-minute clarity call with our experts. No sales pitch, just honest assessment of your needs.",
+  openGraph: {
+    title: "Contact AltraByte - Book Your Clarity Call",
+    url: "https://altrabyte.com/contact",
+    images: [{ url: "/images/og-contact.png", width: 1200, height: 630 }],
+  },
+};
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",

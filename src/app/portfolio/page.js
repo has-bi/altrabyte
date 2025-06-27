@@ -5,8 +5,14 @@ import PortfolioTrust from "@/components/portfolio/PortfolioTrust";
 import PortfolioCTA from "@/components/portfolio/PortfolioCTA";
 
 export const metadata = {
-  title: "Portfolio - AltraByte",
-  description: "Real Results From Real Work",
+  title: "Portfolio - Real Results From Real Work",
+  description:
+    "See our data analytics, AI automation, and process optimization projects. Real case studies from e-commerce, retail, logistics, and FMCG clients across Southeast Asia.",
+  openGraph: {
+    title: "AltraByte Portfolio - Real Results From Real Work",
+    url: "https://altrabyte.com/portfolio",
+    images: [{ url: "/images/og-portfolio.png", width: 1200, height: 630 }],
+  },
 };
 
 // Force dynamic rendering - no static generation

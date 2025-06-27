@@ -6,9 +6,15 @@ import SolutionsProof from "@/components/solutions/SolutionsProof";
 import SolutionsCTA from "@/components/solutions/SolutionsCTA";
 
 export const metadata = {
-  title: "Solutions - AltraByte",
+  title: "Solutions - Data Analytics, AI Automation & Process Optimization",
   description:
-    "Solving the Right Problems, Fast. Data Analytics, AI Automation, and Process Optimization.",
+    "Discover our data analytics, AI automation, and process optimization solutions. We help e-commerce, retail, logistics, and FMCG companies move faster with better data insights.",
+  openGraph: {
+    title:
+      "AltraByte Solutions - Data Analytics, AI Automation & Process Optimization",
+    url: "https://altrabyte.com/solutions",
+    images: [{ url: "/images/og-solutions.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function SolutionsPage() {
