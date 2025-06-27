@@ -32,126 +32,237 @@ export default function PortfolioSection({ projects = [] }) {
           {displayProjects.map((project) => (
             <article
               key={project.id}
-              className="group bg-gray-50 rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer h-[420px] flex flex-col overflow-hidden"
+              className="h-auto min-h-[420px] lg:h-[420px] flex flex-col"
             >
-              {/* Cover Image */}
-              <div className="relative">
-                {project.coverImage ? (
-                  <div className="h-40 bg-gray-100 overflow-hidden">
-                    <img
-                      src={project.coverImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        e.target.parentElement.innerHTML =
-                          '<div class="h-full bg-gray-100 flex items-center justify-center"><span class="text-gray-400 text-sm">No image</span></div>';
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <div className="h-40 bg-gray-100 flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">No image</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Content Container */}
-              <div className="flex flex-col flex-1 p-6">
-                {/* Dynamic Content Area */}
-                <div className="flex-1 space-y-3">
-                  {/* Header */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      {project.client && (
-                        <span className="font-semibold text-secondary text-sm">
-                          {project.client}
-                        </span>
-                      )}
-                      {project.featured && (
-                        <span className="px-2 py-0.5 bg-primary-light text-primary text-xs rounded-md font-medium">
-                          Featured
-                        </span>
-                      )}
-                    </div>
-                    {project.date && (
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-3 h-3 text-muted" />
-                        <span className="text-xs text-muted">
-                          {formatDate(project.date)}
-                        </span>
+              {project.slug ? (
+                <Link
+                  href={`/portfolio/${project.slug}`}
+                  className="group bg-gray-50 rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer h-full flex flex-col overflow-hidden"
+                >
+                  {/* Cover Image */}
+                  <div className="relative">
+                    {project.coverImage ? (
+                      <div className="h-40 bg-gray-100 overflow-hidden">
+                        <img
+                          src={project.coverImage}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.target.parentElement.innerHTML =
+                              '<div class="h-full bg-gray-100 flex items-center justify-center"><span class="text-gray-400 text-sm">No image</span></div>';
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-40 bg-gray-100 flex items-center justify-center">
+                        <span className="text-gray-400 text-sm">No image</span>
                       </div>
                     )}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-primary leading-tight line-clamp-2">
-                    {project.title}
-                  </h3>
-
-                  {/* Description */}
-                  {project.description && (
-                    <p className="text-sm text-secondary leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
-                  )}
-
-                  {/* Category */}
-                  {project.category && (
-                    <div className="inline-flex items-center px-3 py-1 bg-gray-50 rounded-full">
-                      <span className="text-xs font-medium text-secondary">
-                        {project.category}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Technologies */}
-                  {project.technologies && project.technologies.length > 0 && (
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-1">
-                        <Tag className="w-3 h-3 text-muted" />
-                        <span className="text-xs text-muted">Tech:</span>
-                      </div>
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 3).map((tech, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 bg-gray-50 text-xs text-muted rounded-md"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <span className="px-2 py-1 bg-gray-50 text-xs text-muted rounded-md">
-                            +{project.technologies.length - 3}
-                          </span>
+                  {/* Content Container */}
+                  <div className="flex flex-col flex-1 p-6">
+                    {/* Dynamic Content Area */}
+                    <div className="flex-1 space-y-3">
+                      {/* Header */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          {project.client && (
+                            <span className="font-semibold text-secondary text-sm">
+                              {project.client}
+                            </span>
+                          )}
+                          {project.featured && (
+                            <span className="px-2 py-0.5 bg-primary-light text-primary text-xs rounded-md font-medium">
+                              Featured
+                            </span>
+                          )}
+                        </div>
+                        {project.date && (
+                          <div className="flex items-center space-x-1">
+                            <Calendar className="w-3 h-3 text-muted" />
+                            <span className="text-xs text-muted">
+                              {formatDate(project.date)}
+                            </span>
+                          </div>
                         )}
                       </div>
-                    </div>
-                  )}
-                </div>
 
-                {/* CTA - Always at Bottom */}
-                <div className="pt-4 border-t border-gray-50 mt-4">
-                  {project.slug ? (
-                    <Link
-                      href={`/portfolio/${project.slug}`}
-                      className="flex items-center justify-between group/link"
-                    >
-                      <span className="text-sm font-medium text-primary group-hover:text-gray-900 transition-colors duration-200">
-                        View Case Study
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-gray-400 transition-all duration-200 group-hover/link:text-primary group-hover/link:translate-x-1" />
-                    </Link>
-                  ) : (
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-primary group-hover:text-gray-900 transition-colors duration-200">
-                        View Case Study
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-gray-400" />
+                      {/* Title */}
+                      <h3 className="text-lg font-semibold text-primary leading-tight line-clamp-2 group-hover:text-gray-900 transition-colors duration-200">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      {project.description && (
+                        <p className="text-sm text-secondary leading-relaxed line-clamp-2">
+                          {project.description}
+                        </p>
+                      )}
+
+                      {/* Category */}
+                      {project.category && (
+                        <div className="inline-flex items-center px-3 py-1 bg-gray-50 rounded-full">
+                          <span className="text-xs font-medium text-secondary">
+                            {project.category}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Technologies - Always show on mobile, more compact */}
+                      {project.technologies &&
+                        project.technologies.length > 0 && (
+                          <div className="space-y-1.5">
+                            <div className="flex items-center space-x-1">
+                              <Tag className="w-3 h-3 text-muted" />
+                              <span className="text-xs text-muted">Tech:</span>
+                            </div>
+                            <div className="flex flex-wrap gap-1">
+                              {/* Show more tech items on mobile */}
+                              {project.technologies
+                                .slice(0, 4)
+                                .map((tech, index) => (
+                                  <span
+                                    key={index}
+                                    className="px-2 py-1 bg-white text-xs text-muted rounded-md border border-gray-100 text-center"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              {project.technologies.length > 4 && (
+                                <span className="px-2 py-1 bg-white text-xs text-muted rounded-md border border-gray-100">
+                                  +{project.technologies.length - 4}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
                     </div>
-                  )}
+
+                    {/* CTA - Always at Bottom */}
+                    <div className="pt-4 border-t border-gray-50 mt-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-primary group-hover:text-gray-900 transition-colors duration-200">
+                          View Case Study
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-gray-400 transition-all duration-200 group-hover:text-primary group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                // Non-clickable card for projects without slug
+                <div className="group bg-gray-50 rounded-2xl border border-gray-100 h-full flex flex-col overflow-hidden opacity-75">
+                  {/* Cover Image */}
+                  <div className="relative">
+                    {project.coverImage ? (
+                      <div className="h-40 bg-gray-100 overflow-hidden">
+                        <img
+                          src={project.coverImage}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.parentElement.innerHTML =
+                              '<div class="h-full bg-gray-100 flex items-center justify-center"><span class="text-gray-400 text-sm">No image</span></div>';
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-40 bg-gray-100 flex items-center justify-center">
+                        <span className="text-gray-400 text-sm">No image</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="flex flex-col flex-1 p-6">
+                    <div className="flex-1 space-y-3">
+                      {/* Header */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          {project.client && (
+                            <span className="font-semibold text-secondary text-sm">
+                              {project.client}
+                            </span>
+                          )}
+                          {project.featured && (
+                            <span className="px-2 py-0.5 bg-primary-light text-primary text-xs rounded-md font-medium">
+                              Featured
+                            </span>
+                          )}
+                        </div>
+                        {project.date && (
+                          <div className="flex items-center space-x-1">
+                            <Calendar className="w-3 h-3 text-muted" />
+                            <span className="text-xs text-muted">
+                              {formatDate(project.date)}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-lg font-semibold text-primary leading-tight line-clamp-2">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      {project.description && (
+                        <p className="text-sm text-secondary leading-relaxed line-clamp-2">
+                          {project.description}
+                        </p>
+                      )}
+
+                      {/* Category */}
+                      {project.category && (
+                        <div className="inline-flex items-center px-3 py-1 bg-gray-50 rounded-full">
+                          <span className="text-xs font-medium text-secondary">
+                            {project.category}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Technologies */}
+                      {project.technologies &&
+                        project.technologies.length > 0 && (
+                          <div className="space-y-1.5">
+                            <div className="flex items-center space-x-1">
+                              <Tag className="w-3 h-3 text-muted" />
+                              <span className="text-xs text-muted">Tech:</span>
+                            </div>
+                            <div className="flex flex-wrap gap-1">
+                              {project.technologies
+                                .slice(0, 4)
+                                .map((tech, index) => (
+                                  <span
+                                    key={index}
+                                    className="px-2 py-1 bg-white text-xs text-muted rounded-md border border-gray-100"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              {project.technologies.length > 4 && (
+                                <span className="px-2 py-1 bg-white text-xs text-muted rounded-md border border-gray-100">
+                                  +{project.technologies.length - 4}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                    </div>
+
+                    {/* CTA - Non-clickable state */}
+                    <div className="pt-4 border-t border-gray-50 mt-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-gray-400">
+                          Coming Soon
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-gray-300" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </article>
           ))}
         </div>
