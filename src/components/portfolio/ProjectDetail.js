@@ -1,7 +1,7 @@
 "use client";
 import { ArrowLeft, Calendar } from "lucide-react";
 import Link from "next/link";
-import { renderNotionBlock } from "@/lib/notion";
+import { renderNotionContent } from "@/lib/notion";
 
 export default function ProjectDetail({ project, content }) {
   const formatDate = (date) =>
@@ -99,7 +99,7 @@ export default function ProjectDetail({ project, content }) {
       {content && content.length > 0 && (
         <section className="pb-20">
           <div className="max-w-3xl mx-auto px-6">
-            <div className="space-y-8">{content.map(renderNotionBlock)}</div>
+            <div className="space-y-8">{renderNotionContent(content)}</div>
           </div>
         </section>
       )}
