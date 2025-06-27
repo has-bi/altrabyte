@@ -1,250 +1,225 @@
-// components/Header.js - Enhanced with Fixed Position & Glassmorphism
+// components/Header.js - Mobile-First Redesign
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
 
-  // Handle scroll effect for enhanced styling
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [router]);
+
   const navItems = [
+    { name: "Solutions", href: "/solutions", hasDropdown: true },
     { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },
-    // { name: "Insights", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
   const solutions = [
     {
-      name: "Data & Analytics",
-      href: "/solutions/data-analytics",
+      name: "Data Analytics",
+      href: "/solutions#data-analytics",
       description: "Transform data into insights",
-      solutionId: "data-analytics",
     },
     {
-      name: "AI Solutions",
-      href: "/solutions/gen-ai",
-      description: "Intelligent automation",
-      solutionId: "ai-automation",
+      name: "AI Automation",
+      href: "/solutions#ai-automation",
+      description: "Intelligent workflows",
     },
     {
-      name: "Process Automation",
-      href: "/solutions/rpa-automation",
+      name: "Process Optimization",
+      href: "/solutions#process-optimization",
       description: "Streamline operations",
-      solutionId: "process-optimization",
     },
   ];
 
-  const handleSolutionClick = (solutionId) => {
-    // Navigate to solutions page
-    router.push("/solutions");
-
-    // Close dropdown
-    setIsSolutionsOpen(false);
+  const handleSolutionClick = (href) => {
     setIsMenuOpen(false);
+    router.push(href);
+  };
 
-    // Wait for navigation, then trigger card expansion
-    setTimeout(() => {
-      // Scroll to solutions offerings section
-      const solutionsSection = document.getElementById("solutions-offerings");
-      if (solutionsSection) {
-        solutionsSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        // Trigger card expansion
-        setTimeout(() => {
-          const event = new CustomEvent("expandSolutionCard", {
-            detail: { solutionId },
-          });
-          window.dispatchEvent(event);
-        }, 800);
-      }
-    }, 100);
+  const handleCTAClick = () => {
+    setIsMenuOpen(false);
+    router.push("/contact");
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled
-          ? "bg-white/50 backdrop-blur-md shadow-lg border-b border-gray-200/50"
-          : "bg-white/50 backdrop-blur-sm border-b border-white/20"
-      }`}
-    >
-      <div className="max-w-5xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Clean and minimal */}
-          <Link href={"/"}>
-            <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-lg">
+    <>
+      {/* Fixed Header */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-lg shadow-sm border-b border-gray-100"
+            : "bg-white/90 backdrop-blur-md"
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo - Mobile Optimized */}
+            <Link
+              href="/"
+              className="flex items-center space-x-2 flex-shrink-0"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <div className="w-8 h-8 rounded-lg">
                 <Image
                   src="/images/Logogram - Purple.png"
-                  alt="AltraByte Logo"
-                  width={250}
-                  height={250}
+                  alt="AltraByte"
+                  width={32}
+                  height={32}
                   priority
-                  className="w-full h-full object-contain align-middle justify-center mx-auto"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className="text-lg font-semibold text-primary">
                 AltraByte
               </span>
-            </div>
-          </Link>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {/* Solutions Dropdown - Enhanced with better z-index */}
-            <div
-              className="relative"
-              onMouseEnter={() => setIsSolutionsOpen(true)}
-              onMouseLeave={() => setIsSolutionsOpen(false)}
-            >
-              <button className="text-primary text-sm hover:text-gray-800 transition-colors duration-200 flex items-center space-x-1 font-medium">
-                <span>Solutions</span>
-                <svg
-                  className={`w-3 h-3 transition-transform duration-200 ${
-                    isSolutionsOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+            {/* Desktop Navigation - Hidden on Mobile */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              {navItems.map((item) => (
+                <div key={item.name} className="relative group">
+                  <Link
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors duration-200 rounded-lg hover:bg-gray-50"
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Desktop Solutions Dropdown */}
+                  {item.hasDropdown && (
+                    <div className="absolute top-full left-0 mt-1 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                      {solutions.map((solution) => (
+                        <button
+                          key={solution.name}
+                          onClick={() => handleSolutionClick(solution.href)}
+                          className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
+                        >
+                          <div className="font-medium text-gray-900 text-sm">
+                            {solution.name}
+                          </div>
+                          <div className="text-xs text-gray-500 mt-0.5">
+                            {solution.description}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            {/* CTA + Mobile Menu Toggle */}
+            <div className="flex items-center space-x-3">
+              {/* Desktop CTA */}
+              <button
+                onClick={handleCTAClick}
+                className="hidden sm:inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-hover transition-all duration-200 hover:-translate-y-0.5"
+              >
+                Get Started
               </button>
 
-              {/* Enhanced Dropdown with better backdrop */}
-              {isSolutionsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50 py-4 z-50">
-                  {solutions.map((solution) => (
-                    <button
-                      key={solution.solutionId}
-                      onClick={() => handleSolutionClick(solution.solutionId)}
-                      className="w-full text-left block px-4 py-3 hover:bg-gray-50/80 transition-all duration-200 hover:translate-x-1"
-                    >
-                      <div className="text-sm font-medium text-primary mb-1">
-                        {solution.name}
-                      </div>
-                      <div className="text-xs text-muted">
-                        {solution.description}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
+              {/* Mobile Menu Button - Larger Touch Target */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden p-3 -mr-1 text-gray-600 hover:text-primary transition-colors duration-200 hover:bg-gray-50 rounded-lg"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </button>
             </div>
-
-            {/* Other Nav Items */}
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-primary text-sm hover:text-gray-800 transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA - Enhanced with better styling */}
-          <div className="flex items-center space-x-4">
-            <button className="hidden sm:inline-flex btn-primary hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-              Get Started
-            </button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-primary hover:text-gray-800 transition-colors hover:bg-gray-100/50 rounded-lg"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={
-                    isMenuOpen
-                      ? "M6 18L18 6M6 6l12 12"
-                      : "M4 6h16M4 12h16M4 18h16"
-                  }
-                />
-              </svg>
-            </button>
           </div>
         </div>
 
-        {/* Enhanced Mobile Navigation with better backdrop */}
-        {isMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200/50 py-4 bg-white/95 backdrop-blur-md">
-            <nav className="space-y-1">
-              {/* Solutions First in Mobile Too */}
-              <div className="pb-3 mb-3 border-b border-gray-100">
-                <div className="text-primary text-sm font-medium mb-3">
-                  Solutions
+        {/* Mobile Menu - Slide Down */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="bg-white border-t border-gray-100 shadow-lg">
+            <div className="mx-auto max-w-7xl px-4 py-4 space-y-1">
+              {/* Solutions Section - Expanded by Default in Mobile */}
+              <div className="space-y-2">
+                <div className="px-3 py-2">
+                  <span className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+                    Solutions
+                  </span>
                 </div>
                 {solutions.map((solution) => (
                   <button
-                    key={solution.solutionId}
-                    onClick={() => handleSolutionClick(solution.solutionId)}
-                    className="w-full text-left block py-2 hover:bg-gray-50/80 transition-all duration-200 rounded-lg px-3 -mx-3 hover:translate-x-1"
+                    key={solution.name}
+                    onClick={() => handleSolutionClick(solution.href)}
+                    className="w-full text-left px-6 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200 rounded-lg"
                   >
-                    <div className="text-sm font-medium text-primary">
-                      {solution.name}
-                    </div>
-                    <div className="text-xs text-muted">
+                    <div className="font-medium">{solution.name}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">
                       {solution.description}
                     </div>
                   </button>
                 ))}
               </div>
 
-              {/* Other Nav Items */}
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-primary text-sm hover:text-gray-800 transition-colors py-2 font-medium hover:translate-x-1 transition-transform duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {/* Divider */}
+              <div className="my-4 h-px bg-gray-100"></div>
 
-              <div className="pt-4 mt-4 border-t border-gray-100">
-                <button className="w-full btn-primary hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+              {/* Other Navigation Items */}
+              {navItems
+                .filter((item) => !item.hasDropdown)
+                .map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200 rounded-lg"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+
+              {/* Mobile CTA */}
+              <div className="pt-4 border-t border-gray-100 mt-4">
+                <button
+                  onClick={handleCTAClick}
+                  className="w-full px-4 py-3 bg-primary text-white font-medium text-center rounded-lg hover:bg-primary-hover transition-all duration-200"
+                >
                   Get Started
                 </button>
               </div>
-            </nav>
+            </div>
           </div>
-        )}
-      </div>
-    </header>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+    </>
   );
 }
