@@ -46,32 +46,33 @@ const PortfolioTrust = () => {
   };
 
   return (
-    <section className="py-8 md:py-16 lg:py-18 bg-white">
-      <div className="container">
-        {/* Mobile-First Header */}
-        <div className="text-center mb-6 md:mb-12">
-          <p className="text-sm md:text-lg text-gray-600 font-medium px-4">
+    <section className="py-16 lg:py-18 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <p className="text-lg text-gray-600 font-medium">
             Trusted by brands across eCommerce, beauty, logistics, and health
           </p>
         </div>
 
-        {/* Mobile-Optimized Client Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 items-center justify-items-center max-w-6xl mx-auto px-4">
+        {/* Client Logos Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
           {clients.map((client, index) => (
             <div
               key={index}
-              className="group relative w-full flex items-center justify-center p-3 md:p-4 
-                         bg-gray-50/50 rounded-xl md:rounded-2xl border border-gray-100/50
+              className="group relative w-full h-16 flex items-center justify-center p-4 
+                         bg-gray-50/50 rounded-2xl border border-gray-100/50
                          hover:bg-gray-50 hover:border-gray-200/50 
                          transition-all duration-300 ease-out
-                         hover:shadow-sm hover:-translate-y-0.5
-                         min-h-[80px] md:min-h-[100px]"
+                         hover:shadow-sm hover:-translate-y-0.5"
             >
               {imageErrors[index] ? (
-                // Enhanced mobile-friendly fallback
+                // Elegant fallback with initials
                 <div className="flex items-center justify-center w-full h-full">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg md:rounded-xl flex items-center justify-center">
-                    <span className="text-xs md:text-sm font-bold text-gray-600 select-none">
+                  <div
+                    className="w-12 h-12 bg-gradient-to-br from-gray-200 to-gray-300 
+                                  rounded-xl flex items-center justify-center"
+                  >
+                    <span className="text-sm font-bold text-gray-600 select-none">
                       {generateInitials(client.name)}
                     </span>
                   </div>
@@ -84,28 +85,19 @@ const PortfolioTrust = () => {
                   height={40}
                   className="max-w-full max-h-full object-contain 
                              opacity-70 group-hover:opacity-100
-                             transition-all duration-300 ease-out
-                             w-auto h-auto
-                             max-h-[32px] md:max-h-[40px]"
+                             transition-all duration-300 ease-out"
                   style={{
                     objectFit: "contain",
                     maxWidth: "100%",
                     height: "auto",
                   }}
                   onError={() => handleImageError(index)}
-                  unoptimized={true}
-                  priority={index < 3}
+                  unoptimized={true} // Bypass Next.js optimization for external images
+                  priority={index < 3} // Prioritize first 3 images
                 />
               )}
             </div>
           ))}
-        </div>
-
-        {/* Mobile-Friendly Additional Info */}
-        <div className="text-center mt-6 md:mt-8">
-          <p className="text-xs md:text-sm text-gray-500 px-4">
-            Real client projects delivering measurable results
-          </p>
         </div>
       </div>
     </section>
