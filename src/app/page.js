@@ -15,20 +15,41 @@ export default async function HomePage() {
   const projects = await getProjects();
 
   return (
-    <div>
-      <HeroSection />
-      <div className="section-divider">
+    <div className="min-h-screen">
+      {/* Hero Section - No top padding (handled by header) */}
+      <section className="relative">
+        <HeroSection />
+      </section>
+
+      {/* Trusted By Section - Tight coupling with hero */}
+      <section className="pt-12 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16 bg-gray-50">
         <TrustedBySection />
-      </div>
-      <PainSection />
-      <div className="section-divider">
+      </section>
+
+      {/* Pain Section - Major transition, needs breathing room */}
+      <section className="pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 lg:pb-16">
+        <PainSection />
+      </section>
+
+      {/* Solutions Section - Related to pain, moderate spacing */}
+      <section className="pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16 bg-white">
         <SolutionDifferentSection />
-      </div>
-      <AchieveSection />
-      <PortfolioSection projects={projects} />
-      <div className="section-divider">
+      </section>
+
+      {/* Achieve Section - Building on solutions */}
+      <section className="pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16 bg-gray-50">
+        <AchieveSection />
+      </section>
+
+      {/* Portfolio Section - Social proof, needs prominence */}
+      <section className="pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 lg:pb-16 bg-white">
+        <PortfolioSection projects={projects} />
+      </section>
+
+      {/* Final CTA - Major conclusion, maximum spacing */}
+      <section className="pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 lg:pb-16">
         <FinalCTASection />
-      </div>
+      </section>
     </div>
   );
 }
