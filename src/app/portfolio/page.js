@@ -14,6 +14,7 @@ export const dynamic = "force-dynamic";
 
 export default async function PortfolioPage() {
   // This runs on every request - live data from Notion
+
   const projects = await getProjects();
 
   return (
