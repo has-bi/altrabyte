@@ -1,7 +1,7 @@
 // src/components/about/AboutProblems.js
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Clock, Target, BarChart3, Users, AlertTriangle } from "lucide-react";
+import { Clock, Target, BarChart3, Users } from "lucide-react";
 
 const AboutProblems = () => {
   const [visibleItems, setVisibleItems] = useState([]);
@@ -130,7 +130,6 @@ const AboutProblems = () => {
           {/* Result statement - more subtle */}
           <div className="text-center">
             <div className="inline-flex items-center px-8 py-4 bg-gray-50 rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-gray-100">
-              <AlertTriangle className="w-5 h-5 text-orange-500 mr-3" />
               <p className="text-lg font-medium text-primary">
                 <strong>The result:</strong> You waste time explaining your
                 business instead of getting solutions.

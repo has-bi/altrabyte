@@ -17,20 +17,26 @@ export default async function PortfolioPage() {
   const projects = await getProjects();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <PortfolioHero />
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative">
+        <PortfolioHero />
+      </section>
 
-      {/* Portfolio Grid with Server-side data */}
-      <PortfolioGrid projects={projects} />
+      {/* Portfolio Grid with Server-side data - Better Mobile Spacing */}
+      <section className="pt-4 md:pt-8 pb-8 md:pb-12">
+        <PortfolioGrid projects={projects} />
+      </section>
 
-      {/* Trust Section */}
-      <div className="section-divider">
+      {/* Trust Section - Improved Mobile Layout */}
+      <section className="border-t border-gray-100">
         <PortfolioTrust />
-      </div>
+      </section>
 
-      {/* Final CTA */}
-      <PortfolioCTA />
+      {/* Final CTA - Mobile-First Design */}
+      <section className="pt-8 md:pt-12">
+        <PortfolioCTA />
+      </section>
     </div>
   );
 }
