@@ -1,4 +1,4 @@
-// components/SolutionDifferentSection.js - How We're Different
+// components/SolutionsOverview.js - Mobile-First Layout
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import {
@@ -10,11 +10,13 @@ import {
   GraduationCap,
   ArrowRight,
   Sparkles,
+  ChevronDown,
 } from "lucide-react";
 
 const SolutionDifferentSection = () => {
   const [visibleItems, setVisibleItems] = useState([]);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [expandedCard, setExpandedCard] = useState(null);
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef(null);
 
@@ -28,6 +30,7 @@ const SolutionDifferentSection = () => {
       gradient: "from-emerald-400 to-teal-500",
       bgColor: "bg-emerald-50",
       textColor: "text-emerald-600",
+      borderColor: "border-emerald-200",
       metric: "5+ Industries",
       delay: 0,
     },
@@ -40,6 +43,7 @@ const SolutionDifferentSection = () => {
       gradient: "from-blue-400 to-indigo-500",
       bgColor: "bg-blue-50",
       textColor: "text-blue-600",
+      borderColor: "border-blue-200",
       metric: "21 Days Max",
       delay: 200,
     },
@@ -52,6 +56,7 @@ const SolutionDifferentSection = () => {
       gradient: "from-purple-400 to-pink-500",
       bgColor: "bg-purple-50",
       textColor: "text-purple-600",
+      borderColor: "border-purple-200",
       metric: "Strategic Focus",
       delay: 400,
     },
@@ -64,6 +69,7 @@ const SolutionDifferentSection = () => {
       gradient: "from-orange-400 to-red-500",
       bgColor: "bg-orange-50",
       textColor: "text-orange-600",
+      borderColor: "border-orange-200",
       metric: "Production Ready",
       delay: 600,
     },
@@ -76,6 +82,7 @@ const SolutionDifferentSection = () => {
       gradient: "from-green-400 to-emerald-500",
       bgColor: "bg-green-50",
       textColor: "text-green-600",
+      borderColor: "border-green-200",
       metric: "Full Transparency",
       delay: 800,
     },
@@ -104,6 +111,13 @@ const SolutionDifferentSection = () => {
     return () => observer.disconnect();
   }, [isInView]);
 
+  const toggleExpanded = (index) => {
+    if (window.innerWidth < 768) {
+      // Mobile only
+      setExpandedCard(expandedCard === index ? null : index);
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -111,20 +125,109 @@ const SolutionDifferentSection = () => {
     >
       <div className="container relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6 animate-slide-up">
+        <div className="text-center mb-12 lg:mb-20">
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-4 lg:mb-6 animate-slide-up">
             Built for Business. Delivered Fast.
           </h2>
 
-          <p className="text-xl text-secondary max-w-3xl mx-auto leading-relaxed animate-slide-up-delayed">
+          <p className="text-lg lg:text-xl text-secondary max-w-3xl mx-auto leading-relaxed animate-slide-up-delayed">
             We combine deep domain knowledge with sharp technical execution — so
             you don't have to choose between speed and substance.
           </p>
         </div>
 
-        {/* Solutions Grid */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="space-y-6">
+        {/* Mobile-First Solutions Grid */}
+        <div className="max-w-4xl mx-auto mb-12 lg:mb-16">
+          {/* Mobile: Stack Vertically */}
+          <div className="block md:hidden space-y-4">
+            {solutions.map((solution, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-700 ${
+                  visibleItems.includes(index)
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${solution.delay}ms` }}
+              >
+                <div
+                  className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
+                    solution.borderColor
+                  } ${
+                    expandedCard === index
+                      ? "shadow-lg border-opacity-100"
+                      : "shadow-sm border-opacity-50"
+                  }`}
+                >
+                  {/* Mobile Card Header - Always Visible */}
+                  <div
+                    className="p-4 cursor-pointer"
+                    onClick={() => toggleExpanded(index)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        {/* Icon */}
+                        <div
+                          className={`w-12 h-12 ${solution.bgColor} rounded-xl flex items-center justify-center flex-shrink-0`}
+                        >
+                          {React.createElement(solution.icon, {
+                            className: `w-6 h-6 ${solution.textColor}`,
+                            strokeWidth: 1.5,
+                          })}
+                        </div>
+
+                        {/* Title & Metric */}
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-lg font-semibold text-primary leading-tight">
+                            {solution.title}
+                          </h3>
+                          <span
+                            className={`inline-block mt-1 px-2 py-1 ${solution.bgColor} ${solution.textColor} rounded-md text-xs font-medium`}
+                          >
+                            {solution.metric}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Expand Arrow */}
+                      <ChevronDown
+                        className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                          expandedCard === index ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Mobile Expandable Content */}
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${
+                      expandedCard === index
+                        ? "max-h-40 opacity-100"
+                        : "max-h-0 opacity-0"
+                    } overflow-hidden`}
+                  >
+                    <div className="px-4 pb-4">
+                      <p className="text-secondary leading-relaxed text-sm">
+                        {solution.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Progress indicator */}
+                  <div
+                    className={`h-1 bg-gradient-to-r ${
+                      solution.gradient
+                    } transition-all duration-300 ${
+                      expandedCard === index ? "opacity-100" : "opacity-0"
+                    }`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: Horizontal Layout (Preserved) */}
+          <div className="hidden md:block space-y-6">
             {solutions.map((solution, index) => (
               <div
                 key={index}
@@ -138,7 +241,7 @@ const SolutionDifferentSection = () => {
                 onMouseLeave={() => setHoveredItem(null)}
               >
                 <div
-                  className={`relative bg-white rounded-2xl p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
+                  className={`relative bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
                     hoveredItem === index
                       ? "shadow-xl scale-[1.02]"
                       : "shadow-sm"
@@ -152,13 +255,7 @@ const SolutionDifferentSection = () => {
                   {/* Check Icon */}
                   <div className="absolute top-6 left-6">
                     <div
-                      className={`w-8 h-8 ${
-                        solution.bgColor
-                      } rounded-full flex items-center justify-center transition-all duration-300 ${
-                        visibleItems.includes(index)
-                          ? "animate-check-bounce"
-                          : ""
-                      }`}
+                      className={`w-8 h-8 ${solution.bgColor} rounded-full flex items-center justify-center transition-all duration-300`}
                     >
                       <CheckCircle2
                         className={`w-5 h-5 ${solution.textColor} transition-all duration-300`}
@@ -223,7 +320,7 @@ const SolutionDifferentSection = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <button className="group inline-flex items-center px-8 py-4 bg-primary hover:bg-primary-hover text-white font-medium rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 transform">
+          <button className="group inline-flex items-center px-6 lg:px-8 py-3 lg:py-4 bg-primary hover:bg-primary-hover text-white font-medium rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 transform">
             <span className="relative z-10">Learn about our approach</span>
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>
@@ -234,20 +331,8 @@ const SolutionDifferentSection = () => {
         </div>
       </div>
 
-      {/* Custom Animations */}
+      {/* Custom Animations - Enhanced */}
       <style jsx>{`
-        @keyframes check-bounce {
-          0% {
-            transform: scale(0) rotate(-45deg);
-          }
-          60% {
-            transform: scale(1.2) rotate(0deg);
-          }
-          100% {
-            transform: scale(1) rotate(0deg);
-          }
-        }
-
         @keyframes icon-float {
           0%,
           100% {
@@ -258,15 +343,6 @@ const SolutionDifferentSection = () => {
           }
           75% {
             transform: translateY(2px) rotate(-1deg);
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%) skewX(-12deg);
-          }
-          100% {
-            transform: translateX(200%) skewX(-12deg);
           }
         }
 
@@ -281,27 +357,8 @@ const SolutionDifferentSection = () => {
           }
         }
 
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        .animate-check-bounce {
-          animation: check-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
         .animate-icon-float {
           animation: icon-float 2s ease-in-out infinite;
-        }
-
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
         }
 
         .animate-slide-up {
@@ -310,10 +367,6 @@ const SolutionDifferentSection = () => {
 
         .animate-slide-up-delayed {
           animation: slide-up 0.8s ease-out 0.2s both;
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
         }
 
         @media (prefers-reduced-motion: reduce) {
