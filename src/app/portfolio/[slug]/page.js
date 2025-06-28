@@ -3,13 +3,15 @@ import { getProject, getProjectContent, getProjects } from "@/lib/notion";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/components/portfolio/ProjectDetail";
 
+// 🟢 Use revalidation instead of force-dynamic for better performance
+export const revalidate = 60; // Revalidate every 60 seconds
+
 export async function generateStaticParams() {
   const projects = await getProjects();
   return projects.map((project) => ({ slug: project.slug })).filter(Boolean);
 }
 
 export async function generateMetadata({ params }) {
-  // Await params in Next.js 15
   const { slug } = await params;
   const project = await getProject(slug);
 
@@ -22,7 +24,6 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProjectPage({ params }) {
-  // Await params in Next.js 15
   const { slug } = await params;
   const project = await getProject(slug);
 
