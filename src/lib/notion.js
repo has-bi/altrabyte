@@ -1,4 +1,4 @@
-// src/lib/notion.js - Fixed Version
+// src/lib/notion.js - Fixed Version with Server-Side Column Support
 import React from "react";
 import { Client } from "@notionhq/client";
 
@@ -35,7 +35,10 @@ function getPropertyValue(page, propertyName) {
 
 // Enhanced rich text renderer with formatting support
 export function renderRichText(richText) {
-  if (!richText || !Array.isArray(richText)) return "";
+  if (!richText || !Array.isArray(richText)) {
+    console.log("renderRichText received:", richText);
+    return "";
+  }
 
   return richText.map((text, idx) => {
     let content = text.plain_text;
@@ -58,7 +61,21 @@ export function renderRichText(richText) {
         "code",
         {
           key: `code-${idx}`,
-          className: "px-2 py-1 bg-gray-100 rounded text-sm font-mono",
+          className:
+            "px-2 py-1 bg-gray-100 rounded text-sm font-mono text-gray-800",
+        },
+        content
+      );
+    }
+
+    // Handle color annotations
+    if (text.annotations?.color && text.annotations.color !== "default") {
+      const colorClass = getColorClass(text.annotations.color);
+      content = React.createElement(
+        "span",
+        {
+          key: `color-${idx}`,
+          className: colorClass,
         },
         content
       );
@@ -81,6 +98,235 @@ export function renderRichText(richText) {
 
     return content;
   });
+}
+
+// Helper function to get color classes
+function getColorClass(color) {
+  const colorMap = {
+    gray: "text-gray-600",
+    brown: "text-amber-700",
+    orange: "text-orange-600",
+    yellow: "text-yellow-600",
+    green: "text-green-600",
+    blue: "text-blue-600",
+    purple: "text-purple-600",
+    pink: "text-pink-600",
+    red: "text-red-600",
+    gray_background: "bg-gray-100 text-gray-800 px-2 py-1 rounded",
+    brown_background: "bg-amber-100 text-amber-800 px-2 py-1 rounded",
+    orange_background: "bg-orange-100 text-orange-800 px-2 py-1 rounded",
+    yellow_background: "bg-yellow-100 text-yellow-800 px-2 py-1 rounded",
+    green_background: "bg-green-100 text-green-800 px-2 py-1 rounded",
+    blue_background: "bg-blue-100 text-blue-800 px-2 py-1 rounded",
+    purple_background: "bg-purple-100 text-purple-800 px-2 py-1 rounded",
+    pink_background: "bg-pink-100 text-pink-800 px-2 py-1 rounded",
+    red_background: "bg-red-100 text-red-800 px-2 py-1 rounded",
+  };
+  return colorMap[color] || "text-gray-600";
+}
+
+// Basic syntax highlighting function
+function syntaxHighlight(code, language) {
+  // Server-safe HTML escaping
+  const escapeHtml = (text) => {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  };
+
+  let highlightedCode = escapeHtml(code);
+
+  // Apply syntax highlighting based on language
+  switch (language?.toLowerCase()) {
+    case "javascript":
+    case "js":
+      // Keywords
+      highlightedCode = highlightedCode.replace(
+        /\b(const|let|var|function|return|if|else|for|while|class|import|export|from|async|await|try|catch|throw|new|this|super|extends|static|typeof|instanceof)\b/g,
+        '<span style="color: #c792ea;">$1</span>'
+      );
+      // Strings
+      highlightedCode = highlightedCode.replace(
+        /(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g,
+        '<span style="color: #c3e88d;">$1$2$1</span>'
+      );
+      // Comments
+      highlightedCode = highlightedCode.replace(
+        /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm,
+        '<span style="color: #546e7a; font-style: italic;">$1</span>'
+      );
+      // Numbers
+      highlightedCode = highlightedCode.replace(
+        /\b(\d+(?:\.\d+)?)\b/g,
+        '<span style="color: #f78c6c;">$1</span>'
+      );
+      break;
+
+    case "python":
+    case "py":
+      // Keywords
+      highlightedCode = highlightedCode.replace(
+        /\b(def|class|if|elif|else|for|while|try|except|finally|import|from|as|return|yield|lambda|with|global|nonlocal|assert|break|continue|pass|raise|async|await)\b/g,
+        '<span style="color: #c792ea;">$1</span>'
+      );
+      // Strings
+      highlightedCode = highlightedCode.replace(
+        /(["'])((?:\\.|(?!\1)[^\\])*?)\1/g,
+        '<span style="color: #c3e88d;">$1$2$1</span>'
+      );
+      // Comments
+      highlightedCode = highlightedCode.replace(
+        /#.*$/gm,
+        '<span style="color: #546e7a; font-style: italic;">$&</span>'
+      );
+      // Numbers
+      highlightedCode = highlightedCode.replace(
+        /\b(\d+(?:\.\d+)?)\b/g,
+        '<span style="color: #f78c6c;">$1</span>'
+      );
+      break;
+
+    case "css":
+      // Properties
+      highlightedCode = highlightedCode.replace(
+        /([a-zA-Z-]+)(\s*:)/g,
+        '<span style="color: #82aaff;">$1</span>$2'
+      );
+      // Values
+      highlightedCode = highlightedCode.replace(
+        /:\s*([^;{}]+)(;|$)/g,
+        ': <span style="color: #c3e88d;">$1</span>$2'
+      );
+      // Selectors
+      highlightedCode = highlightedCode.replace(
+        /^([.#]?[a-zA-Z0-9_-]+)(\s*{)/gm,
+        '<span style="color: #ffcb6b;">$1</span>$2'
+      );
+      break;
+
+    case "html":
+    case "xml":
+      // Tags
+      highlightedCode = highlightedCode.replace(
+        /(&lt;\/?)([a-zA-Z0-9-]+)(.*?)(&gt;)/g,
+        '$1<span style="color: #f07178;">$2</span><span style="color: #c792ea;">$3</span>$4'
+      );
+      // Attributes
+      highlightedCode = highlightedCode.replace(
+        /([a-zA-Z-]+)(=)(["'])(.*?)\3/g,
+        '<span style="color: #c792ea;">$1</span>$2<span style="color: #c3e88d;">$3$4$3</span>'
+      );
+      break;
+
+    case "json":
+      // Keys
+      highlightedCode = highlightedCode.replace(
+        /"([^"]+)"(\s*:)/g,
+        '<span style="color: #82aaff;">"$1"</span>$2'
+      );
+      // String values
+      highlightedCode = highlightedCode.replace(
+        /:\s*"([^"]*)"/g,
+        ': <span style="color: #c3e88d;">"$1"</span>'
+      );
+      // Numbers, booleans, null
+      highlightedCode = highlightedCode.replace(
+        /:\s*(true|false|null|\d+(?:\.\d+)?)/g,
+        ': <span style="color: #f78c6c;">$1</span>'
+      );
+      break;
+
+    case "sql":
+      // Keywords
+      highlightedCode = highlightedCode.replace(
+        /\b(SELECT|FROM|WHERE|JOIN|INNER|LEFT|RIGHT|OUTER|ON|GROUP|BY|ORDER|HAVING|INSERT|UPDATE|DELETE|CREATE|ALTER|DROP|TABLE|DATABASE|INDEX|PRIMARY|KEY|FOREIGN|REFERENCES|NOT|NULL|DEFAULT|AUTO_INCREMENT|UNIQUE|CONSTRAINT)\b/gi,
+        '<span style="color: #c792ea;">$1</span>'
+      );
+      // Strings
+      highlightedCode = highlightedCode.replace(
+        /(["'])((?:\\.|(?!\1)[^\\])*?)\1/g,
+        '<span style="color: #c3e88d;">$1$2$1</span>'
+      );
+      // Comments
+      highlightedCode = highlightedCode.replace(
+        /(--.*$|\/\*[\s\S]*?\*\/)/gm,
+        '<span style="color: #546e7a; font-style: italic;">$1</span>'
+      );
+      break;
+
+    case "bash":
+    case "shell":
+    case "sh":
+      // Commands
+      highlightedCode = highlightedCode.replace(
+        /\b(cd|ls|mkdir|rm|cp|mv|chmod|chown|grep|find|sort|uniq|head|tail|cat|less|more|echo|printf|export|alias|history|ps|top|kill|jobs|bg|fg|nohup|crontab|sudo|su|ssh|scp|rsync|curl|wget|git|npm|pip|docker|kubectl)\b/g,
+        '<span style="color: #c792ea;">$1</span>'
+      );
+      // Strings
+      highlightedCode = highlightedCode.replace(
+        /(["'])((?:\\.|(?!\1)[^\\])*?)\1/g,
+        '<span style="color: #c3e88d;">$1$2$1</span>'
+      );
+      // Comments
+      highlightedCode = highlightedCode.replace(
+        /#.*$/gm,
+        '<span style="color: #546e7a; font-style: italic;">$&</span>'
+      );
+      // Variables
+      highlightedCode = highlightedCode.replace(
+        /\$[a-zA-Z_][a-zA-Z0-9_]*/g,
+        '<span style="color: #ffcb6b;">$&</span>'
+      );
+      break;
+
+    default:
+      // For unknown languages, apply basic highlighting
+      // Strings
+      highlightedCode = highlightedCode.replace(
+        /(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g,
+        '<span style="color: #c3e88d;">$1$2$1</span>'
+      );
+      // Numbers
+      highlightedCode = highlightedCode.replace(
+        /\b(\d+(?:\.\d+)?)\b/g,
+        '<span style="color: #f78c6c;">$1</span>'
+      );
+      break;
+  }
+
+  return highlightedCode;
+}
+
+// Recursively fetch all child blocks server-side
+async function getAllChildBlocks(blockId) {
+  try {
+    const response = await notion.blocks.children.list({
+      block_id: blockId,
+      page_size: 100,
+    });
+
+    const blocks = [];
+
+    for (const block of response.results) {
+      // Add the block itself
+      blocks.push(block);
+
+      // If it has children, fetch them recursively
+      if (block.has_children) {
+        const children = await getAllChildBlocks(block.id);
+        // Add children as a property
+        block.children = children;
+      }
+    }
+
+    return blocks;
+  } catch (error) {
+    console.error("Error fetching child blocks:", error);
+    return [];
+  }
 }
 
 // Group consecutive list items for proper rendering
@@ -132,7 +378,7 @@ function groupBlocks(blocks) {
   return grouped;
 }
 
-// Comprehensive Notion block renderer
+// Enhanced Notion block renderer with column support
 export function renderNotionBlock(block, index = 0) {
   // Handle grouped lists
   if (block.type === "ul" || block.type === "ol") {
@@ -150,8 +396,16 @@ export function renderNotionBlock(block, index = 0) {
   const { type, id } = block;
   const value = block[type];
 
-  if (!value) {
-    console.warn(`No value found for block type: ${type}`);
+  // Debug: Log block structure to understand the issue
+  if (
+    (type === "bulleted_list_item" || type === "numbered_list_item") &&
+    !value?.rich_text?.length
+  ) {
+    console.log("List item debug:", { type, id, value, fullBlock: block });
+  }
+
+  if (!value && type !== "column_list" && type !== "column") {
+    console.warn(`No value found for block type: ${type}`, block);
     return null;
   }
 
@@ -164,7 +418,7 @@ export function renderNotionBlock(block, index = 0) {
         "p",
         {
           key: id,
-          className: "text-secondary leading-[1.8] mb-8 text-lg",
+          className: "text-secondary leading-[1.8] mb-8 text-lg max-w-none",
         },
         renderRichText(value.rich_text)
       );
@@ -203,6 +457,12 @@ export function renderNotionBlock(block, index = 0) {
       );
 
     case "bulleted_list_item":
+      // Handle both rich_text and text properties
+      const bulletText = value.rich_text || value.text || [];
+      if (bulletText.length === 0) {
+        return React.createElement("li", { key: id, className: "h-4" }); // Empty bullet point
+      }
+
       return React.createElement(
         "li",
         {
@@ -210,17 +470,53 @@ export function renderNotionBlock(block, index = 0) {
           className:
             "text-secondary leading-[1.8] mb-3 text-lg list-none relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-gray-400 before:font-bold",
         },
-        renderRichText(value.rich_text)
+        [
+          renderRichText(bulletText),
+          // Render nested children if they exist
+          value.children && value.children.length > 0
+            ? React.createElement(
+                "ul",
+                {
+                  key: `nested-${id}`,
+                  className: "mt-2 ml-4 space-y-1",
+                },
+                value.children.map((child, idx) =>
+                  renderNotionBlock(child, idx)
+                )
+              )
+            : null,
+        ].filter(Boolean)
       );
 
     case "numbered_list_item":
+      // Handle both rich_text and text properties
+      const numberedText = value.rich_text || value.text || [];
+      if (numberedText.length === 0) {
+        return React.createElement("li", { key: id, className: "h-4" }); // Empty numbered item
+      }
+
       return React.createElement(
         "li",
         {
           key: id,
           className: "text-secondary leading-[1.8] mb-3 text-lg",
         },
-        renderRichText(value.rich_text)
+        [
+          renderRichText(numberedText),
+          // Render nested children if they exist
+          value.children && value.children.length > 0
+            ? React.createElement(
+                "ol",
+                {
+                  key: `nested-${id}`,
+                  className: "mt-2 ml-4 space-y-1",
+                },
+                value.children.map((child, idx) =>
+                  renderNotionBlock(child, idx)
+                )
+              )
+            : null,
+        ].filter(Boolean)
       );
 
     case "to_do":
@@ -228,7 +524,8 @@ export function renderNotionBlock(block, index = 0) {
         "div",
         {
           key: id,
-          className: "flex items-start space-x-3 mb-4",
+          className:
+            "flex items-start space-x-4 mb-6 p-4 rounded-lg hover:bg-gray-50/50 transition-colors",
         },
         [
           React.createElement("input", {
@@ -237,13 +534,13 @@ export function renderNotionBlock(block, index = 0) {
             checked: value.checked,
             readOnly: true,
             className:
-              "mt-1.5 w-4 h-4 text-primary rounded focus:ring-primary border-gray-300",
+              "mt-1.5 w-5 h-5 text-primary rounded focus:ring-primary border-gray-300 cursor-default",
           }),
           React.createElement(
             "span",
             {
               key: `text-${id}`,
-              className: `text-lg leading-[1.8] ${
+              className: `text-lg leading-[1.8] max-w-none ${
                 value.checked ? "line-through text-gray-400" : "text-secondary"
               }`,
             },
@@ -258,44 +555,47 @@ export function renderNotionBlock(block, index = 0) {
         {
           key: id,
           className:
-            "my-12 pl-8 border-l-4 border-primary/30 bg-gray-50/50 py-6 rounded-r-xl",
+            "my-12 pl-8 pr-6 py-8 border-l-4 border-indigo-400 bg-indigo-50/50 rounded-r-2xl shadow-sm",
         },
         React.createElement(
           "div",
           {
-            className: "text-xl leading-relaxed text-secondary italic",
+            className:
+              "text-xl leading-relaxed text-indigo-900 italic font-medium max-w-none",
           },
           renderRichText(value.rich_text)
         )
       );
 
     case "callout":
-      const icon = value.icon?.emoji || "💡";
+      const icon = value.icon?.emoji || value.icon?.external?.url || "💡";
       return React.createElement(
         "div",
         {
           key: id,
-          className: "my-12 p-6 bg-blue-50 border border-blue-100 rounded-2xl",
+          className:
+            "my-12 p-8 bg-blue-50 border-l-4 border-blue-400 rounded-r-2xl shadow-sm",
         },
         React.createElement(
           "div",
           {
-            className: "flex items-start space-x-4",
+            className: "flex items-start space-x-6",
           },
           [
             React.createElement(
-              "span",
+              "div",
               {
                 key: `icon-${id}`,
-                className: "text-2xl",
+                className: "flex-shrink-0 text-3xl leading-none",
               },
-              icon
+              typeof icon === "string" ? icon : "💡"
             ),
             React.createElement(
               "div",
               {
                 key: `content-${id}`,
-                className: "flex-1 text-lg leading-[1.8] text-secondary",
+                className:
+                  "flex-1 text-lg leading-[1.7] text-blue-900 max-w-none",
               },
               renderRichText(value.rich_text)
             ),
@@ -305,39 +605,129 @@ export function renderNotionBlock(block, index = 0) {
 
     case "code":
       const codeText = value.rich_text.map((text) => text.plain_text).join("");
+      const language = value.language || "text";
+
       return React.createElement(
         "div",
         {
           key: id,
-          className: "my-8",
+          className:
+            "my-12 rounded-2xl overflow-hidden shadow-2xl bg-slate-900",
         },
         [
+          // Header with language badge
+          React.createElement(
+            "div",
+            {
+              key: `header-${id}`,
+              className:
+                "bg-slate-800 px-6 py-4 border-b border-slate-700 flex items-center justify-between",
+            },
+            [
+              React.createElement(
+                "span",
+                {
+                  key: `lang-${id}`,
+                  className:
+                    "text-slate-300 text-sm font-mono font-medium uppercase",
+                },
+                language !== "text" ? language : "CODE"
+              ),
+              React.createElement(
+                "div",
+                {
+                  key: `dots-${id}`,
+                  className: "flex space-x-2",
+                },
+                [
+                  React.createElement("div", {
+                    key: "dot1",
+                    className: "w-3 h-3 rounded-full bg-red-500",
+                  }),
+                  React.createElement("div", {
+                    key: "dot2",
+                    className: "w-3 h-3 rounded-full bg-yellow-500",
+                  }),
+                  React.createElement("div", {
+                    key: "dot3",
+                    className: "w-3 h-3 rounded-full bg-green-500",
+                  }),
+                ]
+              ),
+            ]
+          ),
+          // Code content with dark theme
           React.createElement(
             "pre",
             {
               key: `pre-${id}`,
               className:
-                "bg-gray-900 text-gray-100 p-6 rounded-2xl overflow-x-auto",
-            },
-            React.createElement(
-              "code",
-              {
-                className: "font-mono text-sm leading-relaxed",
+                "bg-slate-900 text-slate-100 p-6 overflow-x-auto m-0 font-mono text-sm leading-relaxed",
+              style: {
+                fontFamily:
+                  "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
+                backgroundColor: "#0f172a", // slate-900
+                color: "#f1f5f9", // slate-100
+                fontSize: "14px",
+                lineHeight: "1.7",
+                tabSize: "2",
               },
-              codeText
-            )
+            },
+            React.createElement("code", {
+              className: "text-slate-100",
+              dangerouslySetInnerHTML: {
+                __html: syntaxHighlight(codeText, language),
+              },
+            })
           ),
           value.caption && value.caption.length > 0
             ? React.createElement(
                 "p",
                 {
                   key: `caption-${id}`,
-                  className: "text-sm text-gray-500 mt-2 text-center",
+                  className:
+                    "text-sm text-slate-400 mt-4 mb-2 text-center italic px-6 pb-4",
                 },
                 renderRichText(value.caption)
               )
             : null,
         ].filter(Boolean)
+      );
+
+    case "column_list":
+      // Render columns using pre-fetched children data
+      const columns = block.children || [];
+      const columnCount = columns.length;
+
+      return React.createElement(
+        "div",
+        {
+          key: id,
+          className: "my-12 grid gap-6 md:gap-8",
+          style: {
+            gridTemplateColumns:
+              columnCount > 0
+                ? `repeat(${Math.min(columnCount, 3)}, 1fr)`
+                : "repeat(auto-fit, minmax(250px, 1fr))",
+          },
+        },
+        columns.map((column, index) => renderNotionBlock(column, index))
+      );
+
+    case "column":
+      // Render column content using pre-fetched children data
+      const columnContent = block.children || [];
+
+      return React.createElement(
+        "div",
+        {
+          key: id,
+          className:
+            "space-y-6 p-6 bg-gray-50/40 rounded-2xl border border-gray-100/60",
+        },
+        columnContent.map((contentBlock, index) =>
+          renderNotionBlock(contentBlock, index)
+        )
       );
 
     case "image":
@@ -360,7 +750,7 @@ export function renderNotionBlock(block, index = 0) {
             React.createElement("img", {
               src: imageSrc,
               alt: value.caption
-                ? renderRichText(value.caption)
+                ? getPlainText(value.caption)
                 : "Project image",
               className: "w-full h-auto",
             })
@@ -371,7 +761,7 @@ export function renderNotionBlock(block, index = 0) {
                 {
                   key: `img-caption-${id}`,
                   className:
-                    "text-sm text-gray-500 mt-4 text-center leading-relaxed",
+                    "text-sm text-gray-500 mt-4 text-center leading-relaxed italic",
                 },
                 renderRichText(value.caption)
               )
@@ -391,7 +781,6 @@ export function renderNotionBlock(block, index = 0) {
         })
       );
 
-    // Handle video, file, embed, bookmark, etc. with similar React.createElement approach
     case "video":
       const videoSrc =
         value.type === "external" ? value.external.url : value.file.url;
@@ -438,7 +827,7 @@ export function renderNotionBlock(block, index = 0) {
                   {
                     key: `video-caption-${id}`,
                     className:
-                      "text-sm text-gray-500 mt-4 text-center leading-relaxed",
+                      "text-sm text-gray-500 mt-4 text-center leading-relaxed italic",
                   },
                   renderRichText(value.caption)
                 )
@@ -468,7 +857,7 @@ export function renderNotionBlock(block, index = 0) {
                 href: videoSrc,
                 target: "_blank",
                 rel: "noopener noreferrer",
-                className: "underline",
+                className: "underline font-medium",
               },
               "View Video"
             ),
@@ -565,13 +954,11 @@ export async function getProject(slug) {
   }
 }
 
+// Enhanced getProjectContent that fetches all nested content server-side
 export async function getProjectContent(id) {
   try {
-    const blocks = await notion.blocks.children.list({
-      block_id: id,
-      page_size: 100, // Ensure we get all blocks
-    });
-    return blocks.results;
+    const blocks = await getAllChildBlocks(id);
+    return blocks;
   } catch (error) {
     console.error("Error fetching content:", error);
     return [];
