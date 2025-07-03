@@ -378,16 +378,24 @@ function groupBlocks(blocks) {
   return grouped;
 }
 
-// Enhanced Notion block renderer with column support
+// Enhanced Notion block renderer with proper bullet points and Notion-style callouts
 export function renderNotionBlock(block, index = 0) {
-  // Handle grouped lists
+  // Handle grouped lists - this is the key fix for bullet points
   if (block.type === "ul" || block.type === "ol") {
     const ListTag = block.type;
     return React.createElement(
       ListTag,
       {
         key: block.id,
-        className: "my-6 space-y-2",
+        className: `my-6 space-y-2 ${
+          ListTag === "ul"
+            ? "list-disc list-inside ml-6"
+            : "list-decimal list-inside ml-6"
+        }`,
+        style:
+          ListTag === "ul"
+            ? { listStyleType: "disc" }
+            : { listStyleType: "decimal" },
       },
       block.items.map((item, idx) => renderNotionBlock(item, idx))
     );
@@ -395,14 +403,6 @@ export function renderNotionBlock(block, index = 0) {
 
   const { type, id } = block;
   const value = block[type];
-
-  // Debug: Log block structure to understand the issue
-  if (
-    (type === "bulleted_list_item" || type === "numbered_list_item") &&
-    !value?.rich_text?.length
-  ) {
-    console.log("List item debug:", { type, id, value, fullBlock: block });
-  }
 
   if (!value && type !== "column_list" && type !== "column") {
     console.warn(`No value found for block type: ${type}`, block);
@@ -412,13 +412,13 @@ export function renderNotionBlock(block, index = 0) {
   switch (type) {
     case "paragraph":
       if (!value.rich_text || value.rich_text.length === 0) {
-        return React.createElement("div", { key: id, className: "h-6" }); // Empty line
+        return React.createElement("div", { key: id, className: "h-6" });
       }
       return React.createElement(
         "p",
         {
           key: id,
-          className: "text-secondary leading-[1.8] mb-8 text-lg max-w-none",
+          className: "text-gray-900 leading-[1.8] mb-8 text-lg max-w-none",
         },
         renderRichText(value.rich_text)
       );
@@ -429,7 +429,7 @@ export function renderNotionBlock(block, index = 0) {
         {
           key: id,
           className:
-            "text-3xl font-medium text-primary mt-16 mb-8 tracking-tight",
+            "text-3xl font-medium text-gray-900 mt-16 mb-8 tracking-tight",
         },
         renderRichText(value.rich_text)
       );
@@ -440,7 +440,7 @@ export function renderNotionBlock(block, index = 0) {
         {
           key: id,
           className:
-            "text-2xl font-medium text-primary mt-12 mb-6 tracking-tight",
+            "text-2xl font-medium text-gray-900 mt-12 mb-6 tracking-tight",
         },
         renderRichText(value.rich_text)
       );
@@ -451,24 +451,31 @@ export function renderNotionBlock(block, index = 0) {
         {
           key: id,
           className:
-            "text-xl font-medium text-primary mt-8 mb-4 tracking-tight",
+            "text-xl font-medium text-gray-900 mt-8 mb-4 tracking-tight",
         },
         renderRichText(value.rich_text)
       );
 
     case "bulleted_list_item":
-      // Handle both rich_text and text properties
       const bulletText = value.rich_text || value.text || [];
       if (bulletText.length === 0) {
-        return React.createElement("li", { key: id, className: "h-4" }); // Empty bullet point
+        return React.createElement("li", {
+          key: id,
+          className: "h-4",
+          style: { listStyleType: "disc", display: "list-item" },
+        });
       }
 
       return React.createElement(
         "li",
         {
           key: id,
-          className:
-            "text-secondary leading-[1.8] mb-3 text-lg list-none relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-gray-400 before:font-bold",
+          className: "text-gray-900 leading-[1.8] mb-3 text-lg",
+          style: {
+            listStyleType: "disc",
+            display: "list-item",
+            marginLeft: "1.5rem",
+          },
         },
         [
           renderRichText(bulletText),
@@ -479,6 +486,7 @@ export function renderNotionBlock(block, index = 0) {
                 {
                   key: `nested-${id}`,
                   className: "mt-2 ml-4 space-y-1",
+                  style: { listStyleType: "disc" },
                 },
                 value.children.map((child, idx) =>
                   renderNotionBlock(child, idx)
@@ -489,17 +497,25 @@ export function renderNotionBlock(block, index = 0) {
       );
 
     case "numbered_list_item":
-      // Handle both rich_text and text properties
       const numberedText = value.rich_text || value.text || [];
       if (numberedText.length === 0) {
-        return React.createElement("li", { key: id, className: "h-4" }); // Empty numbered item
+        return React.createElement("li", {
+          key: id,
+          className: "h-4",
+          style: { listStyleType: "decimal", display: "list-item" },
+        });
       }
 
       return React.createElement(
         "li",
         {
           key: id,
-          className: "text-secondary leading-[1.8] mb-3 text-lg",
+          className: "text-gray-900 leading-[1.8] mb-3 text-lg",
+          style: {
+            listStyleType: "decimal",
+            display: "list-item",
+            marginLeft: "1.5rem",
+          },
         },
         [
           renderRichText(numberedText),
@@ -510,6 +526,7 @@ export function renderNotionBlock(block, index = 0) {
                 {
                   key: `nested-${id}`,
                   className: "mt-2 ml-4 space-y-1",
+                  style: { listStyleType: "decimal" },
                 },
                 value.children.map((child, idx) =>
                   renderNotionBlock(child, idx)
@@ -541,7 +558,7 @@ export function renderNotionBlock(block, index = 0) {
             {
               key: `text-${id}`,
               className: `text-lg leading-[1.8] max-w-none ${
-                value.checked ? "line-through text-gray-400" : "text-secondary"
+                value.checked ? "line-through text-gray-400" : "text-gray-900"
               }`,
             },
             renderRichText(value.rich_text)
@@ -555,13 +572,18 @@ export function renderNotionBlock(block, index = 0) {
         {
           key: id,
           className:
-            "my-12 pl-8 pr-6 py-8 border-l-4 border-indigo-400 bg-indigo-50/50 rounded-r-2xl shadow-sm",
+            "my-6 pl-6 py-2 border-l-[6px] border-gray-400 bg-gray-50 rounded-r-lg",
+          style: {
+            borderLeftWidth: "4px",
+            borderLeftColor: "#9ca3af", // gray-400
+            borderLeftStyle: "solid",
+          },
         },
         React.createElement(
           "div",
           {
             className:
-              "text-xl leading-relaxed text-indigo-900 italic font-medium max-w-none",
+              "ml-3 text-xl leading-relaxed font-normal italic text-gray-900 max-w-none",
           },
           renderRichText(value.rich_text)
         )
@@ -569,38 +591,40 @@ export function renderNotionBlock(block, index = 0) {
 
     case "callout":
       const icon = value.icon?.emoji || value.icon?.external?.url || "💡";
+
       return React.createElement(
         "div",
         {
           key: id,
           className:
-            "my-12 p-8 bg-blue-50 border-l-4 border-blue-400 rounded-r-2xl shadow-sm",
+            "my-8 flex items-start space-x-4 p-4 bg-gray-100 rounded-lg border-l-4 border-gray-300",
         },
-        React.createElement(
-          "div",
-          {
-            className: "flex items-start space-x-6",
-          },
-          [
-            React.createElement(
-              "div",
-              {
-                key: `icon-${id}`,
-                className: "flex-shrink-0 text-3xl leading-none",
-              },
-              typeof icon === "string" ? icon : "💡"
-            ),
-            React.createElement(
-              "div",
-              {
-                key: `content-${id}`,
-                className:
-                  "flex-1 text-lg leading-[1.7] text-blue-900 max-w-none",
-              },
-              renderRichText(value.rich_text)
-            ),
-          ]
-        )
+        [
+          // Icon section
+          React.createElement(
+            "div",
+            {
+              key: `icon-${id}`,
+              className: "flex-shrink-0 text-xl leading-none mt-0.5",
+            },
+            typeof icon === "string" ? icon : "💡"
+          ),
+          // Vertical bar separator (like Notion)
+          React.createElement("div", {
+            key: `separator-${id}`,
+            className: "w-px bg-gray-300 h-6 flex-shrink-0 mt-1",
+          }),
+          // Content section
+          React.createElement(
+            "div",
+            {
+              key: `content-${id}`,
+              className:
+                "flex-1 text-lg leading-[1.7] text-gray-900 max-w-none",
+            },
+            renderRichText(value.rich_text)
+          ),
+        ]
       );
 
     case "code":
@@ -656,7 +680,7 @@ export function renderNotionBlock(block, index = 0) {
               ),
             ]
           ),
-          // Code content with dark theme
+          // Code content
           React.createElement(
             "pre",
             {
@@ -666,8 +690,8 @@ export function renderNotionBlock(block, index = 0) {
               style: {
                 fontFamily:
                   "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
-                backgroundColor: "#0f172a", // slate-900
-                color: "#f1f5f9", // slate-100
+                backgroundColor: "#0f172a",
+                color: "#f1f5f9",
                 fontSize: "14px",
                 lineHeight: "1.7",
                 tabSize: "2",
@@ -695,7 +719,6 @@ export function renderNotionBlock(block, index = 0) {
       );
 
     case "column_list":
-      // Render columns using pre-fetched children data
       const columns = block.children || [];
       const columnCount = columns.length;
 
@@ -715,7 +738,6 @@ export function renderNotionBlock(block, index = 0) {
       );
 
     case "column":
-      // Render column content using pre-fetched children data
       const columnContent = block.children || [];
 
       return React.createElement(
