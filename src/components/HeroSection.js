@@ -1,130 +1,72 @@
-// components/HeroSection.js - Hero with Video in Stats Container
+// components/HeroSection.js - Clean Design
 "use client";
-
-import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 const HeroSection = () => {
-  const industries = [
-    "E-commerce",
-    "Retail",
-    "Logistics",
-    "EdTech",
-    "FMCG",
-    "Renewable Energy",
-    "Banking",
-  ];
-
-  const [currentIndustry, setCurrentIndustry] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndustry((prev) => (prev + 1) % industries.length);
-    }, 2500); // Slightly faster transition
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden bg-[#E1E1FC]">
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 lg:space-y-10">
-            {/* Status Badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/80 backdrop-blur-md rounded-full border border-gray-200">
-              <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-              <span className="text-primary text-sm font-medium">
-                Available for new projects
-              </span>
-            </div>
-
-            {/* Headlines */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                Turning Data
-                <br />
-                Into Decisions
-              </h1>
-
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-primary">
-                Drive Growth in{" "}
-                <span className="relative inline-block min-w-[200px]">
-                  <span
-                    key={currentIndustry}
-                    className="text-primary font-semibold transition-all duration-700 ease-in-out animate-fade-in"
-                  >
-                    {industries[currentIndustry]}
-                  </span>
-                </span>
-              </h2>
-
-              <p className="text-lg sm:text-xl text-primary leading-relaxed max-w-lg pt-2">
-                Empower faster decision-making, automate what slows you down,
-                and reduce operational waste.
-              </p>
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-2">
-              <button className="btn-primary group relative inline-flex items-center">
-                <span className="relative z-10">
-                  Get a Free Data Strategy Session
-                </span>
-                <svg
-                  className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Right Side - Video Container */}
-          <div className="hidden lg:block">
-            <div className="relative">
-              {/* Simple Video Container */}
-              <div className="relative">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-[35rem] object-cover"
-                >
-                  <source src="/videos/hero.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
+    <section className="relative min-h-screen bg-white overflow-hidden pt-20">
+      {/* Hero Object Layer */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-end">
+        {/* Hero Object SVG */}
+        <div className="h-full w-auto aspect-[788/859] z-5">
+          <img
+            src="/hero-object.svg"
+            alt="Hero Object"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+      {/* Content - Pixel Perfect */}
+      <div className="relative z-10 max-w-[1440px] mx-auto pt-[120px] pb-[80px]">
+        <div className="flex flex-col max-w-[590px] gap-y-[28px]">
+          {/* Main Headline - Exact Typography */}
+          <h1 className="text-[56px] leading-[72px] font-normal text-neutral-500 tracking-[-0.02em]">
+            <span className="text-primary-500">Stop</span> Building AI on
+            <br />
+            Excel Spreadsheets
+          </h1>
 
-        .animate-fade-in {
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-      `}</style>
+          {/* Subheadline with Purple Border */}
+          <div className="p-2 border-l-[4px] border-primary-500 pl-[18px] bg-gradient-to-r from-primary-50 to-transparent">
+            <h2 className="text-[24px] leading-[38px] font-medium text-neutral-400 tracking-[-0.01em]">
+              From Excel Chaos to{" "}
+              <span className="text-primary-500">Automated Intelligence</span>
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-y-[16px]">
+            {/* Quote - Italic Typography */}
+            <blockquote className="text-[20px] leading-160% text-neutral-400 italic font-medium">
+              "Most companies think they're ready for advanced analytics. Most
+              are wrong."
+            </blockquote>
+
+            {/* Description Paragraph */}
+            <p className="text-[18px] leading-[28px] text-neutral-400 max-w-[528px]">
+              We meet you exactly where you are - whether that's spreadsheets,
+              scattered systems, or broken dashboards - and build the foundation
+              that actually scales.
+            </p>
+          </div>
+
+          {/* CTA Buttons - Exact Sizing */}
+          <div className="flex flex-col sm:flex-row gap-[16px]">
+            <Link
+              href="/diagnose"
+              className="inline-flex items-center justify-center w-[252px] h-[56px] bg-neutral-500 text-white text-[16px] font-semibold rounded-full hover:bg-neutral-600 transition-colors duration-200 leading-none"
+            >
+              Diagnose My Data Reality
+            </Link>
+            <Link
+              href="/transformations"
+              className="inline-flex items-center justify-center w-[228px] h-[56px] bg-transparent text-neutral-500 text-[16px] font-semibold rounded-full border-[2px] border-neutral-200 hover:border-primary-500 hover:text-primary-500 transition-all duration-200 leading-none"
+            >
+              See Real Transformations
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

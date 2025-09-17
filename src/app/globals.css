@@ -1,69 +1,47 @@
-/* src/app/globals.css - Enhanced Mobile-First Version */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Brand Colors - Indigo-based Harmony */
-  --color-primary: #6366f1; /* Indigo-500 - Main brand color */
-  --color-primary-hover: #4f46e5; /* Indigo-600 - Primary hover state */
-  --color-primary-light: #e0e7ff; /* Indigo-100 - Light backgrounds */
-  --color-secondary: #10b981; /* Emerald-500 - Success/accent color */
-  --color-secondary-hover: #059669; /* Emerald-600 - Secondary hover */
-  --color-secondary-light: #d1fae5; /* Emerald-100 - Light secondary */
-  --color-accent: #f59e0b; /* Amber-500 - Warning/highlight */
-  --color-accent-light: #fef3c7; /* Amber-100 - Light accent */
+  /* Primary Colors - Purple */
+  --primary-50: #f2efff;
+  --primary-100: #d5cffe;
+  --primary-200: #c1b7fe;
+  --primary-300: #a596fd;
+  --primary-400: #9382fd;
+  --primary-500: #7863fc;
+  --primary-600: #6d5ae5;
+  --primary-700: #5546b3;
+  --primary-800: #42368b;
+  --primary-900: #322a6a;
+
+  /* Secondary Colors - Warm Grays */
+  --secondary-50: #fefcfc;
+  --secondary-100: #fbf7f6;
+  --secondary-200: #f9f3f2;
+  --secondary-300: #f6eeec;
+  --secondary-400: #f5eae8;
+  --secondary-500: #f2e5e2;
+  --secondary-600: #dcd0ce;
+  --secondary-700: #aca3a0;
+  --secondary-800: #857e7c;
+  --secondary-900: #66605f;
+
+  /* Neutral Colors - Cool Grays */
+  --neutral-50: #e7e9eb;
+  --neutral-100: #b6babf;
+  --neutral-200: #9299a1;
+  --neutral-300: #606b76;
+  --neutral-400: #414e5b;
+  --neutral-500: #122232;
+  --neutral-600: #101f2e;
+  --neutral-700: #0d1824;
+  --neutral-800: #0a131c;
+  --neutral-900: #080e15;
 
   /* Base Colors */
   --background: #ffffff;
-  --foreground: #1a1a1a;
-
-  /* Neutral Grays */
-  --gray-50: #fafafa;
-  --gray-100: #f5f5f5;
-  --gray-200: #eeeeee;
-  --gray-300: #e0e0e0;
-  --gray-400: #bdbdbd;
-  --gray-500: #9e9e9e;
-  --gray-600: #757575;
-  --gray-700: #424242;
-  --gray-800: #2e2e2e;
-  --gray-900: #1a1a1a;
-
-  /* Status Colors */
-  --color-success: #10b981;
-  --color-success-light: #d1fae5;
-  --color-warning: #f59e0b;
-  --color-warning-light: #fef3c7;
-  --color-error: #ef4444;
-  --color-error-light: #fee2e2;
-
-  /* Semantic Colors */
-  --text-primary: var(--gray-900);
-  --text-secondary: var(--gray-600);
-  --text-muted: var(--gray-500);
-  --border-light: var(--gray-100);
-  --border-medium: var(--gray-200);
-  --border-dark: var(--gray-300);
-
-  /* Solutions Page Colors */
-  --color-data-analytics: #f59e0b; /* Amber-500 untuk Data Analytics */
-  --color-data-analytics-light: #fef3c7; /* Amber-100 */
-  --color-genai: #8b5cf6; /* Purple-500 untuk GenAI */
-  --color-genai-light: #f3e8ff; /* Purple-100 */
-  --color-rpa: #10b981; /* Emerald-500 untuk RPA (existing secondary) */
-  --color-rpa-light: #d1fae5; /* Emerald-100 (existing secondary-light) */
-
-  /* Mobile-First Spacing System */
-  --space-mobile-xs: 0.25rem; /* 4px */
-  --space-mobile-sm: 0.5rem; /* 8px */
-  --space-mobile-md: 0.75rem; /* 12px */
-  --space-mobile-lg: 1rem; /* 16px */
-  --space-mobile-xl: 1.5rem; /* 24px */
-  --space-mobile-2xl: 2rem; /* 32px */
-  --space-mobile-3xl: 3rem; /* 48px */
-  --space-mobile-4xl: 4rem; /* 64px */
-  --space-mobile-5xl: 5rem; /* 80px */
+  --foreground: var(--neutral-500);
 }
 
 /* Base Styles */
@@ -77,646 +55,42 @@ html {
 
 body {
   color: var(--foreground);
-  background: #ffffff;
-  font-family: var(--font-plus-jakarta);
+  background: var(--background);
+  font-family: system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
-/* Typography - Mobile-First with Balanced Sizing */
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   line-height: 1.2;
   font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-
-h1 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-mobile-md);
-}
-
-h2 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
-  margin-bottom: var(--space-mobile-sm);
-}
-
-h3 {
-  font-size: clamp(1.125rem, 2vw, 1.75rem);
-  font-weight: 600;
-  margin-bottom: var(--space-mobile-sm);
+  color: var(--neutral-500);
 }
 
 p {
-  color: var(--text-secondary);
-  line-height: 1.6;
   margin: 0;
-  font-size: 1rem;
-  margin-bottom: var(--space-mobile-lg);
+  line-height: 1.6;
+  color: var(--neutral-400);
 }
 
-/* Enhanced Button Components - Mobile-First */
-@layer components {
-  .btn-primary {
-    @apply px-6 py-3 font-medium rounded-xl transition-all duration-200;
-    background-color: var(--color-primary);
-    color: white;
-    font-size: 0.875rem;
-    border: none;
-    cursor: pointer;
-    min-height: 2.75rem; /* 44px touch target */
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-primary-hover);
-    transform: translateY(-1px);
-  }
-
-  .btn-secondary {
-    @apply px-6 py-3 font-medium rounded-xl transition-all duration-200;
-    border: 1px solid var(--border-medium);
-    color: var(--text-primary);
-    background-color: transparent;
-    font-size: 0.875rem;
-    cursor: pointer;
-    min-height: 2.75rem; /* 44px touch target */
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--border-dark);
-    background-color: var(--gray-50);
-    transform: translateY(-1px);
-  }
-
-  .btn-tertiary {
-    @apply font-medium transition-all duration-200;
-    color: var(--text-primary);
-    font-size: 0.875rem;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    background: none;
-    min-height: 2.75rem; /* 44px touch target */
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .btn-tertiary:hover {
-    color: var(--color-primary);
-  }
-
-  .btn-accent {
-    @apply px-6 py-3 font-medium rounded-xl transition-all duration-200;
-    background-color: var(--color-secondary);
-    color: white;
-    font-size: 0.875rem;
-    border: none;
-    cursor: pointer;
-    min-height: 2.75rem; /* 44px touch target */
-  }
-
-  .btn-accent:hover {
-    background-color: var(--color-secondary-hover);
-    transform: translateY(-1px);
-  }
+/* Remove focus outlines for navigation (clean design) */
+nav a,
+nav button {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
-/* Enhanced Card Components */
-@layer components {
-  .card {
-    @apply bg-white rounded-2xl transition-all duration-300;
-    border: 1px solid var(--border-light);
-    padding: var(--space-mobile-lg);
-  }
-
-  .card:hover {
-    border-color: var(--border-medium);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
-  }
-
-  .card-hover {
-    @apply hover:shadow-sm hover:-translate-y-1 transform 
-           transition-all duration-300;
-  }
-
-  /* Mobile-optimized card spacing */
-  @media (min-width: 640px) {
-    .card {
-      padding: var(--space-mobile-xl);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .card {
-      padding: var(--space-mobile-2xl);
-    }
-  }
-}
-
-/* Mobile-First Section Spacing System */
-@layer components {
-  /* Modern section spacing with mobile-first approach */
-  .section {
-    padding-top: var(--space-mobile-xl); /* 24px mobile */
-    padding-bottom: var(--space-mobile-xl); /* 24px mobile */
-  }
-
-  @media (min-width: 640px) {
-    .section {
-      padding-top: var(--space-mobile-2xl); /* 32px tablet */
-      padding-bottom: var(--space-mobile-2xl); /* 32px tablet */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section {
-      padding-top: var(--space-mobile-4xl); /* 64px desktop */
-      padding-bottom: var(--space-mobile-4xl); /* 64px desktop */
-    }
-  }
-
-  /* Section spacing variants */
-  .section-tight {
-    padding-top: var(--space-mobile-lg); /* 16px mobile */
-    padding-bottom: var(--space-mobile-lg); /* 16px mobile */
-  }
-
-  @media (min-width: 640px) {
-    .section-tight {
-      padding-top: var(--space-mobile-xl); /* 24px tablet */
-      padding-bottom: var(--space-mobile-xl); /* 24px tablet */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-tight {
-      padding-top: var(--space-mobile-2xl); /* 32px desktop */
-      padding-bottom: var(--space-mobile-2xl); /* 32px desktop */
-    }
-  }
-
-  .section-loose {
-    padding-top: var(--space-mobile-2xl); /* 32px mobile */
-    padding-bottom: var(--space-mobile-2xl); /* 32px mobile */
-  }
-
-  @media (min-width: 640px) {
-    .section-loose {
-      padding-top: var(--space-mobile-3xl); /* 48px tablet */
-      padding-bottom: var(--space-mobile-3xl); /* 48px tablet */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-loose {
-      padding-top: var(--space-mobile-5xl); /* 80px desktop */
-      padding-bottom: var(--space-mobile-5xl); /* 80px desktop */
-    }
-  }
-
-  .section-start {
-    padding-bottom: var(--space-mobile-xl);
-  }
-
-  @media (min-width: 640px) {
-    .section-start {
-      padding-bottom: var(--space-mobile-2xl);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-start {
-      padding-bottom: var(--space-mobile-4xl);
-    }
-  }
-
-  .section-end {
-    padding-top: var(--space-mobile-xl);
-  }
-
-  @media (min-width: 640px) {
-    .section-end {
-      padding-top: var(--space-mobile-2xl);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-end {
-      padding-top: var(--space-mobile-4xl);
-    }
-  }
-
-  /* Enhanced container with mobile-optimized padding */
-  .container {
-    max-width: 75rem; /* 1200px */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--space-mobile-lg); /* 16px mobile */
-    padding-right: var(--space-mobile-lg); /* 16px mobile */
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: var(--space-mobile-xl); /* 24px tablet */
-      padding-right: var(--space-mobile-xl); /* 24px tablet */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: var(--space-mobile-2xl); /* 32px desktop */
-      padding-right: var(--space-mobile-2xl); /* 32px desktop */
-    }
-  }
-
-  /* Section Separation Utilities */
-  .section-divider {
-    border-top: 1px solid var(--border-light);
-  }
-
-  .section-divider-thick {
-    border-top: 2px solid var(--border-medium);
-  }
-
-  .section-light {
-    background-color: white;
-  }
-
-  .section-gray {
-    background-color: var(--gray-50);
-  }
-
-  .section-spaced {
-    margin-top: var(--space-mobile-2xl);
-    margin-bottom: var(--space-mobile-2xl);
-  }
-
-  @media (min-width: 1024px) {
-    .section-spaced {
-      margin-top: var(--space-mobile-3xl);
-      margin-bottom: var(--space-mobile-3xl);
-    }
-  }
-
-  /* Content spacing within sections */
-  .content-spacing > * + * {
-    margin-top: var(--space-mobile-lg); /* 16px between content blocks */
-  }
-
-  @media (min-width: 640px) {
-    .content-spacing > * + * {
-      margin-top: var(--space-mobile-xl); /* 24px on tablet+ */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .content-spacing > * + * {
-      margin-top: var(--space-mobile-2xl); /* 32px on desktop */
-    }
-  }
-
-  /* Typography spacing for mobile readability */
-  .text-spacing h1,
-  .text-spacing h2,
-  .text-spacing h3 {
-    margin-bottom: var(--space-mobile-md); /* 12px mobile */
-  }
-
-  .text-spacing p {
-    margin-bottom: var(--space-mobile-lg); /* 16px mobile */
-    line-height: 1.6; /* Improved mobile readability */
-  }
-
-  @media (min-width: 640px) {
-    .text-spacing h1,
-    .text-spacing h2,
-    .text-spacing h3 {
-      margin-bottom: var(--space-mobile-lg); /* 16px tablet */
-    }
-
-    .text-spacing p {
-      margin-bottom: var(--space-mobile-xl); /* 24px tablet */
-      line-height: 1.65;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .text-spacing h1,
-    .text-spacing h2,
-    .text-spacing h3 {
-      margin-bottom: var(--space-mobile-xl); /* 24px desktop */
-    }
-
-    .text-spacing p {
-      margin-bottom: var(--space-mobile-xl); /* 24px desktop */
-      line-height: 1.7;
-    }
-  }
-}
-
-/* Enhanced Text Color Utilities */
-@layer utilities {
-  .text-primary {
-    color: var(--text-primary);
-  }
-
-  .text-secondary {
-    color: var(--text-secondary);
-  }
-
-  .text-muted {
-    color: var(--text-muted);
-  }
-
-  .text-accent {
-    color: var(--color-secondary);
-  }
-
-  .bg-primary {
-    background-color: var(--color-primary);
-  }
-
-  .bg-secondary {
-    background-color: var(--color-secondary);
-  }
-
-  .bg-primary-light {
-    background-color: var(--color-primary-light);
-  }
-
-  .bg-secondary-light {
-    background-color: var(--color-secondary-light);
-  }
-
-  .border-primary {
-    border-color: var(--color-primary);
-  }
-
-  .border-secondary {
-    border-color: var(--color-secondary);
-  }
-
-  .text-data-analytics {
-    color: var(--color-data-analytics);
-  }
-
-  .bg-data-analytics {
-    background-color: var(--color-data-analytics);
-  }
-
-  .bg-data-analytics-light {
-    background-color: var(--color-data-analytics-light);
-  }
-
-  .border-data-analytics {
-    border-color: var(--color-data-analytics);
-  }
-
-  /* Mobile-First Spacing Utilities */
-  .space-xs {
-    margin: var(--space-mobile-xs);
-  }
-  .space-sm {
-    margin: var(--space-mobile-sm);
-  }
-  .space-md {
-    margin: var(--space-mobile-md);
-  }
-  .space-lg {
-    margin: var(--space-mobile-lg);
-  }
-  .space-xl {
-    margin: var(--space-mobile-xl);
-  }
-  .space-2xl {
-    margin: var(--space-mobile-2xl);
-  }
-  .space-3xl {
-    margin: var(--space-mobile-3xl);
-  }
-
-  .p-mobile {
-    padding: var(--space-mobile-lg);
-  }
-  .px-mobile {
-    padding-left: var(--space-mobile-lg);
-    padding-right: var(--space-mobile-lg);
-  }
-  .py-mobile {
-    padding-top: var(--space-mobile-lg);
-    padding-bottom: var(--space-mobile-lg);
-  }
-
-  .m-mobile {
-    margin: var(--space-mobile-lg);
-  }
-  .mx-mobile {
-    margin-left: var(--space-mobile-lg);
-    margin-right: var(--space-mobile-lg);
-  }
-  .my-mobile {
-    margin-top: var(--space-mobile-lg);
-    margin-bottom: var(--space-mobile-lg);
-  }
-
-  /* Touch-friendly button utilities */
-  .touch-target {
-    min-height: 2.75rem; /* 44px */
-    min-width: 2.75rem; /* 44px */
-  }
-
-  .touch-target-large {
-    min-height: 3rem; /* 48px */
-    min-width: 3rem; /* 48px */
-  }
-}
-
-/* Enhanced Focus States - Mobile Friendly */
-*:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: 8px;
-}
-
-button:focus,
-a:focus {
-  outline-offset: 4px;
-}
-
-/* Smooth Interactions */
-button,
-a {
-  transition: all 200ms ease-out;
-}
-
-/* Selection Colors */
+/* Selection color */
 ::selection {
-  background-color: var(--color-secondary-light);
-  color: var(--text-primary);
-}
-
-/* Enhanced Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--gray-50);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--gray-300);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gray-600);
-}
-
-/* Enhanced Animation Utilities */
-@layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-pulse-soft {
-    animation: pulseSoft 2s ease-in-out infinite;
-  }
-}
-
-/* Enhanced Keyframes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulseSoft {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.02);
-    opacity: 0.9;
-  }
-}
-
-/* Mobile-Specific Overrides */
-@media (max-width: 639px) {
-  /* Ensure proper mobile button sizing */
-  .btn-primary,
-  .btn-secondary,
-  .btn-accent,
-  .btn-tertiary {
-    min-height: 2.75rem !important; /* 44px touch target */
-    padding-top: 0.75rem !important;
-    padding-bottom: 0.75rem !important;
-    font-size: 0.875rem !important;
-  }
-
-  /* Optimize mobile card experience */
-  .card {
-    padding: var(--space-mobile-lg) !important;
-    margin-bottom: var(--space-mobile-lg) !important;
-  }
-
-  /* Improve mobile typography */
-  h1 {
-    font-size: 2rem !important;
-  }
-  h2 {
-    font-size: 1.5rem !important;
-  }
-  h3 {
-    font-size: 1.25rem !important;
-  }
-
-  /* Better mobile paragraph spacing */
-  p {
-    line-height: 1.6 !important;
-    margin-bottom: var(--space-mobile-lg) !important;
-  }
-}
-
-/* Responsive Typography Enhancement */
-@media (min-width: 640px) {
-  body {
-    font-size: 16px;
-    line-height: 1.65;
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Debug Spacing Utilities - Remove in production */
-.debug-spacing * {
-  outline: 1px solid rgba(255, 0, 0, 0.2) !important;
-}
-
-.debug-spacing *:nth-child(even) {
-  outline-color: rgba(0, 255, 0, 0.2) !important;
+  background-color: var(--primary-100);
+  color: var(--neutral-500);
 }
