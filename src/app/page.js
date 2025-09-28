@@ -9,7 +9,7 @@ import PainSection from "@/components/PainSection";
 import AchieveSection from "@/components/AchieveSection";
 
 const SECTION_SPACING = {
-  tight: "py-12 sm:py-16 lg:py-20",
+  tight: "pt-12 sm:pt-16 lg:pt-20",
   standard: "py-16 sm:py-20 lg:py-24",
   relaxed: "py-20 sm:py-24 lg:py-28",
 };
