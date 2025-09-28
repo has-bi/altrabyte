@@ -4,21 +4,9 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-20">
-      {/* Hero Object Layer */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-end">
-        {/* Hero Object SVG */}
-        <div className="h-full w-auto aspect-[788/859] z-5">
-          <img
-            src="/hero-object.svg"
-            alt="Hero Object"
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </div>
-
+    <section className="relative min-h-[820px] bg-white overflow-hidden pt-[150px] pb-8 sm:pb-11 lg:pb-12">
       {/* Content - Pixel Perfect */}
-      <div className="relative z-10 max-w-[1440px] mx-auto pt-[120px] pb-[80px]">
+      <div className="relative max-w-[1120px] mx-auto px-6 md:px-8">
         <div className="flex flex-col max-w-[590px] gap-y-[28px]">
           {/* Main Headline - Exact Typography */}
           <h1 className="text-[56px] leading-[72px] font-normal text-neutral-500 tracking-[-0.02em]">

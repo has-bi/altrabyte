@@ -1,127 +1,212 @@
 "use client";
 import React from "react";
 
+const clients = [
+  {
+    name: "Paragon Corp",
+    logo:
+      "https://www.paragon-innovation.com/static/media/paragon-corp.98d5977b.png",
+    baseScale: 1,
+  },
+  {
+    name: "Amser PTE LTD",
+    logo: "https://amser.com/wp-content/uploads/2019/08/cropped-logo.png",
+    baseScale: 0.88,
+  },
+  {
+    name: "Bitlabs",
+    logo:
+      "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/1335/original/Bitlabs_Logo_-_Secondary_Full_Color.png",
+    baseScale: 0.94,
+  },
+  {
+    name: "RevoU",
+    logo:
+      "https://storage.googleapis.com/danacita-website-v3-prd/website_v3/images/Logo-RevoU-5_1.original.png",
+    baseScale: 0.92,
+  },
+  {
+    name: "Rosé All Day Cosmetics",
+    logo:
+      "https://cdn.prod.website-files.com/6502a82cff431778b5d82829/65602fa2037d1d996bf6531f_black_logo.png",
+    baseScale: 0.82,
+  },
+];
+
 const TrustedBySection = () => {
-  const clients = [
-    {
-      name: "Paragon Corp",
-      logo: "https://www.paragon-innovation.com/static/media/paragon-corp.98d5977b.png",
-    },
-    {
-      name: "Rose All Day Cosmetics",
-      logo: "https://cdn.prod.website-files.com/6502a82cff431778b5d82829/65602fa2037d1d996bf6531f_black_logo.png",
-    },
-    {
-      name: "Amser PTE LTD",
-      logo: "https://amser.com/wp-content/uploads/2019/08/cropped-logo.png",
-    },
-    {
-      name: "RevoU",
-      logo: "https://storage.googleapis.com/danacita-website-v3-prd/website_v3/images/Logo-RevoU-5_1.original.png",
-    },
-    {
-      name: "Bitlabs",
-      logo: "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/1335/original/Bitlabs_Logo_-_Secondary_Full_Color.png",
-    },
-  ];
-
   return (
-    <div className="sm:py-20 bg-gray-50 relative overflow-hidden">
-      {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
-
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 mb-4">
-            Trusted by Industry Leaders
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We've helped teams cut reporting time, automate operations, and move
-            from chaos to clarity — fast.
-          </p>
+    <section className="trusted-section">
+      <div className="trusted-container">
+        <div className="trusted-header">
+          <h2>Trusted by Growing Businesses Across Industries</h2>
+          <p>Companies that chose foundation-first transformation.</p>
         </div>
 
-        {/* Logo Carousel */}
-        <div className="relative">
-          {/* Scrolling container */}
-          <div className="flex items-center animate-scroll">
-            {/* First set of logos */}
-            {clients.map((client, index) => (
-              <div
-                key={`first-${client.name}-${index}`}
-                className="flex-shrink-0 group cursor-pointer"
-              >
-                <div className="w-40 sm:w-44 lg:w-48 h-16 sm:h-18 lg:h-20 flex items-center justify-center mx-6 sm:mx-8 lg:mx-10 p-4 rounded-lg transition-all duration-300 hover:bg-white/50 group-hover:scale-105">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src={client.logo}
-                      alt={`${client.name} logo`}
-                      className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 group-hover:grayscale-0 transition-all duration-300"
-                      style={{
-                        minWidth: "80px",
-                        minHeight: "32px",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Duplicate set for seamless loop */}
-            {clients.map((client, index) => (
-              <div
-                key={`second-${client.name}-${index}`}
-                className="flex-shrink-0 group cursor-pointer"
-              >
-                <div className="w-40 sm:w-44 lg:w-48 h-16 sm:h-18 lg:h-20 flex items-center justify-center mx-6 sm:mx-8 lg:mx-10 p-4 rounded-lg transition-all duration-300 hover:bg-white/50 group-hover:scale-105">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src={client.logo}
-                      alt={`${client.name} logo`}
-                      className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 group-hover:grayscale-0 transition-all duration-300"
-                      style={{
-                        minWidth: "80px",
-                        minHeight: "32px",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="trusted-grid">
+          {clients.map((client, index) => (
+            <div
+              key={client.name}
+              className="trusted-card"
+              style={{ "--card-index": index }}
+            >
+              <img
+                src={client.logo}
+                alt={`${client.name} logo`}
+                loading="lazy"
+                decoding="async"
+                style={{
+                  "--logo-base-scale": client.baseScale ?? 1,
+                }}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Custom Styles */}
       <style jsx>{`
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-          width: max-content;
+        .trusted-section {
+          background: rgba(15, 23, 42, 0.03);
         }
 
-        @keyframes scroll {
+        .trusted-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 6rem 2rem;
+        }
+
+        .trusted-header {
+          text-align: center;
+          max-width: 600px;
+          margin: 0 auto 3rem;
+        }
+
+        .trusted-header h2 {
+          font-size: 2.5rem;
+          line-height: 1.2;
+          font-weight: 600;
+          color: #111827;
+          margin-bottom: 1rem;
+        }
+
+        .trusted-header p {
+          font-size: 1.125rem;
+          color: rgba(55, 65, 81, 0.7);
+        }
+
+        .trusted-grid {
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          column-gap: 32px;
+          row-gap: 24px;
+          justify-content: center;
+        }
+
+        .trusted-card {
+          width: 240px;
+          height: 140px;
+          padding: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #fafafa;
+          border: 2px dashed #e5e5e5;
+          border-radius: 12px;
+          transition: transform 200ms ease, box-shadow 200ms ease,
+            border-color 200ms ease;
+          animation: border-draw 700ms ease forwards;
+          animation-delay: calc(var(--card-index) * 80ms);
+          opacity: 0;
+        }
+
+        .trusted-card img {
+          max-height: 60%;
+          max-width: 60%;
+          width: auto;
+          opacity: 0.75;
+          transition: opacity 200ms ease, transform 200ms ease, filter 200ms ease;
+          filter: grayscale(100%);
+          transform: scale(var(--logo-base-scale, 1));
+        }
+
+        .trusted-card:hover {
+          transform: translateY(-4px);
+          border-color: #d1d5db;
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        }
+
+        .trusted-card:hover img {
+          opacity: 1;
+          transform: scale(calc(var(--logo-base-scale, 1) * 1.05));
+          filter: grayscale(0%);
+        }
+
+        @keyframes border-draw {
           0% {
-            transform: translateX(0);
+            opacity: 0;
+            border-color: transparent;
+          }
+          40% {
+            opacity: 1;
+            border-color: transparent;
           }
           100% {
-            transform: translateX(-50%);
+            opacity: 1;
+            border-color: #e5e5e5;
           }
         }
 
-        /* Pause animation on hover */
-        .animate-scroll:hover {
-          animation-play-state: paused;
+        @media (max-width: 1024px) {
+          .trusted-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            column-gap: 24px;
+            row-gap: 20px;
+          }
+
+          .trusted-card {
+            width: 200px;
+            height: 120px;
+            padding: 20px;
+            border-width: 1.5px;
+          }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scroll {
-            animation: none;
+        @media (max-width: 768px) {
+          .trusted-container {
+            padding: 4rem 1.5rem;
+          }
+
+          .trusted-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 24px;
+            row-gap: 20px;
+          }
+
+          .trusted-card img {
+            max-height: 50px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .trusted-container {
+            padding: 3rem 1.25rem;
+          }
+
+          .trusted-grid {
+            grid-template-columns: 1fr;
+            row-gap: 1.5rem;
+          }
+
+          .trusted-card {
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+            height: 120px;
+            padding: 20px;
+            border-width: 1px;
           }
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 
