@@ -15,114 +15,112 @@ const journeys = [
       },
       {
         label: "The Challenge",
-        value: "Zero data infrastructure, every report manual and delayed",
+        value: "Zero data infrastructure, everything manual, no visibility",
       },
       {
         label: "Our Solution",
-        value: "Spreadsheets → Cloud data warehouse → Automated dashboards",
+        value: "Spreadsheet → Cloud Infrastructure → Automated Dashboards",
       },
       {
         label: "The Outcome",
-        value: "Real-time visibility, manual reporting eliminated in 60 days",
+        value:
+          "Real-time business visibility, eliminated weekly manual reporting",
       },
       { label: "Timeline", value: "2–3 months from chaos to clarity" },
     ],
     image:
       "https://images.unsplash.com/photo-1551135049-8a33b5883817?auto=format&fit=crop&w=1200&q=80",
     quote:
-      "Literally went from Excel hell to automated intelligence. Now I see the business in real-time instead of waiting weeks for reports.",
+      "Literally went from Excel hell to automated intelligence. Now I see my business in real-time instead of waiting weeks for reports.",
     quoteBy: "COO, Startup Cosmetics Brand",
     theme: {
-      accent: "#6A4BFF",
-      accentSoft: "rgba(106, 75, 255, 0.12)",
-      surface: "linear-gradient(180deg, #FBF8FF 0%, #F4ECFF 100%)",
-      border: "rgba(106, 75, 255, 0.18)",
+      accent: "#7863FC",
+      accentSoft: "#7863FC",
+      surface: "white",
+      border: "rgba(120, 99, 252, 0.18)",
       gradient:
-        "radial-gradient(120% 120% at 0% 0%, rgba(106,75,255,0.15) 0%, rgba(255,255,255,0) 55%)",
+        "radial-gradient(120% 120% at 0% 0%, rgba(120,99,252,0.12) 0%, rgba(255,255,255,0) 55%)",
     },
   },
   {
     id: "path-2",
     pathLabel: "Path 2",
-    navLabel: "The Dashboard Plateau",
-    headline: "The Dashboard Plateau",
-    client: "Regional Retail Franchise",
+    navLabel: "The Growing Ambition",
+    headline: "The Growing Ambition",
+    client: "Small Distribution Company",
     details: [
       {
         label: "Starting Point",
-        value: "Fragmented BI tools, dozens of dashboards, no adoption",
+        value: "Scattered data, zero data literacy, big dreams",
       },
       {
         label: "The Challenge",
-        value: "Leadership drowning in metrics without context or decisions",
+        value: "Want insights but don't know what questions to ask",
       },
       {
         label: "Our Solution",
-        value: "Unified semantic layer, KPI stories, decision-ready scorecards",
+        value: "Data literacy training → BI infrastructure → Intelligent reporting",
       },
       {
         label: "The Outcome",
-        value:
-          "Weekly exec meetings run on one source of truth, action items owned",
+        value: "Data-driven decisions, scalable systems, empowered team",
       },
       {
         label: "Timeline",
-        value: "10 weeks to transform reporting into decisions",
+        value: "3–4 months from confusion to competence",
       },
     ],
     image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80",
     quote:
-      "Our dashboards finally tell the story. The team knows what matters each week and why.",
-    quoteBy: "VP Operations, Retail Franchise",
+      "They didn't just build our dashboards. They taught us how to think with data. Complete game changer.",
+    quoteBy: "CEO, Small Distribution Company",
     theme: {
-      accent: "#21A6FF",
-      accentSoft: "rgba(33, 166, 255, 0.14)",
-      surface: "linear-gradient(180deg, #F2FBFF 0%, #EBF4FF 100%)",
-      border: "rgba(33, 166, 255, 0.2)",
+      accent: "#7863FC",
+      accentSoft: "#7863FC",
+      surface: "white",
+      border: "rgba(139, 126, 246, 0.18)",
       gradient:
-        "radial-gradient(120% 120% at 0% 0%, rgba(33,166,255,0.14) 0%, rgba(255,255,255,0) 60%)",
+        "radial-gradient(120% 120% at 0% 0%, rgba(139,126,246,0.12) 0%, rgba(255,255,255,0) 55%)",
     },
   },
   {
     id: "path-3",
     pathLabel: "Path 3",
-    navLabel: "The Intelligent Engine",
-    headline: "The Intelligent Engine",
-    client: "Scale-Up Logistics Platform",
+    navLabel: "The Scale-Ready Business",
+    headline: "The Scale-Ready Business",
+    client: "Major Beauty Retailer",
     details: [
       {
         label: "Starting Point",
-        value: "Reliable dashboards but forecasting stuck in spreadsheets",
+        value: "Multiple systems, manual processes, automation dreams",
       },
       {
         label: "The Challenge",
-        value:
-          "Operations team guessing capacity every week, constant fire-fighting",
+        value: "Data integration across e-commerce platforms and social media",
       },
       {
         label: "Our Solution",
-        value: "Predictive demand models + alerting + embedded playbooks",
+        value: "RPA deployment → Automated data ingestion → 24/7 reporting",
       },
       {
         label: "The Outcome",
-        value:
-          "Forecast accuracy up 26%, proactive adjustments with hours-notice",
+        value: "Eliminated weeks of manual work, continuous intelligence",
       },
-      { label: "Timeline", value: "16 weeks to autonomous analytics" },
+      { label: "Timeline", value: "6–12 months for complete automation transformation" },
     ],
     image:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
     quote:
-      "We finally run the business ahead of the curve. The system flags issues before customers feel them.",
-    quoteBy: "Head of Ops, Logistics Platform",
+      "What used to take our team weeks now happens automatically. We focus on growth, not data gathering.",
+    quoteBy: "COO, Major Beauty Retailer",
     theme: {
-      accent: "#16C99C",
-      accentSoft: "rgba(22, 201, 156, 0.14)",
-      surface: "linear-gradient(180deg, #EDFFF9 0%, #F3FFFB 100%)",
-      border: "rgba(22, 201, 156, 0.2)",
+      accent: "#7863FC",
+      accentSoft: "#7863FC",
+      surface: "white",
+      border: "rgba(120, 99, 252, 0.18)",
       gradient:
-        "radial-gradient(120% 120% at 0% 0%, rgba(22,201,156,0.16) 0%, rgba(255,255,255,0) 55%)",
+        "radial-gradient(120% 120% at 0% 0%, rgba(120,99,252,0.12) 0%, rgba(255,255,255,0) 55%)",
     },
   },
 ];
@@ -138,6 +136,8 @@ const PainSection = () => {
   );
   const [lineProgress, setLineProgress] = useState(0);
   const [lineHeight, setLineHeight] = useState(0);
+  const rafRef = useRef(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -154,7 +154,7 @@ const PainSection = () => {
           const index = Number(entry.target.getAttribute("data-journey-index"));
           if (Number.isNaN(index)) return;
 
-          if (entry.intersectionRatio > 0.35) {
+          if (entry.intersectionRatio > 0.3) {
             setActiveIndex((prev) => (prev === index ? prev : index));
             setRevealed((prev) => {
               if (prev[index]) return prev;
@@ -167,8 +167,8 @@ const PainSection = () => {
       },
       {
         root: null,
-        threshold: [0.25, 0.45, 0.65],
-        rootMargin: "-10% 0px -10%",
+        threshold: [0.2, 0.3, 0.4, 0.5, 0.6],
+        rootMargin: "-15% 0px -15%",
       }
     );
 
@@ -180,7 +180,9 @@ const PainSection = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateLineProgress = () => {
       if (!sectionRef.current) return;
 
       const firstCard = journeyRefs.current[0];
@@ -205,7 +207,7 @@ const PainSection = () => {
       }
 
       // Trigger line growth when first card enters viewport
-      const triggerPoint = windowHeight * 0.8;
+      const triggerPoint = windowHeight * 0.75;
 
       if (bullet1Y > triggerPoint) {
         setLineProgress(0);
@@ -217,17 +219,35 @@ const PainSection = () => {
         return;
       }
 
-      // Calculate progress based on scroll position
+      // Calculate progress based on scroll position with smoother interpolation
       const scrolled = triggerPoint - bullet1Y;
-      const progress = clamp((scrolled / totalDistance) * 100, 0, 100);
+      const rawProgress = (scrolled / totalDistance) * 100;
+      const progress = clamp(rawProgress, 0, 100);
 
       setLineProgress(progress);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial calculation
+    const handleScroll = () => {
+      lastScrollY.current = window.scrollY;
 
-    return () => window.removeEventListener("scroll", handleScroll);
+      if (!ticking) {
+        rafRef.current = requestAnimationFrame(() => {
+          updateLineProgress();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    updateLineProgress(); // Initial calculation
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, []);
 
   const scrollToStage = useCallback((index) => {
@@ -242,28 +262,25 @@ const PainSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F4F0FF]"
+      className="relative overflow-hidden bg-[#F8F7FC]"
       aria-labelledby="pain-section-heading"
     >
       <div
-        className="absolute inset-0 pointer-events-none opacity-90"
+        className="absolute inset-0 pointer-events-none opacity-90 transition-all duration-700 ease-out"
         style={{ background: journeys[activeIndex].theme.gradient }}
       />
 
       <div className="relative mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <header className="text-center mb-16 lg:mb-20">
-          <span className="inline-flex items-center rounded-full bg-white/70 px-4 py-1 text-xs font-medium uppercase tracking-[0.22em] text-slate-500">
-            Three Paths • Real Transformations
-          </span>
           <h2
             id="pain-section-heading"
-            className="mt-6 text-3xl font-semibold text-slate-900 md:text-4xl lg:text-[2.8rem]"
+            className="text-3xl font-semibold text-slate-900 md:text-4xl lg:text-[2.6rem]"
           >
             Three Paths, One Destination
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600 md:text-lg">
-            We don’t guess where you are. We’ve walked each of these journeys
-            with real clients and guide you step-by-step to durable impact.
+          <p className="mx-auto mt-5 max-w-2xl text-base text-slate-600 md:text-lg leading-relaxed">
+            We don't guess where you are. We've walked these exact journeys with
+            real clients.
           </p>
         </header>
 
@@ -319,13 +336,7 @@ const PainSection = () => {
                     isActive ? "is-active" : ""
                   }`}
                 >
-                  <div
-                    className="absolute inset-x-0 top-0 h-32 opacity-60"
-                    style={{ background: journey.theme.gradient }}
-                    aria-hidden="true"
-                  />
-
-                  <div className="relative z-[1] px-8 pb-10 pt-9 md:px-12 md:pt-12 md:pb-12">
+                  <div className="relative z-[1] px-8 pb-8 pt-8 md:px-10 md:pt-10 md:pb-10">
                     <div
                       className={`card-header ${isVisible ? "is-visible" : ""}`}
                     >
@@ -333,13 +344,10 @@ const PainSection = () => {
                         className="journey-tag"
                         style={{
                           backgroundColor: journey.theme.accentSoft,
-                          color: journey.theme.accent,
+                          color: "#ffffff",
                         }}
                       >
                         {journey.pathLabel.toUpperCase()}
-                      </span>
-                      <span className="text-sm font-medium uppercase tracking-[0.22em] text-slate-400">
-                        {journey.client}
                       </span>
                     </div>
 
@@ -349,6 +357,19 @@ const PainSection = () => {
                       {journey.headline}
                     </h3>
 
+                    <p
+                      className={`card-client ${isVisible ? "is-visible" : ""}`}
+                    >
+                      Client
+                    </p>
+                    <p
+                      className={`card-client-name ${
+                        isVisible ? "is-visible" : ""
+                      }`}
+                    >
+                      {journey.client}
+                    </p>
+
                     <ul
                       className={`card-details ${
                         isVisible ? "is-visible" : ""
@@ -357,40 +378,33 @@ const PainSection = () => {
                       {journey.details.map((detail, idx) => (
                         <li
                           key={`${journey.id}-${detail.label}`}
-                          className="detail-item flex flex-col gap-1 py-4 md:flex-row md:items-start md:justify-between"
+                          className="detail-item"
                           style={{ transitionDelay: `${idx * 80}ms` }}
                         >
-                          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 md:w-48">
-                            {detail.label}
-                          </span>
-                          <span className="text-sm text-slate-700 md:flex-1 md:text-base">
-                            {detail.value}
-                          </span>
+                          <span className="detail-label">{detail.label}</span>
+                          <span className="detail-value">{detail.value}</span>
                         </li>
                       ))}
                     </ul>
 
                     <div
-                      className={`card-image ${isVisible ? "is-visible" : ""}`}
+                      className={`card-image-quote ${
+                        isVisible ? "is-visible" : ""
+                      }`}
                     >
-                      <img
-                        src={journey.image}
-                        alt="Project highlight"
-                        className="h-56 w-full object-cover md:h-64"
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
+                      <div className="image-wrapper">
+                        <img
+                          src={journey.image}
+                          alt="Project highlight"
+                          className="image-bg"
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                        <div className="image-overlay" />
+                        <figure className="quote-overlay">
+                          <blockquote>"{journey.quote}"</blockquote>
+                        </figure>
+                      </div>
                     </div>
-
-                    <figure
-                      className={`card-quote ${isVisible ? "is-visible" : ""}`}
-                    >
-                      <blockquote className="text-base italic md:text-lg">
-                        "{journey.quote}"
-                      </blockquote>
-                      <figcaption className="mt-4 text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
-                        {journey.quoteBy}
-                      </figcaption>
-                    </figure>
                   </div>
                 </article>
               </div>
@@ -404,9 +418,13 @@ const PainSection = () => {
           position: absolute;
           left: calc(0.6rem + 5px);
           top: 7px;
-          width: 2px;
-          background: rgba(99, 102, 241, 0.6);
-          transition: transform 200ms ease-out;
+          width: 2.5px;
+          background: linear-gradient(
+            180deg,
+            rgba(120, 99, 252, 0.8) 0%,
+            rgba(120, 99, 252, 0.6) 100%
+          );
+          transition: transform 150ms cubic-bezier(0.33, 1, 0.68, 1);
           will-change: transform;
           pointer-events: none;
           z-index: 0;
@@ -421,10 +439,10 @@ const PainSection = () => {
 
         .journey-row {
           display: grid;
-          grid-template-columns: 280px minmax(0, 1fr);
+          grid-template-columns: 180px minmax(0, 1fr);
           gap: 2.5rem;
           align-items: start;
-          margin-bottom: 5rem;
+          margin-bottom: 3rem;
         }
 
         .journey-row:last-child {
@@ -433,15 +451,15 @@ const PainSection = () => {
 
         .timeline-node {
           position: relative;
-          padding-left: 2.4rem;
-          padding-right: 1.25rem;
+          padding-left: 2rem;
+          padding-right: 0.5rem;
           padding-top: 0;
           padding-bottom: 0.85rem;
           cursor: pointer;
           opacity: 0;
-          transform: translateY(40px);
-          transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(30px);
+          transition: opacity 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
           height: 100%;
         }
 
@@ -491,74 +509,76 @@ const PainSection = () => {
           position: absolute;
           left: 0.6rem;
           top: 0;
-          height: 14px;
-          width: 14px;
+          height: 12px;
+          width: 12px;
           border-radius: 9999px;
-          background: rgba(148, 163, 184, 0.45);
-          box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.85);
-          transition: transform 220ms ease, background 220ms ease,
-            box-shadow 220ms ease;
+          background: rgba(203, 213, 225, 0.6);
+          box-shadow: 0 0 0 5px rgba(248, 247, 252, 1);
+          transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1),
+            background 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            box-shadow 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
           z-index: 2;
         }
 
         .timeline-node.is-completed .timeline-bullet {
-          background: rgba(99, 102, 241, 0.6);
+          background: rgba(120, 99, 252, 0.7);
         }
 
         .timeline-node.is-active .timeline-bullet {
-          transform: scale(1.25);
-          background: #0f172a;
-          box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.95);
+          transform: scale(1.35);
+          background: #7863FC;
+          box-shadow: 0 0 0 6px rgba(248, 247, 252, 1),
+            0 0 0 1px rgba(120, 99, 252, 0.3);
         }
 
         .timeline-meta {
           display: flex;
           flex-direction: column;
-          gap: 0.35rem;
+          gap: 0.5rem;
         }
 
         .timeline-path {
-          font-size: 0.68rem;
+          font-size: 0.6875rem;
           font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 0.2em;
-          color: rgba(148, 163, 184, 0.8);
+          letter-spacing: 0.08em;
+          color: #7863FC;
         }
 
         .timeline-node.is-active .timeline-path {
-          color: rgba(15, 23, 42, 0.78);
+          color: #6952E8;
         }
 
         .timeline-title {
-          font-size: 1.05rem;
+          font-size: 0.9375rem;
           font-weight: 600;
-          line-height: 1.3;
+          line-height: 1.45;
           color: #0f172a;
         }
 
         .timeline-client {
-          font-size: 0.78rem;
-          text-transform: uppercase;
-          letter-spacing: 0.16em;
-          color: rgba(100, 116, 139, 0.75);
+          display: none;
         }
 
         .journey-card {
           position: relative;
-          border: 1px solid rgba(148, 163, 184, 0.18);
-          border-radius: 1.75rem;
+          border: 1px solid #e8e7f0;
+          border-radius: 1.25rem;
           overflow: hidden;
           opacity: 0;
-          transform: translateY(60px);
-          transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 700ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms ease;
+          transform: translateY(50px);
+          background: #ffffff;
+          transition: opacity 750ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 750ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            box-shadow 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .journey-card.is-visible {
           opacity: 1;
           transform: translateY(0);
-          box-shadow: 0 32px 90px -45px rgba(30, 41, 59, 0.35);
-          transition-delay: 150ms;
+          box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.06),
+            0 0 1px rgba(0, 0, 0, 0.05);
+          transition-delay: 120ms;
         }
 
         .journey-tag {
@@ -566,10 +586,10 @@ const PainSection = () => {
           align-items: center;
           justify-content: center;
           border-radius: 999px;
-          padding: 0.35rem 0.9rem;
-          font-size: 0.7rem;
+          padding: 0.4rem 1rem;
+          font-size: 0.6875rem;
           font-weight: 600;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.06em;
           text-transform: uppercase;
         }
 
@@ -580,60 +600,100 @@ const PainSection = () => {
           align-items: center;
           gap: 0.75rem;
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(15px);
+          transition: opacity 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          margin-bottom: 1.25rem;
         }
 
         .card-header.is-visible {
           opacity: 1;
           transform: translateY(0);
-          transition-delay: 300ms;
+          transition-delay: 250ms;
         }
 
         .card-title {
-          margin-top: 1.5rem;
-          font-size: 1.875rem;
+          font-size: 1.625rem;
           font-weight: 600;
           color: #0f172a;
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(15px);
+          transition: opacity 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          margin-bottom: 1.5rem;
+          line-height: 1.35;
         }
 
         .card-title.is-visible {
           opacity: 1;
           transform: translateY(0);
+          transition-delay: 350ms;
+        }
+
+        .card-client {
+          font-size: 0.6875rem;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #94a3b8;
+          margin-bottom: 0.375rem;
+          opacity: 0;
+          transform: translateY(15px);
+          transition: opacity 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card-client.is-visible {
+          opacity: 1;
+          transform: translateY(0);
           transition-delay: 400ms;
         }
 
-        .card-details {
-          margin-top: 2rem;
-          border-top: 1px solid rgba(148, 163, 184, 0.2);
-          border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        .card-client-name {
+          font-size: 0.9375rem;
+          font-weight: 500;
+          color: #1e293b;
+          margin-bottom: 2rem;
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(15px);
+          transition: opacity 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card-client-name.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 420ms;
+        }
+
+        .card-details {
+          opacity: 0;
+          transform: translateY(15px);
+          transition: opacity 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 550ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          margin-bottom: 2rem;
         }
 
         .card-details.is-visible {
           opacity: 1;
           transform: translateY(0);
-          transition-delay: 500ms;
+          transition-delay: 450ms;
         }
 
         .detail-item {
+          display: grid;
+          grid-template-columns: 130px 1fr;
+          gap: 2.5rem;
+          padding: 1.125rem 0;
           opacity: 0;
-          transform: translateX(-10px);
-          transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
-          border-top: 1px solid rgba(148, 163, 184, 0.2);
+          transform: translateX(-8px);
+          transition: opacity 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          border-bottom: 1px dotted #e2e8f0;
         }
 
-        .detail-item:first-child {
-          border-top: none;
+        .detail-item:last-child {
+          border-bottom: none;
         }
 
         .card-details.is-visible .detail-item {
@@ -641,46 +701,95 @@ const PainSection = () => {
           transform: translateX(0);
         }
 
-        .card-image {
-          margin-top: 2rem;
-          overflow: hidden;
-          border-radius: 1rem;
-          border: 1px solid rgba(255, 255, 255, 0.6);
-          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-          opacity: 0;
-          transform: translateY(30px) scale(0.95);
-          transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+        .detail-label {
+          font-size: 0.8125rem;
+          font-weight: 500;
+          color: #94a3b8;
+          line-height: 1.6;
         }
 
-        .card-image.is-visible {
+        .detail-value {
+          font-size: 0.9375rem;
+          font-weight: 400;
+          color: #1e293b;
+          line-height: 1.65;
+        }
+
+        .card-image-quote {
+          opacity: 0;
+          transform: translateY(25px) scale(0.96);
+          transition: opacity 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card-image-quote.is-visible {
           opacity: 1;
           transform: translateY(0) scale(1);
-          transition-delay: 700ms;
+          transition-delay: 650ms;
         }
 
-        .card-quote {
-          margin-top: 2rem;
+        .image-wrapper {
+          position: relative;
+          overflow: hidden;
           border-radius: 1rem;
-          background: rgba(255, 255, 255, 0.75);
-          padding: 1.5rem;
-          color: #334155;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          height: 300px;
         }
 
-        .card-quote.is-visible {
-          opacity: 1;
-          transform: translateY(0);
-          transition-delay: 850ms;
+        .image-bg {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .image-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            180deg,
+            rgba(15, 23, 42, 0) 0%,
+            rgba(15, 23, 42, 0.4) 45%,
+            rgba(15, 23, 42, 0.88) 100%
+          );
+        }
+
+        .quote-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 1.75rem 2rem;
+          z-index: 1;
+        }
+
+        .quote-overlay blockquote {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #ffffff;
+          font-weight: 400;
+          margin: 0;
         }
 
         @media (min-width: 768px) {
           .card-title {
-            font-size: 2.15rem;
+            font-size: 1.875rem;
+          }
+
+          .detail-item {
+            grid-template-columns: 150px 1fr;
+            gap: 3rem;
+          }
+
+          .image-wrapper {
+            height: 340px;
+          }
+
+          .quote-overlay {
+            padding: 2rem 2.5rem;
+          }
+
+          .quote-overlay blockquote {
+            font-size: 1.0625rem;
           }
         }
 
@@ -717,8 +826,21 @@ const PainSection = () => {
             font-size: 0.95rem;
           }
 
-          .timeline-client {
-            font-size: 0.7rem;
+          .detail-item {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+          }
+
+          .image-wrapper {
+            height: 280px;
+          }
+
+          .quote-overlay {
+            padding: 1.5rem;
+          }
+
+          .quote-overlay blockquote {
+            font-size: 0.9375rem;
           }
         }
 

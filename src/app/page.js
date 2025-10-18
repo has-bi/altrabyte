@@ -6,6 +6,8 @@ import SolutionDifferentSection from "@/components/SolutionsOverview";
 import PortfolioSection from "@/components/PortfolioSection";
 import FinalCTASection from "@/components/CTASection";
 import PainSection from "@/components/PainSection";
+import QuizSection from "@/components/QuizSection";
+import ProcessSection from "@/components/ProcessSection";
 import AchieveSection from "@/components/AchieveSection";
 
 const SECTION_SPACING = {
@@ -49,6 +51,12 @@ export default async function HomePage() {
       <section className={SECTION_SPACING.standard}>
         <PainSection />
       </section>
+
+      {/* Quiz Section - Interactive journey selector */}
+      <QuizSection />
+
+      {/* Process Section - Foundation-first methodology */}
+      <ProcessSection />
 
       {/* Solutions Section - Related to pain, moderate spacing */}
       <section className={`${SECTION_SPACING.standard} bg-white`}>
