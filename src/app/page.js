@@ -8,7 +8,7 @@ import FinalCTASection from "@/components/CTASection";
 import PainSection from "@/components/PainSection";
 import QuizSection from "@/components/QuizSection";
 import ProcessSection from "@/components/ProcessSection";
-import AchieveSection from "@/components/AchieveSection";
+import ProblemSections from "@/components/AchieveSection";
 import PartnershipModels from "@/components/PartnershipModels";
 
 const SECTION_SPACING = {
@@ -69,15 +69,15 @@ export default async function HomePage() {
         <PartnershipModels />
       </section>
 
-      {/* Achieve Section - Building on solutions */}
+      {/* Problem Section - Highlights the stakes */}
       <section className={`${SECTION_SPACING.standard} bg-gray-50`}>
-        <AchieveSection />
+        <ProblemSections />
       </section>
 
       {/* Portfolio Section - Social proof, needs prominence */}
-      <section className={`${SECTION_SPACING.relaxed} bg-white`}>
+      {/* <section className={`${SECTION_SPACING.relaxed} bg-white`}>
         <PortfolioSection projects={projects} />
-      </section>
+      </section> */}
 
       {/* Final CTA - Major conclusion, maximum spacing */}
       <section className={SECTION_SPACING.relaxed}>
