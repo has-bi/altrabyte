@@ -2,13 +2,14 @@ import { getProjects } from "@/lib/notion";
 import HeroSection from "../components/HeroSection";
 import TrustedBySection from "@/components/TrustedSection";
 import TruthSection from "@/components/TruthSection";
-import SolutionDifferentSection from "@/components/SolutionsOverview";
+import CoreServices from "@/components/CoreServices";
 import PortfolioSection from "@/components/PortfolioSection";
 import FinalCTASection from "@/components/CTASection";
 import PainSection from "@/components/PainSection";
 import QuizSection from "@/components/QuizSection";
 import ProcessSection from "@/components/ProcessSection";
 import AchieveSection from "@/components/AchieveSection";
+import PartnershipModels from "@/components/PartnershipModels";
 
 const SECTION_SPACING = {
   tight: "pt-12 sm:pt-16 lg:pt-20",
@@ -60,7 +61,12 @@ export default async function HomePage() {
 
       {/* Solutions Section - Related to pain, moderate spacing */}
       <section className={`${SECTION_SPACING.standard} bg-white`}>
-        <SolutionDifferentSection />
+        <CoreServices />
+      </section>
+
+      {/* Partnership Models */}
+      <section className={`${SECTION_SPACING.standard} bg-white`}>
+        <PartnershipModels />
       </section>
 
       {/* Achieve Section - Building on solutions */}
