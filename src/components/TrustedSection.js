@@ -40,8 +40,9 @@ const TrustedBySection = () => {
     <section className="trusted-section">
       <div className="trusted-container">
         <header className="trusted-header">
-          <h2>Trusted By Growing Businesses Across Industries</h2>
-          <p>Companies that chose foundation-first transformation</p>
+          <span>Proof before promises</span>
+          <h2>Trusted by teams who needed more than dashboards</h2>
+          <p>Foundation-first engagements across retail, finance, SaaS, and energy.</p>
         </header>
 
         <div className="trusted-grid">
@@ -84,41 +85,72 @@ const TrustedBySection = () => {
 
       <style jsx>{`
         .trusted-section {
-          background: #ffffff;
+          background: linear-gradient(180deg, #fffdfb 0%, #fef7f7 60%, #fff 100%);
+          position: relative;
+        }
+
+        .trusted-section::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+              circle at top right,
+              rgba(244, 223, 237, 0.4),
+              transparent 40%
+            ),
+            radial-gradient(circle at bottom left, rgba(209, 231, 255, 0.35), transparent 45%);
+          pointer-events: none;
         }
 
         .trusted-container {
-          max-width: 1040px;
+          position: relative;
+          max-width: 1120px;
           margin: 0 auto;
-          padding: 3.25rem 1.5rem;
+          padding: 4.5rem 1.5rem;
         }
 
         .trusted-header {
           text-align: center;
-          max-width: 620px;
-          margin: 0 auto 2.75rem;
+          max-width: 680px;
+          margin: 0 auto 3rem;
+        }
+
+        .trusted-header span {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.75rem;
+          letter-spacing: 0.45em;
+          text-transform: uppercase;
+          color: #b0a9ff;
         }
 
         .trusted-header h2 {
-          font-size: 2.4rem;
-          line-height: 1.25;
+          margin-top: 0.75rem;
+          font-size: 2.5rem;
+          line-height: 1.2;
           font-weight: 600;
           color: #0f172a;
-          margin-bottom: 0.75rem;
         }
 
         .trusted-header p {
+          margin-top: 0.5rem;
           font-size: 1.0625rem;
-          color: rgba(15, 23, 42, 0.6);
+          color: rgba(15, 23, 42, 0.65);
         }
 
         .trusted-grid {
           position: relative;
           display: grid;
           grid-template-columns: repeat(${totalColumns}, minmax(0, 1fr));
-          grid-template-rows: 80px 130px 80px;
+          grid-template-rows: 80px 140px 80px;
           padding: 2.5rem 0;
           gap: 0;
+          border: 1px dashed rgba(15, 23, 42, 0.15);
+          border-radius: 32px;
+          background: rgba(255, 255, 255, 0.66);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            0 20px 45px rgba(15, 23, 42, 0.08);
         }
 
         .grid-cell {
@@ -127,7 +159,7 @@ const TrustedBySection = () => {
           justify-content: center;
           padding: 0 1.5rem;
           border-style: dashed;
-          border-color: rgba(15, 23, 42, 0.2);
+          border-color: rgba(15, 23, 42, 0.15);
           border-width: 0;
         }
 
@@ -183,21 +215,25 @@ const TrustedBySection = () => {
           max-height: 70px;
           width: auto;
           filter: grayscale(100%);
-          opacity: 0.7;
-          transition: opacity 200ms ease, filter 200ms ease;
+          opacity: 0.65;
+          transition: opacity 280ms ease, filter 280ms ease, transform 280ms ease;
         }
 
         .trusted-card:hover img {
           filter: grayscale(0%);
           opacity: 1;
+          transform: translateY(-4px) scale(1.03);
         }
 
         @media (max-width: 1024px) {
           .trusted-container {
-            padding: 4.5rem 1.5rem;
+            padding: 3.5rem 1.25rem;
           }
 
-          .trusted-header h2 {
+          .trusted-grid {
+            grid-template-rows: 70px 120px 70px;
+          }
+*** End Patch
             font-size: 2.1rem;
           }
 

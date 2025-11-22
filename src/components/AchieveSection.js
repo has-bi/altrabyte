@@ -1,392 +1,399 @@
-// components/AchieveSection.js - What We Help You Achieve
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import {
-  Brain,
-  Bot,
-  TrendingUp,
-  ArrowRight,
-  Clock,
-  BarChart3,
-  Zap,
-  Users,
-  CheckCircle2,
-  Sparkles,
-} from "lucide-react";
 
-const AchieveSection = () => {
-  const [visibleCards, setVisibleCards] = useState([]);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [isInView, setIsInView] = useState(false);
-  const sectionRef = useRef(null);
+import { Check, X } from "lucide-react";
+import { useState } from "react";
 
-  const achievements = [
-    {
-      id: "decisions",
-      title: "Faster Decisions",
-      icon: Brain,
-      color: "blue",
-      gradient: "from-orange-400 to-orange-500",
-      bgColor: "bg-orange-50",
-      textColor: "text-orange-600",
-      borderColor: "border-orange-200",
-      benefits: [
-        {
-          text: "Real-time dashboards with business logic, not vanity metrics",
-          icon: BarChart3,
-        },
-        {
-          text: "Executive-ready in weeks, not quarters",
-          icon: Clock,
-        },
-      ],
-    },
-    {
-      id: "automation",
-      title: "Less Manual Work",
-      icon: Bot,
-      color: "indigo",
-      gradient: "from-indigo-400 to-indigo-500",
-      bgColor: "bg-indigo-50",
-      textColor: "text-indigo-600",
-      borderColor: "border-indigo-200",
-      benefits: [
-        {
-          text: "Automate your reports, validations, reconciliations",
-          icon: Zap,
-        },
-        {
-          text: "Seamless RPA + Gen AI workflows integrated with your tools",
-          icon: Bot,
-        },
-      ],
-    },
-    {
-      id: "teams",
-      title: "Smarter Teams",
-      icon: TrendingUp,
-      color: "emerald",
-      gradient: "from-emerald-400 to-teal-500",
-      bgColor: "bg-emerald-50",
-      textColor: "text-emerald-600",
-      borderColor: "border-emerald-200",
-      benefits: [
-        {
-          text: "Your team levels up while we build",
-          icon: Users,
-        },
-        {
-          text: "Transparent, maintainable solutions — no magic, no mystery",
-          icon: CheckCircle2,
-        },
-      ],
-    },
-  ];
+const PROBLEMS = [
+  {
+    text: "Hiring more people to do what automation should handle",
+    layout: { offset: -32, rotation: -1.8, z: 5, shadow: 0.35 },
+  },
+  {
+    text: "Manual work that scales horribly while competitors move faster",
+    layout: { offset: 26, rotation: 2.2, z: 4, shadow: 0.3 },
+  },
+  {
+    text: "Delayed decisions based on outdated, manual reports",
+    layout: { offset: -18, rotation: -1.5, z: 6, shadow: 0.38 },
+  },
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isInView) {
-          setIsInView(true);
-          // Stagger the animation of each card
-          achievements.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleCards((prev) => [...prev, index]);
-            }, index * 300);
-          });
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [isInView]);
+export default function ProblemSections() {
+  const [showSolution, setShowSolution] = useState(false);
 
   return (
-    <section
-      ref={sectionRef}
-      className="section bg-gray-50 relative overflow-hidden"
-    >
-      {/* Background Elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-200/10 rounded-full blur-3xl"></div>
+    <section className="problem-section relative isolate overflow-hidden px-4 py-20 sm:px-10 md:px-16 lg:px-[120px]">
+      <div className="section-glow section-glow-left" aria-hidden="true" />
+      <div className="section-glow section-glow-right" aria-hidden="true" />
+      <div className="section-supergraphic" aria-hidden="true" />
+      <div className="section-grain" aria-hidden="true" />
 
-      <div className="container relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
-            What We Help You Achieve
-          </h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
-            Real outcomes that transform how your business operates and grows.
-          </p>
-        </div>
-
-        {/* Achievement Cards */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => (
-              <div
-                key={achievement.id}
-                className={`group relative transition-all duration-700 ${
-                  visibleCards.includes(index)
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
-                }`}
-                style={{ transitionDelay: `${index * 300}ms` }}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <div
-                  className={`relative bg-white rounded-3xl p-8 border-2 ${
-                    achievement.borderColor
-                  } transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden ${
-                    hoveredCard === index
-                      ? "shadow-2xl scale-[1.02]"
-                      : "shadow-lg"
-                  }`}
-                >
-                  {/* Animated Background Gradient */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${achievement.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  ></div>
-
-                  {/* Header */}
-                  <div className="mb-8">
-                    <div
-                      className={`w-16 h-16 ${
-                        achievement.bgColor
-                      } rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
-                        visibleCards.includes(index)
-                          ? "animate-icon-bounce"
-                          : ""
-                      } ${hoveredCard === index ? "animate-pulse-soft" : ""}`}
-                    >
-                      {React.createElement(achievement.icon, {
-                        className: `w-8 h-8 ${achievement.textColor} transition-all duration-300`,
-                        strokeWidth: 1.5,
-                      })}
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-primary mb-2 group-hover:text-gray-900 transition-colors duration-300">
-                      {achievement.title}
-                    </h3>
-                  </div>
-
-                  {/* Benefits List */}
-                  <div className="space-y-4">
-                    {achievement.benefits.map((benefit, benefitIndex) => (
-                      <div
-                        key={benefitIndex}
-                        className={`flex items-start space-x-4 transition-all duration-500 ${
-                          visibleCards.includes(index)
-                            ? "animate-benefit-slide"
-                            : ""
-                        }`}
-                        style={{
-                          animationDelay: `${
-                            index * 300 + benefitIndex * 150
-                          }ms`,
-                        }}
-                      >
-                        <div
-                          className={`flex-shrink-0 w-8 h-8 ${
-                            achievement.bgColor
-                          } rounded-lg flex items-center justify-center mt-1 transition-all duration-300 ${
-                            hoveredCard === index ? "animate-icon-wiggle" : ""
-                          }`}
-                        >
-                          {React.createElement(benefit.icon, {
-                            className: `w-4 h-4 ${achievement.textColor}`,
-                            strokeWidth: 1.5,
-                          })}
-                        </div>
-                        <p className="text-secondary leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                          {benefit.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Progress Indicator */}
-                  <div
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${
-                      achievement.gradient
-                    } transition-all duration-500 ${
-                      hoveredCard === index ? "w-full" : "w-0"
-                    }`}
-                  ></div>
-
-                  {/* Hover Glow Effect */}
-                  <div
-                    className={`absolute inset-0 rounded-3xl transition-all duration-500 ${
-                      hoveredCard === index
-                        ? `shadow-lg shadow-${achievement.color}-500/20`
-                        : ""
-                    }`}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <button className="group inline-flex items-center px-8 py-4 bg-primary hover:bg-primary-hover text-white font-medium rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 transform">
-            <span className="relative z-10">Explore our solutions</span>
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </button>
-
-          <p className="text-sm text-muted mt-4">
-            Ready to transform your business? Let's start with a conversation.
-          </p>
-        </div>
+      <div className="section-heading relative mx-auto flex w-full max-w-[700px] flex-col items-center gap-4 text-center">
+        <h2 className="text-[34px] font-semibold leading-[1.25] tracking-[-0.01em] text-[#122232] sm:text-[40px]">
+          The Stakes
+        </h2>
+        <p className="text-lg leading-[1.6] tracking-[-0.01em] text-[#606B76] sm:text-xl">
+          Every month you delay fixing the foundation is another month of
+          manual fixes, extra hires, and data you can&apos;t trust.
+        </p>
       </div>
 
-      {/* Custom Animations */}
+      <div className="problem-stack">
+        {PROBLEMS.map((problem, index) => (
+          <div
+            key={problem.text}
+            className="problem-chip"
+            style={{
+              "--chip-offset": `${problem.layout.offset}px`,
+              "--chip-rotation": `${problem.layout.rotation}deg`,
+              "--chip-shadow": problem.layout.shadow,
+              "--chip-index": PROBLEMS.length - index,
+              "--chip-delay": `${index * 90}ms`,
+            }}
+            tabIndex={0}
+          >
+            <span className="problem-index">{index + 1}</span>
+            <p className="problem-text">{problem.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="relative mx-auto mt-14 flex w-full max-w-[640px] justify-center">
+        <button
+          type="button"
+          className="stakes-card focus-visible:outline-none"
+          onClick={() => setShowSolution((prev) => !prev)}
+          aria-pressed={showSolution}
+          data-state={showSolution ? "solution" : "question"}
+        >
+          <div className="stakes-pane stakes-pane-question">
+            <p>
+              The question isn&apos;t whether you{" "}
+              <span className="font-semibold text-[#E41E57]">
+                need better data systems.
+              </span>
+            </p>
+          </div>
+          <div className="stakes-divider">
+            <span className="stakes-icon stakes-icon-question">
+              <X className="h-4 w-4 text-[#E41E57]" strokeWidth={2} />
+            </span>
+            <span className="stakes-icon stakes-icon-answer">
+              <Check className="h-4 w-4 text-[#07A276]" strokeWidth={2} />
+            </span>
+          </div>
+          <div className="stakes-pane stakes-pane-answer">
+            <p>
+              It&apos;s whether you&apos;ll{" "}
+              <span className="font-semibold text-[#07A276]">
+                fix them before or after your team burns out from manual work
+                that machines should be doing.
+              </span>
+            </p>
+          </div>
+          <span className="stakes-hint">
+            {showSolution ? "Tap to see the first reality again" : "Tap to reveal the real question"}
+          </span>
+        </button>
+      </div>
       <style jsx>{`
-        @keyframes icon-bounce {
-          0% {
-            transform: scale(0) rotate(-180deg);
-          }
-          60% {
-            transform: scale(1.1) rotate(10deg);
-          }
-          100% {
-            transform: scale(1) rotate(0deg);
-          }
+        .problem-section {
+          position: relative;
+          background: radial-gradient(circle at 15% 20%, rgba(255, 201, 215, 0.28), transparent 45%),
+            radial-gradient(circle at 70% 15%, rgba(255, 213, 220, 0.22), transparent 40%),
+            radial-gradient(circle at 80% 65%, rgba(244, 216, 203, 0.25), transparent 42%),
+            linear-gradient(180deg, #fff7f0 0%, #fef5f3 55%, #fdf3f1 100%);
         }
 
-        @keyframes benefit-slide {
-          0% {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        .section-glow {
+          position: absolute;
+          width: min(420px, 45vw);
+          height: min(420px, 45vw);
+          border-radius: 9999px;
+          filter: blur(90px);
+          opacity: 0.5;
         }
 
-        @keyframes float-gentle {
+        .section-glow-left {
+          top: 40px;
+          left: clamp(-140px, -8vw, -90px);
+          background: linear-gradient(130deg, rgba(255, 191, 203, 0.65), rgba(255, 232, 217, 0.38));
+        }
+
+        .section-glow-right {
+          bottom: -60px;
+          right: clamp(-120px, -5vw, -40px);
+          background: linear-gradient(130deg, rgba(255, 230, 211, 0.5), rgba(255, 255, 255, 0.3));
+        }
+
+        .section-supergraphic {
+          position: absolute;
+          inset: 0;
+          background-image: url("/images/element/Background.svg");
+          background-size: cover;
+          background-position: center;
+          opacity: 0.24;
+          pointer-events: none;
+        }
+
+        .section-grain {
+          position: absolute;
+          inset: 0;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Crect width='1' height='1' fill='%23eadfd9'/%3E%3C/svg%3E");
+          opacity: 0.2;
+          mix-blend-mode: multiply;
+          pointer-events: none;
+        }
+
+        .section-heading {
+          gap: 1rem;
+        }
+
+        .problem-stack {
+          position: relative;
+          margin: 48px auto 0;
+          max-width: 640px;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          padding: 16px 0 32px;
+        }
+
+        .problem-stack::before {
+          content: "";
+          position: absolute;
+          inset: 10px 24px;
+          border-radius: 32px;
+          border: 1px solid rgba(249, 217, 229, 0.7);
+          background: rgba(255, 255, 255, 0.55);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 30px 60px rgba(18, 34, 50, 0.08);
+          z-index: 0;
+        }
+
+        .problem-stack > * {
+          position: relative;
+          z-index: 1;
+        }
+
+        .problem-chip {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 16px 28px;
+          border-radius: 9999px;
+          margin-top: 18px;
+          margin-bottom: 8px;
+          background: linear-gradient(120deg, #f39dc2, #f7b9cb);
+          border: 1px solid rgba(228, 110, 159, 0.25);
+          transform: translateX(var(--chip-offset, 0))
+            rotate(var(--chip-rotation, 0));
+          z-index: var(--chip-index, 1);
+          box-shadow: 0 28px 40px rgba(18, 34, 50, 0.08),
+            0 14px 24px rgba(241, 126, 171, calc(var(--chip-shadow, 0.3) * 0.75)),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+          transition: transform 380ms cubic-bezier(0.25, 0.8, 0.3, 1),
+            box-shadow 380ms ease, z-index 120ms ease;
+          animation: chipFloat 5.2s ease-in-out infinite;
+          animation-delay: var(--chip-delay, 0ms);
+        }
+
+        .problem-chip::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0)
+          );
+          pointer-events: none;
+        }
+
+        .problem-index {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          font-weight: 600;
+          color: #fff;
+          background: linear-gradient(130deg, #f075a4, #f28bb4);
+          box-shadow: 0 10px 18px rgba(240, 117, 164, 0.35);
+          transition: transform 380ms cubic-bezier(0.25, 0.8, 0.3, 1);
+          transform: scale(calc(0.98 + var(--chip-shadow, 0.25) * 0.2));
+        }
+
+        .problem-text {
+          flex: 1;
+          font-size: 1.125rem;
+          line-height: 1.4;
+          font-weight: 600;
+          color: #122232;
+          letter-spacing: -0.01em;
+        }
+
+        .problem-chip:hover,
+        .problem-chip:focus-visible {
+          animation-play-state: paused;
+          transform: translateX(0) rotate(0deg) scale(1.02);
+          z-index: 20;
+          box-shadow: 0 34px 60px rgba(18, 34, 50, 0.12),
+            0 20px 32px rgba(240, 117, 164, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        .problem-chip:hover .problem-index,
+        .problem-chip:focus-visible .problem-index {
+          transform: scale(1.08);
+        }
+
+        @keyframes chipFloat {
           0%,
           100% {
-            transform: translateY(0) rotate(0deg);
-          }
-          25% {
-            transform: translateY(-8px) rotate(2deg);
-          }
-          75% {
-            transform: translateY(4px) rotate(-1deg);
-          }
-        }
-
-        @keyframes icon-wiggle {
-          0%,
-          100% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(3deg);
-          }
-          75% {
-            transform: rotate(-3deg);
-          }
-        }
-
-        @keyframes pulse-soft {
-          0%,
-          100% {
-            transform: scale(1);
+            transform: translateX(var(--chip-offset, 0))
+              rotate(var(--chip-rotation, 0));
           }
           50% {
-            transform: scale(1.05);
+            transform: translateX(calc(var(--chip-offset, 0) * 0.65))
+              rotate(calc(var(--chip-rotation, 0) * 0.6));
           }
         }
 
-        @keyframes stat-reveal {
-          0% {
-            opacity: 0;
-            transform: translateY(20px) scale(0.9);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+        @media (max-width: 900px) {
+          .problem-chip {
+            transform: translateX(calc(var(--chip-offset, 0) * 0.6))
+              rotate(calc(var(--chip-rotation, 0) * 0.7));
           }
         }
 
-        @keyframes slide-up {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
+        @media (max-width: 640px) {
+          .problem-chip {
+            padding: 16px 20px;
+            transform: translateX(calc(var(--chip-offset, 0) * 0.3))
+              rotate(calc(var(--chip-rotation, 0) * 0.4));
           }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
 
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
+          .problem-text {
+            font-size: 1rem;
           }
         }
 
-        .animate-icon-bounce {
-          animation: icon-bounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .animate-benefit-slide {
-          animation: benefit-slide 0.6s ease-out both;
-        }
-
-        .animate-float-gentle {
-          animation: float-gentle 3s ease-in-out infinite;
-        }
-
-        .animate-icon-wiggle {
-          animation: icon-wiggle 0.6s ease-in-out infinite;
-        }
-
-        .animate-pulse-soft {
-          animation: pulse-soft 2s ease-in-out infinite;
-        }
-
-        .animate-stat-reveal {
-          animation: stat-reveal 0.6s ease-out both;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.8s ease-out;
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          *,
-          *::before,
-          *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
+        @media (max-width: 480px) {
+          .problem-chip {
+            margin-top: 14px;
+            margin-bottom: 6px;
+            transform: translateX(0) rotate(0);
           }
+
+          .problem-index {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .stakes-card {
+          position: relative;
+          width: 100%;
+          max-width: 600px;
+          border-radius: 18px;
+          padding: 36px 32px;
+          background: rgba(255, 255, 255, 0.92);
+          border: 1.5px dashed rgba(172, 163, 160, 0.9);
+          box-shadow: 0 30px 60px rgba(18, 34, 50, 0.12);
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+          cursor: pointer;
+          transition: transform 360ms ease, box-shadow 360ms ease;
+        }
+
+        .stakes-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 36px 70px rgba(18, 34, 50, 0.16);
+        }
+
+        .stakes-pane {
+          min-height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-size: 1.125rem;
+          line-height: 1.5;
+          letter-spacing: -0.01em;
+          color: #122232;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 320ms ease, transform 320ms ease;
+        }
+
+        .stakes-divider {
+          position: relative;
+          height: 1px;
+          border-top: 1.5px dashed rgba(200, 188, 182, 0.9);
+        }
+
+        .stakes-icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 48px;
+          height: 48px;
+          border-radius: 9999px;
+          border: 2px solid;
+          background: #fff;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 260ms ease, transform 260ms ease;
+          box-shadow: 0 10px 24px rgba(18, 34, 50, 0.12);
+        }
+
+        .stakes-icon-question {
+          border-color: #fce9ee;
+        }
+
+        .stakes-icon-answer {
+          border-color: #e6f6f1;
+        }
+
+        .stakes-hint {
+          font-size: 0.85rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #b9b1ae;
+          text-align: center;
+          margin-top: -8px;
+        }
+
+        .stakes-card[data-state="question"] .stakes-pane-question,
+        .stakes-card[data-state="question"] .stakes-icon-question {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+
+        .stakes-card[data-state="question"] .stakes-pane-question {
+          transform: translateY(0);
+        }
+
+        .stakes-card[data-state="solution"] .stakes-pane-answer,
+        .stakes-card[data-state="solution"] .stakes-icon-answer {
+          opacity: 1;
+        }
+
+        .stakes-card[data-state="solution"] .stakes-pane-answer {
+          transform: translateY(0);
+        }
+
+        .stakes-card[data-state="solution"] .stakes-icon-answer {
+          transform: translate(-50%, -50%);
         }
       `}</style>
     </section>
   );
-};
-
-export default AchieveSection;
+}
