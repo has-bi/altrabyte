@@ -16,7 +16,7 @@ export default function PortfolioSection({ projects = [] }) {
 
   return (
     <section className="section bg-white">
-      <div className="container">
+      <div className="section-container">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-semibold text-primary mb-4">
             Real Results From Real Work
