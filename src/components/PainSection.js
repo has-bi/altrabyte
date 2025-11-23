@@ -262,7 +262,7 @@ const PainSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F8F7FC]"
+      className="section relative overflow-hidden bg-[#F8F7FC]"
       aria-labelledby="pain-section-heading"
     >
       <div
@@ -270,7 +270,7 @@ const PainSection = () => {
         style={{ background: journeys[activeIndex].theme.gradient }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-20 lg:py-28">
+      <div className="section-container relative">
         <header className="text-center mb-16 lg:mb-20">
           <h2
             id="pain-section-heading"

@@ -64,8 +64,8 @@ const truthLayout = [
 
 const TruthSection = () => {
   return (
-    <section className="truth-section bg-white">
-      <div className="truth-container">
+    <section className="truth-section section bg-white">
+      <div className="truth-container section-container">
         <div className="truth-grid">
           <div className="truth-left">
             <h2 className="text-3xl sm:text-4xl font-semibold text-neutral-500 tracking-tight">
@@ -133,28 +133,6 @@ const TruthSection = () => {
           --truth-circle-scale-max: 1.05;
           --truth-transition: 420ms cubic-bezier(0.25, 0.8, 0.3, 1);
           background-color: #ffffff;
-        }
-
-        .truth-container {
-          max-width: 1120px;
-          margin: 0 auto;
-          padding: 32px 1.5rem 56px;
-        }
-
-        @media (min-width: 640px) {
-          .truth-container {
-            padding-top: 40px;
-            padding-bottom: 72px;
-            padding-left: 2rem;
-            padding-right: 2rem;
-          }
-        }
-
-        @media (min-width: 1024px) {
-          .truth-container {
-            padding-left: 3rem;
-            padding-right: 3rem;
-          }
         }
 
         .truth-grid {

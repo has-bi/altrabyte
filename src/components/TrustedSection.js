@@ -37,12 +37,11 @@ const TrustedBySection = () => {
   const gridLayout = [...topRow, ...middleRow, ...bottomRow];
 
   return (
-    <section className="trusted-section">
+    <section className="trusted-section section">
       <div className="trusted-container">
         <header className="trusted-header">
-          <span>Proof before promises</span>
-          <h2>Trusted by teams who needed more than dashboards</h2>
-          <p>Foundation-first engagements across retail, finance, SaaS, and energy.</p>
+          <h2>Trusted By Growing Businesses Across Industries</h2>
+          <p>Companies that chose foundation-first transformation</p>
         </header>
 
         <div className="trusted-grid">
@@ -85,72 +84,42 @@ const TrustedBySection = () => {
 
       <style jsx>{`
         .trusted-section {
-          background: linear-gradient(180deg, #fffdfb 0%, #fef7f7 60%, #fff 100%);
-          position: relative;
-        }
-
-        .trusted-section::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background-image: radial-gradient(
-              circle at top right,
-              rgba(244, 223, 237, 0.4),
-              transparent 40%
-            ),
-            radial-gradient(circle at bottom left, rgba(209, 231, 255, 0.35), transparent 45%);
-          pointer-events: none;
+          background: #ffffff;
         }
 
         .trusted-container {
-          position: relative;
-          max-width: 1120px;
+          max-width: 1040px;
           margin: 0 auto;
-          padding: 4.5rem 1.5rem;
+          padding-left: var(--section-space-x);
+          padding-right: var(--section-space-x);
         }
 
         .trusted-header {
           text-align: center;
-          max-width: 680px;
-          margin: 0 auto 3rem;
-        }
-
-        .trusted-header span {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 0.75rem;
-          letter-spacing: 0.45em;
-          text-transform: uppercase;
-          color: #b0a9ff;
+          max-width: 620px;
+          margin: 0 auto 2.75rem;
         }
 
         .trusted-header h2 {
-          margin-top: 0.75rem;
-          font-size: 2.5rem;
-          line-height: 1.2;
+          font-size: 2.4rem;
+          line-height: 1.25;
           font-weight: 600;
           color: #0f172a;
+          margin-bottom: 0.75rem;
         }
 
         .trusted-header p {
-          margin-top: 0.5rem;
           font-size: 1.0625rem;
-          color: rgba(15, 23, 42, 0.65);
+          color: rgba(15, 23, 42, 0.6);
         }
 
         .trusted-grid {
           position: relative;
           display: grid;
           grid-template-columns: repeat(${totalColumns}, minmax(0, 1fr));
-          grid-template-rows: 80px 140px 80px;
+          grid-template-rows: 80px 130px 80px;
           padding: 2.5rem 0;
           gap: 0;
-          border: 1px dashed rgba(15, 23, 42, 0.15);
-          border-radius: 32px;
-          background: rgba(255, 255, 255, 0.66);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-            0 20px 45px rgba(15, 23, 42, 0.08);
         }
 
         .grid-cell {
@@ -159,7 +128,7 @@ const TrustedBySection = () => {
           justify-content: center;
           padding: 0 1.5rem;
           border-style: dashed;
-          border-color: rgba(15, 23, 42, 0.15);
+          border-color: rgba(15, 23, 42, 0.2);
           border-width: 0;
         }
 
@@ -215,25 +184,17 @@ const TrustedBySection = () => {
           max-height: 70px;
           width: auto;
           filter: grayscale(100%);
-          opacity: 0.65;
-          transition: opacity 280ms ease, filter 280ms ease, transform 280ms ease;
+          opacity: 0.7;
+          transition: opacity 200ms ease, filter 200ms ease;
         }
 
         .trusted-card:hover img {
           filter: grayscale(0%);
           opacity: 1;
-          transform: translateY(-4px) scale(1.03);
         }
 
         @media (max-width: 1024px) {
-          .trusted-container {
-            padding: 3.5rem 1.25rem;
-          }
-
-          .trusted-grid {
-            grid-template-rows: 70px 120px 70px;
-          }
-*** End Patch
+          .trusted-header h2 {
             font-size: 2.1rem;
           }
 
@@ -248,10 +209,6 @@ const TrustedBySection = () => {
         }
 
         @media (max-width: 768px) {
-          .trusted-container {
-            padding: 3.75rem 1.25rem;
-          }
-
           .trusted-header h2 {
             font-size: 1.9rem;
           }

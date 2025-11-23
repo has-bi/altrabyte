@@ -142,10 +142,19 @@ const ProcessSection = () => {
         {/* Result callout */}
         <div className="result-callout">
           <div className="result-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <svg
+              width="34"
+              height="34"
+              viewBox="0 0 34 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                fill="currentColor"
+                d="M1.66675 16.667H31.6667M16.6667 31.667V1.66699M9.16675 9.16699L24.1667 24.167M9.16675 24.167L24.1667 9.16699"
+                stroke="#7863FC"
+                strokeWidth="3.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>
@@ -176,16 +185,44 @@ const ProcessSection = () => {
           content: "";
           position: absolute;
           inset: 0;
-          background: url('data:image/svg+xml,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(139, 92, 246, 0.08)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-          opacity: 0.5;
+          background-image: url("/images/element/Perspective%20Grid.png");
+          background-size: 140% 140%;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.65;
           pointer-events: none;
+          transform: scaleX(1.02);
+          z-index: 0;
+        }
+
+        .process-section::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+              168.7% 100% at 50% 0%,
+              #122232 73%,
+              rgba(18, 34, 50, 0.740489) 85%,
+              rgba(18, 34, 50, 0) 100%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(18, 34, 50, 0.95) 0%,
+              rgba(18, 34, 50, 0.75) 45%,
+              rgba(18, 34, 50, 0) 100%
+            );
+          background-size: 100% 100%, 100% 55%;
+          background-position: center top, top;
+          background-repeat: no-repeat;
+          pointer-events: none;
+          z-index: 1;
         }
 
         .process-container {
           position: relative;
           max-width: 72rem;
           margin: 0 auto;
-          z-index: 1;
+          z-index: 2;
         }
 
         .process-header {
@@ -228,7 +265,7 @@ const ProcessSection = () => {
           top: 50%;
           left: 0;
           right: 0;
-          height: 1.5px;
+          height: 2.5px;
           background: rgba(255, 255, 255, 0.12);
           transform: translateY(-50%);
           overflow: hidden;
@@ -244,14 +281,14 @@ const ProcessSection = () => {
           background: linear-gradient(
             90deg,
             transparent 0%,
-            transparent 40%,
-            rgba(120, 99, 252, 0.5) 48%,
-            rgba(7, 162, 118, 0.8) 50%,
-            rgba(120, 99, 252, 0.5) 52%,
-            transparent 60%,
+            transparent 35%,
+            rgba(120, 99, 252, 0.5) 45%,
+            rgba(7, 162, 118, 0.85) 50%,
+            rgba(120, 99, 252, 0.5) 55%,
+            transparent 65%,
             transparent 100%
           );
-          animation: flowLight 6s ease-in-out infinite;
+          animation: flowLight 3s ease-in-out infinite;
           will-change: transform;
         }
 
@@ -376,14 +413,11 @@ const ProcessSection = () => {
           display: flex;
           align-items: center;
           gap: 1.25rem;
-          background: linear-gradient(
-            135deg,
-            rgba(139, 92, 246, 0.12) 0%,
-            rgba(120, 99, 252, 0.08) 100%
-          );
-          border: 1px solid rgba(139, 92, 246, 0.2);
-          border-radius: 1.25rem;
+          background: rgba(255, 255, 255, 0.98);
+          border: 12px solid rgba(255, 255, 255, 0.16);
+          border-radius: 1.5rem;
           padding: 2rem 2.5rem;
+          background-clip: padding-box;
           backdrop-filter: blur(10px);
           animation: fadeIn 900ms ease-out 500ms backwards;
         }
@@ -395,8 +429,8 @@ const ProcessSection = () => {
           justify-content: center;
           width: 3rem;
           height: 3rem;
-          background: rgba(139, 92, 246, 0.15);
-          color: #a78bfa;
+          background: rgba(120, 99, 252, 0.12);
+          color: #7c3aed;
           border-radius: 0.75rem;
         }
 
@@ -410,12 +444,12 @@ const ProcessSection = () => {
         .result-label {
           font-size: 1.0625rem;
           font-weight: 700;
-          color: #a78bfa;
+          color: #7c3aed;
         }
 
         .result-text {
           font-size: 1.0625rem;
-          color: rgba(255, 255, 255, 0.95);
+          color: #1f2937;
           line-height: 1.6;
         }
 
