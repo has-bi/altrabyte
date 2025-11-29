@@ -1,0 +1,100 @@
+"use client";
+
+import { ArrowUpRight } from "lucide-react";
+
+const SERVICE_LINKS = [
+  {
+    label: "Data Foundation Sprint",
+    pill: "Start with clarity",
+  },
+  {
+    label: "Automation & AI Ops",
+    pill: "Scale smart",
+  },
+  {
+    label: "Decision Intelligence Pods",
+    pill: "Own every decision",
+  },
+];
+
+export default function FinalCTASection() {
+  return (
+    <section className="bg-[#F7F3FF] px-4 py-16 sm:px-10 md:px-16 lg:px-[40px]">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 rounded-[48px] bg-white/40 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
+        <div className="relative flex w-full flex-col overflow-hidden rounded-[40px] bg-[#7863FC] text-white shadow-[0px_60px_80px_rgba(63,52,130,0.35)]">
+          <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
+          <div className="absolute -right-12 bottom-0 h-72 w-72 rounded-full bg-[#A398FF]/30 blur-3xl" />
+
+          <div className="relative flex flex-col gap-12 px-6 py-12 sm:px-12 lg:px-20">
+            <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex max-w-2xl flex-col gap-5 text-left">
+                <h2 className="text-[40px] font-semibold leading-[1.2] tracking-[-0.02em] text-white sm:text-[48px] lg:text-[56px]">
+                  Your next compounding wins are waiting
+                </h2>
+                <p className="text-lg leading-[1.6] tracking-[-0.01em] text-white/85 sm:text-xl">
+                  We integrate with your team in weeks, not quarters. Vision,
+                  sequencing, delivery, and the coaching that sticks inside your
+                  org.
+                </p>
+              </div>
+
+              <div className="relative mx-auto flex w-full max-w-[500px] flex-col items-center gap-6 rounded-[16px] border-4 border-white/80 bg-[#F2EFFF] px-8 py-10 text-center text-[#122232] shadow-[20px_40px_40px_rgba(0,0,0,0.12)]">
+                <div className="text-[20px] font-semibold leading-[1.5] tracking-[-0.01em]">
+                  Build a model that keeps scaling after we leave.
+                </div>
+                <div className="h-px w-full border-t border-dashed border-[#122232]/40" />
+                <button className="group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white">
+                  <span className="text-[18px] font-semibold tracking-[-0.01em]">
+                    Book a 30-min strategy session
+                  </span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </span>
+                </button>
+                <span className="rounded-full border border-dashed border-[#CCD2D8] px-4 py-1 text-[13px] uppercase tracking-[0.2em] text-[#7E8791]">
+                  Limited slots weekly
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-4 border-t border-dashed border-white/40 pt-10 text-center">
+              <p className="text-2xl font-medium leading-[1.3] tracking-[-0.01em] text-white">
+                &ldquo;They didn&apos;t just ship dashboards—they rolled out a
+                playbook that our ops team still runs with.&rdquo;
+              </p>
+              <span className="text-sm uppercase tracking-[0.3em] text-white/70">
+                COO, SERIES C RETAIL PLATFORM
+              </span>
+            </div>
+          </div>
+
+          <div className="relative flex w-full flex-col gap-6 bg-[#9382FD] px-6 py-10 sm:px-10 lg:px-16">
+            <div className="text-center text-xl font-semibold tracking-[-0.01em]">
+              What we can jump into together
+            </div>
+            <div className="flex flex-col gap-4 lg:flex-row">
+              {SERVICE_LINKS.map((service) => (
+                <div
+                  key={service.label}
+                  className="flex flex-1 items-center justify-between gap-3 rounded-full border border-white/70 bg-white/5 px-6 py-4 text-left"
+                >
+                  <div className="flex flex-col">
+                    <span className="text-sm uppercase tracking-[0.3em] text-white/70">
+                      {service.pill}
+                    </span>
+                    <span className="text-lg font-semibold tracking-[-0.01em]">
+                      {service.label}
+                    </span>
+                  </div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#122232]">
+                    <ArrowUpRight className="h-5 w-5 text-white" />
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

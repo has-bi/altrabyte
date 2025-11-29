@@ -2,17 +2,182 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
+const pathOneProcess = [
+  {
+    title: "Data Infrastructure Assessment",
+    accent: true,
+    bullets: [
+      "Where is your data actually stored? (Spoiler: Usually Excel)",
+      "How do you currently generate reports? (Spoiler: Usually manual)",
+      'What does "automation" mean to you? (Spoiler: Usually people working faster)',
+    ],
+  },
+  {
+    title: "Business Process Mapping",
+    accent: false,
+    bullets: [
+      "Which manual processes are killing productivity?",
+      "Where are the bottlenecks that scale horribly?",
+      "What decisions are delayed waiting for data?",
+    ],
+  },
+  {
+    title: "Technology Stack Evaluation",
+    accent: true,
+    bullets: [
+      "What tools do you actually use daily? (Not what you bought but don't use)",
+      "Where are the integration gaps?",
+      "What's your current cloud maturity?",
+    ],
+  },
+];
+
+const pathOneDeliverables = [
+  {
+    title: "Current State Reality",
+    description: "(what's actually happening)",
+  },
+  {
+    title: "Timeline & Investment",
+    description: "(realistic expectations)",
+  },
+  {
+    title: "Foundation Gaps",
+    description: "(what needs to be built)",
+  },
+  {
+    title: "Priority Roadmap",
+    description: "(what to fix first, second, third)",
+  },
+];
+
+const pathOneDeliverableBlock = {
+  type: "deliverables",
+  title: "The Foundation Audit Deliverable",
+  subtitle: "A brutally honest assessment document",
+  items: pathOneDeliverables,
+  background: "#F2EFFF",
+};
+
+const pathTwoProcess = [
+  {
+    title: "Data\nConsolidation",
+    accent: true,
+    bullets: [
+      "Excel Liberation: Move scattered spreadsheets to proper data storage",
+      "Source Integration: Connect your actual systems (ERP, POS, e-commerce, finance)",
+      "Data Validation: Ensure accuracy before building anything on top",
+    ],
+  },
+  {
+    title: "Business Process\nRedesign",
+    accent: false,
+    bullets: [
+      "Workflow Mapping: Document how work actually flows (vs. how you think it flows)",
+      "Bottleneck Elimination: Remove manual handoffs that slow everything down",
+      "Standard Operating Procedures: Create repeatable processes that scale",
+    ],
+  },
+  {
+    title: "Cloud Infrastructure",
+    accent: true,
+    bullets: [
+      "Scalable Architecture: Build systems that grow with your business",
+      "Security & Compliance: Enterprise-grade security from day one",
+      "Disaster Recovery: Because your business can't afford downtime",
+    ],
+  },
+];
+
+const pathTwoExample = [
+  {
+    label: "Before",
+    text: "Monthly reports took 3 weeks, 5 people, frequent errors",
+  },
+  {
+    label: "After",
+    text: "Real-time inventory dashboard, automated alerts, zero manual input",
+  },
+  {
+    label: "Impact",
+    text: "3 weeks → Real-time, 5 people → 0 people, errors → eliminated",
+  },
+];
+
+const pathTwoCaseStudyBlock = {
+  type: "case-study",
+  title: "Real Example: Small Distribution Company",
+  rows: pathTwoExample,
+  background: "#EAE4FF",
+};
+
+const pathThreeProcess = [
+  {
+    title: "Intelligent Automation",
+    accent: true,
+    bullets: [
+      "RPA Implementation: Robots handle repetitive tasks 24/7",
+      "Document Processing: AI extracts data from invoices, contracts, forms",
+      "Workflow Automation: Intelligent routing based on business rules",
+    ],
+  },
+  {
+    title: "Advanced Analytics",
+    accent: false,
+    bullets: [
+      "Predictive Insights: Forecast trends before they happen",
+      "Automated Reporting: Updates happen continuously, not monthly",
+      "Decision Support: AI recommends actions based on data patterns",
+    ],
+  },
+  {
+    title: "Business Intelligence",
+    accent: true,
+    bullets: [
+      "Real-time Dashboards: See your business as it happens",
+      "Mobile Access: Critical insights available anywhere",
+      "Drill-down Capability: From high-level trends to detailed transactions",
+    ],
+  },
+];
+
+const pathThreeExample = [
+  {
+    label: "Before",
+    text: "Social media data collection took 2 full-time employees, updated weekly",
+  },
+  {
+    label: "After",
+    text: "Automated scraping across platforms, real-time competitor intelligence",
+  },
+  {
+    label: "Impact",
+    text: "2 FTEs → 0 FTEs, Weekly → Real-time, Manual → Intelligent",
+  },
+];
+
+const pathThreeCaseStudyBlock = {
+  type: "case-study",
+  title: "Real Example: Major Beauty Retailer",
+  rows: pathThreeExample,
+  background: "#E5E6FF",
+};
+
 const auditJourneys = [
   {
     id: "audit-path-1",
     pathLabel: "Path 1",
-    navLabel: "Spreadsheet Reality",
-    headline: "If the business still runs on spreadsheets",
+    navLabel: "Foundation Audit",
+    duration: "Week 1-2",
+    headline: "The Reality Check Process",
     client: "Regional distributor (pre-platform)",
+    processSections: pathOneProcess,
+    footnote: pathOneDeliverableBlock,
     details: [
       {
         label: "Starting Point",
-        value: "Data scattered across Excel/Sheets with ad-hoc macros and exports",
+        value:
+          "Data scattered across Excel/Sheets with ad-hoc macros and exports",
       },
       {
         label: "What we audit",
@@ -24,7 +189,10 @@ const auditJourneys = [
         value:
           "Foundation map, first automated ingestion, and a clean reporting pack to replace the weekly scramble",
       },
-      { label: "Timeline", value: "10-day audit, 30–45 days to stabilize" },
+      {
+        label: "Timeline",
+        value: "10-day audit, 30–45 days to stabilize",
+      },
     ],
     image:
       "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
@@ -42,13 +210,17 @@ const auditJourneys = [
   {
     id: "audit-path-2",
     pathLabel: "Path 2",
-    navLabel: "Disconnected Systems",
-    headline: "If you have tools, but nothing talks to each other",
-    client: "Omnichannel retailer (mid-growth)",
+    navLabel: "Infrastructure Build",
+    duration: "Month 1-3",
+    headline: "From Chaos to Clarity",
+    client: "Small distribution company",
+    processSections: pathTwoProcess,
+    footnote: pathTwoCaseStudyBlock,
     details: [
       {
         label: "Starting Point",
-        value: "Mix of SaaS tools, no shared IDs, teams rebuilding the same numbers",
+        value:
+          "Mix of SaaS tools, no shared IDs, teams rebuilding the same numbers",
       },
       {
         label: "What we audit",
@@ -60,7 +232,10 @@ const auditJourneys = [
         value:
           "Unified entities, reconciled KPIs, and an execution plan for the first automation loops",
       },
-      { label: "Timeline", value: "10-day audit, 45–60 days to operationalize" },
+      {
+        label: "Timeline",
+        value: "10-day audit, 45–60 days to operationalize",
+      },
     ],
     image:
       "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
@@ -78,13 +253,17 @@ const auditJourneys = [
   {
     id: "audit-path-3",
     pathLabel: "Path 3",
-    navLabel: "AI-Ready, But Blocked",
-    headline: "If you’re ready for AI but trust in the data is low",
-    client: "Enterprise marketplace (scale)",
+    navLabel: "Automation & Intelligence",
+    duration: "Month 2-6",
+    headline: "Now AI Actually Works",
+    client: "Major beauty retailer",
+    processSections: pathThreeProcess,
+    footnote: pathThreeCaseStudyBlock,
     details: [
       {
         label: "Starting Point",
-        value: "Pipelines exist, but quality, lineage, and controls are inconsistent",
+        value:
+          "Pipelines exist, but quality, lineage, and controls are inconsistent",
       },
       {
         label: "What we audit",
@@ -96,7 +275,10 @@ const auditJourneys = [
         value:
           "Risk register, control plan, and a prioritized roadmap to productionize AI safely",
       },
-      { label: "Timeline", value: "10-day audit, 60–90 days to harden" },
+      {
+        label: "Timeline",
+        value: "10-day audit, 60–90 days to harden",
+      },
     ],
     image:
       "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
@@ -219,6 +401,108 @@ const FoundationAuditPaths = () => {
     window.scrollTo({ top: rect.top + scrollTop - offset, behavior: "smooth" });
   }, []);
 
+  const renderProcessColumns = (sections) => (
+    <div className="grid gap-12 md:grid-cols-3 md:gap-16">
+      {sections.map((section, idx) => (
+        <div
+          key={section.title}
+          className="group flex flex-col gap-6 animation-fade-up"
+          style={{ animationDelay: `${idx * 100}ms` }}
+        >
+          <h4 className="text-[20px] font-semibold text-[#0F172A] leading-[1.3] tracking-[-0.02em] whitespace-pre-line">
+            {section.title}
+          </h4>
+          <ul className="space-y-4 text-[#475569]">
+            {section.bullets.map((bullet) => (
+              <li
+                key={bullet}
+                className="flex items-start gap-3 text-[15px] leading-[1.6] tracking-[-0.01em] transition-all duration-300 hover:translate-x-1"
+              >
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#7863FC] opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-125" />
+                <span className="transition-colors duration-300 hover:text-[#0F172A]">{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderFootnote = (footnote) => {
+    if (!footnote) return null;
+
+    if (footnote.type === "deliverables") {
+      return (
+        <div
+          className="rounded-2xl p-8 md:p-10 animation-fade-up mt-12"
+          style={{ backgroundColor: footnote.background ?? "#F2EFFF" }}
+        >
+          <div className="mb-8">
+            <h5 className="text-[22px] font-semibold text-[#0F172A] leading-[1.3] tracking-[-0.02em]">
+              {footnote.title}
+            </h5>
+            <p className="text-[16px] text-[#64748B] mt-2 leading-[1.6]">
+              {footnote.subtitle}
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {footnote.items.map((item, idx) => (
+              <div
+                key={item.title}
+                className="group relative flex flex-col gap-2 rounded-xl border border-[#E2E8F0] bg-white px-6 py-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#7863FC]/10 hover:border-[#7863FC]/20 cursor-default"
+              >
+                <span className="absolute right-5 top-5 text-xs font-medium text-[#CBD5E1] transition-all duration-300 group-hover:text-[#7863FC] group-hover:scale-110">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <p className="text-[15px] font-semibold text-[#0F172A] pr-8 leading-[1.4] transition-colors duration-300 group-hover:text-[#7863FC]">
+                  {item.title}
+                </p>
+                <p className="text-[14px] text-[#64748B] leading-[1.6] transition-colors duration-300 group-hover:text-[#475569]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (footnote.type === "case-study") {
+      const titleParts = footnote.title.split(": ");
+      return (
+        <div
+          className="rounded-[12px] p-5 animation-fade-up mt-12"
+          style={{ backgroundColor: footnote.background ?? "#F2EFFF" }}
+        >
+          <h5 className="text-[16px] font-medium mb-5 leading-[1.5] tracking-[-0.01em]">
+            <span className="text-[#7863FC]">{titleParts[0]}:</span>{" "}
+            <span className="text-[#122232]">{titleParts[1]}</span>
+          </h5>
+          <div className="flex flex-col gap-4">
+            {footnote.rows.map((row, idx) => (
+              <React.Fragment key={row.label}>
+                <div className="group flex items-start gap-1 transition-all duration-300 hover:translate-x-1">
+                  <p className="text-[14px] font-normal text-[#606B76] leading-[1.4] tracking-[-0.01em] w-[120px] flex-shrink-0 transition-colors duration-300 group-hover:text-[#7863FC]">
+                    {row.label}
+                  </p>
+                  <p className="text-[15px] font-medium text-[#122232] leading-[1.5] tracking-[-0.01em] flex-1 transition-colors duration-300 group-hover:text-[#0F172A]">
+                    {row.text}
+                  </p>
+                </div>
+                {idx < footnote.rows.length - 1 && (
+                  <div className="w-full h-0 border-t-[1.5px] border-dashed border-[#B6BABF] transition-colors duration-300 hover:border-[#7863FC]/30" />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -231,16 +515,16 @@ const FoundationAuditPaths = () => {
       />
 
       <div className="section-container relative">
-        <header className="mb-14 text-center md:mb-16">
+        <header className="mb-20 text-center md:mb-24">
           <h2
             id="audit-paths-heading"
-            className="mx-auto max-w-3xl text-[34px] font-medium leading-[1.28] tracking-[-0.01em] text-neutral-500 md:text-[38px] lg:text-[40px]"
+            className="mx-auto max-w-4xl text-[36px] font-semibold leading-[1.2] tracking-[-0.03em] text-[#0F172A] md:text-[42px] lg:text-[48px]"
           >
-            Three ways we meet you in the audit — and what happens next
+            Our Three-Phase Methodology
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-[1.5] tracking-[-0.01em] text-neutral-400 md:text-[20px]">
-            Pick the reality that feels closest. We map the truth, de-risk it,
-            and give you a blueprint that fits your starting point.
+          <p className="mx-auto mt-6 max-w-4xl text-[17px] leading-[1.7] tracking-[-0.01em] text-[#64748B] md:text-[18px]">
+            Unlike other consultants who assume readiness, we systematically
+            build capability.
           </p>
         </header>
 
@@ -280,6 +564,17 @@ const FoundationAuditPaths = () => {
                   <div className="audit-meta">
                     <span className="audit-path">{journey.pathLabel}</span>
                     <span className="audit-title">{journey.navLabel}</span>
+                    {journey.duration && (
+                      <div className="audit-duration">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="4" y="5" width="16" height="16" rx="2" stroke="#122232" strokeWidth="1.5"/>
+                          <rect x="7" y="11" width="4" height="4" rx="1" fill="#122232"/>
+                          <line x1="8" y1="2" x2="8" y2="6" stroke="#122232" strokeWidth="1.5" strokeLinecap="round"/>
+                          <line x1="16" y1="2" x2="16" y2="6" stroke="#122232" strokeWidth="1.5" strokeLinecap="round"/>
+                        </svg>
+                        <span>{journey.duration}</span>
+                      </div>
+                    )}
                     <span className="audit-client">{journey.client}</span>
                   </div>
                 </aside>
@@ -297,85 +592,102 @@ const FoundationAuditPaths = () => {
                     isActive ? "is-active" : ""
                   }`}
                 >
-                  <div className="relative z-[1] px-8 pb-8 pt-8 md:px-10 md:pt-10 md:pb-10">
-                    <div
-                      className={`audit-card-header ${
-                        isVisible ? "is-visible" : ""
-                      }`}
-                    >
-                      <span
-                        className="audit-tag"
-                        style={{
-                          backgroundColor: journey.theme.accentSoft,
-                          color: "#ffffff",
-                        }}
-                      >
-                        {journey.pathLabel.toUpperCase()}
-                      </span>
-                    </div>
-
-                    <h3
-                      className={`audit-card-title ${
-                        isVisible ? "is-visible" : ""
-                      }`}
-                    >
-                      {journey.headline}
-                    </h3>
-
-                    <p
-                      className={`audit-card-client ${
-                        isVisible ? "is-visible" : ""
-                      }`}
-                    >
-                      Client
-                    </p>
-                    <p
-                      className={`audit-card-client-name ${
-                        isVisible ? "is-visible" : ""
-                      }`}
-                    >
-                      {journey.client}
-                    </p>
-
-                    <ul
-                      className={`audit-card-details ${
-                        isVisible ? "is-visible" : ""
-                      }`}
-                    >
-                      {journey.details.map((detail, idx) => (
-                        <li
-                          key={`${journey.id}-${detail.label}`}
-                          className="audit-detail-item"
-                          style={{ transitionDelay: `${idx * 80}ms` }}
-                        >
-                          <span className="audit-detail-label">
-                            {detail.label}
+                  <div className="relative z-[1] px-10 pb-12 pt-10 md:px-14 md:pt-14 md:pb-14">
+                    {journey.processSections ? (
+                      <div className="flex flex-col gap-10 text-left animation-fade-up">
+                        <div className="flex flex-col gap-4">
+                          <span className="inline-flex h-[32px] w-[90px] items-center justify-center rounded-full bg-[#7863FC] text-[13px] font-semibold tracking-[0.05em] text-white">
+                            {journey.pathLabel.toUpperCase()}
                           </span>
-                          <span className="audit-detail-value">
-                            {detail.value}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div
-                      className={`audit-card-image-quote ${
-                        isVisible ? "is-visible" : ""
-                      }`}
-                    >
-                      <div className="audit-image-wrapper">
-                        <img
-                          src={journey.image}
-                          alt="Audit highlight"
-                          className="audit-image-bg"
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                        <div className="audit-image-overlay" />
-                        <figure className="audit-quote-overlay">
-                          <blockquote>"{journey.quote}"</blockquote>
-                        </figure>
+                          <h3 className="text-[28px] md:text-[34px] font-semibold leading-[1.25] tracking-[-0.03em] text-[#0F172A]">
+                            {journey.headline}
+                          </h3>
+                        </div>
+                        {renderProcessColumns(journey.processSections)}
+                        {renderFootnote(journey.footnote)}
                       </div>
-                    </div>
+                    ) : (
+                      <>
+                        <div
+                          className={`audit-card-header ${
+                            isVisible ? "is-visible" : ""
+                          }`}
+                        >
+                          <span
+                            className="audit-tag"
+                            style={{
+                              backgroundColor: journey.theme.accentSoft,
+                              color: "#ffffff",
+                            }}
+                          >
+                            {journey.pathLabel.toUpperCase()}
+                          </span>
+                        </div>
+
+                        <h3
+                          className={`audit-card-title ${
+                            isVisible ? "is-visible" : ""
+                          }`}
+                        >
+                          {journey.headline}
+                        </h3>
+
+                        <p
+                          className={`audit-card-client ${
+                            isVisible ? "is-visible" : ""
+                          }`}
+                        >
+                          Client
+                        </p>
+                        <p
+                          className={`audit-card-client-name ${
+                            isVisible ? "is-visible" : ""
+                          }`}
+                        >
+                          {journey.client}
+                        </p>
+
+                        <ul
+                          className={`audit-card-details ${
+                            isVisible ? "is-visible" : ""
+                          }`}
+                        >
+                          {journey.details.map((detail, idx) => (
+                            <li
+                              key={`${journey.id}-${detail.label}`}
+                              className="audit-detail-item"
+                              style={{ transitionDelay: `${idx * 80}ms` }}
+                            >
+                              <span className="audit-detail-label">
+                                {detail.label}
+                              </span>
+                              <span className="audit-detail-value">
+                                {detail.value}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div
+                          className={`audit-card-image-quote ${
+                            isVisible ? "is-visible" : ""
+                          }`}
+                        >
+                          <div className="audit-image-wrapper">
+                            <img
+                              src={journey.image}
+                              alt="Audit highlight"
+                              className="audit-image-bg"
+                              loading={index === 0 ? "eager" : "lazy"}
+                            />
+                            <div className="audit-image-overlay" />
+                            <figure className="audit-quote-overlay">
+                              <blockquote>"{journey.quote}"</blockquote>
+                            </figure>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </article>
               </div>
@@ -385,6 +697,25 @@ const FoundationAuditPaths = () => {
       </div>
 
       <style jsx>{`
+        .animation-fade-up {
+          animation: fadeUp 600ms ease forwards;
+        }
+
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .shadow-hover-card {
+          transition: transform 350ms ease, box-shadow 350ms ease;
+        }
+
         .audit-progress-line {
           position: absolute;
           left: calc(0.6rem + 5px);
@@ -410,10 +741,10 @@ const FoundationAuditPaths = () => {
 
         .audit-row {
           display: grid;
-          grid-template-columns: 180px minmax(0, 1fr);
-          gap: 2.5rem;
+          grid-template-columns: 200px minmax(0, 1fr);
+          gap: 4rem;
           align-items: start;
-          margin-bottom: 3rem;
+          margin-bottom: 4rem;
         }
 
         .audit-row:last-child {
@@ -422,15 +753,23 @@ const FoundationAuditPaths = () => {
 
         .audit-timeline-node {
           position: relative;
-          padding-left: 2rem;
+          padding-left: 2.5rem;
           padding-right: 0.5rem;
-          padding-bottom: 0.85rem;
+          padding-bottom: 1rem;
           cursor: pointer;
           opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            transform 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: translateY(20px);
+          transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            background 300ms cubic-bezier(0.4, 0, 0.2, 1);
           height: 100%;
+          border-radius: 12px;
+          margin-left: -0.5rem;
+          padding-left: 3rem;
+        }
+
+        .audit-timeline-node:hover {
+          background: rgba(120, 99, 252, 0.04);
         }
 
         .audit-timeline-node.is-visible {
@@ -458,29 +797,38 @@ const FoundationAuditPaths = () => {
           z-index: 2;
         }
 
+        .audit-timeline-node:hover .audit-bullet {
+          transform: scale(1.15);
+          background: rgba(120, 99, 252, 0.45);
+        }
+
         .audit-timeline-node.is-completed .audit-bullet {
           background: rgba(120, 99, 252, 0.65);
         }
 
         .audit-timeline-node.is-active .audit-bullet {
           transform: scale(1.35);
-          background: #7863FC;
+          background: #7863fc;
           box-shadow: 0 0 0 6px rgba(242, 239, 255, 1),
             0 0 0 1px rgba(120, 99, 252, 0.3);
+        }
+
+        .audit-timeline-node.is-active:hover .audit-bullet {
+          transform: scale(1.4);
         }
 
         .audit-meta {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 4px;
         }
 
         .audit-path {
-          font-size: 0.6875rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: #7863FC;
+          font-size: 1.125rem;
+          font-weight: 400;
+          line-height: 1.5;
+          letter-spacing: -0.01em;
+          color: #7863fc;
         }
 
         .audit-timeline-node.is-active .audit-path {
@@ -488,10 +836,31 @@ const FoundationAuditPaths = () => {
         }
 
         .audit-title {
-          font-size: 0.9375rem;
-          font-weight: 600;
-          line-height: 1.45;
-          color: #0f172a;
+          font-size: 1.125rem;
+          font-weight: 500;
+          line-height: 1.5;
+          color: #122232;
+          letter-spacing: -0.01em;
+        }
+
+        .audit-duration {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .audit-duration svg {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+
+        .audit-duration span {
+          font-size: 1.125rem;
+          font-weight: 500;
+          line-height: 1.5;
+          color: #122232;
+          letter-spacing: -0.01em;
         }
 
         .audit-client {
@@ -500,23 +869,30 @@ const FoundationAuditPaths = () => {
 
         .audit-card {
           position: relative;
-          border: 1px solid #e8e7f0;
-          border-radius: 1.25rem;
+          border: 1px solid #e2e8f0;
+          border-radius: 1.5rem;
           overflow: hidden;
           opacity: 0;
-          transform: translateY(50px);
+          transform: translateY(40px);
           background: #ffffff;
-          transition: opacity 750ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            transform 750ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            box-shadow 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition: opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            box-shadow 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .audit-card:hover {
+          border-color: rgba(120, 99, 252, 0.2);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04),
+            0 20px 50px -15px rgba(120, 99, 252, 0.15);
         }
 
         .audit-card.is-visible {
           opacity: 1;
           transform: translateY(0);
-          box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.06),
-            0 0 1px rgba(0, 0, 0, 0.05);
-          transition-delay: 120ms;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03),
+            0 10px 40px -10px rgba(0, 0, 0, 0.08);
+          transition-delay: 100ms;
         }
 
         .audit-tag {
@@ -619,14 +995,14 @@ const FoundationAuditPaths = () => {
 
         .audit-detail-item {
           display: grid;
-          grid-template-columns: 130px 1fr;
-          gap: 2.5rem;
-          padding: 1.125rem 0;
+          grid-template-columns: 140px 1fr;
+          gap: 3rem;
+          padding: 1.25rem 0;
           opacity: 0;
-          transform: translateX(-8px);
+          transform: translateX(-5px);
           transition: opacity 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
             transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-          border-bottom: 1px dotted #e2e8f0;
+          border-bottom: 1px solid #f1f5f9;
         }
 
         .audit-detail-item:last-child {
@@ -639,16 +1015,18 @@ const FoundationAuditPaths = () => {
         }
 
         .audit-detail-label {
-          font-size: 0.8125rem;
-          font-weight: 500;
+          font-size: 0.9375rem;
+          font-weight: 400;
           color: #94a3b8;
           line-height: 1.6;
+          text-transform: none;
+          letter-spacing: normal;
         }
 
         .audit-detail-value {
           font-size: 0.9375rem;
-          font-weight: 400;
-          color: #1e293b;
+          font-weight: 500;
+          color: #0f172a;
           line-height: 1.65;
         }
 
@@ -668,8 +1046,8 @@ const FoundationAuditPaths = () => {
         .audit-image-wrapper {
           position: relative;
           overflow: hidden;
-          border-radius: 1rem;
-          height: 300px;
+          border-radius: 1.25rem;
+          height: 320px;
         }
 
         .audit-image-bg {
@@ -695,16 +1073,17 @@ const FoundationAuditPaths = () => {
           bottom: 0;
           left: 0;
           right: 0;
-          padding: 1.75rem 2rem;
+          padding: 2rem 2.5rem;
           z-index: 1;
         }
 
         .audit-quote-overlay blockquote {
-          font-size: 1rem;
-          line-height: 1.7;
+          font-size: 1.0625rem;
+          line-height: 1.65;
           color: #ffffff;
           font-weight: 400;
           margin: 0;
+          letter-spacing: -0.01em;
         }
 
         @media (min-width: 768px) {
@@ -713,20 +1092,20 @@ const FoundationAuditPaths = () => {
           }
 
           .audit-detail-item {
-            grid-template-columns: 150px 1fr;
-            gap: 3rem;
+            grid-template-columns: 160px 1fr;
+            gap: 3.5rem;
           }
 
           .audit-image-wrapper {
-            height: 340px;
+            height: 360px;
           }
 
           .audit-quote-overlay {
-            padding: 2rem 2.5rem;
+            padding: 2.5rem 3rem;
           }
 
           .audit-quote-overlay blockquote {
-            font-size: 1.0625rem;
+            font-size: 1.125rem;
           }
         }
 
@@ -748,20 +1127,21 @@ const FoundationAuditPaths = () => {
           }
 
           .audit-title {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
           }
 
           .audit-detail-item {
             grid-template-columns: 1fr;
-            gap: 0.5rem;
+            gap: 0.625rem;
+            padding: 1rem 0;
           }
 
           .audit-image-wrapper {
-            height: 280px;
+            height: 300px;
           }
 
           .audit-quote-overlay {
-            padding: 1.5rem;
+            padding: 1.75rem 2rem;
           }
 
           .audit-quote-overlay blockquote {
