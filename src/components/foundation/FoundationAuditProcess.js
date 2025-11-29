@@ -39,7 +39,6 @@ const phases = [
 
 const ProcessSection = () => {
   const [visiblePhases, setVisiblePhases] = useState([]);
-  const [expandedPhase, setExpandedPhase] = useState(null);
   const phaseRefs = useRef([]);
   const sectionRef = useRef(null);
 
@@ -95,38 +94,13 @@ const ProcessSection = () => {
               data-phase-index={index}
               className={`phase-content ${
                 visiblePhases.includes(index) ? "is-visible" : ""
-              } ${expandedPhase === index ? "is-expanded" : ""}`}
-              onClick={() => setExpandedPhase(expandedPhase === index ? null : index)}
+              } is-expanded`}
             >
               <div className="phase-header-section">
                 <div className="phase-header-content">
                   <h3 className="phase-title">{phase.title}</h3>
                   <p className="phase-subtitle">{phase.subtitle}</p>
                 </div>
-                <button
-                  className="expand-button"
-                  aria-label={expandedPhase === index ? "Collapse" : "Expand"}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setExpandedPhase(expandedPhase === index ? null : index);
-                  }}
-                >
-                  <svg
-                    className="expand-icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M6 9L12 15L18 9"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
               </div>
 
               <div className="phase-points-wrapper">
@@ -637,18 +611,6 @@ const ProcessSection = () => {
           transition: all 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
           padding: 1.5rem;
           border-radius: 1rem;
-          cursor: pointer;
-          border: 1px solid transparent;
-        }
-
-        .phase-content:hover {
-          background: rgba(255, 255, 255, 0.03);
-          border-color: rgba(120, 99, 252, 0.2);
-        }
-
-        .phase-content.is-expanded {
-          background: rgba(120, 99, 252, 0.08);
-          border-color: rgba(120, 99, 252, 0.3);
         }
 
         .phase-content.is-visible {
@@ -684,58 +646,15 @@ const ProcessSection = () => {
         }
 
         .phase-header-section {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          gap: 1rem;
-          margin-bottom: 0;
+          margin-bottom: 1.75rem;
         }
 
         .phase-header-content {
           flex: 1;
         }
 
-        .expand-button {
-          background: rgba(120, 99, 252, 0.15);
-          border: 1px solid rgba(120, 99, 252, 0.25);
-          border-radius: 0.5rem;
-          width: 2.5rem;
-          height: 2.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-          flex-shrink: 0;
-          padding: 0;
-        }
-
-        .expand-button:hover {
-          background: rgba(120, 99, 252, 0.25);
-          border-color: rgba(120, 99, 252, 0.4);
-          transform: scale(1.05);
-        }
-
-        .expand-icon {
-          color: rgba(255, 255, 255, 0.9);
-          transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .phase-content.is-expanded .expand-icon {
-          transform: rotate(180deg);
-        }
-
         .phase-points-wrapper {
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-          transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .phase-content.is-expanded .phase-points-wrapper {
-          max-height: 500px;
           opacity: 1;
-          margin-top: 1.75rem;
         }
 
         .phase-title {
