@@ -4,27 +4,39 @@ import React, { useEffect, useRef, useState } from "react";
 const promises = [
   {
     title: "Brutal Honesty",
-    description: "We'll tell you what you actually need, not what you want to hear",
+    description: "We tell you what you actually need, not what you want to hear",
   },
   {
     title: "Realistic Timelines",
-    description: "Months, not weeks, for real transformation",
+    description: "Real transformation takes months, not weeks—we'll show you why",
   },
   {
     title: "No Sales Pitch",
-    description: "Pure assessment, recommendations only",
+    description: "Pure assessment with recommendations you can use anywhere",
   },
   {
     title: "Actionable Roadmap",
-    description: "Specific next steps, whether you work with us or not",
+    description: "Clear next steps, whether you work with us or not",
   },
 ];
 
 const dontPromises = [
-  "Quick fixes for complex problems",
-  "AI solutions for foundation issues",
-  "Generic recommendations",
-  "Unrealistic timelines",
+  {
+    title: "Quick Fixes",
+    description: "We won't promise overnight solutions to complex problems",
+  },
+  {
+    title: "AI Band-Aids",
+    description: "We won't slap AI on broken foundations and call it innovation",
+  },
+  {
+    title: "Template Recommendations",
+    description: "We won't give you generic advice that fits everyone and no one",
+  },
+  {
+    title: "Fantasy Timelines",
+    description: "We won't promise unrealistic deadlines just to close the deal",
+  },
 ];
 
 const pairedRows = promises.map((promise, idx) => ({
@@ -108,7 +120,10 @@ const FoundationAuditPromises = () => {
                     <path d="M16 8L8 16" stroke="#E41E57" strokeWidth="2" strokeLinecap="round" />
                   </svg>
                 </span>
-                <p>{row.dont}</p>
+                <div className="dont-content">
+                  <h4>{row.dont.title}</h4>
+                  <p>{row.dont.description}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -284,24 +299,18 @@ const FoundationAuditPromises = () => {
           border-color: rgba(228, 30, 87, 0.12);
         }
 
-        .promise-content h4 {
+        .promise-content h4,
+        .dont-content h4 {
           margin: 0 0 0.35rem;
           font-size: 1.2rem;
           font-weight: 600;
           color: #122232;
         }
 
-        .promise-content p {
+        .promise-content p,
+        .dont-content p {
           margin: 0;
           color: #475569;
-          line-height: 1.6;
-        }
-
-        .dont-card p {
-          margin: 0;
-          font-size: 1.02rem;
-          font-weight: 500;
-          color: #122232;
           line-height: 1.6;
         }
 
@@ -352,12 +361,9 @@ const FoundationAuditPromises = () => {
             padding: 1rem 1.05rem;
           }
 
-          .promise-content h4 {
+          .promise-content h4,
+          .dont-content h4 {
             font-size: 1.1rem;
-          }
-
-          .dont-card p {
-            font-size: 0.97rem;
           }
         }
 
