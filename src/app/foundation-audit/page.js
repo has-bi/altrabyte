@@ -2,6 +2,9 @@
 import FoundationAuditHero from "@/components/foundation/FoundationAuditHero";
 import FoundationAuditSteps from "@/components/foundation/FoundationAuditSteps";
 import FoundationAuditPaths from "@/components/foundation/FoundationAuditPaths";
+import FoundationAuditProcess from "@/components/foundation/FoundationAuditProcess";
+import FoundationAuditPromises from "@/components/foundation/FoundationAuditPromises";
+import FoundationAuditCTA from "@/components/foundation/FoundationAuditCTA";
 import FoundationAuditCompare from "@/components/foundation/FoundationAuditCompare";
 
 export const metadata = {
@@ -13,7 +16,9 @@ export const metadata = {
     description:
       "A 10-day audit that pressure-tests your data, workflows, and governance. Get a prioritized blueprint before you invest in automation or AI.",
     url: "https://altrabyte.com/foundation-audit",
-    images: [{ url: "/images/og-foundation-audit.png", width: 1200, height: 630 }],
+    images: [
+      { url: "/images/og-foundation-audit.png", width: 1200, height: 630 },
+    ],
   },
 };
 
@@ -24,6 +29,9 @@ export default function FoundationAuditPage() {
       <FoundationAuditSteps />
       <FoundationAuditPaths />
       <FoundationAuditCompare />
+      <FoundationAuditProcess />
+      <FoundationAuditPromises />
+      <FoundationAuditCTA />
     </div>
   );
 }

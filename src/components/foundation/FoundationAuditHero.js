@@ -13,53 +13,58 @@ const FoundationAuditHero = () => {
       </div>
 
       <div className="section-container relative z-10">
-        <div className="mx-auto flex max-w-[900px] flex-col items-center gap-7 py-16 md:py-20 lg:py-24">
+        <div className="mx-auto flex max-w-[820px] flex-col items-center gap-7 py-20 md:py-24 lg:py-[120px]">
           {/* Label */}
-          <div className="inline-flex items-center justify-center rounded-xl border border-neutral-50 bg-white/90 px-4 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.08)] backdrop-blur-sm">
-            <span className="text-[16px] leading-[22px] font-medium tracking-[-0.01em] text-neutral-200">
+          <div className="inline-flex items-center justify-center rounded-xl border border-[#E7E9EB] bg-white px-4 py-2 shadow-[0_2px_4px_rgba(0,0,0,0.08)]">
+            <span className="text-[16px] leading-[22px] font-medium tracking-[-0.01em] text-[#9299A1]">
               Foundation Audit
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-center text-[40px] leading-[1.28] font-medium text-neutral-500 md:text-[48px] lg:text-[56px]">
-            Audit your data foundation{" "}
-            <span className="text-primary-500">before</span> you bet big on AI
+          <h1 className="text-center text-[34px] leading-[1.28] font-semibold tracking-[-0.01em] text-[#122232] sm:text-[42px] md:text-[48px] lg:text-[56px]">
+            The{" "}
+            <span className="text-transparent bg-gradient-to-r from-primary-500 to-primary-300 bg-clip-text">
+              Foundation Audit
+            </span>{" "}
+            That Reveals What's Really Broken
           </h1>
 
           {/* Subtitle */}
-          <div className="w-full rounded-2xl border-x-4 border-primary-500 bg-gradient-to-r from-primary-50 via-transparent to-primary-50 px-6 py-3 md:px-8 md:py-4">
-            <p className="text-center text-[18px] leading-[1.6] font-medium tracking-[-0.01em] text-neutral-500 md:text-[20px] lg:text-[24px]">
-              In 10 days, we map your data, workflows, and risks—delivering a
-              prioritized blueprint you can execute with confidence.
+          <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#F2EFFF] via-white to-[#F2EFFF] px-6 py-4 md:px-10 md:py-5">
+            <span className="pointer-events-none absolute inset-y-0 left-0 w-[4px] bg-gradient-to-b from-[#AF8CFF] via-[#7B63FF] to-[#AF8CFF]" />
+            <span className="pointer-events-none absolute inset-y-0 right-0 w-[4px] bg-gradient-to-b from-[#AF8CFF] via-[#7B63FF] to-[#AF8CFF]" />
+            <p className="text-center text-[18px] leading-[1.6] font-regular tracking-[-0.01em] text-[#122232] md:text-[20px] lg:text-[24px]">
+              90% of companies aren't ready for what they think they want
             </p>
           </div>
 
           {/* Quote + Description */}
           <div className="flex flex-col items-center gap-4 text-center">
-            <p className="text-[18px] leading-[1.6] font-medium italic text-neutral-500 md:text-[20px]">
-              “Most AI programs fail because the foundation was never audited.”
+            <p className="text-[18px] leading-[1.6] font-medium italic tracking-[-0.01em] text-[#122232] md:text-[20px]">
+              Most consultants ask "What do you need?" We ask "Show me your
+              database."
             </p>
-            <p className="max-w-[760px] text-[16px] leading-[1.55] text-neutral-400 md:text-[18px]">
-              We pressure-test your data, governance, and automation readiness,
-              then surface the fastest wins, hidden risks, and investments that
-              compound.
+            <p className="max-w-[760px] text-[16px] leading-[1.5] tracking-[-0.01em] text-[#414E5B] md:text-[18px]">
+              The difference? We've seen this exact pattern across retail,
+              banking, e-commerce, energy, and beauty industries. Companies want
+              AI. Their foundation is fantasy.
             </p>
           </div>
 
           {/* CTAs */}
-          <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5 md:w-[620px]">
+          <div className="flex w-full flex-col items-center justify-center gap-5 sm:flex-row md:w-auto">
             <Link
               href="/start-your-audit"
-              className="inline-flex h-[56px] w-full items-center justify-center rounded-full bg-neutral-500 px-8 text-[18px] font-semibold leading-none text-white transition-colors duration-200 hover:bg-neutral-600 sm:w-[276px]"
+              className="inline-flex min-w-[276px] items-center justify-center rounded-full bg-[#0D1B2A] px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-white shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-colors duration-200 whitespace-nowrap hover:bg-[#132840]"
             >
-              Book Your Audit Call
+              Diagnose My Data Reality
             </Link>
             <Link
               href="/why-foundation-first"
-              className="inline-flex h-[56px] w-full items-center justify-center rounded-full border border-neutral-100 bg-white px-8 text-[18px] font-semibold leading-none text-neutral-500 shadow-[0_6px_18px_rgba(15,23,42,0.08)] transition-all duration-200 hover:border-primary-300 hover:text-primary-500 sm:w-[276px]"
+              className="inline-flex min-w-[276px] items-center justify-center rounded-full border border-[#B6BABF] bg-white px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-[#0D1B2A] shadow-[0_4px_6px_rgba(0,0,0,0.08)] transition-all duration-200 whitespace-nowrap hover:border-[#8e96a0] hover:text-[#142c44]"
             >
-              View Audit Checklist
+              See Real Transformations
             </Link>
           </div>
         </div>
