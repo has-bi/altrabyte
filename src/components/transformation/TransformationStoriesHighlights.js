@@ -4,33 +4,33 @@ import { ArrowUpRight } from "lucide-react";
 
 const highlights = [
   {
-    id: "retail",
-    logo: "/images/clients/paragon.svg",
-    title: "How a national retailer compressed the insight loop to 48 hours",
+    id: "paragon",
+    logo: "/images/client/Paragon-Black.png",
+    title: "When Managing 10+ Brands Across 5 Platforms Became Impossible",
     description:
-      "Moved from weekly fire drills and contradictory spreadsheets to a single operating dashboard that drives replenishment, merch, and finance decisions.",
-    cta: "See the retail play",
-    image: "/images/portfolio/retail-team.jpg",
+      "An eCommerce operations team at a top-3 Indonesian beauty brand was drowning in data chaos, manually compiling reports for 50+ brand-platform combinations. Our intelligence system turned their daily nightmare into streamlined operations.",
+    cta: "View Case Study",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
     imageVariant: "standard",
   },
   {
-    id: "fintech",
-    logo: "/images/clients/amser.svg",
-    title: "Fintech ops rebuilt their compliance backbone before scaling AI",
+    id: "youvit",
+    logo: "/images/client/Youvit-Black.png",
+    title: "Why This Health Brand's Founder Never Asks \"Can Someone Pull That Data?\" Anymore",
     description:
-      "We rebuilt the risk ledger, automated lineage, and gave leadership real-time visibility — no more AI theater, just measurable control.",
-    cta: "Explore the fintech cadence",
-    image: "/images/portfolio/fintech-team.jpg",
+      "A founder was frustrated spending hours waiting for simple data answers. Now anyone in the company gets complex insights in minutes by just asking questions in plain English.",
+    cta: "View Case Study",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
     imageVariant: "overlay",
   },
   {
-    id: "logistics",
-    logo: "/images/clients/paragon.svg",
-    title: "Logistics marketplace sequenced automation across regions",
+    id: "youvit-2",
+    logo: "/images/client/Youvit-Black.png",
+    title: "How a Health Supplement Brand Eliminated 88% of Document Processing Costs in 30 Days",
     description:
-      "Once the data foundation was honest, ops leaders owned every recommendation and scaled to two new markets without breaking reporting.",
-    cta: "Read the rollout notes",
-    image: "/images/portfolio/warehouse-team.jpg",
+      "Transformed manual document processing into an intelligent system that automatically extracts data from seven different distributor formats. This cloud-based solution reduced processing costs by 88% and increased speed by 92%.",
+    cta: "View Case Study",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
     imageVariant: "standard",
   },
 ];
@@ -38,60 +38,76 @@ const highlights = [
 const TransformationStoriesHighlights = () => {
   return (
     <section className="px-4 py-20">
-      <div className="section-container flex flex-col items-center gap-12">
-        <header className="flex max-w-[540px] flex-col items-center gap-3 text-center">
-          <h2 className="text-[36px] font-semibold leading-[1.28] tracking-[-0.01em] text-neutral-500 md:text-[40px]">
-            Behind each story
+      <div className="section-container flex flex-col items-center gap-16">
+        <header className="flex max-w-[527px] flex-col items-center gap-3 text-center">
+          <h2 className="text-[32px] font-medium leading-[1.28] tracking-[-0.01em] text-neutral-500 md:text-[36px]">
+            More Transformation Stories
           </h2>
-          <p className="text-[18px] leading-[1.5] text-neutral-400 md:text-[20px]">
-            Zoom into the operators, artifacts, and the cadence that made the change stick.
+          <p className="text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-neutral-400 md:text-[18px]">
+            Discover additional success stories across industries
           </p>
         </header>
 
-        <div className="flex w-full max-w-[1250px] flex-col gap-14">
+        <div className="flex w-full max-w-[1252px] flex-col gap-16">
           {highlights.map((highlight, index) => (
-            <div key={highlight.id} className="flex flex-col gap-10">
+            <div key={highlight.id} className="flex flex-col gap-16">
               <article
-                className={`flex flex-col items-center gap-12 lg:flex-row ${
+                className={`group flex flex-col items-center gap-16 lg:flex-row ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                <div className="flex max-w-[600px] flex-col gap-6">
-                  <Image
-                    src={highlight.logo}
-                    alt={`${highlight.id} logo`}
-                    width={160}
-                    height={40}
-                    className="h-7 w-auto object-contain"
-                  />
-                  <h3 className="text-[28px] font-semibold leading-[1.35] text-neutral-600 md:text-[32px]">
-                    {highlight.title}
-                  </h3>
-                  <p className="text-[18px] leading-[1.6] text-neutral-500">{highlight.description}</p>
-                  <button className="inline-flex items-center gap-3 rounded-full bg-neutral-100 px-6 py-3 text-[18px] font-semibold text-neutral-600 transition-colors hover:bg-neutral-200">
+                <div className="flex w-full max-w-[594px] flex-col gap-8">
+                  <div className="flex flex-col items-start gap-4">
+                    <div className="h-7 w-auto">
+                      <Image
+                        src={highlight.logo}
+                        alt={`${highlight.id} logo`}
+                        width={207}
+                        height={28}
+                        className="h-full w-auto object-contain object-left"
+                      />
+                    </div>
+                    <h3 className="text-[24px] font-medium leading-[1.4] tracking-[-0.01em] text-neutral-500">
+                      {highlight.title}
+                    </h3>
+                    <p className="text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-neutral-400">
+                      {highlight.description}
+                    </p>
+                  </div>
+                  <button className="inline-flex w-fit items-center gap-2 rounded-full bg-neutral-100 px-6 py-2.5 text-[16px] font-medium tracking-[-0.01em] text-neutral-500 transition-all hover:bg-neutral-200">
                     {highlight.cta}
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800 text-white">
-                      <ArrowUpRight className="h-5 w-5" />
-                    </span>
+                    <ArrowUpRight className="h-5 w-5" strokeWidth={1.5} />
                   </button>
                 </div>
 
-                <div className="relative h-[360px] w-full max-w-[600px] overflow-hidden rounded-[12px] shadow-[0_28px_60px_rgba(15,23,42,0.12)]">
+                <div className="relative h-[400px] w-full max-w-[594px] overflow-hidden rounded-[12px]">
                   <Image
                     fill
-                    sizes="(min-width: 1024px) 600px, 90vw"
+                    sizes="(min-width: 1024px) 594px, 90vw"
                     src={highlight.image}
                     alt={highlight.title}
-                    className={`object-cover ${highlight.imageVariant === "overlay" ? "opacity-90" : ""}`}
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:delay-300"
                   />
-                  {highlight.imageVariant === "overlay" && (
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-primary-700/40 to-primary-500/40"></div>
-                  )}
+
+                  {/* Hover overlay with blur and gradient */}
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 ease-in group-hover:opacity-100">
+                    {/* Backdrop blur overlay */}
+                    <div className="absolute inset-0 bg-neutral-500/30 backdrop-blur-[4px]" />
+
+                    {/* Radial gradient with transparent center - ring effect */}
+                    <div
+                      className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[40px]"
+                      style={{
+                        background:
+                          "radial-gradient(circle, transparent 0%, transparent 30%, rgba(120, 99, 252, 0.4) 50%, rgba(120, 99, 252, 0.6) 70%, rgba(85, 70, 179, 0.5) 100%)",
+                      }}
+                    />
+                  </div>
                 </div>
               </article>
 
               {index < highlights.length - 1 && (
-                <div className="h-px w-full border-t border-dashed border-neutral-200" />
+                <div className="h-px w-full border-t-[1.5px] border-dashed border-neutral-500" />
               )}
             </div>
           ))}
