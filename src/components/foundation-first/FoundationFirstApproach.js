@@ -1102,16 +1102,13 @@ const FoundationFirstApproach = () => {
         }
 
         .industry-card-wide:hover .industry-card-icon-background {
-          transform: scale(1.05);
-          background: linear-gradient(
-            135deg,
-            rgba(120, 99, 252, 0.16) 0%,
-            rgba(120, 99, 252, 0.08) 100%
-          );
+          box-shadow: 0 8px 24px rgba(120, 99, 252, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
+          transform: scale(1.08) rotate(5deg);
         }
 
         .industry-card-wide:hover .industry-card-icon {
-          transform: scale(1.1) rotate(5deg);
+          transform: scale(1.1);
         }
 
         /* Vector Divider */
