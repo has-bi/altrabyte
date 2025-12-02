@@ -492,7 +492,7 @@ const FoundationFirstApproach = () => {
           font-weight: 400;
           color: #ffffff;
           line-height: 1.6;
-          text-align: center;
+          text-align: left;
         }
 
         .audit-container {
