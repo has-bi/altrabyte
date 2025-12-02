@@ -986,3 +986,52 @@ export async function getProjectContent(id) {
     return [];
   }
 }
+
+// Blog-related functions
+const blogDatabase = process.env.NOTION_BLOG_DATABASE_ID;
+
+export async function getBlogPosts() {
+  try {
+    if (!blogDatabase) {
+      console.warn("No blog database configured");
+      return [];
+    }
+
+    const response = await notion.databases.query({
+      database_id: blogDatabase,
+      filter: { property: "Published", checkbox: { equals: true } },
+      sorts: [{ property: "Date", direction: "descending" }],
+    });
+
+    return response.results.map((page) => ({
+      id: page.id,
+      title: getPropertyValue(page, "Title"),
+      excerpt: getPropertyValue(page, "Excerpt"),
+      category: getPropertyValue(page, "Category"),
+      readTime: getPropertyValue(page, "Read Time"),
+      date: getPropertyValue(page, "Date"),
+      author: getPropertyValue(page, "Author"),
+      featured: getPropertyValue(page, "Featured"),
+      slug: getPropertyValue(page, "Slug"),
+      image: getPropertyValue(page, "Cover Image"),
+      breadcrumb: getPropertyValue(page, "Breadcrumb"),
+      quote: getPropertyValue(page, "Quote"),
+      quoteAuthor: getPropertyValue(page, "Quote Author"),
+      stats: getPropertyValue(page, "Stats"),
+      created: page.created_time,
+    }));
+  } catch (error) {
+    console.error("Error fetching blog posts:", error);
+    return [];
+  }
+}
+
+export async function getFeaturedBlogPost() {
+  try {
+    const posts = await getBlogPosts();
+    return posts.find((post) => post.featured) || posts[0] || null;
+  } catch (error) {
+    console.error("Error fetching featured blog post:", error);
+    return null;
+  }
+}
