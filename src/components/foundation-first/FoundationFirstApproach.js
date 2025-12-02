@@ -783,24 +783,43 @@ const FoundationFirstApproach = () => {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          padding: 2rem 2.5rem;
-          gap: 2rem;
+          padding: 4rem 3.5rem;
+          gap: 3rem;
           background: #ffffff;
-          border: 12px solid rgba(255, 255, 255, 0.16);
-          box-shadow: 0px 28px 20px rgba(0, 0, 0, 0.12);
-          border-radius: 1.25rem;
+          border: 1px solid rgba(18, 34, 50, 0.08);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+            0 8px 24px rgba(18, 34, 50, 0.08),
+            0 32px 80px rgba(18, 34, 50, 0.06);
+          border-radius: 1.5rem;
           animation: fadeIn 900ms ease-out 500ms backwards;
           max-width: 75rem;
           margin: 0 auto;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .audit-container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(120, 99, 252, 0.3) 50%,
+            transparent 100%
+          );
         }
 
         /* Approach Title */
         .audit-title {
           font-family: "Plus Jakarta Sans", sans-serif;
-          font-weight: 500;
-          font-size: 2rem;
-          line-height: 128%;
-          letter-spacing: -0.01em;
+          font-weight: 600;
+          font-size: 2.5rem;
+          line-height: 1.2;
+          letter-spacing: -0.02em;
           color: #122232;
           margin: 0;
           align-self: stretch;
@@ -820,20 +839,18 @@ const FoundationFirstApproach = () => {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          padding: 2.5rem;
-          gap: 1.75rem;
-          background: #f2efff;
-          border-radius: 0.75rem;
+          padding: 0;
+          gap: 2rem;
           align-self: stretch;
         }
 
         /* Industry Experience Title */
         .industry-experience-title {
           font-family: "Plus Jakarta Sans", sans-serif;
-          font-weight: 500;
-          font-size: 1.75rem;
-          line-height: 140%;
-          letter-spacing: -0.01em;
+          font-weight: 600;
+          font-size: 1.5rem;
+          line-height: 1.3;
+          letter-spacing: -0.015em;
           color: #122232;
           margin: 0;
           align-self: stretch;
@@ -859,23 +876,42 @@ const FoundationFirstApproach = () => {
         .industry-card {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: flex-start;
-          padding: 1.75rem;
-          gap: 1.25rem;
+          padding: 2rem;
+          gap: 1.5rem;
           flex: 1;
-          background: #d5cffe;
-          border-radius: 0.75rem;
+          background: linear-gradient(135deg, #f8f6ff 0%, #f2efff 100%);
+          border: 1px solid rgba(120, 99, 252, 0.12);
+          border-radius: 1rem;
           position: relative;
           isolation: isolate;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
           cursor: default;
+          overflow: hidden;
+        }
+
+        .industry-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(120, 99, 252, 0) 0%, rgba(120, 99, 252, 0.03) 100%);
+          opacity: 0;
+          transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .industry-card:hover::before {
+          opacity: 1;
         }
 
         .industry-card:hover {
-          background: #c5b8fe;
-          transform: translateY(-4px);
-          box-shadow: 0 8px 16px rgba(120, 99, 252, 0.2);
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(120, 99, 252, 0.16),
+            0 2px 8px rgba(120, 99, 252, 0.08);
+          border-color: rgba(120, 99, 252, 0.24);
         }
 
         /* Industry Card Icon Container */
@@ -893,32 +929,32 @@ const FoundationFirstApproach = () => {
           width: 3.5rem;
           height: 3.5rem;
           background: #ffffff;
-          border-radius: 0.5rem;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          border-radius: 0.75rem;
+          box-shadow: 0 2px 8px rgba(120, 99, 252, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .industry-card:hover .industry-card-icon-background {
-          box-shadow: 0 4px 12px rgba(120, 99, 252, 0.3);
-          transform: scale(1.05);
+          box-shadow: 0 8px 24px rgba(120, 99, 252, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
+          transform: scale(1.08) rotate(5deg);
         }
 
         /* Industry Card Icon */
         .industry-card-icon {
           width: 2rem;
           height: 2rem;
+          transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .industry-card:hover .industry-card-icon {
+          transform: scale(1.1);
         }
 
         /* Ellipse Decoration */
         .ellipse-decoration {
-          position: absolute;
-          width: 0.75rem;
-          height: 0.75rem;
-          right: -0.125rem;
-          top: -0.125rem;
-          background: #f2efff;
-          box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.28);
-          border-radius: 50%;
-          z-index: 2;
+          display: none;
         }
 
         /* Industry Card Text Container */
@@ -932,9 +968,9 @@ const FoundationFirstApproach = () => {
         /* Industry Card Title */
         .industry-card-title {
           font-family: "Plus Jakarta Sans", sans-serif;
-          font-weight: 500;
-          font-size: 1.5rem;
-          line-height: 160%;
+          font-weight: 600;
+          font-size: 1.125rem;
+          line-height: 1.4;
           letter-spacing: -0.01em;
           color: #122232;
           margin: 0;
@@ -944,10 +980,10 @@ const FoundationFirstApproach = () => {
         .industry-card-description {
           font-family: "Plus Jakarta Sans", sans-serif;
           font-weight: 400;
-          font-size: 1.25rem;
-          line-height: 150%;
-          letter-spacing: -0.01em;
-          color: #122232;
+          font-size: 0.9375rem;
+          line-height: 1.6;
+          letter-spacing: -0.005em;
+          color: rgba(18, 34, 50, 0.72);
           margin: 0;
         }
 
@@ -964,29 +1000,54 @@ const FoundationFirstApproach = () => {
           display: flex;
           flex-direction: row;
           align-items: center;
-          padding: 1.75rem;
-          gap: 1.25rem;
+          padding: 2rem;
+          gap: 1.5rem;
           flex: 1;
-          background: #d5cffe;
-          border-radius: 0.75rem;
+          background: linear-gradient(135deg, #f8f6ff 0%, #f2efff 100%);
+          border: 1px solid rgba(120, 99, 252, 0.12);
+          border-radius: 1rem;
           position: relative;
           isolation: isolate;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
           cursor: default;
+          overflow: hidden;
+        }
+
+        .industry-card-wide::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(120, 99, 252, 0) 0%, rgba(120, 99, 252, 0.03) 100%);
+          opacity: 0;
+          transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .industry-card-wide:hover::before {
+          opacity: 1;
         }
 
         .industry-card-wide:hover {
-          background: #c5b8fe;
-          transform: translateY(-4px);
-          box-shadow: 0 8px 16px rgba(120, 99, 252, 0.2);
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(120, 99, 252, 0.16),
+            0 2px 8px rgba(120, 99, 252, 0.08);
+          border-color: rgba(120, 99, 252, 0.24);
         }
 
         /* Vector Divider */
         .vector-divider {
           width: 100%;
-          height: 0;
-          border: 1.5px dashed #122232;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(18, 34, 50, 0.12) 50%,
+            transparent 100%
+          );
           align-self: stretch;
+          margin: 1rem 0;
         }
 
         /* Leadership Experience Container */
@@ -994,20 +1055,18 @@ const FoundationFirstApproach = () => {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          padding: 2.5rem;
-          gap: 1.75rem;
-          background: #e6f6f1;
-          border-radius: 0.75rem;
+          padding: 0;
+          gap: 2rem;
           align-self: stretch;
         }
 
         /* Leadership Experience Title */
         .leadership-experience-title {
           font-family: "Plus Jakarta Sans", sans-serif;
-          font-weight: 500;
-          font-size: 1.75rem;
-          line-height: 140%;
-          letter-spacing: -0.01em;
+          font-weight: 600;
+          font-size: 1.5rem;
+          line-height: 1.3;
+          letter-spacing: -0.015em;
           color: #122232;
           margin: 0;
           align-self: stretch;
@@ -1034,21 +1093,40 @@ const FoundationFirstApproach = () => {
           display: flex;
           flex-direction: row;
           align-items: center;
-          padding: 1.75rem;
-          gap: 1.25rem;
+          padding: 2rem;
+          gap: 1.5rem;
           flex: 1;
-          background: #b2e2d5;
-          border-radius: 0.75rem;
+          background: linear-gradient(135deg, #f0faf7 0%, #e6f6f1 100%);
+          border: 1px solid rgba(7, 162, 118, 0.12);
+          border-radius: 1rem;
           position: relative;
           isolation: isolate;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
           cursor: default;
+          overflow: hidden;
+        }
+
+        .leadership-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(7, 162, 118, 0) 0%, rgba(7, 162, 118, 0.03) 100%);
+          opacity: 0;
+          transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .leadership-card:hover::before {
+          opacity: 1;
         }
 
         .leadership-card:hover {
-          background: #9dd9c8;
-          transform: translateY(-4px);
-          box-shadow: 0 8px 16px rgba(7, 162, 118, 0.2);
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(7, 162, 118, 0.16),
+            0 2px 8px rgba(7, 162, 118, 0.08);
+          border-color: rgba(7, 162, 118, 0.24);
         }
 
         /* Leadership Card Icon Container */
@@ -1067,44 +1145,49 @@ const FoundationFirstApproach = () => {
           width: 3.5rem;
           height: 3.5rem;
           background: #ffffff;
-          border-radius: 0.5rem;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          border-radius: 0.75rem;
+          box-shadow: 0 2px 8px rgba(7, 162, 118, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .leadership-card:hover .leadership-card-icon-background {
-          box-shadow: 0 4px 12px rgba(7, 162, 118, 0.3);
-          transform: scale(1.05);
+          box-shadow: 0 8px 24px rgba(7, 162, 118, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
+          transform: scale(1.08) rotate(-5deg);
         }
 
         /* Leadership Card Icon */
         .leadership-card-icon {
           width: 2rem;
           height: 2rem;
+          transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .leadership-card:hover .leadership-card-icon {
+          transform: scale(1.1);
         }
 
         /* Ellipse Decoration Green */
         .ellipse-decoration-green {
-          position: absolute;
-          width: 0.75rem;
-          height: 0.75rem;
-          right: -0.125rem;
-          top: -0.125rem;
-          background: #e6f6f1;
-          box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.28);
-          border-radius: 50%;
-          z-index: 2;
+          display: none;
         }
 
         /* Leadership Card Text */
         .leadership-card-text {
           font-family: "Plus Jakarta Sans", sans-serif;
           font-weight: 500;
-          font-size: 1.25rem;
-          line-height: 150%;
-          letter-spacing: -0.01em;
+          font-size: 0.9375rem;
+          line-height: 1.6;
+          letter-spacing: -0.005em;
           color: #122232;
           margin: 0;
           flex: 1;
+        }
+
+        .leadership-card-text strong {
+          font-weight: 600;
+          color: #122232;
         }
 
         @media (min-width: 768px) {
@@ -1177,23 +1260,17 @@ const FoundationFirstApproach = () => {
           }
 
           .audit-container {
-            padding: 1.5rem;
-            gap: 1.5rem;
+            padding: 2rem 1.5rem;
+            gap: 2rem;
           }
 
           .audit-title {
-            font-size: 1.5rem;
-          }
-
-          .industry-experience-container,
-          .leadership-experience-container {
-            padding: 1.5rem;
-            gap: 1.25rem;
+            font-size: 1.75rem;
           }
 
           .industry-experience-title,
           .leadership-experience-title {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
           }
 
           .education-training-row,
@@ -1205,19 +1282,19 @@ const FoundationFirstApproach = () => {
           .industry-card,
           .industry-card-wide,
           .leadership-card {
-            padding: 1.25rem;
+            padding: 1.5rem;
           }
 
           .industry-card-title {
-            font-size: 1.125rem;
+            font-size: 1rem;
           }
 
           .industry-card-description {
-            font-size: 1rem;
+            font-size: 0.875rem;
           }
 
           .leadership-card-text {
-            font-size: 1rem;
+            font-size: 0.875rem;
           }
         }
       `}</style>
