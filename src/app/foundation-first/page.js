@@ -1,6 +1,7 @@
 import FoundationFirstHero from "@/components/foundation-first/FoundationFirstHero";
 import FoundationFirstBlogSection from "@/components/foundation-first/FoundationFirstBlogSection";
 import FoundationFirstCompare from "@/components/foundation-first/FoundationFirstCompare";
+import FoundationFirstInsight from "@/components/foundation-first/FoundationFirstInsight";
 import FoundationFirstApproach from "@/components/foundation-first/FoundationFirstApproach";
 import { getFeaturedBlogPost } from "@/lib/notion";
 
@@ -19,6 +20,7 @@ export default async function FoundationFirstPage() {
       <FoundationFirstHero />
       <FoundationFirstBlogSection post={featuredPost} />
       <FoundationFirstCompare />
+      <FoundationFirstInsight />
       <FoundationFirstApproach />
     </div>
   );
