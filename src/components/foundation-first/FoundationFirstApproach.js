@@ -12,7 +12,8 @@ const phases = [
   {
     id: 2,
     label: "2",
-    content: "Their foundation is broken (Excel databases, manual processes, scattered data)",
+    content:
+      "Their foundation is broken (Excel databases, manual processes, scattered data)",
   },
   {
     id: 3,
@@ -22,7 +23,8 @@ const phases = [
   {
     id: 4,
     label: "4",
-    content: "We fix foundation first and suddenly everything else becomes possible",
+    content:
+      "We fix foundation first and suddenly everything else becomes possible",
   },
 ];
 
@@ -89,9 +91,7 @@ const FoundationFirstApproach = () => {
                 visiblePhases.includes(index) ? "is-visible" : ""
               } is-expanded`}
             >
-              <div className="phase-content-text">
-                {phase.content}
-              </div>
+              <div className="phase-content-text">{phase.content}</div>
 
               {/* Vertical separator - except after last item */}
               {index < phases.length - 1 && (
@@ -103,158 +103,441 @@ const FoundationFirstApproach = () => {
 
         {/* Why This Approach Works Container */}
         <div className="audit-container">
-          <h3 className="audit-title">
-            Why This
-            <br />
-            Approach
-            <br />
-            Works
-          </h3>
+          <h3 className="audit-title">Why This Approach Works</h3>
 
-          <div className="services-container">
-            {/* Row 1 - Industry Experience */}
-            <div className="service-row">
-              {/* Industry Experience */}
-              <div className="service-card service-card-wide">
-                <div className="service-title-container">
-                  <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M12 2L2 7L12 12L22 7L12 2Z"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M2 17L12 22L22 17"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M2 12L12 17L22 12"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+          <div className="approach-details-container">
+            {/* Industry Experience Container */}
+            <div className="industry-experience-container">
+              <h3 className="industry-experience-title">
+                Industry Experience That Matters
+              </h3>
+
+              <div className="industry-experience-details-container">
+                {/* Row 1 - 3 cards */}
+                <div className="education-training-row">
+                  {/* Education & Training */}
+                  <div className="industry-card">
+                    <div className="industry-card-icon-container">
+                      <div className="industry-card-icon-background">
+                        <svg
+                          className="industry-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M2.66699 10.6667L16.0003 4L29.3337 10.6667L16.0003 17.3333L2.66699 10.6667Z"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M29.333 13.3333V10.6667"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration"></div>
+                    </div>
+                    <div className="industry-card-text-container">
+                      <h4 className="industry-card-title">
+                        Education & Training
+                      </h4>
+                      <p className="industry-card-description">
+                        Universities to professional development
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="service-title">
-                    Industry Experience That Matters
-                  </h4>
+
+                  {/* Energy & Finance */}
+                  <div className="industry-card">
+                    <div className="industry-card-icon-container">
+                      <div className="industry-card-icon-background">
+                        <svg
+                          className="industry-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M4 4H6.66667C8.5 4 10 5.5 10 7.33333V10H2.66667V7.33333C2.66667 5.5 4.16667 4 6 4H4Z"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M6.66699 6.66602V4.66602"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M6.66699 20V22.666"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="6.66699"
+                            cy="13.333"
+                            r="2.66667"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration"></div>
+                    </div>
+                    <div className="industry-card-text-container">
+                      <h4 className="industry-card-title">Energy & Finance</h4>
+                      <p className="industry-card-description">
+                        Cross-industry portfolio experience
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Beauty & Cosmetics */}
+                  <div className="industry-card">
+                    <div className="industry-card-icon-container">
+                      <div className="industry-card-icon-background">
+                        <svg
+                          className="industry-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M6.66699 16C6.66699 16 8.00033 13.3333 12.0003 13.3333"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="8"
+                            cy="8"
+                            r="4"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                          />
+                          <circle
+                            cx="24"
+                            cy="8"
+                            r="3"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                          />
+                          <path
+                            d="M6.66699 13.333C6.66699 13.333 8.00033 16 12.0003 16"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration"></div>
+                    </div>
+                    <div className="industry-card-text-container">
+                      <h4 className="industry-card-title">
+                        Beauty & Cosmetics
+                      </h4>
+                      <p className="industry-card-description">
+                        Global enterprise to startup brands
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>
-                      Education & Training • Energy & Finance • Beauty &
-                      Cosmetics
-                    </span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>
-                      E-commerce & Technology • Distribution & Logistics
-                    </span>
-                  </li>
-                </ul>
+
+                {/* Row 2 - 2 wider cards */}
+                <div className="ecommerce-technology-row">
+                  {/* E-commerce & Technology */}
+                  <div className="industry-card-wide">
+                    <div className="industry-card-icon-container">
+                      <div className="industry-card-icon-background">
+                        <svg
+                          className="industry-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M4 8H10.6667L13.3333 24H26.6667"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M10.666 2.66602L12.666 8.66602"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12.666 16H26.666L28 10H11.333"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="17.333"
+                            cy="20"
+                            r="1.33333"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration"></div>
+                    </div>
+                    <div className="industry-card-text-container">
+                      <h4 className="industry-card-title">
+                        E-commerce & Technology
+                      </h4>
+                      <p className="industry-card-description">
+                        Platforms, marketplaces, health tech
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Distribution & Logistics */}
+                  <div className="industry-card-wide">
+                    <div className="industry-card-icon-container">
+                      <div className="industry-card-icon-background">
+                        <svg
+                          className="industry-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M21.333 24C21.333 24 22.666 24 22.666 22.666C22.666 21.333 21.333 17.333 16 17.333C10.666 17.333 9.33301 21.333 9.33301 22.666C9.33301 24 10.666 24 10.666 24"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="16"
+                            cy="13.333"
+                            r="2.66667"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                          />
+                          <path
+                            d="M2.66699 5.33398H29.3337V20.0007H2.66699V5.33398Z"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M8 25.333H24"
+                            stroke="#7863FC"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration"></div>
+                    </div>
+                    <div className="industry-card-text-container">
+                      <h4 className="industry-card-title">
+                        Distribution & Logistics
+                      </h4>
+                      <p className="industry-card-description">
+                        Multi-national operations
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Row 2 - Leadership Experience */}
-            <div className="service-row">
-              {/* Multi-country & Remote */}
-              <div className="service-card">
-                <div className="service-title-container">
-                  <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="#07A276"
-                        strokeWidth="1.5"
-                      />
-                      <path
-                        d="M2 12H22"
-                        stroke="#07A276"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M12 2C14.5 5 15.5 8.5 15.5 12C15.5 15.5 14.5 19 12 22C9.5 19 8.5 15.5 8.5 12C8.5 8.5 9.5 5 12 2Z"
-                        stroke="#07A276"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <h4 className="service-title">Global Leadership</h4>
-                </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>
-                      Multi-country team management across Asia Pacific
-                    </span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Remote team performance systems</span>
-                  </li>
-                </ul>
-              </div>
+            {/* Vector Divider */}
+            <div className="vector-divider"></div>
 
-              {/* Strategic & Cultural */}
-              <div className="service-card">
-                <div className="service-title-container">
-                  <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        stroke="#07A276"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+            {/* Leadership Experience Container */}
+            <div className="leadership-experience-container">
+              <h3 className="leadership-experience-title">
+                Leadership Experience
+              </h3>
+
+              <div className="leadership-experience-details-container">
+                {/* Row 1 */}
+                <div className="leadership-row">
+                  {/* Multi-country Team */}
+                  <div className="leadership-card">
+                    <div className="leadership-card-icon-container">
+                      <div className="leadership-card-icon-background">
+                        <svg
+                          className="leadership-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M13.333 17.333C13.333 17.333 16 14.666 16 10.666"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="16"
+                            cy="16"
+                            r="12"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                          />
+                          <path
+                            d="M5.33301 4.33398L13.6663 4.33398"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration-green"></div>
+                    </div>
+                    <p className="leadership-card-text">
+                      <strong>Multi-country team management</strong> across
+                      Asia Pacific
+                    </p>
                   </div>
-                  <h4 className="service-title">Strategic Excellence</h4>
+
+                  {/* Remote Team */}
+                  <div className="leadership-card">
+                    <div className="leadership-card-icon-container">
+                      <div className="leadership-card-icon-background">
+                        <svg
+                          className="leadership-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M23.333 12C23.333 12 24.666 10.666 26.666 12"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="12"
+                            cy="8"
+                            r="3.33333"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                          />
+                          <path
+                            d="M5.33301 12C5.33301 12 4.00033 10.666 2.00033 12"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M26.333 20.666C26.333 20.666 28 18.666 30 18.666"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle
+                            cx="12"
+                            cy="18.666"
+                            r="2.66667"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration-green"></div>
+                    </div>
+                    <p className="leadership-card-text">
+                      <strong>Remote team performance</strong> and
+                      accountability systems
+                    </p>
+                  </div>
                 </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Strategic pushback to C-level management</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>
-                      Cultural adaptation across business environments
-                    </span>
-                  </li>
-                </ul>
+
+                {/* Row 2 */}
+                <div className="leadership-row">
+                  {/* Strategic Pushback */}
+                  <div className="leadership-card">
+                    <div className="leadership-card-icon-container">
+                      <div className="leadership-card-icon-background">
+                        <svg
+                          className="leadership-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.33398 5.33398H26.6673C27.5878 5.33398 28.334 6.08018 28.334 7.00065V25.334"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration-green"></div>
+                    </div>
+                    <p className="leadership-card-text">
+                      <strong>Strategic pushback</strong> to C-level management
+                    </p>
+                  </div>
+
+                  {/* Cultural Adaptation */}
+                  <div className="leadership-card">
+                    <div className="leadership-card-icon-container">
+                      <div className="leadership-card-icon-background">
+                        <svg
+                          className="leadership-card-icon"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                        >
+                          <circle
+                            cx="16"
+                            cy="16"
+                            r="12"
+                            stroke="#07A276"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ellipse-decoration-green"></div>
+                    </div>
+                    <p className="leadership-card-text">
+                      <strong>Cultural adaptation</strong> across different
+                      business environments
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -447,7 +730,7 @@ const FoundationFirstApproach = () => {
           opacity: 0;
           transform: translateY(30px);
           transition: all 650ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-          padding: 1.5rem;
+          padding: 0.5rem;
           border-radius: 1rem;
         }
 
@@ -495,180 +778,332 @@ const FoundationFirstApproach = () => {
           text-align: left;
         }
 
+        /* Approach Container */
         .audit-container {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-items: flex-start;
-          padding: 2rem 2rem 2rem 2.5rem;
-          gap: 5rem;
+          padding: 2rem 2.5rem;
+          gap: 2rem;
           background: #ffffff;
-          border: 1px solid rgba(226, 232, 240, 0.6);
-          box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.16),
-            0px 28px 20px rgba(0, 0, 0, 0.12);
+          border: 12px solid rgba(255, 255, 255, 0.16);
+          box-shadow: 0px 28px 20px rgba(0, 0, 0, 0.12);
           border-radius: 1.25rem;
           animation: fadeIn 900ms ease-out 500ms backwards;
           max-width: 75rem;
           margin: 0 auto;
         }
 
+        /* Approach Title */
         .audit-title {
-          flex: none;
-          font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
-            "Segoe UI", Roboto, sans-serif;
-          font-style: normal;
+          font-family: "Plus Jakarta Sans", sans-serif;
           font-weight: 500;
           font-size: 2rem;
           line-height: 128%;
           letter-spacing: -0.01em;
           color: #122232;
-          white-space: nowrap;
+          margin: 0;
+          align-self: stretch;
         }
 
-        .services-container {
+        /* Approach Details Container */
+        .approach-details-container {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: 1.25rem;
-          flex: 1;
+          gap: 2.5rem;
+          align-self: stretch;
         }
 
-        .service-row {
+        /* Industry Experience Container */
+        .industry-experience-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 2.5rem;
+          gap: 1.75rem;
+          background: #f2efff;
+          border-radius: 0.75rem;
+          align-self: stretch;
+        }
+
+        /* Industry Experience Title */
+        .industry-experience-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-weight: 500;
+          font-size: 1.75rem;
+          line-height: 140%;
+          letter-spacing: -0.01em;
+          color: #122232;
+          margin: 0;
+          align-self: stretch;
+        }
+
+        /* Industry Experience Details Container */
+        .industry-experience-details-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+          align-self: stretch;
+        }
+
+        /* Education Training Row */
+        .education-training-row {
           display: flex;
           flex-direction: row;
-          align-items: flex-start;
           gap: 1.25rem;
-          width: 100%;
+          align-self: stretch;
         }
 
-        .service-card {
+        /* Industry Card */
+        .industry-card {
           display: flex;
           flex-direction: column;
+          justify-content: center;
           align-items: flex-start;
-          padding: 2rem;
-          gap: 1rem;
+          padding: 1.75rem;
+          gap: 1.25rem;
           flex: 1;
-          background: #e6f6f1;
+          background: #d5cffe;
           border-radius: 0.75rem;
+          position: relative;
+          isolation: isolate;
           transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
           cursor: default;
         }
 
-        .service-card-wide {
-          background: #f2efff;
+        .industry-card:hover {
+          background: #c5b8fe;
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px rgba(120, 99, 252, 0.2);
         }
 
-        .service-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(120, 99, 252, 0.15);
+        /* Industry Card Icon Container */
+        .industry-card-icon-container {
+          position: relative;
+          width: 3.5rem;
+          height: 3.5rem;
         }
 
-        .service-card-wide:hover {
-          background: #e9e4ff;
-        }
-
-        .service-card:not(.service-card-wide):hover {
-          background: #d1f0e8;
-          box-shadow: 0 4px 12px rgba(7, 162, 118, 0.15);
-        }
-
-        .service-title-container {
+        /* Industry Card Icon Background */
+        .industry-card-icon-background {
           display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 1rem;
-          width: 100%;
-        }
-
-        .service-icon-container {
-          display: flex;
-          flex-direction: row;
           align-items: center;
           justify-content: center;
-          padding: 0.75rem;
-          width: 3rem;
-          height: 3rem;
+          width: 3.5rem;
+          height: 3.5rem;
           background: #ffffff;
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-          border-radius: 0.75rem;
-          flex-shrink: 0;
+          border-radius: 0.5rem;
           transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .service-card:hover .service-icon-container {
-          box-shadow: 0px 4px 8px rgba(120, 99, 252, 0.2);
+        .industry-card:hover .industry-card-icon-background {
+          box-shadow: 0 4px 12px rgba(120, 99, 252, 0.3);
           transform: scale(1.05);
         }
 
-        .service-icon {
-          width: 1.5rem;
-          height: 1.5rem;
+        /* Industry Card Icon */
+        .industry-card-icon {
+          width: 2rem;
+          height: 2rem;
+        }
+
+        /* Ellipse Decoration */
+        .ellipse-decoration {
+          position: absolute;
+          width: 0.75rem;
+          height: 0.75rem;
+          right: -0.125rem;
+          top: -0.125rem;
+          background: #f2efff;
+          box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.28);
+          border-radius: 50%;
+          z-index: 2;
+        }
+
+        /* Industry Card Text Container */
+        .industry-card-text-container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          align-self: stretch;
+        }
+
+        /* Industry Card Title */
+        .industry-card-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-weight: 500;
+          font-size: 1.5rem;
+          line-height: 160%;
+          letter-spacing: -0.01em;
+          color: #122232;
+          margin: 0;
+        }
+
+        /* Industry Card Description */
+        .industry-card-description {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-weight: 400;
+          font-size: 1.25rem;
+          line-height: 150%;
+          letter-spacing: -0.01em;
+          color: #122232;
+          margin: 0;
+        }
+
+        /* Ecommerce Technology Row */
+        .ecommerce-technology-row {
+          display: flex;
+          flex-direction: row;
+          gap: 1.25rem;
+          align-self: stretch;
+        }
+
+        /* Industry Card Wide */
+        .industry-card-wide {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 1.75rem;
+          gap: 1.25rem;
+          flex: 1;
+          background: #d5cffe;
+          border-radius: 0.75rem;
+          position: relative;
+          isolation: isolate;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: default;
+        }
+
+        .industry-card-wide:hover {
+          background: #c5b8fe;
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px rgba(120, 99, 252, 0.2);
+        }
+
+        /* Vector Divider */
+        .vector-divider {
+          width: 100%;
+          height: 0;
+          border: 1.5px dashed #122232;
+          align-self: stretch;
+        }
+
+        /* Leadership Experience Container */
+        .leadership-experience-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 2.5rem;
+          gap: 1.75rem;
+          background: #e6f6f1;
+          border-radius: 0.75rem;
+          align-self: stretch;
+        }
+
+        /* Leadership Experience Title */
+        .leadership-experience-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-weight: 500;
+          font-size: 1.75rem;
+          line-height: 140%;
+          letter-spacing: -0.01em;
+          color: #122232;
+          margin: 0;
+          align-self: stretch;
+        }
+
+        /* Leadership Experience Details Container */
+        .leadership-experience-details-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+          align-self: stretch;
+        }
+
+        /* Leadership Row */
+        .leadership-row {
+          display: flex;
+          flex-direction: row;
+          gap: 1.25rem;
+          align-self: stretch;
+        }
+
+        /* Leadership Card */
+        .leadership-card {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 1.75rem;
+          gap: 1.25rem;
+          flex: 1;
+          background: #b2e2d5;
+          border-radius: 0.75rem;
+          position: relative;
+          isolation: isolate;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: default;
+        }
+
+        .leadership-card:hover {
+          background: #9dd9c8;
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px rgba(7, 162, 118, 0.2);
+        }
+
+        /* Leadership Card Icon Container */
+        .leadership-card-icon-container {
+          position: relative;
+          width: 3.5rem;
+          height: 3.5rem;
           flex-shrink: 0;
         }
 
-        .service-title {
-          font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
-            "Segoe UI", Roboto, sans-serif;
-          font-style: normal;
+        /* Leadership Card Icon Background */
+        .leadership-card-icon-background {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 3.5rem;
+          height: 3.5rem;
+          background: #ffffff;
+          border-radius: 0.5rem;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .leadership-card:hover .leadership-card-icon-background {
+          box-shadow: 0 4px 12px rgba(7, 162, 118, 0.3);
+          transform: scale(1.05);
+        }
+
+        /* Leadership Card Icon */
+        .leadership-card-icon {
+          width: 2rem;
+          height: 2rem;
+        }
+
+        /* Ellipse Decoration Green */
+        .ellipse-decoration-green {
+          position: absolute;
+          width: 0.75rem;
+          height: 0.75rem;
+          right: -0.125rem;
+          top: -0.125rem;
+          background: #e6f6f1;
+          box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.28);
+          border-radius: 50%;
+          z-index: 2;
+        }
+
+        /* Leadership Card Text */
+        .leadership-card-text {
+          font-family: "Plus Jakarta Sans", sans-serif;
           font-weight: 500;
           font-size: 1.25rem;
           line-height: 150%;
           letter-spacing: -0.01em;
           color: #122232;
-          flex: 1;
-        }
-
-        .service-details {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.5rem;
-          width: 100%;
-          list-style: none;
-          padding: 0;
           margin: 0;
-        }
-
-        .service-detail {
-          display: flex;
-          flex-direction: row;
-          align-items: flex-start;
-          gap: 0.75rem;
-          width: 100%;
-          transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-          padding: 0.25rem 0;
-        }
-
-        .service-detail:hover {
-          transform: translateX(4px);
-        }
-
-        .detail-indicator {
-          width: 0.5rem;
-          height: 0.5rem;
-          background: #7863fc;
-          border-radius: 0.125rem;
-          flex-shrink: 0;
-          margin-top: 0.5rem;
-          transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-card:not(.service-card-wide) .detail-indicator {
-          background: #07a276;
-        }
-
-        .service-detail:hover .detail-indicator {
-          transform: scale(1.2);
-        }
-
-        .service-detail span:last-child {
-          font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
-            "Segoe UI", Roboto, sans-serif;
-          font-style: normal;
-          font-weight: 400;
-          font-size: 1rem;
-          line-height: 140%;
-          letter-spacing: -0.01em;
-          color: #122232;
           flex: 1;
         }
 
@@ -691,11 +1126,11 @@ const FoundationFirstApproach = () => {
 
           .journey-subtitle {
             font-size: 1.25rem;
-            margin-bottom: 4rem;
+            margin-bottom: 1rem;
           }
 
           .timeline-wrapper {
-            margin-bottom: 4rem;
+            margin-bottom: 1rem;
           }
 
           .phases-grid {
@@ -742,30 +1177,47 @@ const FoundationFirstApproach = () => {
           }
 
           .audit-container {
-            flex-direction: column;
-            padding: 1.75rem 1.5rem;
-            gap: 2rem;
+            padding: 1.5rem;
+            gap: 1.5rem;
           }
 
           .audit-title {
-            font-size: 1.75rem;
-            text-align: center;
+            font-size: 1.5rem;
           }
 
-          .service-row {
+          .industry-experience-container,
+          .leadership-experience-container {
+            padding: 1.5rem;
+            gap: 1.25rem;
+          }
+
+          .industry-experience-title,
+          .leadership-experience-title {
+            font-size: 1.25rem;
+          }
+
+          .education-training-row,
+          .ecommerce-technology-row,
+          .leadership-row {
             flex-direction: column;
           }
 
-          .service-card {
-            padding: 1.5rem;
+          .industry-card,
+          .industry-card-wide,
+          .leadership-card {
+            padding: 1.25rem;
           }
 
-          .service-title {
+          .industry-card-title {
             font-size: 1.125rem;
           }
 
-          .service-detail span:last-child {
-            font-size: 0.9375rem;
+          .industry-card-description {
+            font-size: 1rem;
+          }
+
+          .leadership-card-text {
+            font-size: 1rem;
           }
         }
       `}</style>
