@@ -5,47 +5,24 @@ import React, { useEffect, useRef, useState } from "react";
 const phases = [
   {
     id: 1,
-    label: "Pattern Discovery",
-    title: "Companies want advanced analytics",
-    subtitle: "The typical starting point",
-    points: [
-      "Machine learning requests",
-      "AI implementation desires",
-      "Predictive model expectations",
-    ],
+    label: "1",
+    content:
+      "Companies want advanced analytics (machine learning, AI, predictive models)",
   },
   {
     id: 2,
-    label: "Reality Check",
-    title: "Foundation is broken",
-    subtitle: "What we always find",
-    points: [
-      "Excel as databases",
-      "Manual processes everywhere",
-      "Scattered, inconsistent data",
-    ],
+    label: "2",
+    content: "Their foundation is broken (Excel databases, manual processes, scattered data)",
   },
   {
     id: 3,
-    label: "Inevitable Result",
-    title: "Projects fail or underdeliver",
-    subtitle: "Building on quicksand",
-    points: [
-      "Delayed implementations",
-      "Budget overruns",
-      "Underwhelming results",
-    ],
+    label: "3",
+    content: "Projects fail or underdeliver because they're built on quicksand",
   },
   {
     id: 4,
-    label: "Foundation First",
-    title: "Fix foundation, enable everything",
-    subtitle: "The breakthrough moment",
-    points: [
-      "Solid infrastructure",
-      "Clean, reliable data",
-      "Sustainable solutions",
-    ],
+    label: "4",
+    content: "We fix foundation first and suddenly everything else becomes possible",
   },
 ];
 
@@ -112,47 +89,8 @@ const FoundationFirstApproach = () => {
                 visiblePhases.includes(index) ? "is-visible" : ""
               } is-expanded`}
             >
-              <div className="phase-header-section">
-                <div className="phase-header-content">
-                  <h3 className="phase-title">{phase.title}</h3>
-                  <p className="phase-subtitle">{phase.subtitle}</p>
-                </div>
-              </div>
-
-              <div className="phase-points-wrapper">
-                <ul className="phase-points">
-                  {phase.points.map((point, idx) => (
-                    <li
-                      key={idx}
-                      className="point-item"
-                      style={{ transitionDelay: `${idx * 80}ms` }}
-                    >
-                      <svg
-                        className="check-icon"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <circle
-                          cx="10"
-                          cy="10"
-                          r="10"
-                          fill="currentColor"
-                          opacity="0.2"
-                        />
-                        <path
-                          d="M6 10L8.5 12.5L14 7"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="phase-content-text">
+                {phase.content}
               </div>
 
               {/* Vertical separator - except after last item */}
@@ -210,16 +148,23 @@ const FoundationFirstApproach = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="service-title">Industry Experience That Matters</h4>
+                  <h4 className="service-title">
+                    Industry Experience That Matters
+                  </h4>
                 </div>
                 <ul className="service-details">
                   <li className="service-detail">
                     <span className="detail-indicator" />
-                    <span>Education & Training • Energy & Finance • Beauty & Cosmetics</span>
+                    <span>
+                      Education & Training • Energy & Finance • Beauty &
+                      Cosmetics
+                    </span>
                   </li>
                   <li className="service-detail">
                     <span className="detail-indicator" />
-                    <span>E-commerce & Technology • Distribution & Logistics</span>
+                    <span>
+                      E-commerce & Technology • Distribution & Logistics
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -265,7 +210,9 @@ const FoundationFirstApproach = () => {
                 <ul className="service-details">
                   <li className="service-detail">
                     <span className="detail-indicator" />
-                    <span>Multi-country team management across Asia Pacific</span>
+                    <span>
+                      Multi-country team management across Asia Pacific
+                    </span>
                   </li>
                   <li className="service-detail">
                     <span className="detail-indicator" />
@@ -303,7 +250,9 @@ const FoundationFirstApproach = () => {
                   </li>
                   <li className="service-detail">
                     <span className="detail-indicator" />
-                    <span>Cultural adaptation across business environments</span>
+                    <span>
+                      Cultural adaptation across business environments
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -538,80 +487,12 @@ const FoundationFirstApproach = () => {
           );
         }
 
-        .phase-header-section {
-          margin-bottom: 1.75rem;
-        }
-
-        .phase-header-content {
-          flex: 1;
-        }
-
-        .phase-points-wrapper {
-          opacity: 1;
-        }
-
-        .phase-title {
-          font-size: 1.25rem;
-          font-weight: 600;
+        .phase-content-text {
+          font-size: 1rem;
+          font-weight: 400;
           color: #ffffff;
-          margin-bottom: 0.75rem;
-          line-height: 1.3;
-        }
-
-        .phase-subtitle {
-          font-size: 0.875rem;
-          color: rgba(255, 255, 255, 0.65);
-          margin-bottom: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .phase-points {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-        }
-
-        .point-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.625rem;
-          font-size: 0.875rem;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.5;
-          padding: 0.375rem;
-          margin: -0.375rem;
-          border-radius: 0.5rem;
-          opacity: 0;
-          transform: translateX(-10px);
-          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .phase-content.is-expanded .point-item {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        .point-item:hover {
-          background: rgba(120, 99, 252, 0.08);
-          color: rgba(255, 255, 255, 0.95);
-          transform: translateX(5px);
-        }
-
-        .check-icon {
-          flex-shrink: 0;
-          color: #7863fc;
-          margin-top: 0.125rem;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-          width: 16px;
-          height: 16px;
-        }
-
-        .point-item:hover .check-icon {
-          transform: scale(1.15);
-          color: #9b83ff;
+          line-height: 1.6;
+          text-align: center;
         }
 
         .audit-container {
@@ -826,16 +707,8 @@ const FoundationFirstApproach = () => {
             right: -2rem;
           }
 
-          .phase-title {
-            font-size: 1.5rem;
-          }
-
-          .phase-subtitle {
-            font-size: 0.9375rem;
-          }
-
-          .point-item {
-            font-size: 0.9375rem;
+          .phase-content-text {
+            font-size: 1.0625rem;
           }
         }
 
