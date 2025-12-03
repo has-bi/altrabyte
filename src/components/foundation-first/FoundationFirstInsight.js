@@ -326,6 +326,23 @@ const FoundationFirstInsight = () => {
           padding: 0;
           gap: 1.75rem;
           flex: 1;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-container:hover {
+          transform: translateY(-4px);
+        }
+
+        .card-container:hover .icon-container {
+          border-color: rgba(120, 99, 252, 0.24);
+          box-shadow: 0 8px 20px rgba(120, 99, 252, 0.16),
+            0 2px 8px rgba(120, 99, 252, 0.08);
+          transform: scale(1.05) rotate(3deg);
+        }
+
+        .card-container:hover .icon-container svg {
+          transform: scale(1.1);
         }
 
         /* Icon Container */
@@ -341,6 +358,11 @@ const FoundationFirstInsight = () => {
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .icon-container svg {
+          transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         /* Text Container */
