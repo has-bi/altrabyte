@@ -236,6 +236,22 @@ const FoundationFirstMission = () => {
           gap: 0.75rem;
           border-radius: 100px;
           align-self: stretch;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reason-item:hover {
+          transform: translateX(4px);
+        }
+
+        .reason-item:hover .icon-background {
+          background: #7863fc;
+          transform: scale(1.1) rotate(5deg);
+          box-shadow: 0 4px 12px rgba(120, 99, 252, 0.24);
+        }
+
+        .reason-item:hover .icon-background svg path {
+          stroke: #ffffff;
         }
 
         /* Icon Container */
@@ -259,6 +275,11 @@ const FoundationFirstMission = () => {
           align-items: center;
           justify-content: center;
           flex: 1;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .icon-background svg path {
+          transition: stroke 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         /* Reason Text */
@@ -299,6 +320,28 @@ const FoundationFirstMission = () => {
           background: #f6eeec;
           border-radius: 0.75rem;
           position: relative;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(133, 126, 124, 0.16),
+            0 4px 12px rgba(133, 126, 124, 0.08);
+        }
+
+        .card:hover .card-icon-container {
+          background: #857e7c;
+          transform: scale(1.05) rotate(5deg);
+        }
+
+        .card:hover .card-icon-container svg path {
+          stroke: #ffffff;
+        }
+
+        .card:hover .card-decoration {
+          opacity: 0.8;
+          transform: scale(1.1);
         }
 
         .card-content {
@@ -331,6 +374,11 @@ const FoundationFirstMission = () => {
           background: #ffffff;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
           border-radius: 0.5rem;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-icon-container svg path {
+          transition: stroke 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .card-title {
@@ -367,6 +415,7 @@ const FoundationFirstMission = () => {
           box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.28);
           border-radius: 50%;
           z-index: 1;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         /* Responsive Design */
