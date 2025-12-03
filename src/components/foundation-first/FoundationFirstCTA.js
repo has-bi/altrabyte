@@ -142,7 +142,9 @@ const FoundationFirstCTA = () => {
           <div className="cta-content">
             {/* Left Column */}
             <div className="cta-text-column">
-              <h2 className="cta-title">Start Your Foundation Transformation</h2>
+              <h2 className="cta-title">
+                Start Your Foundation Transformation
+              </h2>
               <p className="cta-description">
                 After 10 years of pattern recognition across 6 organizations and
                 5 industries, we know exactly what works.
@@ -177,30 +179,7 @@ const FoundationFirstCTA = () => {
             <div className="audit-details">
               <div className="audit-detail-item">
                 <div className="audit-detail-icon">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="16"
-                      cy="16"
-                      r="12"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M16 8V16L20 20"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <div className="number-icon">1</div>
                 </div>
                 <p className="audit-detail-text">
                   Whether your infrastructure can support your ambitions
@@ -209,28 +188,7 @@ const FoundationFirstCTA = () => {
 
               <div className="audit-detail-item">
                 <div className="audit-detail-icon">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16 4V16M16 16L22 10M16 16L10 10"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M28 20V24C28 25.1046 27.1046 26 26 26H6C4.89543 26 4 25.1046 4 24V20"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <div className="number-icon">2</div>
                 </div>
                 <p className="audit-detail-text">
                   Which "advanced" solutions you're actually ready for
@@ -239,21 +197,7 @@ const FoundationFirstCTA = () => {
 
               <div className="audit-detail-item">
                 <div className="audit-detail-icon">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6 16L12 22L26 8"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <div className="number-icon">3</div>
                 </div>
                 <p className="audit-detail-text">
                   How to build capability that scales with your business
@@ -262,28 +206,7 @@ const FoundationFirstCTA = () => {
 
               <div className="audit-detail-item">
                 <div className="audit-detail-icon">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="16"
-                      cy="16"
-                      r="12"
-                      stroke="white"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M16 12V16M16 20H16.01"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <div className="number-icon">4</div>
                 </div>
                 <p className="audit-detail-text">
                   Why your previous data projects haven't delivered expected
@@ -560,6 +483,23 @@ const FoundationFirstCTA = () => {
           height: 2rem;
           flex: none;
           transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .number-icon {
+          width: 2rem;
+          height: 2rem;
+          background: rgba(255, 255, 255, 0.2);
+          border: 2px solid #ffffff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1rem;
+          line-height: 1;
+          color: #ffffff;
         }
 
         .audit-detail-text {
