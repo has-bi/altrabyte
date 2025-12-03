@@ -4,6 +4,7 @@ import FoundationFirstCompare from "@/components/foundation-first/FoundationFirs
 import FoundationFirstInsight from "@/components/foundation-first/FoundationFirstInsight";
 import FoundationFirstApproach from "@/components/foundation-first/FoundationFirstApproach";
 import FoundationFirstMission from "@/components/foundation-first/FoundationFirstMission";
+import FoundationFirstCTA from "@/components/foundation-first/FoundationFirstCTA";
 import { getFeaturedBlogPost } from "@/lib/notion";
 
 export const metadata = {
@@ -24,6 +25,7 @@ export default async function FoundationFirstPage() {
       <FoundationFirstApproach />
       <FoundationFirstInsight />
       <FoundationFirstMission />
+      <FoundationFirstCTA />
     </div>
   );
 }
