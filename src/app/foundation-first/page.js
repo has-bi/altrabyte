@@ -3,6 +3,7 @@ import FoundationFirstBlogSection from "@/components/foundation-first/Foundation
 import FoundationFirstCompare from "@/components/foundation-first/FoundationFirstCompare";
 import FoundationFirstInsight from "@/components/foundation-first/FoundationFirstInsight";
 import FoundationFirstApproach from "@/components/foundation-first/FoundationFirstApproach";
+import FoundationFirstMission from "@/components/foundation-first/FoundationFirstMission";
 import { getFeaturedBlogPost } from "@/lib/notion";
 
 export const metadata = {
@@ -20,8 +21,9 @@ export default async function FoundationFirstPage() {
       <FoundationFirstHero />
       <FoundationFirstBlogSection post={featuredPost} />
       <FoundationFirstCompare />
-      <FoundationFirstInsight />
       <FoundationFirstApproach />
+      <FoundationFirstInsight />
+      <FoundationFirstMission />
     </div>
   );
 }
