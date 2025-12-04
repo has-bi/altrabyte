@@ -2,6 +2,7 @@ import StartYourAuditHero from "@/components/start-your-audit/StartYourAuditHero
 import StartYourAuditProcess from "@/components/start-your-audit/StartYourAuditProcess";
 import StartYourAuditDeliverable from "@/components/start-your-audit/StartYourAuditDeliverable";
 import StartYourAuditGuarantee from "@/components/start-your-audit/StartYourAuditGuarantee";
+import StartYourAuditPrepare from "@/components/start-your-audit/StartYourAuditPrepare";
 
 export const metadata = {
   title: "Start Your Audit - Discover What's Breaking Your Business | Altrabyte",
@@ -16,6 +17,7 @@ export default function StartYourAuditPage() {
       <StartYourAuditProcess />
       <StartYourAuditDeliverable />
       <StartYourAuditGuarantee />
+      <StartYourAuditPrepare />
     </div>
   );
 }
