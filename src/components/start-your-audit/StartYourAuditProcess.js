@@ -92,38 +92,7 @@ const StartYourAuditProcess = () => {
               <div className="service-card">
                 <div className="service-title-container">
                   <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="9"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 16V16.01"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 8V12"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <div className="question-number">1</div>
                   </div>
                   <h4 className="service-title">"Show me your database"</h4>
                 </div>
@@ -133,38 +102,7 @@ const StartYourAuditProcess = () => {
               <div className="service-card">
                 <div className="service-title-container">
                   <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="9"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 16V16.01"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 8V12"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <div className="question-number">2</div>
                   </div>
                   <h4 className="service-title">"Show me your automation"</h4>
                 </div>
@@ -690,6 +628,21 @@ const StartYourAuditProcess = () => {
         .service-card:hover .service-icon-container {
           box-shadow: 0px 4px 8px rgba(120, 99, 252, 0.2);
           transform: scale(1.05);
+        }
+
+        .question-number {
+          width: 3rem;
+          height: 3rem;
+          background: #7863fc;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-weight: 600;
+          font-size: 1.25rem;
+          color: #ffffff;
+          flex-shrink: 0;
         }
 
         .service-icon {
