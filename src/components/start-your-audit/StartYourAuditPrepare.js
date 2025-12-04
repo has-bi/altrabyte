@@ -112,69 +112,35 @@ const StartYourAuditPrepare = () => {
           <p className="subtitle">To maximize your 90 minutes, have these ready.</p>
         </div>
 
-        {/* Content Container */}
+        {/* Content Container - Grid Layout */}
         <div className="content-container">
-          {/* Top Cards Container */}
-          <div className="top-cards-container">
-            {preparationItems.slice(0, 2).map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => (cardRefs.current[index] = el)}
-                data-card-index={index}
-                className={`card-container ${visibleCards.includes(index) ? 'visible' : ''}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="icon-container">
-                  {item.icon}
-                </div>
-                <div className="text-container">
-                  <h3 className="card-title">{item.title}</h3>
-                  <div className="service-details-container">
-                    {item.details.map((detail, idx) => (
-                      <div key={idx} className="service-detail-container">
-                        <div className="path-indicator">
-                          <div className="service-detail-indicator" />
-                        </div>
-                        <p className="service-detail">{detail}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="card-decoration" />
+          {preparationItems.map((item, index) => (
+            <div
+              key={item.id}
+              ref={(el) => (cardRefs.current[index] = el)}
+              data-card-index={index}
+              className={`card-container ${visibleCards.includes(index) ? 'visible' : ''}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="icon-container">
+                {item.icon}
               </div>
-            ))}
-          </div>
-
-          {/* Bottom Cards Container */}
-          <div className="bottom-cards-container">
-            {preparationItems.slice(2, 4).map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => (cardRefs.current[index + 2] = el)}
-                data-card-index={index + 2}
-                className={`card-container ${visibleCards.includes(index + 2) ? 'visible' : ''}`}
-                style={{ transitionDelay: `${(index + 2) * 100}ms` }}
-              >
-                <div className="icon-container">
-                  {item.icon}
-                </div>
-                <div className="text-container">
-                  <h3 className="card-title">{item.title}</h3>
-                  <div className="service-details-container">
-                    {item.details.map((detail, idx) => (
-                      <div key={idx} className="service-detail-container">
-                        <div className="path-indicator">
-                          <div className="service-detail-indicator" />
-                        </div>
-                        <p className="service-detail">{detail}</p>
+              <div className="text-container">
+                <h3 className="card-title">{item.title}</h3>
+                <div className="service-details-container">
+                  {item.details.map((detail, idx) => (
+                    <div key={idx} className="service-detail-container">
+                      <div className="path-indicator">
+                        <div className="service-detail-indicator" />
                       </div>
-                    ))}
-                  </div>
+                      <p className="service-detail">{detail}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="card-decoration" />
               </div>
-            ))}
-          </div>
+              <div className="card-decoration" />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -244,20 +210,10 @@ const StartYourAuditPrepare = () => {
         }
 
         .content-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
           gap: 1.25rem;
           flex: 1;
-        }
-
-        .top-cards-container,
-        .bottom-cards-container {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 1.25rem;
           width: 100%;
         }
 
@@ -415,9 +371,8 @@ const StartYourAuditPrepare = () => {
             width: 100%;
           }
 
-          .top-cards-container,
-          .bottom-cards-container {
-            flex-direction: column;
+          .content-container {
+            grid-template-columns: 1fr;
           }
         }
 
