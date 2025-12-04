@@ -8,8 +8,8 @@ const deliverables = [
     description: "Where you actually are today",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 27V18M18 18V9M18 18H27M18 18H9" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M9 9H13.5V13.5" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M18 16.5V6.0111C18 5.5802 18.1841 5.16984 18.506 4.88334C18.8278 4.59683 19.2568 4.46149 19.6848 4.51139C25.8556 5.28391 30.716 10.1443 31.4885 16.3152C31.5384 16.7432 31.4031 17.1721 31.1166 17.4939C30.8301 17.8158 30.4197 17.9999 29.9888 17.9999H19.5C18.6716 17.9999 18 17.3284 18 16.5Z" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 7.14014C6.83308 9.47303 3.82835 14.9385 4.62713 20.5511C5.4259 26.1637 9.83611 30.5739 15.4487 31.3727C21.0613 32.1715 26.5268 29.1668 28.8597 23.9999" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     details: [
@@ -25,13 +25,10 @@ const deliverables = [
     description: "What to build, what to skip",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M27 18L22.5 22.5M22.5 22.5L27 27M22.5 22.5H18M18 22.5H13.5M18 22.5V18M18 18V13.5" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10.5 11.25L10.5 9M10.5 9L10.5 6.75M10.5 9L13.5 9M25.5 24.75L25.5 27M25.5 27L25.5 29.25M25.5 27L22.5 27" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M25.5 24L24 24L24 22.5" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <rect x="18" y="18" width="13.5" height="13.5" stroke="#122232" strokeWidth="2.25" rx="3.75"/>
-        <path d="M10.5 11.25L13.5 11.25" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10.5 17.25L7.5 17.25" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10.5 23.25L6 23.25" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12.375 8.99998L22.5105 8.98048C25.005 8.97598 27.0285 11.0025 27.018 13.497V13.518C27.0075 15.996 24.996 18 22.5195 18H14.9985C12.5145 18 10.5 20.0145 10.5 22.4985V22.4985C10.5 24.984 12.516 26.9985 15.0015 26.997L30 26.9925" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M30 26.9924L27.0045 29.9879" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M27.0045 23.9954L30 26.9924" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M11.3865 6.61351C12.7045 7.93153 12.7045 10.0685 11.3865 11.3865C10.0685 12.7045 7.93153 12.7045 6.61351 11.3865C5.2955 10.0685 5.2955 7.93153 6.61351 6.61351C7.93153 5.2955 10.0685 5.2955 11.3865 6.61351" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     details: [
@@ -47,8 +44,14 @@ const deliverables = [
     description: "What it actually costs",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 6H30V30H6V6Z" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <rect x="10.5" y="18" width="6" height="1.5" fill="#122232" rx="1.5"/>
+        <path d="M30 12V7.5C30 5.84315 28.6569 4.5 27 4.5H7.5C5.84315 4.5 4.5 5.84315 4.5 7.5V28.5C4.5 30.1569 5.84315 31.5 7.5 31.5H12" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M27.75 23.625L25.5 25.875" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M25.5 25.875L23.625 24" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M23.625 24L21.75 25.875" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="18" y="18" width="13.5" height="13.5" rx="3.75" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.5 12H24" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.5 18H13.5" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.5 24H12" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     details: [
@@ -64,8 +67,8 @@ const deliverables = [
     description: "Start before you're 'ready'",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 6H30V30H6V6Z" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
-        <rect x="10.5" y="18" width="6" height="1.5" fill="#122232" rx="1.5"/>
+        <path d="M23.9998 4.5V10.5M11.9998 4.5V10.5M5.99982 16.5H29.9998M5.99982 10.5C5.99982 9.70435 6.31589 8.94129 6.8785 8.37868C7.44111 7.81607 8.20417 7.5 8.99982 7.5H26.9998C27.7955 7.5 28.5585 7.81607 29.1211 8.37868C29.6837 8.94129 29.9998 9.70435 29.9998 10.5V28.5C29.9998 29.2956 29.6837 30.0587 29.1211 30.6213C28.5585 31.1839 27.7955 31.5 26.9998 31.5H8.99982C8.20417 31.5 7.44111 31.1839 6.8785 30.6213C6.31589 30.0587 5.99982 29.2956 5.99982 28.5V10.5Z" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.5 22.5C10.5 21.6716 11.1716 21 12 21H15C15.8284 21 16.5 21.6716 16.5 22.5V25.5C16.5 26.3284 15.8284 27 15 27H12C11.1716 27 10.5 26.3284 10.5 25.5V22.5Z" fill="#122232"/>
       </svg>
     ),
     details: [
