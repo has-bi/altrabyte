@@ -292,6 +292,15 @@ const StartYourAuditPrepare = () => {
         </div>
       </div>
 
+      {/* Top Layer Decoration */}
+      <div className="top-decoration">
+        <img
+          src="/images/Logogram - White.png"
+          alt=""
+          className="logogram-image"
+        />
+      </div>
+
       <style jsx>{`
         .prepare-section {
           display: flex;
@@ -302,6 +311,25 @@ const StartYourAuditPrepare = () => {
           isolation: isolate;
           background: #f2efff;
           position: relative;
+          overflow: hidden;
+        }
+
+        .top-decoration {
+          position: absolute;
+          bottom: 5rem;
+          left: -10.75rem;
+          z-index: 10;
+          pointer-events: none;
+          opacity: 1;
+          transition: opacity 800ms ease;
+        }
+
+        .logogram-image {
+          width: auto;
+          height: 25rem;
+          display: block;
+          filter: none;
+          mix-blend-mode: normal;
         }
 
         .prepare-container {
@@ -482,7 +510,7 @@ const StartYourAuditPrepare = () => {
           font-family: "Plus Jakarta Sans", sans-serif;
           font-style: normal;
           font-weight: 400;
-          font-size: 1rem;
+          font-size: 1.125rem;
           line-height: 150%;
           letter-spacing: -0.01em;
           color: #122232;
@@ -524,6 +552,16 @@ const StartYourAuditPrepare = () => {
           .content-container {
             grid-template-columns: 1fr;
           }
+
+          .top-decoration {
+            bottom: 2rem;
+            left: -8rem;
+            opacity: 0.12;
+          }
+
+          .logogram-image {
+            height: 18rem;
+          }
         }
 
         @media (max-width: 768px) {
@@ -550,6 +588,10 @@ const StartYourAuditPrepare = () => {
 
           .card-container {
             padding: 1.5rem;
+          }
+
+          .top-decoration {
+            display: none;
           }
         }
       `}</style>
