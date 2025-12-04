@@ -73,77 +73,7 @@ const StartYourAuditProcess = () => {
           <p>Your 90-Minute Deep Dive</p>
         </header>
 
-        {/* Timeline with phase labels */}
-        <div className="timeline-wrapper">
-          <div className="timeline-line" />
-          <div className="timeline-labels">
-            {phases.map((phase) => (
-              <div key={phase.id} className="timeline-label">
-                {phase.label}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Phase content grid */}
-        <div className="phases-grid">
-          {phases.map((phase, index) => (
-            <div
-              key={phase.id}
-              ref={(el) => (phaseRefs.current[index] = el)}
-              data-phase-index={index}
-              className={`phase-content ${
-                visiblePhases.includes(index) ? "is-visible" : ""
-              } is-expanded`}
-            >
-              <div className="phase-header-section">
-                <div className="phase-header-content">
-                  <h3 className="phase-title">{phase.title}</h3>
-                  <p className="phase-subtitle">{phase.subtitle}</p>
-                </div>
-              </div>
-
-              <div className="phase-points-wrapper">
-                <ul className="phase-points">
-                  {phase.points.map((point, idx) => (
-                    <li key={idx} className="point-item" style={{ transitionDelay: `${idx * 80}ms` }}>
-                      <svg
-                        className="check-icon"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <circle
-                          cx="10"
-                          cy="10"
-                          r="10"
-                          fill="currentColor"
-                          opacity="0.2"
-                        />
-                        <path
-                          d="M6 10L8.5 12.5L14 7"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Vertical separator - except after last item */}
-              {index < phases.length - 1 && (
-                <div className="vertical-separator" />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Audit Services Container */}
+        {/* Audit Services Container - MOVED TO TOP */}
         <div className="audit-container">
           <h3 className="audit-title">
             The Audit
@@ -430,6 +360,76 @@ const StartYourAuditProcess = () => {
             </div>
           </div>
         </div>
+
+        {/* Timeline with phase labels - MOVED TO BOTTOM */}
+        <div className="timeline-wrapper">
+          <div className="timeline-line" />
+          <div className="timeline-labels">
+            {phases.map((phase) => (
+              <div key={phase.id} className="timeline-label">
+                {phase.label}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Phase content grid - MOVED TO BOTTOM */}
+        <div className="phases-grid">
+          {phases.map((phase, index) => (
+            <div
+              key={phase.id}
+              ref={(el) => (phaseRefs.current[index] = el)}
+              data-phase-index={index}
+              className={`phase-content ${
+                visiblePhases.includes(index) ? "is-visible" : ""
+              } is-expanded`}
+            >
+              <div className="phase-header-section">
+                <div className="phase-header-content">
+                  <h3 className="phase-title">{phase.title}</h3>
+                  <p className="phase-subtitle">{phase.subtitle}</p>
+                </div>
+              </div>
+
+              <div className="phase-points-wrapper">
+                <ul className="phase-points">
+                  {phase.points.map((point, idx) => (
+                    <li key={idx} className="point-item" style={{ transitionDelay: `${idx * 80}ms` }}>
+                      <svg
+                        className="check-icon"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                      >
+                        <circle
+                          cx="10"
+                          cy="10"
+                          r="10"
+                          fill="currentColor"
+                          opacity="0.2"
+                        />
+                        <path
+                          d="M6 10L8.5 12.5L14 7"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Vertical separator - except after last item */}
+              {index < phases.length - 1 && (
+                <div className="vertical-separator" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       <style jsx>{`
@@ -600,7 +600,7 @@ const StartYourAuditProcess = () => {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 3.5rem;
-          margin-bottom: 4rem;
+          margin-bottom: 0;
           position: relative;
         }
 
@@ -732,7 +732,7 @@ const StartYourAuditProcess = () => {
           border-radius: 1.25rem;
           animation: fadeIn 900ms ease-out 500ms backwards;
           max-width: 75rem;
-          margin: 0 auto;
+          margin: 0 auto 4rem;
         }
 
         .audit-title {
