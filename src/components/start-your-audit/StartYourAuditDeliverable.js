@@ -4,8 +4,8 @@ import React, { useState } from "react";
 const deliverables = [
   {
     id: 1,
-    title: "Current State Analysis",
-    description: "Detailed documentation of what's actually happening",
+    title: "Reality Mapping",
+    description: "Where you actually are today",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18 27V18M18 18V9M18 18H27M18 18H9" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
@@ -13,16 +13,16 @@ const deliverables = [
       </svg>
     ),
     details: [
-      "Data infrastructure evaluation",
-      "Process efficiency assessment",
-      "Technology gap analysis",
-      "Risk and bottleneck identification"
+      "Current data infrastructure state",
+      "Hidden process inefficiencies",
+      "Technology gaps vs. business needs",
+      "Critical bottlenecks slowing growth"
     ]
   },
   {
     id: 2,
-    title: "Priority Roadmap",
-    description: "Your step-by-step transformation plan",
+    title: "Transformation Path",
+    description: "What to build, what to skip",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M27 18L22.5 22.5M22.5 22.5L27 27M22.5 22.5H18M18 22.5H13.5M18 22.5V18M18 18V13.5" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
@@ -35,16 +35,16 @@ const deliverables = [
       </svg>
     ),
     details: [
-      "Prioritized implementation sequence",
-      "Quick wins identification",
-      "Long-term structural improvements",
-      "Resource allocation guidance"
+      "Sequenced priorities (quick wins first)",
+      "Foundation requirements mapped",
+      "Integration strategy defined",
+      "Resource allocation clarity"
     ]
   },
   {
     id: 3,
-    title: "Investment Framework",
-    description: "Clear financial expectations",
+    title: "Investment Reality",
+    description: "What it actually costs",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 6H30V30H6V6Z" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
@@ -52,16 +52,16 @@ const deliverables = [
       </svg>
     ),
     details: [
-      "Cost breakdown by phase",
-      "ROI projections",
-      "Timeline vs. investment trade-offs",
-      "Budget optimization options"
+      "Phase-by-phase cost breakdown",
+      "Expected ROI per investment",
+      "Timeline vs. budget trade-offs",
+      "Alternative approaches compared"
     ]
   },
   {
     id: 4,
-    title: "30-Day Action Plan",
-    description: "Immediate improvements you can make",
+    title: "First 30 Days",
+    description: "Start before you're 'ready'",
     icon: (
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 6H30V30H6V6Z" stroke="#122232" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
@@ -69,10 +69,10 @@ const deliverables = [
       </svg>
     ),
     details: [
-      "No-code quick wins",
-      "Process optimization opportunities",
-      "Low-hanging automation fruit",
-      "Team capability building steps"
+      "No-code wins you can implement today",
+      "Process improvements requiring zero budget",
+      "Quick automation opportunities",
+      "Team capability building start"
     ]
   }
 ];
@@ -227,19 +227,47 @@ const StartYourAuditDeliverable = () => {
           border: 1.5px solid #e7e9eb;
           box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
           border-radius: 0.75rem;
-          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 600ms cubic-bezier(0.16, 1, 0.3, 1);
           cursor: pointer;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .card-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(120, 99, 252, 0.03),
+            transparent
+          );
+          transition: left 800ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-container:hover::before {
+          left: 100%;
         }
 
         .card-container:hover {
-          border-color: #7863fc;
-          box-shadow: 0px 4px 16px rgba(120, 99, 252, 0.16);
-          transform: translateY(-2px);
+          border-color: rgba(120, 99, 252, 0.4);
+          box-shadow: 0px 8px 24px rgba(120, 99, 252, 0.12),
+                      0px 2px 8px rgba(120, 99, 252, 0.08);
+          transform: translateY(-4px) scale(1.01);
         }
 
         .card-container.expanded {
           border-color: #7863fc;
-          box-shadow: 0px 6px 20px rgba(120, 99, 252, 0.2);
+          box-shadow: 0px 12px 32px rgba(120, 99, 252, 0.18),
+                      0px 4px 12px rgba(120, 99, 252, 0.12);
+        }
+
+        .card-container.expanded:hover {
+          transform: translateY(-2px) scale(1.005);
         }
 
         .card-header {
@@ -257,17 +285,32 @@ const StartYourAuditDeliverable = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #ffffff;
+          background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
           border: 1.55556px solid #e7e9eb;
           box-shadow: 0px 1.55556px 3.11111px rgba(0, 0, 0, 0.12);
           border-radius: 0.583rem;
           flex-shrink: 0;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          position: relative;
+        }
+
+        .icon-container svg {
+          transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card-container:hover .icon-container {
-          transform: scale(1.05);
-          border-color: rgba(120, 99, 252, 0.3);
+          transform: scale(1.08) rotate(2deg);
+          border-color: rgba(120, 99, 252, 0.4);
+          box-shadow: 0px 4px 12px rgba(120, 99, 252, 0.16);
+          background: linear-gradient(135deg, #faf9ff 0%, #f5f3ff 100%);
+        }
+
+        .card-container:hover .icon-container svg {
+          transform: scale(1.1);
+        }
+
+        .card-container.expanded .icon-container {
+          border-color: rgba(120, 99, 252, 0.5);
         }
 
         .card-title {
@@ -313,26 +356,37 @@ const StartYourAuditDeliverable = () => {
         }
 
         .chevron-icon {
-          transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .chevron-icon.rotated {
           transform: rotate(180deg);
         }
 
+        .card-container:hover .chevron-icon {
+          transform: scale(1.1);
+        }
+
+        .card-container:hover .chevron-icon.rotated {
+          transform: rotate(180deg) scale(1.1);
+        }
+
         .expandable-content {
           max-height: 0;
           overflow: hidden;
           opacity: 0;
-          transition: max-height 500ms cubic-bezier(0.4, 0, 0.2, 1),
-                      opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
-                      margin-top 400ms cubic-bezier(0.4, 0, 0.2, 1);
+          transform: translateY(-10px);
+          transition: max-height 600ms cubic-bezier(0.16, 1, 0.3, 1),
+                      opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+                      margin-top 500ms cubic-bezier(0.16, 1, 0.3, 1);
           margin-top: 0;
         }
 
         .expandable-content.expanded {
           max-height: 500px;
           opacity: 1;
+          transform: translateY(0);
           margin-top: 0.75rem;
         }
 
@@ -358,14 +412,22 @@ const StartYourAuditDeliverable = () => {
           gap: 0.75rem;
           width: 100%;
           opacity: 0;
-          transform: translateY(10px);
-          transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
-                      transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform: translateX(-10px);
+          transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .expandable-content.expanded .service-detail-container {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateX(0);
+        }
+
+        .service-detail-container:hover {
+          transform: translateX(4px);
+        }
+
+        .expandable-content.expanded .service-detail-container:hover {
+          opacity: 1;
         }
 
         .path-indicator {
@@ -382,6 +444,13 @@ const StartYourAuditDeliverable = () => {
           background: #7863fc;
           border-radius: 0.125rem;
           flex-shrink: 0;
+          transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 0 0 0 rgba(120, 99, 252, 0.4);
+        }
+
+        .service-detail-container:hover .service-detail-indicator {
+          transform: scale(1.3);
+          box-shadow: 0 0 0 4px rgba(120, 99, 252, 0.1);
         }
 
         .service-detail {
@@ -394,6 +463,11 @@ const StartYourAuditDeliverable = () => {
           color: #122232;
           flex: 1;
           margin: 0;
+          transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-detail-container:hover .service-detail {
+          color: #7863fc;
         }
 
         @media (max-width: 1024px) {
