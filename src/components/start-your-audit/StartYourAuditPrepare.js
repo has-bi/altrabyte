@@ -215,12 +215,13 @@ const StartYourAuditPrepare = () => {
           gap: 1.25rem;
           flex: 1;
           width: 100%;
+          align-items: start;
         }
 
         .card-container {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: flex-start;
           padding: 1.75rem;
           gap: 1.25rem;
