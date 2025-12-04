@@ -123,6 +123,11 @@ const StartYourAuditProcess = () => {
           </div>
         </div>
 
+        {/* Breakdown Section Title */}
+        <div className="breakdown-title-container">
+          <h3 className="breakdown-title">Your Foundation Audit Breakdown</h3>
+        </div>
+
         {/* Timeline with phase labels - MOVED TO BOTTOM */}
         <div className="timeline-wrapper">
           <div className="timeline-line" />
@@ -279,6 +284,23 @@ const StartYourAuditProcess = () => {
           font-size: 1.0625rem;
           color: rgba(255, 255, 255, 0.7);
           line-height: 1.6;
+        }
+
+        .breakdown-title-container {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+
+        .breakdown-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2rem;
+          line-height: 128%;
+          letter-spacing: -0.01em;
+          color: #ffffff;
+          margin: 0;
         }
 
         .timeline-wrapper {
@@ -761,6 +783,10 @@ const StartYourAuditProcess = () => {
         @media (max-width: 768px) {
           .process-section {
             padding: 4rem 1.25rem 5rem;
+          }
+
+          .breakdown-title {
+            font-size: 1.5rem;
           }
 
           .timeline-wrapper {
