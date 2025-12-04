@@ -99,6 +99,7 @@ const StartYourAuditDeliverable = () => {
             <div
               key={item.id}
               className={`card-container ${expandedCard === index ? 'expanded' : ''}`}
+              onClick={() => toggleCard(index)}
             >
               {/* Card Header */}
               <div className="card-header">
@@ -111,11 +112,7 @@ const StartYourAuditDeliverable = () => {
               {/* Card Description */}
               <div className="card-description-container">
                 <p className="card-description">{item.description}</p>
-                <button
-                  className="expand-button"
-                  onClick={() => toggleCard(index)}
-                  aria-label={expandedCard === index ? "Collapse" : "Expand"}
-                >
+                <div className="expand-button">
                   <svg
                     width="26"
                     height="26"
@@ -132,25 +129,29 @@ const StartYourAuditDeliverable = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </button>
+                </div>
               </div>
 
               {/* Expandable Content */}
-              {expandedCard === index && (
-                <>
-                  <div className="divider" />
-                  <div className="service-details-container">
-                    {item.details.map((detail, idx) => (
-                      <div key={idx} className="service-detail-container">
-                        <div className="path-indicator">
-                          <div className="service-detail-indicator" />
-                        </div>
-                        <p className="service-detail">{detail}</p>
+              <div className={`expandable-content ${expandedCard === index ? 'expanded' : ''}`}>
+                <div className="divider" />
+                <div className="service-details-container">
+                  {item.details.map((detail, idx) => (
+                    <div
+                      key={idx}
+                      className="service-detail-container"
+                      style={{
+                        transitionDelay: expandedCard === index ? `${idx * 50}ms` : '0ms'
+                      }}
+                    >
+                      <div className="path-indicator">
+                        <div className="service-detail-indicator" />
                       </div>
-                    ))}
-                  </div>
-                </>
-              )}
+                      <p className="service-detail">{detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -226,16 +227,19 @@ const StartYourAuditDeliverable = () => {
           border: 1.5px solid #e7e9eb;
           box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
           border-radius: 0.75rem;
-          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          cursor: pointer;
         }
 
         .card-container:hover {
           border-color: #7863fc;
-          box-shadow: 0px 4px 12px rgba(120, 99, 252, 0.12);
+          box-shadow: 0px 4px 16px rgba(120, 99, 252, 0.16);
+          transform: translateY(-2px);
         }
 
         .card-container.expanded {
           border-color: #7863fc;
+          box-shadow: 0px 6px 20px rgba(120, 99, 252, 0.2);
         }
 
         .card-header {
@@ -258,6 +262,12 @@ const StartYourAuditDeliverable = () => {
           box-shadow: 0px 1.55556px 3.11111px rgba(0, 0, 0, 0.12);
           border-radius: 0.583rem;
           flex-shrink: 0;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-container:hover .icon-container {
+          transform: scale(1.05);
+          border-color: rgba(120, 99, 252, 0.3);
         }
 
         .card-title {
@@ -298,30 +308,39 @@ const StartYourAuditDeliverable = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          padding: 0;
           flex-shrink: 0;
           transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .expand-button:hover {
-          transform: scale(1.1);
-        }
-
         .chevron-icon {
-          transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .chevron-icon.rotated {
           transform: rotate(180deg);
         }
 
+        .expandable-content {
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition: max-height 500ms cubic-bezier(0.4, 0, 0.2, 1),
+                      opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+                      margin-top 400ms cubic-bezier(0.4, 0, 0.2, 1);
+          margin-top: 0;
+        }
+
+        .expandable-content.expanded {
+          max-height: 500px;
+          opacity: 1;
+          margin-top: 0.75rem;
+        }
+
         .divider {
           width: 100%;
           height: 0px;
           border: 1px dashed #b6babf;
+          margin-bottom: 0.75rem;
         }
 
         .service-details-container {
@@ -338,6 +357,15 @@ const StartYourAuditDeliverable = () => {
           align-items: flex-start;
           gap: 0.75rem;
           width: 100%;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+                      transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .expandable-content.expanded .service-detail-container {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         .path-indicator {
