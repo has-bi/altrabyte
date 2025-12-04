@@ -1,5 +1,6 @@
 import StartYourAuditHero from "@/components/start-your-audit/StartYourAuditHero";
 import StartYourAuditProcess from "@/components/start-your-audit/StartYourAuditProcess";
+import StartYourAuditDeliverable from "@/components/start-your-audit/StartYourAuditDeliverable";
 
 export const metadata = {
   title: "Start Your Audit - Discover What's Breaking Your Business | Altrabyte",
@@ -12,6 +13,7 @@ export default function StartYourAuditPage() {
     <div className="bg-white">
       <StartYourAuditHero />
       <StartYourAuditProcess />
+      <StartYourAuditDeliverable />
     </div>
   );
 }
