@@ -5,33 +5,36 @@ const phases = [
   {
     id: 1,
     label: "First 30 Minutes",
-    title: "Problem Discovery",
-    subtitle: "Understanding what's broken",
+    title: "Discovery & Documentation",
+    subtitle: "We map your current reality",
     points: [
-      "Current state documentation",
+      "Current workflow documentation",
       "Pain point identification",
-      "Bottleneck analysis",
+      "Data flow analysis",
+      "Tool & system audit",
     ],
   },
   {
     id: 2,
     label: "Next 30 Minutes",
-    title: "Solution Design",
-    subtitle: "What you actually need to fix it",
+    title: "Gap Analysis & Solution Design",
+    subtitle: "We show you what's missing",
     points: [
-      "Foundation requirements",
+      "Foundation gap identification",
+      "Quick wins vs. structural fixes",
       "Technology recommendations",
-      "Integration approach",
+      "Integration strategy",
     ],
   },
   {
     id: 3,
     label: "Final 30 Minutes",
-    title: "Roadmap",
-    subtitle: "Timeline, investment, and expectations",
+    title: "Roadmap & Investment",
+    subtitle: "We give you the truth",
     points: [
+      "Prioritized action plan",
       "Realistic timelines",
-      "Investment requirements",
+      "Investment breakdown",
       "Expected outcomes",
     ],
   },
@@ -288,7 +291,7 @@ const StartYourAuditProcess = () => {
 
         .breakdown-title-container {
           width: 100%;
-          text-align: center;
+          text-align: left;
           margin-bottom: 3rem;
         }
 
