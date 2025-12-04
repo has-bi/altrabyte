@@ -92,7 +92,9 @@ const StartYourAuditProcess = () => {
               <div className="service-card">
                 <div className="service-title-container">
                   <div className="service-icon-container">
-                    <div className="question-number">1</div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.99988 10L11.9999 8V16M2.99988 12C2.99988 13.1819 3.23267 14.3522 3.68496 15.4441C4.13725 16.5361 4.80019 17.5282 5.63592 18.364C6.47164 19.1997 7.4638 19.8626 8.55573 20.3149C9.64766 20.7672 10.818 21 11.9999 21C13.1818 21 14.3521 20.7672 15.444 20.3149C16.536 19.8626 17.5281 19.1997 18.3638 18.364C19.1996 17.5282 19.8625 16.5361 20.3148 15.4441C20.7671 14.3522 20.9999 13.1819 20.9999 12C20.9999 10.8181 20.7671 9.64778 20.3148 8.55585C19.8625 7.46392 19.1996 6.47177 18.3638 5.63604C17.5281 4.80031 16.536 4.13738 15.444 3.68508C14.3521 3.23279 13.1818 3 11.9999 3C10.818 3 9.64766 3.23279 8.55573 3.68508C7.4638 4.13738 6.47164 4.80031 5.63592 5.63604C4.80019 6.47177 4.13725 7.46392 3.68496 8.55585C3.23267 9.64778 2.99988 10.8181 2.99988 12Z" stroke="#7863FC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                   <h4 className="service-title">"Show me your database"</h4>
                 </div>
@@ -102,7 +104,9 @@ const StartYourAuditProcess = () => {
               <div className="service-card">
                 <div className="service-title-container">
                   <div className="service-icon-container">
-                    <div className="question-number">2</div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.0001 8H13.0001C13.2653 8 13.5197 8.10536 13.7072 8.29289C13.8948 8.48043 14.0001 8.73478 14.0001 9V11C14.0001 11.2652 13.8948 11.5196 13.7072 11.7071C13.5197 11.8946 13.2653 12 13.0001 12H11.0001C10.7349 12 10.4806 12.1054 10.293 12.2929C10.1055 12.4804 10.0001 12.7348 10.0001 13V15C10.0001 15.2652 10.1055 15.5196 10.293 15.7071C10.4806 15.8946 10.7349 16 11.0001 16H14.0001M3.00012 12C3.00012 13.1819 3.23291 14.3522 3.68521 15.4441C4.1375 16.5361 4.80043 17.5282 5.63616 18.364C6.47189 19.1997 7.46404 19.8626 8.55597 20.3149C9.6479 20.7672 10.8182 21 12.0001 21C13.182 21 14.3523 20.7672 15.4443 20.3149C16.5362 19.8626 17.5284 19.1997 18.3641 18.364C19.1998 17.5282 19.8627 16.5361 20.315 15.4441C20.7673 14.3522 21.0001 13.1819 21.0001 12C21.0001 10.8181 20.7673 9.64778 20.315 8.55585C19.8627 7.46392 19.1998 6.47177 18.3641 5.63604C17.5284 4.80031 16.5362 4.13738 15.4443 3.68508C14.3523 3.23279 13.182 3 12.0001 3C10.8182 3 9.6479 3.23279 8.55597 3.68508C7.46404 4.13738 6.47189 4.80031 5.63616 5.63604C4.80043 6.47177 4.1375 7.46392 3.68521 8.55585C3.23291 9.64778 3.00012 10.8181 3.00012 12Z" stroke="#7863FC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                   <h4 className="service-title">"Show me your automation"</h4>
                 </div>
@@ -479,10 +483,9 @@ const StartYourAuditProcess = () => {
 
         .audit-container {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-items: flex-start;
-          padding: 2rem 2rem 2rem 2.5rem;
-          gap: 5rem;
+          padding: 0;
           background: #ffffff;
           border: 1px solid rgba(226, 232, 240, 0.6);
           box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.16),
@@ -630,18 +633,9 @@ const StartYourAuditProcess = () => {
           transform: scale(1.05);
         }
 
-        .question-number {
-          width: 3rem;
-          height: 3rem;
-          background: #7863fc;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-family: "Plus Jakarta Sans", sans-serif;
-          font-weight: 600;
-          font-size: 1.25rem;
-          color: #ffffff;
+        .service-icon-container svg {
+          width: 1.5rem;
+          height: 1.5rem;
           flex-shrink: 0;
         }
 
