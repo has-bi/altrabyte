@@ -73,119 +73,22 @@ const StartYourAuditProcess = () => {
           <p>Your 90-Minute Deep Dive</p>
         </header>
 
-        {/* Audit Services Container - MOVED TO TOP */}
+        {/* Two Questions Container - MOVED TO TOP */}
         <div className="audit-container">
-          <h3 className="audit-title">
-            The Audit
-            <br />
-            Deliverable
-            <br />
-            Package
-          </h3>
-
-          <div className="services-container">
-            {/* Row 1 */}
-            <div className="service-row">
-              {/* Service 1 - Current State Assessment */}
-              <div className="service-card">
-                <div className="service-title-container">
-                  <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M6.53855 21.0949C8.23699 21.0949 9.66357 19.9309 10.0642 18.3572C10.1881 17.8704 10.5837 17.4569 11.0859 17.4569H17.4523M6.53855 21.0949C4.52939 21.0949 2.90063 19.4661 2.90063 17.4569V5.63371C2.90063 4.12684 4.1222 2.90527 5.62907 2.90527H14.7239C16.2307 2.90527 17.4523 4.12684 17.4523 5.63371V17.4569M6.53855 21.0949H17.4523C19.1507 21.0949 20.5773 19.9309 20.978 18.3572C21.1019 17.8704 20.683 17.4569 20.1807 17.4569H17.4523M7.44803 10.1811L9.04218 11.4564C9.42223 11.7605 9.97429 11.7114 10.2948 11.3451L12.9049 8.36215"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
-                  <h4 className="service-title">Current State Assessment</h4>
-                </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Detailed documentation of existing systems</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Gap analysis and risk assessment</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Process efficiency evaluation</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Service 2 - Foundation Roadmap */}
-              <div className="service-card">
-                <div className="service-title-container">
-                  <div className="service-icon-container">
-                    <svg
-                      className="service-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M8.25 5.99982L15.007 5.98682C16.67 5.98382 18.019 7.33482 18.012 8.99782V9.01182C18.005 10.6638 16.664 11.9998 15.013 11.9998H9.999C8.343 11.9998 7 13.3428 7 14.9988V14.9988C7 16.6558 8.344 17.9988 10.001 17.9978L20 17.9948"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M19.9999 17.9951L18.0029 19.9921"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M18.0029 15.9971L19.9999 17.9951"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7.59099 4.40901C8.46967 5.28769 8.46967 6.71231 7.59099 7.59099C6.71231 8.46967 5.28769 8.46967 4.40901 7.59099C3.53033 6.71231 3.53033 5.28769 4.40901 4.40901C5.28769 3.53033 6.71231 3.53033 7.59099 4.40901"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <h4 className="service-title">Foundation Roadmap</h4>
-                </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Prioritized improvement plan</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Technology stack recommendations</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Implementation timeline</span>
-                  </li>
-                </ul>
-              </div>
+          {/* Questions Inner Container */}
+          <div className="questions-inner-container">
+            {/* Questions Title */}
+            <div className="questions-title-wrapper">
+              <h2 className="questions-title">
+                The <span className="title-highlight">Two Questions</span>
+                <br />
+                That Reveal Everything:
+              </h2>
             </div>
 
-            {/* Row 2 */}
-            <div className="service-row">
-              {/* Service 3 - Investment Framework */}
+            {/* Questions Content Container */}
+            <div className="questions-content-container">
+              {/* Question 1 */}
               <div className="service-card">
                 <div className="service-title-container">
                   <div className="service-icon-container">
@@ -195,62 +98,26 @@ const StartYourAuditProcess = () => {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        d="M20 8V5C20 3.89543 19.1046 3 18 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H8"
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
                         stroke="#7863FC"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                       <path
-                        d="M18.5 15.75L17 17.25"
+                        d="M12 16V16.01"
                         stroke="#7863FC"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                       <path
-                        d="M17 17.25L15.75 16"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M15.75 16L14.5 17.25"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <rect
-                        x="12"
-                        y="12"
-                        width="9"
-                        height="9"
-                        rx="2.5"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7 8H16"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7 12H9"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7 16H8"
+                        d="M12 8V12"
                         stroke="#7863FC"
                         strokeWidth="1.5"
                         strokeLinecap="round"
@@ -258,25 +125,11 @@ const StartYourAuditProcess = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="service-title">Investment Framework</h4>
+                  <h4 className="service-title">"Show me your database"</h4>
                 </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Realistic cost expectations</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>ROI projections</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Resource requirements</span>
-                  </li>
-                </ul>
               </div>
 
-              {/* Service 4 - Quick Wins Identification */}
+              {/* Question 2 */}
               <div className="service-card">
                 <div className="service-title-container">
                   <div className="service-icon-container">
@@ -286,53 +139,26 @@ const StartYourAuditProcess = () => {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        d="M6.998 21.0041H5.99759C4.34004 21.0041 2.99634 19.6604 2.99634 18.0029V17.0024"
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
                         stroke="#7863FC"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                       <path
-                        d="M17.0022 2.99658H18.0026C19.6602 2.99658 21.0039 4.34029 21.0039 5.99783V6.99825"
+                        d="M12 16V16.01"
                         stroke="#7863FC"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                       <path
-                        d="M2.99634 6.99825V5.99783C2.99634 4.34029 4.34004 2.99658 5.99759 2.99658H6.998"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M21.0039 17.0024V18.0029C21.0039 19.6604 19.6602 21.0041 18.0026 21.0041H17.0022"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M8.99881 5.99756H15.0013C16.6589 5.99756 18.0026 7.34126 18.0026 8.99881V10.9996H5.99756V8.99881C5.99756 7.34126 7.34126 5.99756 8.99881 5.99756Z"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M18.0026 14.001V15.0014C18.0026 16.6589 16.6589 18.0026 15.0013 18.0026H8.99881C7.34126 18.0026 5.99756 16.6589 5.99756 15.0014V14.001"
-                        stroke="#7863FC"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.99683 10.9997H20.0035"
+                        d="M12 8V12"
                         stroke="#7863FC"
                         strokeWidth="1.5"
                         strokeLinecap="round"
@@ -340,24 +166,18 @@ const StartYourAuditProcess = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="service-title">Quick Wins Identification</h4>
+                  <h4 className="service-title">"Show me your automation"</h4>
                 </div>
-                <ul className="service-details">
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Immediate improvements possible</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>30-day impact opportunities</span>
-                  </li>
-                  <li className="service-detail">
-                    <span className="detail-indicator" />
-                    <span>Low-hanging fruit automation</span>
-                  </li>
-                </ul>
               </div>
             </div>
+          </div>
+
+          {/* Questions Note Container */}
+          <div className="questions-note-container">
+            <p className="questions-note">
+              If you hesitate, point to Excel, or mention 'our admin handles
+              it' - we know exactly what to fix.
+            </p>
           </div>
         </div>
 
@@ -735,6 +555,67 @@ const StartYourAuditProcess = () => {
           margin: 0 auto 4rem;
         }
 
+        .questions-inner-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 2.5rem;
+          gap: 2.5rem;
+          width: 100%;
+        }
+
+        .questions-title-wrapper {
+          flex: none;
+        }
+
+        .questions-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.5rem;
+          line-height: 160%;
+          letter-spacing: -0.01em;
+          color: #122232;
+          margin: 0;
+        }
+
+        .title-highlight {
+          color: #7863fc;
+        }
+
+        .questions-content-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0;
+          gap: 1.25rem;
+          flex: 1;
+        }
+
+        .questions-note-container {
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 2.5rem 1.25rem;
+          gap: 0.625rem;
+          width: 100%;
+          border-top: 1px dashed #122232;
+        }
+
+        .questions-note {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.5rem;
+          line-height: 160%;
+          letter-spacing: -0.01em;
+          color: #122232;
+          margin: 0;
+          text-align: center;
+        }
+
         .audit-title {
           flex: none;
           font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
@@ -952,6 +833,35 @@ const StartYourAuditProcess = () => {
             flex-direction: column;
             padding: 1.75rem 1.5rem;
             gap: 2rem;
+          }
+
+          .questions-inner-container {
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+          }
+
+          .questions-title-wrapper {
+            width: 100%;
+          }
+
+          .questions-title {
+            font-size: 1.25rem;
+          }
+
+          .questions-content-container {
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+          }
+
+          .questions-note-container {
+            padding: 1.5rem 1rem;
+          }
+
+          .questions-note {
+            font-size: 1.125rem;
           }
 
           .audit-title {
