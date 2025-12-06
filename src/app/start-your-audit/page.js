@@ -4,6 +4,10 @@ import StartYourAuditDeliverable from "@/components/start-your-audit/StartYourAu
 import StartYourAuditGuarantee from "@/components/start-your-audit/StartYourAuditGuarantee";
 import StartYourAuditPrepare from "@/components/start-your-audit/StartYourAuditPrepare";
 import StartYourAuditBooking from "@/components/start-your-audit/StartYourAuditBooking";
+import StartYourAuditForm from "@/components/start-your-audit/StartYourAuditForm";
+import StartYourAuditNextSteps from "@/components/start-your-audit/StartYourAuditNextSteps";
+import StartYourAuditFAQ from "@/components/start-your-audit/StartYourAuditFAQ";
+import StartYourAuditCTA from "@/components/start-your-audit/StartYourAuditCTA";
 
 export const metadata = {
   title:
@@ -21,6 +25,10 @@ export default function StartYourAuditPage() {
       <StartYourAuditGuarantee />
       <StartYourAuditPrepare />
       <StartYourAuditBooking />
+      <StartYourAuditForm />
+      <StartYourAuditNextSteps />
+      <StartYourAuditFAQ />
+      <StartYourAuditCTA />
     </div>
   );
 }
