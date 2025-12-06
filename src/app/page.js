@@ -11,12 +11,6 @@ import ProcessSection from "@/components/ProcessSection";
 import ProblemSections from "@/components/AchieveSection";
 import PartnershipModels from "@/components/PartnershipModels";
 
-const SECTION_SPACING = {
-  tight: "pt-12 sm:pt-16 lg:pt-20",
-  standard: "py-16 sm:py-20 lg:py-24",
-  relaxed: "py-20 sm:py-24 lg:py-28",
-};
-
 // Force dynamic rendering for live updates
 export const dynamic = "force-dynamic";
 
@@ -43,46 +37,32 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Trusted By Section - Tight coupling with hero */}
-      <section className={`${SECTION_SPACING.tight} bg-white`}>
-        <TrustedBySection />
-      </section>
+      {/* Trusted By Section */}
+      <TrustedBySection />
 
-      {/* Pain Section - Major transition, needs breathing room */}
-      <section className={SECTION_SPACING.standard}>
-        <PainSection />
-      </section>
+      {/* Pain Section */}
+      <PainSection />
 
-      {/* Quiz Section - Interactive journey selector */}
+      {/* Quiz Section */}
       <QuizSection />
 
-      {/* Process Section - Foundation-first methodology */}
+      {/* Process Section */}
       <ProcessSection />
 
-      {/* Solutions Section - Related to pain, moderate spacing */}
-      <section className={`${SECTION_SPACING.standard} bg-white`}>
-        <CoreServices />
-      </section>
+      {/* Solutions Section */}
+      <CoreServices />
 
       {/* Partnership Models */}
-      <section className={`${SECTION_SPACING.standard} bg-white`}>
-        <PartnershipModels />
-      </section>
+      <PartnershipModels />
 
-      {/* Problem Section - Highlights the stakes */}
-      <section className={`${SECTION_SPACING.standard} bg-gray-50`}>
-        <ProblemSections />
-      </section>
+      {/* Problem Section */}
+      <ProblemSections />
 
       {/* Portfolio Section - Social proof, needs prominence */}
-      {/* <section className={`${SECTION_SPACING.relaxed} bg-white`}>
-        <PortfolioSection projects={projects} />
-      </section> */}
+      {/* <PortfolioSection projects={projects} /> */}
 
-      {/* Final CTA - Major conclusion, maximum spacing */}
-      <section className={SECTION_SPACING.relaxed}>
-        <FinalCTASection />
-      </section>
+      {/* Final CTA */}
+      <FinalCTASection />
     </div>
   );
 }

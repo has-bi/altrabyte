@@ -1,17 +1,15 @@
 // src/app/about/page.js
-import AboutHero from "@/components/about/AboutHero";
-import AboutProblems from "@/components/about/AboutProblems";
-import AboutDifferences from "@/components/about/AboutDifferences";
-import AboutIndustries from "@/components/about/AboutIndustries";
-import AboutSpeed from "@/components/about/AboutSpeed";
-import AboutCTA from "@/components/about/AboutCTA";
+import NewAboutHero from "@/components/about/NewAboutHero";
+import NewAboutMission from "@/components/about/NewAboutMission";
+import NewAboutTeam from "@/components/about/NewAboutTeam";
+import NewAboutCTA from "@/components/about/NewAboutCTA";
 
 export const metadata = {
-  title: "About - Why We Deliver Faster Than Other Data Consultants",
+  title: "About Us - Meet the Altrabyte Team | Altrabyte",
   description:
-    "Learn why AltraByte delivers data analytics and AI automation solutions faster than traditional consultants. We bring business-first thinking to data and automation.",
+    "Meet the team building Altrabyte. We're on a mission to help businesses transform their data infrastructure from manual chaos to intelligent automation.",
   openGraph: {
-    title: "About AltraByte - Why We Deliver Faster",
+    title: "About Altrabyte - Building Intelligent Foundations",
     url: "https://altrabyte.com/about",
     images: [{ url: "/images/og-about.png", width: 1200, height: 630 }],
   },
@@ -19,24 +17,18 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero Section */}
-      <AboutHero />
+      <NewAboutHero />
 
-      {/* Problems Section */}
-      <AboutProblems />
+      {/* Mission Section */}
+      <NewAboutMission />
 
-      {/* Differences Section */}
-      <AboutDifferences />
-
-      {/* Industries Section */}
-      <AboutIndustries />
-
-      {/* Speed Section */}
-      <AboutSpeed />
+      {/* Team Section */}
+      <NewAboutTeam />
 
       {/* CTA Section */}
-      <AboutCTA />
+      <NewAboutCTA />
     </div>
   );
 }

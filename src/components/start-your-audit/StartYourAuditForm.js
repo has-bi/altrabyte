@@ -38,6 +38,8 @@ export default function StartYourAuditForm() {
   });
 
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const formLoadedAtRef = useRef(Date.now());
   const countryDropdownRef = useRef(null);
 
   // Country names mapping
@@ -212,6 +214,11 @@ export default function StartYourAuditForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const elapsed = Date.now() - formLoadedAtRef.current;
+    if (honeypot.trim() !== "" || elapsed < 1500) {
+      alert("Submission blocked. Please try again.");
+      return;
+    }
 
     // Validate and format phone number
     try {
@@ -226,9 +233,23 @@ export default function StartYourAuditForm() {
           phoneNumber: phoneNumberObj.formatInternational(),
           countryCode: formData.countryCode,
           country: selectedCountry.country,
+          honeypot,
         };
-        console.log("Form submitted:", submissionData);
-        // Handle form submission here (e.g., send to API)
+        fetch("/api/start-audit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submissionData),
+        })
+          .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+          .then(({ ok, data }) => {
+            if (!ok) {
+              throw new Error(data?.error || "Failed to send");
+            }
+            alert("Thanks! We'll reach out shortly.");
+          })
+          .catch(() => {
+            alert("Something went wrong. Please try again in a moment.");
+          });
       } else {
         alert("Please enter a valid phone number");
       }
@@ -238,7 +259,7 @@ export default function StartYourAuditForm() {
   };
 
   return (
-    <section className="form-section">
+    <section id="start-your-audit-form" className="form-section">
       <div className="form-container">
         {/* Header */}
         <div className="form-header">
@@ -248,6 +269,19 @@ export default function StartYourAuditForm() {
 
         {/* Form */}
         <form className="form-content" onSubmit={handleSubmit}>
+          {/* Honeypot field to deter bots */}
+          <div className="honeypot-field">
+            <label htmlFor="company-website">Company website</label>
+            <input
+              id="company-website"
+              name="company-website"
+              type="text"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
           {/* Company Information */}
           <div className="form-section-container">
             <div className="section-header">
@@ -1357,6 +1391,16 @@ export default function StartYourAuditForm() {
           align-items: flex-start;
           gap: 2.5rem;
           width: 100%;
+        }
+
+        /* Honeypot */
+        .honeypot-field {
+          position: absolute;
+          left: -9999px;
+          top: auto;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
         }
 
         .form-section-container {

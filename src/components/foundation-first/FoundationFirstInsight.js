@@ -311,9 +311,9 @@ const FoundationFirstInsight = () => {
         .content-container {
           display: flex;
           flex-direction: row;
-          align-items: center;
+          align-items: flex-start;
           padding: 0;
-          gap: 1.25rem;
+          gap: 1.5rem;
           width: 100%;
           max-width: 75rem;
         }
@@ -322,27 +322,29 @@ const FoundationFirstInsight = () => {
         .card-container {
           display: flex;
           flex-direction: column;
+          justify-content: flex-start;
           align-items: flex-start;
           padding: 0;
-          gap: 1.75rem;
+          gap: 1.25rem;
           flex: 1;
+          min-height: 230px;
           cursor: pointer;
-          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 300ms ease;
         }
 
         .card-container:hover {
-          transform: translateY(-4px);
+          transform: translateY(-2px);
         }
 
         .card-container:hover .icon-container {
-          border-color: rgba(120, 99, 252, 0.24);
-          box-shadow: 0 8px 20px rgba(120, 99, 252, 0.16),
-            0 2px 8px rgba(120, 99, 252, 0.08);
-          transform: scale(1.05) rotate(3deg);
+          border-color: rgba(120, 99, 252, 0.18);
+          box-shadow: 0 6px 16px rgba(120, 99, 252, 0.12),
+            0 2px 6px rgba(120, 99, 252, 0.06);
+          transform: scale(1.03);
         }
 
         .card-container:hover .icon-container svg {
-          transform: scale(1.1);
+          transform: scale(1.04);
         }
 
         /* Icon Container */
@@ -358,11 +360,11 @@ const FoundationFirstInsight = () => {
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 280ms ease;
         }
 
         .icon-container svg {
-          transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: transform 260ms ease;
         }
 
         /* Text Container */

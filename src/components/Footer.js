@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FOOTER_LINKS = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/contact", label: "Say hello" },
+  { href: "/terms", label: "Terms & Conditions" },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 export default function Footer() {
@@ -21,9 +21,8 @@ export default function Footer() {
             priority
             className="h-10 w-auto"
           />
-          <div className="h-[20px] w-px bg-[#E7E9EB]" />
-          <span className="text-[15px] leading-[1.4] tracking-[-0.01em] text-[#414E5B]">
-            data-first delivery partner
+          <span className="text-[16px] leading-[1.4] tracking-[-0.01em] text-[#414E5B]">
+            © AltraByte2025
           </span>
         </div>
 

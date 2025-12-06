@@ -768,10 +768,6 @@ const FoundationAuditPaths = () => {
           padding-left: 3rem;
         }
 
-        .audit-timeline-node:hover {
-          background: rgba(120, 99, 252, 0.04);
-        }
-
         .audit-timeline-node.is-visible {
           opacity: 1;
           transform: translateY(0);
@@ -797,11 +793,6 @@ const FoundationAuditPaths = () => {
           z-index: 2;
         }
 
-        .audit-timeline-node:hover .audit-bullet {
-          transform: scale(1.15);
-          background: rgba(120, 99, 252, 0.45);
-        }
-
         .audit-timeline-node.is-completed .audit-bullet {
           background: rgba(120, 99, 252, 0.65);
         }
@@ -811,10 +802,6 @@ const FoundationAuditPaths = () => {
           background: #7863fc;
           box-shadow: 0 0 0 6px rgba(242, 239, 255, 1),
             0 0 0 1px rgba(120, 99, 252, 0.3);
-        }
-
-        .audit-timeline-node.is-active:hover .audit-bullet {
-          transform: scale(1.4);
         }
 
         .audit-meta {

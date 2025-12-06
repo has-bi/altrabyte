@@ -1001,20 +1001,20 @@ const FoundationFirstApproach = () => {
         }
 
         .industry-card:hover .industry-card-icon-background {
-          box-shadow: 0 8px 24px rgba(120, 99, 252, 0.24),
+          box-shadow: 0 6px 18px rgba(120, 99, 252, 0.18),
             inset 0 1px 0 rgba(255, 255, 255, 1);
-          transform: scale(1.08) rotate(5deg);
+          transform: scale(1.03);
         }
 
         /* Industry Card Icon */
         .industry-card-icon {
           width: 2rem;
           height: 2rem;
-          transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: transform 300ms ease;
         }
 
         .industry-card:hover .industry-card-icon {
-          transform: scale(1.1);
+          transform: scale(1.05);
         }
 
         /* Ellipse Decoration */
@@ -1073,7 +1073,7 @@ const FoundationFirstApproach = () => {
           border-radius: 1rem;
           position: relative;
           isolation: isolate;
-          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 340ms ease;
           cursor: default;
           overflow: hidden;
         }
@@ -1095,20 +1095,20 @@ const FoundationFirstApproach = () => {
         }
 
         .industry-card-wide:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 32px rgba(120, 99, 252, 0.16),
-            0 2px 8px rgba(120, 99, 252, 0.08);
-          border-color: rgba(120, 99, 252, 0.24);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 26px rgba(120, 99, 252, 0.12),
+            0 2px 6px rgba(120, 99, 252, 0.06);
+          border-color: rgba(120, 99, 252, 0.18);
         }
 
         .industry-card-wide:hover .industry-card-icon-background {
-          box-shadow: 0 8px 24px rgba(120, 99, 252, 0.24),
+          box-shadow: 0 6px 18px rgba(120, 99, 252, 0.18),
             inset 0 1px 0 rgba(255, 255, 255, 1);
-          transform: scale(1.08) rotate(5deg);
+          transform: scale(1.04);
         }
 
         .industry-card-wide:hover .industry-card-icon {
-          transform: scale(1.1);
+          transform: scale(1.05);
         }
 
         /* Vector Divider */
@@ -1198,10 +1198,10 @@ const FoundationFirstApproach = () => {
         }
 
         .leadership-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 32px rgba(7, 162, 118, 0.16),
-            0 2px 8px rgba(7, 162, 118, 0.08);
-          border-color: rgba(7, 162, 118, 0.24);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 26px rgba(7, 162, 118, 0.12),
+            0 2px 6px rgba(7, 162, 118, 0.06);
+          border-color: rgba(7, 162, 118, 0.18);
         }
 
         /* Leadership Card Icon Container */
@@ -1223,24 +1223,24 @@ const FoundationFirstApproach = () => {
           border-radius: 0.75rem;
           box-shadow: 0 2px 8px rgba(7, 162, 118, 0.12),
             inset 0 1px 0 rgba(255, 255, 255, 0.8);
-          transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 320ms ease;
         }
 
         .leadership-card:hover .leadership-card-icon-background {
-          box-shadow: 0 8px 24px rgba(7, 162, 118, 0.24),
+          box-shadow: 0 6px 18px rgba(7, 162, 118, 0.18),
             inset 0 1px 0 rgba(255, 255, 255, 1);
-          transform: scale(1.08) rotate(-5deg);
+          transform: scale(1.04);
         }
 
         /* Leadership Card Icon */
         .leadership-card-icon {
           width: 2rem;
           height: 2rem;
-          transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: transform 280ms ease;
         }
 
         .leadership-card:hover .leadership-card-icon {
-          transform: scale(1.1);
+          transform: scale(1.05);
         }
 
         /* Ellipse Decoration Green */

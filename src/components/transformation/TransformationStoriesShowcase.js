@@ -8,48 +8,69 @@ const stories = [
     theme: "bg-[#F6EEEC]",
     title: "From Spreadsheets to Systems",
     sections: [
-      { label: "The Challenge", value: "All data trapped in Excel, zero infrastructure" },
+      {
+        label: "The Challenge",
+        value: "All data trapped in Excel, zero infrastructure",
+      },
       { label: "The Journey", value: "Foundation → Automation → Intelligence" },
-      { label: "The Outcome", value: "Real-time visibility, eliminated manual reporting" },
+      {
+        label: "The Outcome",
+        value: "Real-time visibility, eliminated manual reporting",
+      },
     ],
     client: {
       name: "Rose All Day Cosmetics",
       description: "Startup Cosmetics Brand",
       logo: "/images/client/rose-all-day-cosmetics.png",
     },
-    image: "/images/portfolio/distribution.jpg",
+    image: "/images/client/RADC-transformations.png",
   },
   {
     id: "fintech",
     theme: "bg-[#FCE9EE]",
     title: "From Chaos to Clarity",
     sections: [
-      { label: "The Challenge", value: "Scattered data, no decision-making capability" },
-      { label: "The Journey", value: "Data literacy → BI infrastructure → Intelligent insights" },
-      { label: "The Outcome", value: "Data-driven decisions, scalable systems" },
+      {
+        label: "The Challenge",
+        value: "Scattered data, no decision-making capability",
+      },
+      {
+        label: "The Journey",
+        value: "Data literacy → BI infrastructure → Intelligent insights",
+      },
+      {
+        label: "The Outcome",
+        value: "Data-driven decisions, scalable systems",
+      },
     ],
     client: {
       name: "Amser",
       description: "Distribution Company",
       logo: "/images/client/Amser.png",
     },
-    image: "/images/portfolio/fintech-team.jpg",
+    image: "/images/client/Amser-transformations.png",
   },
   {
     id: "marketplace",
     theme: "bg-[#E6F6F1]",
-    title: "From Reactive to Proactive",
+    title: "From Manual to Automated",
     sections: [
-      { label: "The Challenge", value: "Manual processes, constant firefighting" },
-      { label: "The Journey", value: "Process automation → Predictive models → Strategic planning" },
-      { label: "The Outcome", value: "Automated workflows, proactive intelligence" },
+      { label: "The Challenge", value: "Multiple systems, everything manual" },
+      {
+        label: "The Journey",
+        value: "Integration → RPA deployment → 24/7 automation",
+      },
+      {
+        label: "The Outcome",
+        value: "Eliminated weeks of manual work, continuous intelligence",
+      },
     ],
     client: {
-      name: "RevoU",
-      description: "APAC expansion",
-      logo: "/images/client/revoU.png",
+      name: "Paragon",
+      description: "Major Beauty Retailer",
+      logo: "/images/client/Paragon-Black.png",
     },
-    image: "/images/portfolio/warehouse-team.jpg",
+    image: "/images/client/paragon-transformations.png",
   },
 ];
 
@@ -110,7 +131,9 @@ const TransformationStoriesShowcase = () => {
         <header
           ref={headerRef}
           className={`flex max-w-[760px] flex-col items-center gap-3 text-center transition-all duration-700 ${
-            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            isHeaderVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-5"
           }`}
         >
           <h2 className="text-[32px] font-semibold leading-[1.28] tracking-[-0.01em] text-neutral-500 md:text-[36px]">
@@ -127,8 +150,12 @@ const TransformationStoriesShowcase = () => {
               key={story.id}
               ref={(el) => (storyRefs.current[index] = el)}
               data-story-index={index}
-              className={`${story.theme} flex flex-col gap-6 rounded-[12px] border border-transparent shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-700 hover:shadow-[0_28px_70px_rgba(15,23,42,0.12)] hover:scale-[1.01] lg:flex-row ${
-                visibleStories.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              className={`${
+                story.theme
+              } flex flex-col gap-6 rounded-[12px] border border-transparent shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-700 hover:shadow-[0_28px_70px_rgba(15,23,42,0.12)] hover:scale-[1.01] lg:flex-row ${
+                visibleStories.includes(index)
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
@@ -138,8 +165,8 @@ const TransformationStoriesShowcase = () => {
                 </h3>
                 <div className="flex flex-col gap-5">
                   {story.sections.map((section) => (
-                    <div key={section.label} className="flex flex-col gap-2">
-                      <span className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-400">
+                    <div key={section.label} className="flex flex-col gap-1.5">
+                      <span className="text-[13px] font-semibold tracking-[-0.01em] text-[#6B7280]">
                         {section.label}
                       </span>
                       <p className="text-[18px] font-medium leading-[1.4] text-neutral-600">
@@ -151,16 +178,20 @@ const TransformationStoriesShowcase = () => {
               </div>
 
               <div className="flex w-full max-w-[280px] flex-col justify-between gap-8 border-b border-dashed border-black/30 px-8 py-10 lg:border-b-0 lg:border-r">
-                <div className="flex flex-col gap-3">
-                  <span className="flex items-center gap-3 text-primary-500">
-                    <span className="h-px w-8 bg-primary-500" />
-                    <span className="text-[14px] font-semibold uppercase tracking-[0.18em]">
+                <div className="flex flex-col gap-2">
+                  <span className="flex items-center gap-2 text-[#6B7280]">
+                    <span className="h-[1px] w-6 bg-[#6B7280]" />
+                    <span className="text-[13px] font-semibold tracking-[0.1em]">
                       Client
                     </span>
                   </span>
                   <div>
-                    <p className="text-[18px] font-semibold text-neutral-600">{story.client.name}</p>
-                    <p className="text-[14px] text-neutral-400">{story.client.description}</p>
+                    <p className="text-[18px] font-semibold text-neutral-600">
+                      {story.client.name}
+                    </p>
+                    <p className="text-[14px] text-neutral-400">
+                      {story.client.description}
+                    </p>
                   </div>
                 </div>
               </div>

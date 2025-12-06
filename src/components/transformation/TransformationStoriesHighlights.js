@@ -10,7 +10,7 @@ const highlights = [
     description:
       "An eCommerce operations team at a top-3 Indonesian beauty brand was drowning in data chaos, manually compiling reports for 50+ brand-platform combinations. Our intelligence system turned their daily nightmare into streamlined operations.",
     cta: "View Case Study",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    image: "/images/client/paragon-transformationsStories.png",
     imageVariant: "standard",
   },
   {
@@ -20,7 +20,7 @@ const highlights = [
     description:
       "A founder was frustrated spending hours waiting for simple data answers. Now anyone in the company gets complex insights in minutes by just asking questions in plain English.",
     cta: "View Case Study",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
+    image: "/images/client/youit - transformationsStories.png",
     imageVariant: "overlay",
   },
   {
@@ -30,7 +30,7 @@ const highlights = [
     description:
       "Transformed manual document processing into an intelligent system that automatically extracts data from seven different distributor formats. This cloud-based solution reduced processing costs by 88% and increased speed by 92%.",
     cta: "View Case Study",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    image: "/images/client/youvit2- transformationsStories.png",
     imageVariant: "standard",
   },
 ];
@@ -67,16 +67,19 @@ const TransformationStoriesHighlights = () => {
                         className="h-full w-auto object-contain object-left"
                       />
                     </div>
-                    <h3 className="text-[24px] font-medium leading-[1.4] tracking-[-0.01em] text-neutral-500">
+                    <h3 className="text-[24px] font-medium leading-[1.4] tracking-[-0.01em] text-neutral-700">
                       {highlight.title}
                     </h3>
-                    <p className="text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-neutral-400">
+                    <p className="text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-neutral-500">
                       {highlight.description}
                     </p>
                   </div>
-                  <button className="inline-flex w-fit items-center gap-2 rounded-full bg-neutral-100 px-6 py-2.5 text-[16px] font-medium tracking-[-0.01em] text-neutral-500 transition-all hover:bg-neutral-200">
+                  <button className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#0D1B2A] px-6 py-2.5 text-[16px] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_20px_rgba(13,27,42,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#132840] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A6CFF]">
                     {highlight.cta}
-                    <ArrowUpRight className="h-5 w-5" strokeWidth={1.5} />
+                    <ArrowUpRight
+                      className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-[1px] group-hover:translate-x-[2px]"
+                      strokeWidth={1.5}
+                    />
                   </button>
                 </div>
 
@@ -99,9 +102,21 @@ const TransformationStoriesHighlights = () => {
                       className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[40px]"
                       style={{
                         background:
-                          "radial-gradient(circle, transparent 0%, transparent 30%, rgba(120, 99, 252, 0.4) 50%, rgba(120, 99, 252, 0.6) 70%, rgba(85, 70, 179, 0.5) 100%)",
+                          "radial-gradient(circle, transparent 0%, transparent 25%, rgba(120, 99, 252, 0.55) 45%, rgba(120, 99, 252, 0.8) 70%, rgba(85, 70, 179, 0.7) 100%)",
                       }}
                     />
+
+                    {/* Logo on hover */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative h-12 w-48">
+                        <Image
+                          src={highlight.logo}
+                          alt={`${highlight.id} logo`}
+                          fill
+                          className="object-contain filter brightness-0 invert drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>

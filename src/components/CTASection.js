@@ -1,19 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const SERVICE_LINKS = [
   {
-    label: "Data Foundation Sprint",
-    pill: "Start with clarity",
+    label: "Data Foundation & Intelligence",
+    pill: "",
   },
   {
-    label: "Automation & AI Ops",
-    pill: "Scale smart",
+    label: "AI Automation",
+    pill: "",
   },
   {
-    label: "Decision Intelligence Pods",
-    pill: "Own every decision",
+    label: "Robotic Process Automation (RPA)",
+    pill: "",
   },
 ];
 
@@ -29,65 +30,51 @@ export default function FinalCTASection() {
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex max-w-2xl flex-col gap-5 text-left">
                 <h2 className="text-[40px] font-semibold leading-[1.2] tracking-[-0.02em] text-white sm:text-[48px] lg:text-[56px]">
-                  Your next compounding wins are waiting
+                  Ready to Build Your Foundation?
                 </h2>
                 <p className="text-lg leading-[1.6] tracking-[-0.01em] text-white/85 sm:text-xl">
-                  We integrate with your team in weeks, not quarters. Vision,
-                  sequencing, delivery, and the coaching that sticks inside your
-                  org.
+                  Book your Foundation Audit call. We'll tell you exactly where you are, what you actually need, and how long it really takes.
                 </p>
               </div>
 
               <div className="relative mx-auto flex w-full max-w-[500px] flex-col items-center gap-6 rounded-[16px] border-4 border-white/80 bg-[#F2EFFF] px-8 py-10 text-center text-[#122232] shadow-[20px_40px_40px_rgba(0,0,0,0.12)]">
                 <div className="text-[20px] font-semibold leading-[1.5] tracking-[-0.01em]">
-                  Build a model that keeps scaling after we leave.
+                  No sales pitch. No generic proposals. Just the truth about your data reality.
                 </div>
                 <div className="h-px w-full border-t border-dashed border-[#122232]/40" />
-                <button className="group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white">
+                <Link
+                  href="/start-your-audit"
+                  className="group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white transition-all duration-300 hover:bg-[#1a2e42] hover:shadow-lg hover:-translate-y-0.5"
+                >
                   <span className="text-[18px] font-semibold tracking-[-0.01em]">
-                    Book a 30-min strategy session
+                    Book Your Foundation Audit
                   </span>
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15">
                     <ArrowUpRight className="h-5 w-5" />
                   </span>
-                </button>
-                <span className="rounded-full border border-dashed border-[#CCD2D8] px-4 py-1 text-[13px] uppercase tracking-[0.2em] text-[#7E8791]">
-                  Limited slots weekly
-                </span>
+                </Link>
               </div>
             </div>
 
             <div className="flex flex-col items-center gap-4 border-t border-dashed border-white/40 pt-10 text-center">
               <p className="text-2xl font-medium leading-[1.3] tracking-[-0.01em] text-white">
-                &ldquo;They didn&apos;t just ship dashboards—they rolled out a playbook
-                that our ops team still runs with.&rdquo;
+                &ldquo;Most consultants tell you what you want to hear. We tell you what you need to know.&rdquo;
               </p>
-              <span className="text-sm uppercase tracking-[0.3em] text-white/70">
-                COO, SERIES C RETAIL PLATFORM
-              </span>
             </div>
           </div>
 
           <div className="relative flex w-full flex-col gap-6 bg-[#9382FD] px-6 py-10 sm:px-10 lg:px-16">
             <div className="text-center text-xl font-semibold tracking-[-0.01em]">
-              What we can jump into together
+              Our Core Services
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">
               {SERVICE_LINKS.map((service) => (
                 <div
                   key={service.label}
-                  className="flex flex-1 items-center justify-between gap-3 rounded-full border border-white/70 bg-white/5 px-6 py-4 text-left"
+                  className="flex flex-1 items-center justify-center rounded-full border border-white/70 bg-white/5 px-6 py-4 text-center"
                 >
-                  <div className="flex flex-col">
-                    <span className="text-sm uppercase tracking-[0.3em] text-white/70">
-                      {service.pill}
-                    </span>
-                    <span className="text-lg font-semibold tracking-[-0.01em]">
-                      {service.label}
-                    </span>
-                  </div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#122232]">
-                    <ArrowUpRight className="h-5 w-5 text-white" />
+                  <span className="text-lg font-semibold tracking-[-0.01em]">
+                    {service.label}
                   </span>
                 </div>
               ))}

@@ -147,11 +147,17 @@ const FoundationAuditPromises = () => {
 
         .audit-promises__header {
           text-align: center;
-          max-width: 620px;
+          max-width: 780px;
           display: flex;
           flex-direction: column;
           gap: 1rem;
           animation: fadeIn 800ms ease-out;
+        }
+
+        @media (min-width: 1200px) {
+          .audit-promises__header {
+            max-width: 900px;
+          }
         }
 
         @keyframes fadeIn {

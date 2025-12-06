@@ -100,8 +100,7 @@ const CARDS = [
     accentColor: "#07A276",
     cardBackground:
       "radial-gradient(98.41% 84.99% at 50.13% 84.99%, rgba(7,162,118,0) 60.31%, rgba(7,162,118,0.12) 100%), #FFFFFF",
-    patternImage:
-      "/images/element/Managed%20Services%20Container-pattern.svg",
+    patternImage: "/images/element/Managed%20Services%20Container-pattern.svg",
     patternWidth: 257,
     patternHeight: 218,
     patternGradient: null,
@@ -255,29 +254,31 @@ function Card({ config, index }) {
 
 export default function PartnershipModels() {
   return (
-    <section className="bg-white px-4 pb-16 pt-12 sm:px-10 sm:pb-20 sm:pt-16 md:px-16 lg:px-[120px]">
-      <div
-        className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-16 rounded-[40px] px-6 py-14 shadow-[0_2px_16px_rgba(0,0,0,0.04)] sm:px-12 md:px-16 md:py-20 lg:px-[120px]"
-        style={{
-          background:
-            "linear-gradient(180deg, #F2EFFF 0%, rgba(242, 239, 255, 0.1) 100%)",
-        }}
-      >
-        <h2 className="text-balance text-center text-[32px] font-medium leading-[1.28] tracking-[-0.01em] text-[#122232] sm:text-[36px] md:text-[40px]">
-          Choose Your
-          <br />
-          <span style={{ color: "#8B7FFF" }}>Partnership Model</span>
-        </h2>
+    <section className="relative bg-white py-16 px-6 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div
+          className="flex w-full flex-col items-center gap-12 rounded-[40px] px-8 py-16 shadow-[0_2px_16px_rgba(0,0,0,0.04)] md:gap-16 md:px-16 md:py-20"
+          style={{
+            background:
+              "linear-gradient(180deg, #F2EFFF 0%, rgba(242, 239, 255, 0.1) 100%)",
+          }}
+        >
+          <h2 className="text-balance text-center text-[32px] font-medium leading-[1.28] tracking-[-0.01em] text-[#122232] sm:text-[36px] md:text-[40px]">
+            Choose Your
+            <br />
+            <span style={{ color: "#8B7FFF" }}>Partnership Model</span>
+          </h2>
 
-        <div className="flex w-full max-w-[794px] flex-col items-center gap-7 md:flex-row md:flex-wrap md:items-start md:justify-center md:gap-[28px]">
-          {CARDS.map((card, idx) => (
-            <div
-              key={card.key}
-              className="flex w-full justify-center md:flex-1"
-            >
-              <Card config={card} index={idx} />
-            </div>
-          ))}
+          <div className="flex w-full max-w-[794px] flex-col items-center gap-7 md:flex-row md:flex-wrap md:items-start md:justify-center md:gap-[28px]">
+            {CARDS.map((card, idx) => (
+              <div
+                key={card.key}
+                className="flex w-full justify-center md:flex-1"
+              >
+                <Card config={card} index={idx} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

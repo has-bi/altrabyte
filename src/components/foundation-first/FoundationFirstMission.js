@@ -321,18 +321,19 @@ const FoundationFirstMission = () => {
           border-radius: 0.75rem;
           position: relative;
           cursor: pointer;
-          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 280ms ease;
         }
 
         .card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 32px rgba(133, 126, 124, 0.16),
-            0 4px 12px rgba(133, 126, 124, 0.08);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 24px rgba(18, 34, 50, 0.08),
+            0 3px 10px rgba(18, 34, 50, 0.05);
+          border-color: rgba(18, 34, 50, 0.08);
         }
 
         .card:hover .card-icon-container {
-          background: #857e7c;
-          transform: scale(1.05) rotate(5deg);
+          background: #122232;
+          transform: scale(1.03);
         }
 
         .card:hover .card-icon-container svg path {
@@ -341,7 +342,7 @@ const FoundationFirstMission = () => {
 
         .card:hover .card-decoration {
           opacity: 0.8;
-          transform: scale(1.1);
+          transform: scale(1.05);
         }
 
         .card-content {
@@ -372,13 +373,13 @@ const FoundationFirstMission = () => {
           width: 3rem;
           height: 3rem;
           background: #ffffff;
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
           border-radius: 0.5rem;
-          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: all 240ms ease;
         }
 
         .card-icon-container svg path {
-          transition: stroke 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: stroke 240ms ease;
         }
 
         .card-title {
