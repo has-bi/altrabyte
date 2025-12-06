@@ -335,7 +335,7 @@ const StartYourAuditBooking = () => {
           display: flex;
           flex-direction: row;
           align-items: flex-start;
-          gap: 1.75rem;
+          gap: 1.5rem;
           width: 100%;
         }
 
@@ -352,6 +352,7 @@ const StartYourAuditBooking = () => {
           align-items: flex-start;
           gap: 0.75rem;
           flex: 1;
+          max-width: 16.5rem;
           opacity: 0;
           transform: translateY(20px);
           transition: all 600ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -364,6 +365,7 @@ const StartYourAuditBooking = () => {
 
         .visual-container {
           width: 100%;
+          max-width: 16.125rem;
           height: 10rem;
           background: #f2e5e2;
           border-radius: 0.75rem;

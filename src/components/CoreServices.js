@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Blocks, Bot, BrainCircuit } from "lucide-react";
 
 const services = [
@@ -21,89 +24,76 @@ const services = [
   },
 ];
 
-const splitTitle = (title) => {
-  const parts = title.split(" ");
-  const midpoint = Math.ceil(parts.length / 2);
-  return [parts.slice(0, midpoint).join(" "), parts.slice(midpoint).join(" ")];
-};
-
 const CoreServices = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="section relative isolate overflow-hidden bg-gradient-to-b from-white via-[#F9FAFB] to-white">
-      <div className="pointer-events-none absolute inset-x-0 top-10 mx-auto h-64 w-[90%] max-w-6xl rounded-full bg-gradient-to-r from-[#E3E1FF] via-[#F4E8FF] to-[#E0F5FF] opacity-60 blur-3xl" />
-      <div className="section-container relative z-10">
-        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-neutral-400">
-            Capabilities
-          </p>
-          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl lg:text-5xl">
-            Our{" "}
-            <span className="bg-gradient-to-r from-primary-500 via-[#7F56D9] to-[#8E72FF] text-transparent bg-clip-text">
-              Core
-            </span>{" "}
-            Services
+    <section className="relative bg-white py-16 px-6 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div
+          className={`mx-auto mb-12 max-w-3xl text-center transition-all duration-700 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
+          <h2 className="text-[32px] font-semibold leading-[1.28] tracking-[-0.01em] text-[#122232] md:text-[36px] lg:text-[40px]">
+            Our Core Services
           </h2>
-          <p className="mt-5 text-base text-neutral-500 md:text-lg">
-            Focused programs that transform messy data, brittle workflows, and
-            manual decision-making into intelligent, automated systems you can
-            trust at scale.
+          <p className="mt-4 text-[18px] leading-[1.55] tracking-[-0.01em] text-[#657083] md:text-[20px]">
+            Transform messy data and manual workflows into intelligent systems
           </p>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {/* Services Grid */}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <article
               key={service.title}
-              className="group relative overflow-hidden rounded-[32px] border border-neutral-200/70 bg-gradient-to-b from-white via-white/90 to-white/95 p-[1px] shadow-[0_20px_60px_rgba(15,23,42,0.08)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-transparent focus-within:-translate-y-2"
+              className={`group relative flex flex-col gap-6 rounded-2xl border border-[#E6E8EC] bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary-100/70 hover:shadow-[0_12px_32px_rgba(120,99,252,0.15)] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              >
-                <div className="absolute inset-0 rounded-[32px] bg-gradient-to-r from-primary-500/25 via-[#7F56D9]/20 to-[#8E72FF]/25 blur-3xl" />
+              {/* Number Badge */}
+              <span className="absolute right-6 top-6 text-sm font-semibold text-[#9CA3AF]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              {/* Icon */}
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-xl border border-[#E6E8EC] bg-white transition-all duration-300 group-hover:border-primary-200 group-hover:bg-primary-50">
+                <service.icon
+                  className="h-8 w-8 text-primary-500"
+                  strokeWidth={1.5}
+                />
               </div>
 
-              <div className="relative flex h-full flex-col gap-7 rounded-[30px] bg-white/95 p-8 transition duration-500 group-hover:bg-white focus-within:bg-white">
-                <span className="absolute right-8 top-8 text-xs font-semibold uppercase tracking-[0.4em] text-neutral-300 transition-colors duration-500 group-hover:text-primary-500">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="flex items-center justify-start">
-                  <div className="inline-flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-neutral-200 bg-white text-primary shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-all duration-500 group-hover:scale-105 group-hover:border-transparent group-hover:bg-gradient-to-br group-hover:from-primary-50 group-hover:via-[#F3EDFE] group-hover:to-[#E4F4FF]">
-                    <service.icon
-                      className="h-11 w-11 text-primary-500 transition-all duration-500 group-hover:scale-110 group-hover:text-primary-600"
-                      strokeWidth={1.4}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex-1 space-y-4">
-                  <div className="relative pl-6">
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-primary-500 via-primary-400 to-transparent opacity-80 transition-all duration-500 group-hover:from-primary-600 group-hover:via-primary-500"
-                    />
-                    <h3 className="text-[1.35rem] font-medium leading-tight text-neutral-900 transition-colors duration-500 group-hover:text-neutral-950">
-                      {splitTitle(service.title).map((line, lineIndex) => (
-                        <span
-                          key={`${service.title}-${lineIndex}`}
-                          className="block"
-                        >
-                          {line}
-                        </span>
-                      ))}
-                    </h3>
-                  </div>
-                  <p className="text-base leading-relaxed text-neutral-500 transition-colors duration-500 group-hover:text-neutral-600">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div className="h-px w-full origin-left scale-x-0 bg-gradient-to-r from-primary-500 via-primary-400 to-transparent opacity-0 transition-all duration-500 group-hover:scale-x-100 group-hover:opacity-100" />
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="mb-3 text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-[#122232]">
+                  {service.title}
+                </h3>
+                <p className="text-[16px] leading-[1.6] tracking-[-0.01em] text-[#4D5A68]">
+                  {service.description}
+                </p>
               </div>
             </article>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,7 +1,15 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const TransformationStoriesHero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b">
       <div className="pointer-events-none absolute inset-0">
@@ -25,9 +33,33 @@ const TransformationStoriesHero = () => {
           </h1>
 
           <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#F2EFFF] via-white to-[#F2EFFF] px-6 py-4 md:px-10 md:py-5">
-            <span className="pointer-events-none absolute inset-y-0 left-0 w-[4px] bg-gradient-to-b from-[#AF8CFF] via-[#7B63FF] to-[#AF8CFF]" />
-            <span className="pointer-events-none absolute inset-y-0 right-0 w-[4px] bg-gradient-to-b from-[#AF8CFF] via-[#7B63FF] to-[#AF8CFF]" />
-            <p className="text-center text-[18px] leading-[1.6] font-reguler tracking-[-0.01em] text-[#122232] md:text-[20px] lg:text-[24px]">
+            {/* Left stroke - starts from center, slides left */}
+            <span
+              className="pointer-events-none absolute inset-y-0 w-[4px] bg-gradient-to-b from-[#AF8CFF] via-[#7B63FF] to-[#AF8CFF]"
+              style={{
+                left: isVisible ? "0" : "50%",
+                transform: isVisible ? "translateX(0)" : "translateX(-50%)",
+                transition: "all 1000ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+              }}
+            />
+            {/* Right stroke - starts from center, slides right */}
+            <span
+              className="pointer-events-none absolute inset-y-0 w-[4px] bg-gradient-to-b from-[#AF8CFF] via-[#7B63FF] to-[#AF8CFF]"
+              style={{
+                right: isVisible ? "0" : "50%",
+                transform: isVisible ? "translateX(0)" : "translateX(50%)",
+                transition: "all 1000ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+              }}
+            />
+            {/* Text fades in after strokes animate */}
+            <p
+              className="text-center text-[18px] leading-[1.6] font-reguler tracking-[-0.01em] text-[#122232] md:text-[20px] lg:text-[24px]"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "scale(1)" : "scale(0.95)",
+                transition: "opacity 600ms ease-out 600ms, transform 600ms ease-out 600ms",
+              }}
+            >
               Real transformations across industries and company sizes
             </p>
           </div>
@@ -45,18 +77,18 @@ const TransformationStoriesHero = () => {
 
           <div className="flex w-full flex-col items-center justify-center gap-5 sm:flex-row">
             <Link
-              href="/contact"
-              className="inline-flex min-w-[276px] items-center justify-center rounded-full bg-[#0D1B2A] px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-white shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-colors duration-200 whitespace-nowrap hover:bg-[#132840]"
+              href="/start-your-audit#start-your-audit-form"
+              className="group inline-flex min-w-[276px] items-center justify-center rounded-full bg-[#0D1B2A] px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-white shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out whitespace-nowrap hover:bg-[#132840] hover:shadow-[0_8px_24px_rgba(13,27,42,0.25)] hover:-translate-y-0.5"
             >
               Book Your Foundation Audit
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex min-w-[276px] items-center justify-center gap-2 rounded-full border border-[#B6BABF] bg-white px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-[#0D1B2A] shadow-[0_4px_6px_rgba(0,0,0,0.08)] transition-all duration-200 whitespace-nowrap hover:border-[#8e96a0] hover:text-[#142c44]"
+              className="group inline-flex min-w-[276px] items-center justify-center gap-2 rounded-full border-2 border-[#B6BABF] bg-white px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-[#0D1B2A] shadow-[0_4px_6px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out whitespace-nowrap hover:border-primary-500 hover:text-primary-500 hover:shadow-[0_8px_24px_rgba(120,99,252,0.15)] hover:-translate-y-0.5"
             >
               <span>Download Transformation Guide</span>
               <svg
-                className="h-4 w-4 text-current"
+                className="h-4 w-4 text-current transition-transform duration-300 group-hover:translate-y-0.5"
                 viewBox="0 0 20 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,6 +106,15 @@ const TransformationStoriesHero = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

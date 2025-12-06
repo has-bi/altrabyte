@@ -407,7 +407,7 @@ const StartYourAuditPrepare = () => {
           isolation: isolate;
           opacity: 0;
           transform: translateY(20px);
-          transition: all 600ms cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 320ms ease;
           min-height: 20.5rem;
           height: 20.5rem;
         }
@@ -418,8 +418,8 @@ const StartYourAuditPrepare = () => {
         }
 
         .card-container:hover {
-          transform: translateY(-4px);
-          box-shadow: 0px 8px 24px rgba(120, 99, 252, 0.16);
+          transform: translateY(-2px);
+          box-shadow: 0px 8px 18px rgba(120, 99, 252, 0.12);
         }
 
         .icon-container {
@@ -431,12 +431,12 @@ const StartYourAuditPrepare = () => {
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 220ms ease;
         }
 
         .card-container:hover .icon-container {
-          transform: scale(1.1) rotate(5deg);
-          box-shadow: 0px 4px 12px rgba(120, 99, 252, 0.2);
+          transform: scale(1.03);
+          box-shadow: 0px 3px 10px rgba(120, 99, 252, 0.16);
         }
 
         .text-container {
@@ -456,7 +456,7 @@ const StartYourAuditPrepare = () => {
           letter-spacing: -0.01em;
           color: #122232;
           margin: 0;
-          transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+          transition: color 220ms ease;
         }
 
         .card-container:hover .card-title {
@@ -477,11 +477,11 @@ const StartYourAuditPrepare = () => {
           align-items: flex-start;
           gap: 0.75rem;
           width: 100%;
-          transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 220ms ease;
         }
 
         .service-detail-container:hover {
-          transform: translateX(4px);
+          transform: translateX(2px);
         }
 
         .path-indicator {
@@ -498,12 +498,12 @@ const StartYourAuditPrepare = () => {
           background: #7863fc;
           border-radius: 0.125rem;
           flex-shrink: 0;
-          transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 220ms ease;
         }
 
         .service-detail-container:hover .service-detail-indicator {
-          transform: scale(1.5);
-          box-shadow: 0 0 0 4px rgba(120, 99, 252, 0.15);
+          transform: scale(1.1);
+          box-shadow: 0 0 0 3px rgba(120, 99, 252, 0.12);
         }
 
         .service-detail {
@@ -516,7 +516,7 @@ const StartYourAuditPrepare = () => {
           color: #122232;
           flex: 1;
           margin: 0;
-          transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+          transition: color 220ms ease;
         }
 
         .service-detail-container:hover .service-detail {

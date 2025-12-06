@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const expectations = [
@@ -152,18 +153,19 @@ const FoundationAuditCTA = () => {
 
             {/* Right Column - CTA Card */}
             <div className="cta-card">
-              <div className="cta-card-text">
-                Book Your Foundation Audit
-              </div>
+              <div className="cta-card-text">Book Your Foundation Audit</div>
               <div className="cta-divider" />
-              <button className="cta-button">
-                <span className="button-text">
+              <Link
+                href="/start-your-audit"
+                className="group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white transition-all duration-300 hover:bg-[#1a2e42] hover:shadow-lg hover:-translate-y-0.5"
+              >
+                <span className="text-[18px] font-semibold tracking-[-0.01em]">
                   Schedule My Foundation Audit
                 </span>
-                <span className="button-icon">
-                  <ArrowUpRight className="icon" />
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15">
+                  <ArrowUpRight className="h-5 w-5" />
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -320,7 +322,13 @@ const FoundationAuditCTA = () => {
           border-radius: 100px;
           border: none;
           cursor: pointer;
+          color: #ffffff;
+          text-decoration: none;
           transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+
+        .cta-button:visited {
+          color: #ffffff;
         }
 
         .cta-button:hover {
