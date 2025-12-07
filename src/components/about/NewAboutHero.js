@@ -53,11 +53,12 @@ const NewAboutHero = () => {
             />
             {/* Text fades in after strokes animate */}
             <p
-              className="text-center text-[18px] leading-[1.6] font-semibold tracking-[-0.01em] text-[#122232] whitespace-normal lg:whitespace-nowrap md:text-[20px] lg:text-[24px]"
+              className="text-center text-[18px] leading-[1.6] font-regular tracking-[-0.01em] text-[#122232] whitespace-normal lg:whitespace-nowrap md:text-[20px] lg:text-[24px]"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "scale(1)" : "scale(0.95)",
-                transition: "opacity 600ms ease-out 600ms, transform 600ms ease-out 600ms",
+                transition:
+                  "opacity 600ms ease-out 600ms, transform 600ms ease-out 600ms",
               }}
             >
               No buzzwords. No overselling. Just solutions that work.

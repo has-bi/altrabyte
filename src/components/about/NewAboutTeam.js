@@ -2,169 +2,179 @@
 
 const team = [
   {
-    key: "hasbi",
-    name: "Hasbi Hassadiqin",
-    role: "Co-Founder",
-    description: "10+ years in data infrastructure. E-commerce, fintech, SaaS. Foundations over features.",
-    accentColor: "#7863FC",
-    cardBackground:
-      "radial-gradient(98.41% 84.99% at 50.13% 84.99%, rgba(120,99,252,0) 60.31%, rgba(120,99,252,0.15) 100%), #FFFFFF",
-    profileImage: "/images/team/hasbi-profile.jpg",
-  },
-  {
     key: "brandy",
     name: "Brandy",
-    role: "Co-Founder",
-    description: "Scalable systems expert. Complex challenges into practical solutions.",
-    accentColor: "#07A276",
-    cardBackground:
-      "radial-gradient(98.41% 84.99% at 50.13% 84.99%, rgba(7,162,118,0) 60.31%, rgba(7,162,118,0.12) 100%), #FFFFFF",
-    profileImage: "/images/team/brandy-profile.jpg",
+    role: "Managing Partner",
+    description:
+      "Strategic data analytics and BI expert. Leading business intelligence and AI transformation.",
+    accentColor: "#7863FC",
+    profileImage: "/images/teams/Brandy.png",
+    linkedin: "https://www.linkedin.com/in/brandyskom/",
+  },
+  {
+    key: "sean",
+    name: "Sean Lawlor",
+    role: "Enterprise Partner",
+    description:
+      "Former CEO of Intrepid Group. Leadership across e-commerce and logistics.",
+    accentColor: "#7863FC",
+    profileImage: "/images/teams/Sean.png",
+    linkedin: "https://www.linkedin.com/in/sean-lawlor-52a981114/",
+  },
+  {
+    key: "hasbi",
+    name: "Hasbi Hassadiqin",
+    role: "Technology Solutions Partner",
+    description:
+      "Product Engineer specializing in FMCG automation and supply chain optimization.",
+    accentColor: "#7863FC",
+    profileImage: "/images/teams/Hasbi.png",
+    linkedin: "https://www.linkedin.com/in/hasbi-hassadiqin/",
+  },
+  {
+    key: "tri",
+    name: "Tri Cao",
+    role: "Technology Solutions Partner",
+    description:
+      "Data extraction engineer. Web scraping and system architecture specialist.",
+    accentColor: "#7863FC",
+    profileImage: "/images/teams/Tri Cao.png",
+    linkedin: "https://www.linkedin.com/in/tri-cao/",
   },
 ];
 
-function TeamCard({ config, index }) {
-  const delay = index * 80;
+function TeamCard({ config, index, isLast }) {
+  const delay = index * 100;
 
   return (
     <article
-      tabIndex={0}
-      aria-labelledby={`team-${config.key}`}
-      className="relative isolate flex flex-col bg-white transition-transform duration-300 will-change-transform hover:-translate-y-2 focus-visible:-translate-y-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#7863FC]"
+      className="group relative flex flex-col items-center text-center transition-all duration-300"
       style={{
-        width: "100%",
-        maxWidth: "480px",
-        height: "480px",
-        padding: "40px 36px 48px",
-        borderRadius: "16px",
-        boxShadow: "0px 28px 80px rgba(0, 0, 0, 0.08)",
-        background: config.cardBackground || "#FFFFFF",
+        animation: `fadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms both`,
       }}
     >
-      <div
-        className="pointer-events-none absolute"
-        style={{
-          inset: 0,
-          opacity: 0.4,
-          backgroundImage:
-            "radial-gradient(circle, #D9D9D9 2px, transparent 2px), radial-gradient(circle, #D9D9D9 2px, transparent 2px)",
-          backgroundSize: "25px 25px, 25px 25px",
-          backgroundPosition: "0 0, 12.5px 12.5px",
-          backgroundRepeat: "repeat",
-          zIndex: 0,
-        }}
-      />
-
-      <div
-        className="relative flex h-full flex-col gap-8 text-left"
-        style={{
-          zIndex: 1,
-          animation: `cardFade 420ms cubic-bezier(.25,.1,.3,1) ${delay}ms both`,
-        }}
-      >
+      {/* Separator Line - Only show on desktop and not for the last item */}
+      {!isLast && (
+        <div className="absolute right-0 top-1/2 hidden h-48 w-px -translate-y-1/2 bg-[#7863FC]/20 lg:block" />
+      )}
+      {/* Profile Image */}
+      <div className="relative mb-6 overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200">
         <div
-          className="relative bg-gradient-to-br from-neutral-200 to-neutral-300 transition-shadow duration-300"
+          className="relative overflow-hidden transition-transform duration-500 group-hover:scale-105"
           style={{
-            width: "120px",
-            height: "120px",
-            borderRadius: "16px",
-            boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
-            overflow: "hidden",
-            flexShrink: 0,
-            aspectRatio: "1 / 1",
+            width: "180px",
+            height: "180px",
           }}
         >
           <img
             src={config.profileImage}
-            alt={`${config.name} profile`}
-            className="h-full w-full object-cover"
+            alt={config.name}
+            className="h-full w-full object-cover object-top"
             onError={(e) => {
               e.currentTarget.style.display = "none";
               e.currentTarget.nextElementSibling.style.display = "flex";
             }}
           />
           <div
-            className="absolute inset-0 flex items-center justify-center text-white"
+            className="absolute inset-0 flex items-center justify-center text-5xl font-semibold text-white"
             style={{
               display: "none",
-              fontSize: "48px",
-              fontWeight: "600",
-              background: `linear-gradient(135deg, ${config.accentColor}DD, ${config.accentColor}AA)`,
+              background: `linear-gradient(135deg, ${config.accentColor}, ${config.accentColor}CC)`,
             }}
           >
             {config.name.charAt(0)}
           </div>
         </div>
-
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-col gap-2">
-            <h3
-              id={`team-${config.key}`}
-              className="font-semibold tracking-[-0.01em]"
-              style={{ fontSize: "28px", lineHeight: "140%", color: "#122232" }}
-            >
-              {config.name}
-            </h3>
-            <p
-              className="tracking-[-0.01em]"
-              style={{
-                fontSize: "20px",
-                lineHeight: "150%",
-                color: config.accentColor,
-              }}
-            >
-              {config.role}
-            </p>
-          </div>
-
-          <div className="h-px w-full bg-[#E7E9EB]" />
-
-          <p
-            className="tracking-[-0.01em]"
-            style={{
-              fontSize: "18px",
-              lineHeight: "150%",
-              color: "#4D5A68",
-            }}
-          >
-            {config.description}
-          </p>
-        </div>
       </div>
+
+      {/* Name */}
+      <h3 className="mb-2 text-xl font-semibold tracking-tight text-[#122232]">
+        {config.name}
+      </h3>
+
+      {/* Role */}
+      <p
+        className="mb-4 text-sm font-medium tracking-tight"
+        style={{ color: config.accentColor }}
+      >
+        {config.role}
+      </p>
+
+      {/* Description */}
+      <p className="mb-6 flex h-20 w-full max-w-[280px] items-start text-sm leading-relaxed text-[#657083]">
+        {config.description}
+      </p>
+
+      {/* LinkedIn Button */}
+      {config.linkedin && (
+        <a
+          href={config.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/btn inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-200"
+          style={{
+            borderColor: config.accentColor + "40",
+            color: config.accentColor,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = config.accentColor;
+            e.currentTarget.style.color = "#FFFFFF";
+            e.currentTarget.style.borderColor = config.accentColor;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "transparent";
+            e.currentTarget.style.color = config.accentColor;
+            e.currentTarget.style.borderColor = config.accentColor + "40";
+          }}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+          LinkedIn
+        </a>
+      )}
     </article>
   );
 }
 
 export default function NewAboutTeam() {
   return (
-    <section className="relative border-t border-dashed border-neutral-500/80 bg-white px-4 pb-16 pt-12 sm:px-10 sm:pb-20 sm:pt-16 md:px-16 lg:px-[120px]">
-      <div className="section-container">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="text-[32px] font-semibold leading-[1.28] tracking-[-0.01em] text-[#122232] md:text-[36px] lg:text-[40px]">
+    <section className="border-t border-neutral-200 bg-white px-4 py-20 sm:px-10 md:px-16 lg:px-[120px] lg:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mb-16 flex flex-col items-center gap-3 text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#122232] md:text-4xl">
             Meet the Team
           </h2>
-          <p className="max-w-2xl text-[18px] leading-[1.55] tracking-[-0.01em] text-[#657083] md:text-[20px]">
-            The people building Altrabyte's foundation-first approach
+          <p className="max-w-xl text-base text-[#657083] md:text-lg">
+            Building Altrabyte's foundation-first approach
           </p>
         </div>
 
-        <div className="mt-12 flex w-full max-w-[794px] mx-auto flex-col items-center gap-7 md:flex-row md:flex-wrap md:items-start md:justify-center md:gap-[28px]">
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {team.map((member, idx) => (
-            <div
+            <TeamCard
               key={member.key}
-              className="flex w-full justify-center md:flex-1"
-            >
-              <TeamCard config={member} index={idx} />
-            </div>
+              config={member}
+              index={idx}
+              isLast={idx === team.length - 1}
+            />
           ))}
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes cardFade {
+        @keyframes fadeUp {
           from {
             opacity: 0;
-            transform: translateY(16px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -173,10 +183,8 @@ export default function NewAboutTeam() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          article,
-          article * {
+          article {
             animation: none !important;
-            transition: none !important;
           }
         }
       `}</style>

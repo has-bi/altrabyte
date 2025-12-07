@@ -142,12 +142,20 @@ const FoundationFirstBlogSection = ({ post }) => {
               style={{
                 height: "480px",
                 background:
-                  "linear-gradient(360deg, #5546B3 20%, rgba(85, 70, 179, 0) 60%), linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 100%)",
-                backdropFilter: "blur(6px)",
+                  "linear-gradient(to top, #5546B3 0%, rgba(85, 70, 179, 0) 60%)",
               }}
             >
+              <div
+                className="absolute inset-0"
+                style={{
+                  backdropFilter: "blur(6px)",
+                  WebkitBackdropFilter: "blur(6px)",
+                  maskImage: "linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)",
+                  WebkitMaskImage: "linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)",
+                }}
+              />
               {/* Info Container */}
-              <div className="flex w-full flex-col gap-5 md:flex-row md:gap-5">
+              <div className="relative z-10 flex w-full flex-col gap-5 md:flex-row md:gap-5">
                 {stats.map((stat, idx) => (
                   <div key={idx} className="flex flex-1 flex-col gap-1">
                     <h3 className="text-[18px] font-medium leading-[1.5] tracking-[-0.01em] text-white md:text-[20px]">

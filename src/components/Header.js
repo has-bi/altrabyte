@@ -62,7 +62,7 @@ export default function Header() {
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center space-x-4">
               <Link
-                href="/diagnose"
+                href="/start-your-audit"
                 className="hidden lg:inline-flex items-center px-6 py-2.5 bg-neutral-500 text-white text-[15px] font-medium rounded-full hover:bg-neutral-700 transition-colors min-w-[160px] justify-center"
               >
                 Diagnose My Data
@@ -97,7 +97,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link
-                href="/diagnose"
+                href="/start-your-audit"
                 onClick={() => setIsMenuOpen(false)}
                 className="block mt-4 px-4 py-3 bg-neutral-500 text-white text-center rounded-lg"
               >

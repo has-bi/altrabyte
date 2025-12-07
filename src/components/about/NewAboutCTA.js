@@ -55,12 +55,13 @@ const NewAboutCTA = () => {
               <div className="cta-divider" />
               <Link
                 href="/start-your-audit"
-                className="cta-button"
-                aria-label="Book your foundation audit"
+                className="group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white transition-all duration-300 hover:bg-[#1a2e42] hover:shadow-lg hover:-translate-y-0.5"
               >
-                <span className="button-text">Book Your Audit</span>
-                <span className="button-icon">
-                  <ArrowUpRight className="icon" />
+                <span className="text-[18px] font-semibold tracking-[-0.01em]">
+                  Schedule My Foundation Audit
+                </span>
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15">
+                  <ArrowUpRight className="h-5 w-5" />
                 </span>
               </Link>
               <div className="card-decoration" />
