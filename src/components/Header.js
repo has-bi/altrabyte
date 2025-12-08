@@ -15,8 +15,8 @@ export default function Header() {
     { name: "Foundation Audit", href: "/foundation-audit" },
     { name: "Transformation Stories", href: "/transformation-stories" },
     // { name: "Why Foundation First", href: "/foundation-first" },
-    { name: "Start Your Audit", href: "/start-your-audit" },
     { name: "About", href: "/about" },
+    { name: "Start Your Audit", href: "/start-your-audit" },
   ];
 
   return (
