@@ -83,12 +83,6 @@ const StartYourAuditHero = () => {
             >
               Book Your Foundation Audit
             </Link>
-            <Link
-              href="/foundation-first"
-              className="group inline-flex min-w-[276px] items-center justify-center rounded-full border-2 border-[#B6BABF] bg-white px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-[#0D1B2A] shadow-[0_4px_6px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out whitespace-nowrap hover:border-primary-500 hover:text-primary-500 hover:shadow-[0_8px_24px_rgba(120,99,252,0.15)] hover:-translate-y-0.5"
-            >
-              Why Foundation First?
-            </Link>
           </div>
         </div>
       </div>

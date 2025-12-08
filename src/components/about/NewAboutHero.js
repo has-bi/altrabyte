@@ -21,15 +21,14 @@ const NewAboutHero = () => {
       <div className="section-container relative z-10">
         <div className="mx-auto flex max-w-[940px] flex-col items-center gap-8 py-20 md:py-24 lg:py-[120px]">
           <div className="inline-flex items-center justify-center rounded-xl border border-[#E7E9EB] bg-white px-4 py-2 text-[16px] font-medium tracking-[-0.01em] text-[#9299A1] shadow-[0_2px_4px_rgba(0,0,0,0.08)]">
-            About Altrabyte
+            About AltraByte
           </div>
 
           <h1 className="text-center text-[34px] leading-[1.28] font-semibold tracking-[-0.01em] text-[#122232] sm:text-[42px] md:text-[48px] lg:text-[56px]">
-            Building{" "}
+            The Journey That Led to{" "}
             <span className="text-transparent bg-gradient-to-r from-primary-500 to-primary-300 bg-clip-text">
-              Intelligent Foundations
-            </span>{" "}
-            for Data-Driven Businesses
+              Foundation-First
+            </span>
           </h1>
 
           <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#F2EFFF] via-white to-[#F2EFFF] px-6 py-4  md:px-10 md:py-5">
@@ -61,31 +60,34 @@ const NewAboutHero = () => {
                   "opacity 600ms ease-out 600ms, transform 600ms ease-out 600ms",
               }}
             >
-              No buzzwords. No overselling. Just solutions that work.
+              Why most data consultants get it wrong, and how we learned to get
+              it right
             </p>
           </div>
 
           <div className="flex flex-col items-center gap-4 text-center">
             <p className="max-w-[780px] text-[18px] leading-[1.6] font-medium italic tracking-[-0.01em] text-[#122232] md:text-[20px]">
-              From manual chaos to intelligent automation.
+              After 10 years across 6 organizations and 5 industries, we
+              discovered something that changed everything: Companies don’t need
+              more advanced analytics. They need working foundations.
             </p>
             <p className="max-w-[640px] text-[16px] leading-[1.5] tracking-[-0.01em] text-[#414E5B] md:text-[18px]">
-              Foundation-first. Meet the team.
+              This is the story of how that insight became our methodology.
             </p>
           </div>
 
           <div className="flex w-full flex-col items-center justify-center gap-5 sm:flex-row md:w-auto">
             <Link
-              href="/start-your-audit"
+              href="/start-your-audit#start-your-audit-form"
               className="group inline-flex min-w-[276px] items-center justify-center rounded-full bg-[#0D1B2A] px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-white shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out whitespace-nowrap hover:bg-[#132840] hover:shadow-[0_8px_24px_rgba(13,27,42,0.25)] hover:-translate-y-0.5"
             >
-              Start Your Foundation Audit
+              Book Your Foundation Audit
             </Link>
             <Link
-              href="/foundation-first"
+              href="/transformation-stories"
               className="group inline-flex min-w-[276px] items-center justify-center rounded-full border-2 border-[#B6BABF] bg-white px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-[#0D1B2A] shadow-[0_4px_6px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out whitespace-nowrap hover:border-primary-500 hover:text-primary-500 hover:shadow-[0_8px_24px_rgba(120,99,252,0.15)] hover:-translate-y-0.5"
             >
-              Why Foundation First
+              See Our Results
             </Link>
           </div>
         </div>

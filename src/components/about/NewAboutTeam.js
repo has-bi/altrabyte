@@ -4,46 +4,46 @@ const team = [
   {
     key: "brandy",
     name: "Brandy",
-    role: "Managing Partner",
+    role: "Founder",
     description:
       "Strategic data analytics and BI expert. Leading business intelligence and AI transformation.",
     accentColor: "#7863FC",
     profileImage: "/images/teams/Brandy.png",
     linkedin: "https://www.linkedin.com/in/brandyskom/",
   },
-  {
-    key: "sean",
-    name: "Sean Lawlor",
-    role: "Enterprise Partner",
-    description:
-      "Former CEO of Intrepid Group. Leadership across e-commerce and logistics.",
-    accentColor: "#7863FC",
-    profileImage: "/images/teams/Sean.png",
-    linkedin: "https://www.linkedin.com/in/sean-lawlor-52a981114/",
-  },
+  // {
+  //   key: "sean",
+  //   name: "Sean Lawlor",
+  //   role: "Enterprise Partner",
+  //   description:
+  //     "Former CEO of Intrepid Group. Leadership across e-commerce and logistics.",
+  //   accentColor: "#7863FC",
+  //   profileImage: "/images/teams/Sean.png",
+  //   linkedin: "https://www.linkedin.com/in/sean-lawlor-52a981114/",
+  // },
   {
     key: "hasbi",
     name: "Hasbi Hassadiqin",
-    role: "Technology Solutions Partner",
+    role: "Co-Founder",
     description:
       "Product Engineer specializing in FMCG automation and supply chain optimization.",
     accentColor: "#7863FC",
     profileImage: "/images/teams/Hasbi.png",
     linkedin: "https://www.linkedin.com/in/hasbi-hassadiqin/",
   },
-  {
-    key: "tri",
-    name: "Tri Cao",
-    role: "Technology Solutions Partner",
-    description:
-      "Data extraction engineer. Web scraping and system architecture specialist.",
-    accentColor: "#7863FC",
-    profileImage: "/images/teams/Tri Cao.png",
-    linkedin: "https://www.linkedin.com/in/tri-cao/",
-  },
+  // {
+  //   key: "tri",
+  //   name: "Tri Cao",
+  //   role: "Technology Solutions Partner",
+  //   description:
+  //     "Data extraction engineer. Web scraping and system architecture specialist.",
+  //   accentColor: "#7863FC",
+  //   profileImage: "/images/teams/Tri Cao.png",
+  //   linkedin: "https://www.linkedin.com/in/tri-cao/",
+  // },
 ];
 
-function TeamCard({ config, index, isLast }) {
+function TeamCard({ config, index }) {
   const delay = index * 100;
 
   return (
@@ -53,10 +53,6 @@ function TeamCard({ config, index, isLast }) {
         animation: `fadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms both`,
       }}
     >
-      {/* Separator Line - Only show on desktop and not for the last item */}
-      {!isLast && (
-        <div className="absolute right-0 top-1/2 hidden h-48 w-px -translate-y-1/2 bg-[#7863FC]/20 lg:block" />
-      )}
       {/* Profile Image */}
       <div className="relative mb-6 overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200">
         <div
@@ -153,19 +149,14 @@ export default function NewAboutTeam() {
             Meet the Team
           </h2>
           <p className="max-w-xl text-base text-[#657083] md:text-lg">
-            Building Altrabyte's foundation-first approach
+            Building AltraByte's foundation-first approach
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-1 justify-items-center gap-x-16 gap-y-12 sm:grid-cols-2">
           {team.map((member, idx) => (
-            <TeamCard
-              key={member.key}
-              config={member}
-              index={idx}
-              isLast={idx === team.length - 1}
-            />
+            <TeamCard key={member.key} config={member} index={idx} />
           ))}
         </div>
       </div>

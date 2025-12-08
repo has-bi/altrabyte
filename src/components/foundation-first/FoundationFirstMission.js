@@ -5,7 +5,7 @@ import React from "react";
 const reasons = [
   "The market desperately needs foundation-first thinking",
   "Companies waste hundreds of thousands on solutions built on broken infrastructure",
-  "Most consultants won't do the \"boring\" foundation work that actually transforms businesses",
+  'Most consultants won\'t do the "boring" foundation work that actually transforms businesses',
   "We've proven this methodology works across industries, company sizes, and complexity levels",
 ];
 
@@ -18,13 +18,13 @@ const FoundationFirstMission = () => {
           <div className="content-left">
             {/* Header */}
             <div className="header-container">
-              <h2 className="main-title">Why Altrabyte Exists?</h2>
+              <h2 className="main-title">Why AltraByte Exists?</h2>
               <p className="subtitle">Filling the Gap Others Ignore</p>
             </div>
 
             {/* Reasons */}
             <div className="reasons-container">
-              <h3 className="section-title">We founded Altrabyte because</h3>
+              <h3 className="section-title">We founded AltraByte because</h3>
 
               <div className="reasons-list">
                 {reasons.map((reason, index) => (

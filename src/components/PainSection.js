@@ -59,7 +59,8 @@ const journeys = [
       },
       {
         label: "Our Solution",
-        value: "Data literacy training → BI infrastructure → Intelligent reporting",
+        value:
+          "Data literacy training → BI infrastructure → Intelligent reporting",
       },
       {
         label: "The Outcome",
@@ -107,7 +108,10 @@ const journeys = [
         label: "The Outcome",
         value: "Eliminated weeks of manual work, continuous intelligence",
       },
-      { label: "Timeline", value: "6–12 months for complete automation transformation" },
+      {
+        label: "Timeline",
+        value: "6–12 months for complete automation transformation",
+      },
     ],
     image:
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
@@ -278,7 +282,7 @@ const PainSection = () => {
           >
             Three Paths, One Destination
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-slate-600 md:text-lg leading-relaxed">
+          <p className="mx-auto mt-5 max-w-3xl text-base text-slate-600 md:text-lg leading-relaxed">
             We don't guess where you are. We've walked these exact journeys with
             real clients.
           </p>
@@ -526,7 +530,7 @@ const PainSection = () => {
 
         .timeline-node.is-active .timeline-bullet {
           transform: scale(1.35);
-          background: #7863FC;
+          background: #7863fc;
           box-shadow: 0 0 0 6px rgba(248, 247, 252, 1),
             0 0 0 1px rgba(120, 99, 252, 0.3);
         }
@@ -542,11 +546,11 @@ const PainSection = () => {
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          color: #7863FC;
+          color: #7863fc;
         }
 
         .timeline-node.is-active .timeline-path {
-          color: #6952E8;
+          color: #6952e8;
         }
 
         .timeline-title {

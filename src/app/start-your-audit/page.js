@@ -11,7 +11,7 @@ import StartYourAuditCTA from "@/components/start-your-audit/StartYourAuditCTA";
 
 export const metadata = {
   title:
-    "Start Your Audit - Discover What's Breaking Your Business | Altrabyte",
+    "Start Your Audit - Discover What's Breaking Your Business | AltraByte",
   description:
     "Book your Foundation Audit and see exactly where you stand. In 90 minutes, we'll show you what you actually need to transform your business from manual chaos to intelligent automation.",
 };

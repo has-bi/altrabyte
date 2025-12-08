@@ -36,7 +36,7 @@ const SIGNATURE_HTML = `
         <a href="https://www.altrabyte.com/" style="color:inherit;text-decoration:none" target="_blank" rel="noreferrer">
           <img
             src="https://www.altrabyte.com/images/Logogram%20-%20Purple.png"
-            alt="Altrabyte Logo"
+            alt="AltraByte Logo"
             width="105"
             style="border:0;width:105px;height:auto;display:block"
           />
@@ -57,7 +57,7 @@ const SIGNATURE_HTML = `
                 <span style="color:rgb(120,99,252);font-weight:700">w:</span>
                 <a href="https://www.altrabyte.com/" style="color:#122232;text-decoration:none" target="_blank" rel="noreferrer">www.altrabyte.com</a><br/>
                 <span style="color:rgb(120,99,252);font-weight:700">p:</span>
-                <a href="https://wa.me/628781006688?text=Hi%20Altrabyte%2C%20I%20have%20an%20interesting%20challenge%20I%27d%20love%20your%20help%20with" target="_blank" rel="noreferrer" style="color:#122232;text-decoration:none">+6281111862011</a>
+                <a href="https://wa.me/628781006688?text=Hi%20AltraByte%2C%20I%20have%20an%20interesting%20challenge%20I%27d%20love%20your%20help%20with" target="_blank" rel="noreferrer" style="color:#122232;text-decoration:none">+6281111862011</a>
               </td>
             </tr>
           </tbody>
@@ -88,7 +88,7 @@ const buildThankYouHtml = (greeting) => `
                   <li>Your current stack or architecture diagram</li>
                   <li>The outcomes you need to prove to leadership</li>
                 </ul>
-                <p style="margin:0 0 24px 0;">Talk soon,<br/>Team Altrabyte</p>
+                <p style="margin:0 0 24px 0;">Talk soon,<br/>Team AltraByte</p>
                 ${SIGNATURE_HTML}
               </td>
             </tr>
@@ -189,7 +189,7 @@ Ahead of the call, feel free to reply with:
 - The outcomes you need to prove to leadership
 
 Talk soon,
-Team Altrabyte
+Team AltraByte
 
 ${SIGNATURE_TEXT}
 `;
