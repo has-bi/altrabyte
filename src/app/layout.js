@@ -191,6 +191,16 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${plusJakarta.className} antialiased`}>
+        {/* Mobile fallback notice */}
+        <div className="fixed inset-0 z-[1000] flex flex-col items-center justify-center gap-4 bg-neutral-900 text-white px-6 text-center lg:hidden">
+          <p className="text-3xl font-semibold">Hi there!</p>
+          <p className="text-md max-w-md">
+            For the best AltraByte experience, please switch to desktop.
+            We&apos;re polishing the mobile version and will have it ready for
+            you soon.
+          </p>
+        </div>
+
         {/* Header with fixed positioning */}
         <Header />
 

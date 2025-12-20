@@ -22,7 +22,7 @@ export default async function HomePage() {
     <div className="min-h-screen">
       {/* Hero + Truth Stack */}
       <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-end z-30">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden justify-end z-30 hidden md:flex">
           <div className="h-[70%] md:h-[70%] w-auto aspect-[788/859] z-30 -translate-y-[25px] md:-translate-y-[40px]">
             <img
               src="/hero-object.svg"
