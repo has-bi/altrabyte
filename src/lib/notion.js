@@ -3,7 +3,7 @@ import React from "react";
 import { Client } from "@notionhq/client";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
-const database = process.env.NOTION_DATABASE_ID;
+const database = process.env.NOTION_TRANSFORMATION_STORIES_DATABASE_ID;
 
 function getPlainText(richText) {
   return richText?.map((text) => text.plain_text).join("") || "";

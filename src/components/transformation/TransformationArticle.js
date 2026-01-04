@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, CheckCircle, Clock, Trophy, BarChart3, ArrowRight } from 'lucide-react';
+import TransformationStoriesCTA from './TransformationStoriesCTA';
 
 // [Modified] Article Hero Section Component - Matching exact Figma specs
 function ArticleHero({ story }) {
@@ -359,46 +360,7 @@ function ResultsSection({ story }) {
 
 
 
-// CTA Section - Figma: Call to Action Section
-function CTASection() {
-  return (
-    <section className="section py-20">
-      <div className="section-container">
-        <div className="bg-primary-500 rounded-[40px] p-8 md:p-20 overflow-hidden relative">
-           
-           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
-               <div className="text-left max-w-2xl">
-                   <h2 className="text-4xl md:text-[56px] font-bold text-white leading-[1.1] mb-6">
-                     Ready to Build Your Foundation?
-                   </h2>
-                   <p className="text-xl text-white/90 font-light">
-                     Book your Foundation Audit call. We’ll find your costly blindspots, new retail growth levers, and how long it really takes.
-                   </p>
-               </div>
 
-               {/* Design Card Element - Polished & Simplified */}
-               <div className="hidden lg:block bg-white p-10 rounded-2xl shadow-xl max-w-sm w-full text-center relative z-10 mx-auto lg:mx-0">
-                    <p className="text-xl font-bold text-neutral-900 mb-8 leading-tight">
-                        No sales pitch.<br/>No generic protocols.<br/>Just data truth.
-                    </p>
-                    <Link
-                      href="/foundation-audit"
-                      className="inline-flex items-center justify-center w-full px-6 py-4 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-800 hover:scale-[1.02] transition-all duration-300 text-base shadow-lg shadow-neutral-900/20 group"
-                    >
-                      Book Your Audit Now
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-               </div>
-           </div>
-
-           {/* Background Decorative Elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/10 rounded-full blur-2xl -ml-20 -mb-20 pointer-events-none"></div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // Related Stories Section - Figma: You may also be interested in
 function RelatedStories() {
@@ -718,7 +680,7 @@ export default function TransformationArticle({ story }) {
       <RelatedStories />
 
       {/* CTA */}
-      <CTASection />
+      <TransformationStoriesCTA />
     </article>
   );
 }
