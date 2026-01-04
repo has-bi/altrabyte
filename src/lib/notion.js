@@ -28,6 +28,8 @@ function getPropertyValue(page, propertyName) {
       return property.url;
     case "date":
       return property.date?.start || null;
+    case "status":
+      return property.status?.name || null;
     default:
       return null;
   }
@@ -987,6 +989,9 @@ export async function getProjectContent(id) {
   }
 }
 
+// Transformation Stories database
+const transformationStoriesDatabase = process.env.NOTION_TRANSFORMATION_STORIES_DATABASE_ID;
+
 // Blog-related functions
 const blogDatabase = process.env.NOTION_BLOG_DATABASE_ID;
 
@@ -1033,5 +1038,63 @@ export async function getFeaturedBlogPost() {
   } catch (error) {
     console.error("Error fetching featured blog post:", error);
     return null;
+  }
+}
+
+// Transformation Stories functions
+export async function getTransformationStories() {
+  try {
+    if (!transformationStoriesDatabase) {
+      console.warn("No transformation stories database configured");
+      return [];
+    }
+
+    const response = await notion.databases.query({
+      database_id: transformationStoriesDatabase,
+      filter: { property: "Status", select: { equals: "Published" } },
+      sorts: [{ property: "Featured", direction: "descending" }],
+    });
+
+    return response.results.map((page) => ({
+      id: page.id,
+      title: getPropertyValue(page, "Title"),
+      featured: getPropertyValue(page, "Featured"),
+      clientName: getPropertyValue(page, "Client Name"),
+      clientDescription: getPropertyValue(page, "Client Description"),
+      clientLogoUrl: getPropertyValue(page, "Client Logo URL"),
+      storyId: getPropertyValue(page, "Story ID"),
+      themeColor: getPropertyValue(page, "Theme Color"),
+      challenge: getPropertyValue(page, "Challenge"),
+      journey: getPropertyValue(page, "Journey"),
+      outcome: getPropertyValue(page, "Outcome"),
+      description: getPropertyValue(page, "Description"),
+      ctaText: getPropertyValue(page, "CTA Text"),
+      imageUrl: getPropertyValue(page, "Image URL"),
+      status: getPropertyValue(page, "Status"),
+      created: page.created_time,
+    }));
+  } catch (error) {
+    console.error("Error fetching transformation stories:", error);
+    return [];
+  }
+}
+
+export async function getFeaturedTransformationStories() {
+  try {
+    const stories = await getTransformationStories();
+    return stories.filter((story) => story.featured);
+  } catch (error) {
+    console.error("Error fetching featured transformation stories:", error);
+    return [];
+  }
+}
+
+export async function getHighlightTransformationStories() {
+  try {
+    const stories = await getTransformationStories();
+    return stories.filter((story) => !story.featured);
+  } catch (error) {
+    console.error("Error fetching highlight transformation stories:", error);
+    return [];
   }
 }

@@ -1,41 +1,51 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-
-const highlights = [
-  {
-    id: "paragon",
-    logo: "/images/client/Paragon-Black.png",
-    title: "When Managing 10+ Brands Across 5 Platforms Became Impossible",
-    description:
-      "An eCommerce operations team at a top-3 Indonesian beauty brand was drowning in data chaos, manually compiling reports for 50+ brand-platform combinations. Our intelligence system turned their daily nightmare into streamlined operations.",
-    cta: "View Case Study",
-    image: "/images/client/paragon-transformationsStories.png",
-    imageVariant: "standard",
-  },
-  {
-    id: "youvit",
-    logo: "/images/client/Youvit-Black.png",
-    title: "Why This Health Brand's Founder Never Asks \"Can Someone Pull That Data?\" Anymore",
-    description:
-      "A founder was frustrated spending hours waiting for simple data answers. Now anyone in the company gets complex insights in minutes by just asking questions in plain English.",
-    cta: "View Case Study",
-    image: "/images/client/youit - transformationsStories.png",
-    imageVariant: "overlay",
-  },
-  {
-    id: "youvit-2",
-    logo: "/images/client/Youvit-Black.png",
-    title: "How a Health Supplement Brand Eliminated 88% of Document Processing Costs in 30 Days",
-    description:
-      "Transformed manual document processing into an intelligent system that automatically extracts data from seven different distributor formats. This cloud-based solution reduced processing costs by 88% and increased speed by 92%.",
-    cta: "View Case Study",
-    image: "/images/client/youvit2- transformationsStories.png",
-    imageVariant: "standard",
-  },
-];
+import { useTransformationStories } from "@/lib/transformationStoriesClient";
 
 const TransformationStoriesHighlights = () => {
+  const { data: highlights, loading } = useTransformationStories('highlights');
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section className="px-4 py-20">
+        <div className="section-container flex flex-col items-center gap-16">
+          <header className="flex max-w-[527px] flex-col items-center gap-3 text-center">
+            <h2 className="text-[32px] font-medium leading-[1.28] tracking-[-0.01em] text-neutral-500 md:text-[36px]">
+              More Transformation Stories
+            </h2>
+            <p className="text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-neutral-400 md:text-[18px]">
+              Loading additional success stories...
+            </p>
+          </header>
+          <div className="flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-neutral-500"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Show message if no highlights
+  if (!highlights || highlights.length === 0) {
+    return (
+      <section className="px-4 py-20">
+        <div className="section-container flex flex-col items-center gap-16">
+          <header className="flex max-w-[527px] flex-col items-center gap-3 text-center">
+            <h2 className="text-[32px] font-medium leading-[1.28] tracking-[-0.01em] text-neutral-500 md:text-[36px]">
+              More Transformation Stories
+            </h2>
+            <p className="text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-neutral-400 md:text-[18px]">
+              No additional stories available at the moment.
+            </p>
+          </header>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="px-4 py-20">
       <div className="section-container flex flex-col items-center gap-16">
@@ -74,16 +84,22 @@ const TransformationStoriesHighlights = () => {
                       {highlight.description}
                     </p>
                   </div>
-                  <button className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#0D1B2A] px-6 py-2.5 text-[16px] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_20px_rgba(13,27,42,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#132840] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A6CFF]">
+                  <Link 
+                    href={`/transformation-stories/${highlight.id}`}
+                    className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#0D1B2A] px-6 py-2.5 text-[16px] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_20px_rgba(13,27,42,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#132840] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A6CFF]"
+                  >
                     {highlight.cta}
                     <ArrowUpRight
                       className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-[1px] group-hover:translate-x-[2px]"
                       strokeWidth={1.5}
                     />
-                  </button>
+                  </Link>
                 </div>
 
-                <div className="relative h-[400px] w-full max-w-[594px] overflow-hidden rounded-[12px]">
+                <Link 
+                  href={`/transformation-stories/${highlight.id}`}
+                  className="relative h-[400px] w-full max-w-[594px] overflow-hidden rounded-[12px] block"
+                >
                   <Image
                     fill
                     sizes="(min-width: 1024px) 594px, 90vw"
@@ -118,7 +134,7 @@ const TransformationStoriesHighlights = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </article>
 
               {index < highlights.length - 1 && (
