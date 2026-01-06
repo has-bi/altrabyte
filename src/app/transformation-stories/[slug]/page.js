@@ -125,14 +125,8 @@ export default async function TransformationStoryPage(props) {
     const story = await getTransformationStoryBySlug(slug);
     
     if (!story) {
-      console.log(`❌ Page: Story not found for slug: ${slug}`);
       notFound();
     }
-
-    console.log(`✅ Page: Rendering story: ${story.title}`);
-    console.log(`   Client: ${JSON.stringify(story.client)}`);
-    console.log(`   Sections: ${story.sections?.length || 0}`);
-    console.log(`   Image: ${story.image}`);
 
     // Add structured data for the article
     const structuredData = {
@@ -186,6 +180,5 @@ export default async function TransformationStoryPage(props) {
   }
 }
 
-// Force dynamic rendering for this route to ensure fresh data
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600; // Revalidate every hour
+// Revalidate every hour
+export const revalidate = 3600;

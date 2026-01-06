@@ -16,7 +16,7 @@ import { getProjectContent } from './notion.js';
 
 // In-memory cache
 const cache = new Map();
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+const CACHE_DURATION = 60 * 1000; // 1 minute in milliseconds
 
 /**
  * Cache utilities
@@ -32,7 +32,6 @@ function isCacheValid(timestamp) {
 function getFromCache(key) {
   const cached = cache.get(key);
   if (cached && isCacheValid(cached.timestamp)) {
-    console.log(`✓ Cache hit for ${key}`);
     return cached.data;
   }
   return null;
@@ -43,7 +42,6 @@ function setCache(key, data) {
     data,
     timestamp: Date.now()
   });
-  console.log(`✓ Cached data for ${key}`);
 }
 
 /**
@@ -59,7 +57,7 @@ export async function getShowcaseStories() {
       return cachedData;
     }
 
-    console.log('⟳ Fetching showcase stories from Notion...');
+
     
     // Fetch from Notion
     const notionStories = await getFeaturedTransformationStories();
@@ -124,7 +122,6 @@ export async function getShowcaseStories() {
     const finalData = storiesWithContentImages.length > 0 ? storiesWithContentImages : getFallbackShowcaseData();
     setCache(cacheKey, finalData);
     
-    console.log(`✓ Fetched ${finalData.length} showcase stories`);
     return finalData;
 
   } catch (error) {
@@ -138,7 +135,7 @@ export async function getShowcaseStories() {
     }
 
     // Final fallback
-    console.log('⟳ Using fallback data due to error');
+
     return getFallbackShowcaseData();
   }
 }
@@ -156,9 +153,7 @@ export async function getHighlightStories() {
       return cachedData;
     }
 
-    console.log('⟳ Fetching highlight stories from Notion...');
-    
-    // Fetch from Notion
+
     const notionStories = await getHighlightTransformationStories();
     
     if (!notionStories || notionStories.length === 0) {
@@ -196,7 +191,6 @@ export async function getHighlightStories() {
     const finalData = validStories.length > 0 ? validStories : getFallbackHighlightsData();
     setCache(cacheKey, finalData);
     
-    console.log(`✓ Fetched ${finalData.length} highlight stories`);
     return finalData;
 
   } catch (error) {
@@ -210,7 +204,6 @@ export async function getHighlightStories() {
     }
 
     // Final fallback
-    console.log('⟳ Using fallback data due to error');
     return getFallbackHighlightsData();
   }
 }
@@ -243,10 +236,8 @@ export async function getAllTransformationStories() {
  * Call this during application initialization
  */
 export async function preloadTransformationStories() {
-  console.log('⟳ Preloading transformation stories...');
   try {
     await getAllTransformationStories();
-    console.log('✓ Transformation stories preloaded successfully');
   } catch (error) {
     console.error('✗ Error preloading transformation stories:', error);
   }
@@ -262,8 +253,6 @@ export function clearTransformationStoriesCache() {
   
   cache.delete(showcaseKey);
   cache.delete(highlightsKey);
-  
-  console.log('✓ Transformation stories cache cleared');
 }
 
 /**
@@ -305,7 +294,7 @@ export async function getTransformationStoryBySlug(slug) {
       return cachedData;
     }
 
-    console.log(`⟳ Fetching transformation story: ${slug}`);
+
     
     // Get all stories and find the one with matching slug/id
     const allStories = await getAllTransformationStories();
@@ -344,7 +333,6 @@ export async function getTransformationStoryBySlug(slug) {
     enhancedStory.content = content;
 
     setCache(cacheKey, enhancedStory);
-    console.log(`✓ Fetched story: ${story.title}`);
     return enhancedStory;
 
   } catch (error) {

@@ -6,12 +6,14 @@
  * @returns {Array} Stories formatted for TransformationStoriesShowcase component
  */
 export function transformToShowcaseFormat(notionStories) {
+  const THEME_COLORS = ['#F6EEEC', '#FCE9EE', '#E6F6F1'];
+  
   return notionStories
     .filter(story => story.featured && story.status === 'Published')
-    .map(story => ({
+    .map((story, index) => ({
       id: story.storyId || story.id,
       notionId: story.id, // Preserve original Notion UUID for block fetching
-      theme: extractHexColor(story.themeColor) || "#F6EEEC", // Extract hex or default
+      theme: THEME_COLORS[index % THEME_COLORS.length], // Cyclic auto-assigned color
       title: story.title,
       description: story.description,
       sections: [

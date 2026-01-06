@@ -921,21 +921,21 @@ export async function getProjects() {
   try {
     const response = await notion.databases.query({
       database_id: database,
-      filter: { property: "Published", checkbox: { equals: true } },
-      sorts: [{ property: "Date", direction: "descending" }],
+      filter: { property: "Status", select: { equals: "Published" } },
+      sorts: [{ timestamp: "created_time", direction: "descending" }],
     });
 
     return response.results.map((page) => ({
       id: page.id,
-      title: getPropertyValue(page, "Content Tittle"),
-      category: getPropertyValue(page, "Category"),
-      client: getPropertyValue(page, "Client"),
-      coverImage: getPropertyValue(page, "Cover Image"),
-      date: getPropertyValue(page, "Date"),
+      title: getPropertyValue(page, "Title"),
+      category: "Transformation", // Hardcoded fallback or map from another field if available
+      client: getPropertyValue(page, "Client Name"),
+      coverImage: getPropertyValue(page, "Image URL"),
+      date: page.created_time, // Use system creation time
       description: getPropertyValue(page, "Description"),
       featured: getPropertyValue(page, "Featured"),
-      slug: getPropertyValue(page, "Slug"),
-      technologies: getPropertyValue(page, "Technologies"),
+      slug: getPropertyValue(page, "Story ID"),
+      technologies: [], // Not available in new schema
       created: page.created_time,
     }));
   } catch (error) {
@@ -950,8 +950,8 @@ export async function getProject(slug) {
       database_id: database,
       filter: {
         and: [
-          { property: "Published", checkbox: { equals: true } },
-          { property: "Slug", rich_text: { equals: slug } },
+          { property: "Status", select: { equals: "Published" } },
+          { property: "Story ID", rich_text: { equals: slug } },
         ],
       },
     });
@@ -961,15 +961,15 @@ export async function getProject(slug) {
     const page = response.results[0];
     return {
       id: page.id,
-      title: getPropertyValue(page, "Content Tittle"),
-      category: getPropertyValue(page, "Category"),
-      client: getPropertyValue(page, "Client"),
-      coverImage: getPropertyValue(page, "Cover Image"),
-      date: getPropertyValue(page, "Date"),
+      title: getPropertyValue(page, "Title"),
+      category: "Transformation",
+      client: getPropertyValue(page, "Client Name"),
+      coverImage: getPropertyValue(page, "Image URL"),
+      date: page.created_time,
       description: getPropertyValue(page, "Description"),
       featured: getPropertyValue(page, "Featured"),
-      slug: getPropertyValue(page, "Slug"),
-      technologies: getPropertyValue(page, "Technologies"),
+      slug: getPropertyValue(page, "Story ID"),
+      technologies: [],
       created: page.created_time,
     };
   } catch (error) {

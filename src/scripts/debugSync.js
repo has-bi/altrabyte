@@ -1,6 +1,6 @@
 
 const { getTransformationStoryBySlug, clearTransformationStoriesCache } = require('../lib/transformationStoriesSync');
-require('dotenv').config({ path: '.env.local' });
+// require('dotenv').config({ path: '.env.local' });
 
 async function run() {
   console.log('--- Debugging Sync Logic ---');
