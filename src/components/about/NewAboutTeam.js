@@ -8,7 +8,7 @@ const team = [
     description:
       "Strategic data analytics and BI expert. Leading business intelligence and AI transformation.",
     accentColor: "#7863FC",
-    profileImage: "/images/teams/Brandy.png",
+    profileImage: "/images/teams/brandy.png",
     linkedin: "https://www.linkedin.com/in/brandyskom/",
   },
   // {
@@ -18,7 +18,7 @@ const team = [
   //   description:
   //     "Former CEO of Intrepid Group. Leadership across e-commerce and logistics.",
   //   accentColor: "#7863FC",
-  //   profileImage: "/images/teams/Sean.png",
+  //   profileImage: "/images/teams/sean.png",
   //   linkedin: "https://www.linkedin.com/in/sean-lawlor-52a981114/",
   // },
   {
@@ -28,7 +28,7 @@ const team = [
     description:
       "Product Engineer specializing in FMCG automation and supply chain optimization.",
     accentColor: "#7863FC",
-    profileImage: "/images/teams/Hasbi.png",
+    profileImage: "/images/teams/hasbi.png",
     linkedin: "https://www.linkedin.com/in/hasbi-hassadiqin/",
   },
   // {
@@ -38,7 +38,7 @@ const team = [
   //   description:
   //     "Data extraction engineer. Web scraping and system architecture specialist.",
   //   accentColor: "#7863FC",
-  //   profileImage: "/images/teams/Tri Cao.png",
+  //   profileImage: "/images/teams/tri-cao.png",
   //   linkedin: "https://www.linkedin.com/in/tri-cao/",
   // },
 ];

@@ -174,7 +174,7 @@ const NextStepsSection = () => {
           content: "";
           position: absolute;
           inset: 0;
-          background-image: url("/images/element/Perspective%20Grid.png");
+          background-image: url("/images/element/perspective-grid.png");
           background-size: 140% 140%;
           background-position: center;
           background-repeat: no-repeat;

@@ -78,7 +78,7 @@ const CARDS = [
     accentColor: "#FF8B3D",
     cardBackground:
       "radial-gradient(98.41% 84.99% at 50.13% 84.99%, rgba(255,139,61,0) 60.31%, rgba(255,139,61,0.15) 100%), #FFFFFF",
-    patternImage: "/images/element/co-development%20pattern.png",
+    patternImage: "/images/element/co-development-pattern.png",
     patternWidth: 255,
     patternHeight: 223,
     patternGradient: null,
@@ -100,7 +100,7 @@ const CARDS = [
     accentColor: "#07A276",
     cardBackground:
       "radial-gradient(98.41% 84.99% at 50.13% 84.99%, rgba(7,162,118,0) 60.31%, rgba(7,162,118,0.12) 100%), #FFFFFF",
-    patternImage: "/images/element/Managed%20Services%20Container-pattern.svg",
+    patternImage: "/images/element/managed-services-pattern.svg",
     patternWidth: 257,
     patternHeight: 218,
     patternGradient: null,

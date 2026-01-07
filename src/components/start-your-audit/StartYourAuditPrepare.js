@@ -295,7 +295,7 @@ const StartYourAuditPrepare = () => {
       {/* Top Layer Decoration */}
       <div className="top-decoration">
         <img
-          src="/images/Logogram - White.png"
+          src="/images/logogram-white.png"
           alt=""
           className="logogram-image"
         />

@@ -158,7 +158,7 @@ export function getFallbackShowcaseData() {
         description: "Startup Cosmetics Brand",
         logo: "/images/client/rose-all-day-cosmetics.png",
       },
-      image: "/images/client/RADC-transformations.png",
+      image: "/images/client/radc-transformation.png",
     },
     {
       id: "fintech",
@@ -181,9 +181,9 @@ export function getFallbackShowcaseData() {
       client: {
         name: "Amser",
         description: "Distribution Company",
-        logo: "/images/client/Amser.png",
+        logo: "/images/client/amser.png",
       },
-      image: "/images/client/Amser-transformations.png",
+      image: "/images/client/amser-transformation.png",
     },
     {
       id: "marketplace",
@@ -203,9 +203,9 @@ export function getFallbackShowcaseData() {
       client: {
         name: "Paragon",
         description: "Major Beauty Retailer",
-        logo: "/images/client/Paragon-Black.png",
+        logo: "/images/client/paragon-black.png",
       },
-      image: "/images/client/paragon-transformations.png",
+      image: "/images/client/paragon-transformation.png",
     },
   ];
 }
@@ -214,32 +214,32 @@ export function getFallbackHighlightsData() {
   return [
     {
       id: "paragon",
-      logo: "/images/client/Paragon-Black.png",
+      logo: "/images/client/paragon-black.png",
       title: "When Managing 10+ Brands Across 5 Platforms Became Impossible",
       description:
         "An eCommerce operations team at a top-3 Indonesian beauty brand was drowning in data chaos, manually compiling reports for 50+ brand-platform combinations. Our intelligence system turned their daily nightmare into streamlined operations.",
       cta: "View Case Study",
-      image: "/images/client/paragon-transformationsStories.png",
+      image: "/images/client/paragon-story.png",
       imageVariant: "standard",
     },
     {
       id: "youvit",
-      logo: "/images/client/Youvit-Black.png",
+      logo: "/images/client/youvit.png",
       title: "Why This Health Brand's Founder Never Asks \"Can Someone Pull That Data?\" Anymore",
       description:
         "A founder was frustrated spending hours waiting for simple data answers. Now anyone in the company gets complex insights in minutes by just asking questions in plain English.",
       cta: "View Case Study",
-      image: "/images/client/youit - transformationsStories.png",
+      image: "/images/client/youvit-story.png",
       imageVariant: "overlay",
     },
     {
       id: "youvit-2",
-      logo: "/images/client/Youvit-Black.png",
+      logo: "/images/client/youvit.png",
       title: "How a Health Supplement Brand Eliminated 88% of Document Processing Costs in 30 Days",
       description:
         "Transformed manual document processing into an intelligent system that automatically extracts data from seven different distributor formats. This cloud-based solution reduced processing costs by 88% and increased speed by 92%.",
       cta: "View Case Study",
-      image: "/images/client/youvit2- transformationsStories.png",
+      image: "/images/client/youvit-story-2.png",
       imageVariant: "standard",
     },
   ];

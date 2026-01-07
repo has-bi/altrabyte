@@ -129,7 +129,7 @@ export default function ProblemSections() {
         .section-supergraphic {
           position: absolute;
           inset: 0;
-          background-image: url("/images/element/Background.svg");
+          background-image: url("/images/element/background.svg");
           background-size: cover;
           background-position: center;
           opacity: 0.24;

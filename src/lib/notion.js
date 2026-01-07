@@ -3,7 +3,7 @@ import React from "react";
 import { Client } from "@notionhq/client";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
-const database = process.env.NOTION_TRANSFORMATION_STORIES_DATABASE_ID;
+const database = process.env.NOTION_DATABASE_ID;
 
 function getPlainText(richText) {
   return richText?.map((text) => text.plain_text).join("") || "";
@@ -990,10 +990,10 @@ export async function getProjectContent(id) {
 }
 
 // Transformation Stories database
-const transformationStoriesDatabase = process.env.NOTION_TRANSFORMATION_STORIES_DATABASE_ID;
+const transformationStoriesDatabase = process.env.NOTION_DATABASE_ID;
 
 // Blog-related functions
-const blogDatabase = process.env.NOTION_BLOG_DATABASE_ID;
+const blogDatabase = process.env.NOTION_DATABASE_ID;
 
 export async function getBlogPosts() {
   try {

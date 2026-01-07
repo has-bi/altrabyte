@@ -29,7 +29,7 @@ export default function Header() {
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8">
                 <Image
-                  src="/images/Logogram - Purple.png"
+                  src="/images/logogram-purple.png"
                   alt="AltraByte Logo"
                   width={32}
                   height={32}

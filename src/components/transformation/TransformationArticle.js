@@ -20,7 +20,7 @@ function ArticleHero({ story }) {
             <div className="flex items-center gap-3">
                 {/* AltraByte Logo (Placeholder for 'Full Logo - Black 1') */}
                 <div className="w-10 h-8 relative">
-                   <Image src="/images/Logogram - Purple.png" alt="AltraByte" fill className="object-contain" /> 
+                   <Image src="/images/logogram-purple.png" alt="AltraByte" fill className="object-contain" /> 
                 </div>
                 
                 {/* X Icon */}

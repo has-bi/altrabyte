@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-6 text-[#122232] sm:flex-row sm:justify-between">
         <div className="flex items-center gap-5 text-sm">
           <Image
-            src="/images/Logo.png"
+            src="/images/logo-dark.png"
             alt="AltraByte"
             width={180}
             height={40}

@@ -8,28 +8,28 @@ const bookingSteps = [
     phase: "Step 1",
     title: "Fill Out the Form Below",
     description: "Basic information to understand your situation",
-    imagePath: "/images/booking_step/Step 1.png",
+    imagePath: "/images/booking-steps/step-1.png",
   },
   {
     id: 2,
     phase: "Step 2",
     title: "We'll Contact You Within 24 Hours",
     description: "Schedule your 90-minute Foundation Audit call",
-    imagePath: "/images/booking_step/Step 2.png",
+    imagePath: "/images/booking-steps/step-2.png",
   },
   {
     id: 3,
     phase: "Step 3",
     title: "Complete Your Assessment",
     description: "Honest evaluation of your current state and needs",
-    imagePath: "/images/booking_step/Step 3.png",
+    imagePath: "/images/booking-steps/step-3.png",
   },
   {
     id: 4,
     phase: "Step 4",
     title: "Receive Your\nRoadmap",
     description: "Detailed action plan delivered within 48 hours",
-    imagePath: "/images/booking_step/Step 4.png",
+    imagePath: "/images/booking-steps/step-4.png",
   },
 ];
 
@@ -66,7 +66,7 @@ const StartYourAuditBooking = () => {
       {/* Background Decoration */}
       <div className="background-decoration">
         <img
-          src="/images/Logogram - White.png"
+          src="/images/logogram-white.png"
           alt=""
           className="logogram-image"
         />

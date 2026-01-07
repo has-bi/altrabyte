@@ -35,7 +35,7 @@ const SIGNATURE_HTML = `
       <td width="125" valign="top" rowspan="6" style="padding:0 10px 0 0;font-size:10pt;border-right:1px solid rgb(120,99,252);width:125px;vertical-align:top">
         <a href="https://www.altrabyte.com/" style="color:inherit;text-decoration:none" target="_blank" rel="noreferrer">
           <img
-            src="https://www.altrabyte.com/images/Logogram%20-%20Purple.png"
+            src="https://www.altrabyte.com/images/logogram-purple.png"
             alt="AltraByte Logo"
             width="105"
             style="border:0;width:105px;height:auto;display:block"
