@@ -1,11 +1,11 @@
 // app/foundation-audit/page.js
-import FoundationAuditHero from "@/components/foundation/FoundationAuditHero";
-import FoundationAuditSteps from "@/components/foundation/FoundationAuditSteps";
-import FoundationAuditPaths from "@/components/foundation/FoundationAuditPaths";
-import FoundationAuditProcess from "@/components/foundation/FoundationAuditProcess";
-import FoundationAuditPromises from "@/components/foundation/FoundationAuditPromises";
-import FoundationAuditCTA from "@/components/foundation/FoundationAuditCTA";
-import FoundationAuditCompare from "@/components/foundation/FoundationAuditCompare";
+import FoundationAuditHero from "@/components/foundation-audit/FoundationAuditHero";
+import FoundationAuditSteps from "@/components/foundation-audit/FoundationAuditSteps";
+import FoundationAuditPaths from "@/components/foundation-audit/FoundationAuditPaths";
+import FoundationAuditProcess from "@/components/foundation-audit/FoundationAuditProcess";
+import FoundationAuditPromises from "@/components/foundation-audit/FoundationAuditPromises";
+import FoundationAuditCTA from "@/components/foundation-audit/FoundationAuditCTA";
+import FoundationAuditCompare from "@/components/foundation-audit/FoundationAuditCompare";
 
 export const metadata = {
   title: "Foundation Audit - Validate Your Data & AI Readiness",
