@@ -350,6 +350,44 @@ export async function getTransformationStoryBySlug(slug) {
 }
 
 /**
+ * Get related stories for a given story
+ * @param {string} currentSlug - The slug of the current story to exclude
+ * @param {number} limit - Number of related stories to return
+ */
+export async function getRelatedStories(currentSlug, limit = 2) {
+  try {
+    const allStories = await getAllTransformationStories();
+    const showcaseStories = allStories.showcase || [];
+    const highlightStories = allStories.highlights || [];
+    
+    // Combine all stories
+    const all = [...showcaseStories, ...highlightStories];
+    
+    // Filter out current story
+    const filtered = all.filter(story => story.id !== currentSlug);
+    
+    // Check if we have enough stories
+    if (filtered.length === 0) return [];
+    
+    // Basic randomization (shuffle) to keep it fresh
+    const shuffled = filtered.sort(() => 0.5 - Math.random());
+    
+    // Return top N
+    return shuffled.slice(0, limit).map(story => ({
+      ...story,
+      // Ensure these properties exist for the card
+      link: `/transformation-stories/${story.id}`,
+      client: story.client?.name || story.title, // Fallback
+      theme: story.theme || "#F9F3F2" // Fallback theme
+    }));
+    
+  } catch (error) {
+    console.error('✗ Error fetching related stories:', error);
+    return [];
+  }
+}
+
+/**
  * Get all available story slugs for generating static paths
  */
 export async function getAllStorysSlugs() {

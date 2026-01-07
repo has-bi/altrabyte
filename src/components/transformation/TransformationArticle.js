@@ -363,26 +363,8 @@ function ResultsSection({ story }) {
 
 
 // Related Stories Section - Figma: You may also be interested in
-function RelatedStories() {
-  // Hardcoded for display as requested by design reference
-  const stories = [
-      {
-          title: "From Chaos to Clarity",
-          client: "Greenways",
-          description: "Greenways was a growing distribution company with multiple data sources but zero intelligence.",
-          link: "/transformation-stories/greenways", 
-          theme: "#EBF8FF", // Light Blue
-          logo: "/images/client/greenways.png" // Placeholder
-      },
-      {
-          title: "From Manual to Automated",
-          client: "Paragon Corp",
-          description: "Paragon was an established beauty retailer with multiple platforms and systems, but most processes were manual.",
-          link: "/transformation-stories/paragon",
-          theme: "#F0FFF4", // Light Green
-          logo: "/images/client/paragon.png" // Placeholder
-      }
-  ];
+function RelatedStories({ stories }) {
+  if (!stories || stories.length === 0) return null;
 
   return (
     <section className="section bg-[#F9F3F2] py-24">
@@ -393,26 +375,36 @@ function RelatedStories() {
                 {stories.map((story, index) => (
                     <div key={index} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-neutral-100 flex flex-col h-full">
                        <div className="mb-6">
-                          {/* Placeholder Logo Area */}
-                          <div className="h-8 w-auto flex items-center font-bold text-neutral-800">
-                             {/* Mock Logo */}
-                             {index === 0 ? (
-                                <div className="flex items-center space-x-2"><div className="w-8 h-8 bg-blue-500 rounded-md"></div><span>GreenWays</span></div>
+                          {/* Logo Area */}
+                          <div className="h-8 w-auto flex items-center font-bold text-neutral-800 relative">
+                             {story.logo ? (
+                                <Image 
+                                    src={story.logo} 
+                                    alt={story.client || story.title} 
+                                    width={120} 
+                                    height={32} 
+                                    className="object-contain object-left h-full w-auto" 
+                                />
                              ) : (
-                                <div className="flex items-center space-x-2"><div className="w-8 h-8 bg-teal-500 rounded-md"></div><span>PARAGONCORP</span></div>
+                                <span>{story.client}</span>
                              )}
                           </div>
                        </div>
                        
-                       <h3 className="text-2xl font-bold text-neutral-800 mb-4">{story.title}</h3>
-                       <p className="text-neutral-600 mb-8 flex-grow leading-relaxed">
+                       <h3 className="text-xl font-bold text-neutral-900 mb-3 line-clamp-2">
+                          {story.title}
+                       </h3>
+                       
+                       <p className="text-neutral-600 mb-8 line-clamp-3 flex-grow">
                           {story.description}
                        </p>
                        
-                       <Link href={story.link} className="flex items-center text-primary-600 font-semibold hover:text-primary-700 group">
-                           Read full story 
-                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                       </Link>
+                       <div className="mt-auto pt-6 border-t border-neutral-100">
+                          <Link href={story.link} className="inline-flex items-center text-[#7863FC] font-semibold hover:gap-2 transition-all group">
+                             Read Story 
+                             <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                       </div>
                     </div>
                 ))}
             </div>
@@ -583,7 +575,7 @@ function DynamicContent({ blocks }) {
 }
 
 // Main Article Component
-export default function TransformationArticle({ story }) {
+export default function TransformationArticle({ story, relatedStories = [] }) {
   const [activeSection, setActiveSection] = useState('');
   
   // Extract headings for Sidebar
@@ -677,7 +669,7 @@ export default function TransformationArticle({ story }) {
       </section>
       
       {/* Related Stories */}
-      <RelatedStories />
+      <RelatedStories stories={relatedStories} />
 
       {/* CTA */}
       <TransformationStoriesCTA />

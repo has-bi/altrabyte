@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getTransformationStoryBySlug, getAllStorysSlugs } from '@/lib/transformationStoriesSync';
+import { getTransformationStoryBySlug, getAllStorysSlugs, getRelatedStories } from '@/lib/transformationStoriesSync';
 import TransformationArticle from '@/components/transformation/TransformationArticle';
 
 // TypeScript interfaces (these would normally be in a separate types file)
@@ -124,6 +124,8 @@ export default async function TransformationStoryPage(props) {
   try {
     const story = await getTransformationStoryBySlug(slug);
     
+    const relatedStories = await getRelatedStories(slug, 2);
+    
     if (!story) {
       notFound();
     }
@@ -145,7 +147,7 @@ export default async function TransformationStoryPage(props) {
         "name": "AltraByte",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://altrabyte.com/images/logo.png"
+          "url": "https://altrabyte.com/images/logo-dark.png"
         }
       },
       "mainEntityOfPage": {
@@ -171,7 +173,7 @@ export default async function TransformationStoryPage(props) {
         />
         
         {/* Main Article Component */}
-        <TransformationArticle story={story} />
+        <TransformationArticle story={story} relatedStories={relatedStories} />
       </>
     );
   } catch (error) {
