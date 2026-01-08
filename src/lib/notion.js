@@ -30,6 +30,10 @@ function getPropertyValue(page, propertyName) {
       return property.date?.start || null;
     case "status":
       return property.status?.name || null;
+    case "files":
+      const file = property.files?.[0];
+      if (!file) return null;
+      return file.type === "external" ? file.external.url : file.file.url;
     default:
       return null;
   }
@@ -1069,7 +1073,7 @@ export async function getTransformationStories() {
       outcome: getPropertyValue(page, "Outcome"),
       description: getPropertyValue(page, "Description"),
       ctaText: getPropertyValue(page, "CTA Text"),
-      imageUrl: getPropertyValue(page, "Image URL"),
+      imageUrl: getPropertyValue(page, "cover"),
       status: getPropertyValue(page, "Status"),
       created: page.created_time,
     }));

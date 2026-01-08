@@ -98,28 +98,10 @@ export async function getShowcaseStories() {
       return isValid;
     });
 
-    // [Modified] Fetch content for each story to get the Cover Image (First Image Block)
-    const storiesWithContentImages = await Promise.all(validStories.map(async (story) => {
-        try {
-            // We use the notionId preserved in transformation
-            const content = await getProjectContent(story.notionId);
-            const firstImageBlock = content?.find(b => b.type === 'image');
-            
-            if (firstImageBlock) {
-                const coverImage = firstImageBlock.image.type === 'external' 
-                    ? firstImageBlock.image.external.url 
-                    : firstImageBlock.image.file.url;
-                
-                return { ...story, image: coverImage };
-            }
-            return story;
-        } catch (err) {
-            console.warn(`⚠ Failed to fetch content image for ${story.title}`, err);
-            return story;
-        }
-    }));
-
-    const finalData = storiesWithContentImages.length > 0 ? storiesWithContentImages : getFallbackShowcaseData();
+    // We now fetch the cover image directly from the Notion property "cover" in getTransformationStories
+    // So we don't need to fetch page content here anymore.
+    
+    const finalData = validStories.length > 0 ? validStories : getFallbackShowcaseData();
     setCache(cacheKey, finalData);
     
     return finalData;
