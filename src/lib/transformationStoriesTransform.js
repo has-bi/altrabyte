@@ -1,6 +1,21 @@
 // Data transformation functions for converting Notion data to component format
 
 /**
+ * Convert string to SEO-friendly slug
+ * @param {string} text - Text to slugify
+ * @returns {string} Slugified text
+ */
+function slugify(text) {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[\s\W-]+/g, '-') // Replace spaces, non-word chars and dashes with a single dash
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing dashes
+}
+
+/**
  * Transform Notion transformation story data to Showcase component format
  * @param {Array} notionStories - Raw stories from Notion
  * @returns {Array} Stories formatted for TransformationStoriesShowcase component
@@ -11,7 +26,7 @@ export function transformToShowcaseFormat(notionStories) {
   return notionStories
     .filter(story => story.featured && story.status === 'Published')
     .map((story, index) => ({
-      id: story.storyId || story.id,
+      id: story.storyId || slugify(story.title) || story.id, // Priority: Explicit ID > Title Slug > Notion ID
       notionId: story.id, // Preserve original Notion UUID for block fetching
       theme: THEME_COLORS[index % THEME_COLORS.length], // Cyclic auto-assigned color
       title: story.title,
@@ -49,7 +64,7 @@ export function transformToHighlightsFormat(notionStories) {
   return notionStories
     .filter(story => !story.featured && story.status === 'Published')
     .map(story => ({
-      id: story.storyId || story.id,
+      id: story.storyId || slugify(story.title) || story.id, // Priority: Explicit ID > Title Slug > Notion ID
       logo: story.clientLogoUrl || generateClientLogoPath(story.clientName || story.title), // Fallback for highlights if client name missing
       title: story.title,
       description: story.description || "Description not available",
