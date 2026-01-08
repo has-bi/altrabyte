@@ -921,6 +921,17 @@ export function renderNotionContent(blocks) {
   return groupedBlocks.map((block, index) => renderNotionBlock(block, index));
 }
 
+// Utility to generate slugs (matching transformationStoriesTransform.js)
+function slugify(text) {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[\s\W-]+/g, '-') 
+    .replace(/^-+|-+$/g, '');
+}
+
 export async function getProjects() {
   try {
     const response = await notion.databases.query({
@@ -938,7 +949,7 @@ export async function getProjects() {
       date: page.created_time, // Use system creation time
       description: getPropertyValue(page, "Description"),
       featured: getPropertyValue(page, "Featured"),
-      slug: getPropertyValue(page, "Story ID"),
+      slug: slugify(getPropertyValue(page, "Title")) || page.id, // Use Title Slug
       technologies: [], // Not available in new schema
       created: page.created_time,
     }));
@@ -950,32 +961,13 @@ export async function getProjects() {
 
 export async function getProject(slug) {
   try {
-    const response = await notion.databases.query({
-      database_id: database,
-      filter: {
-        and: [
-          { property: "Status", select: { equals: "Published" } },
-          { property: "Story ID", rich_text: { equals: slug } },
-        ],
-      },
-    });
+    // Since we are generating slugs from titles, we cannot query Notion directly by slug.
+    // We fetch all projects and filter in-memory.
+    const projects = await getProjects();
+    const project = projects.find(p => p.slug === slug);
 
-    if (!response.results.length) return null;
-
-    const page = response.results[0];
-    return {
-      id: page.id,
-      title: getPropertyValue(page, "Title"),
-      category: "Transformation",
-      client: getPropertyValue(page, "Client Name"),
-      coverImage: getPropertyValue(page, "Image URL"),
-      date: page.created_time,
-      description: getPropertyValue(page, "Description"),
-      featured: getPropertyValue(page, "Featured"),
-      slug: getPropertyValue(page, "Story ID"),
-      technologies: [],
-      created: page.created_time,
-    };
+    if (!project) return null;
+    return project;
   } catch (error) {
     console.error("Error fetching project:", error);
     return null;

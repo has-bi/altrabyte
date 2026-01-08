@@ -360,6 +360,7 @@ export async function getRelatedStories(currentSlug, limit = 2) {
       // Ensure these properties exist for the card
       link: `/transformation-stories/${story.id}`,
       client: story.client?.name || story.title, // Fallback
+      logo: story.logo || story.client?.logo, // Ensure logo is available at root for both Showcase and Highlight types
       theme: story.theme || "#F9F3F2" // Fallback theme
     }));
     
