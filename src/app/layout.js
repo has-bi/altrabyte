@@ -12,6 +12,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 // Base metadata that applies to all pages
 export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://altrabyte.com'),
+  alternates: {
+    canonical: './',
+  },
   // Basic Info
   title: {
     default: "AltraByte - Data Analytics, AI Automation & Digital Solutions",
