@@ -70,7 +70,7 @@ export const metadata = {
   },
 
   // Web App Manifest (using your existing file)
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
 
   // Open Graph (Facebook, LinkedIn, etc.)
   openGraph: {
