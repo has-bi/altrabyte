@@ -126,7 +126,7 @@ function Card({ config, index }) {
     <article
       tabIndex={0}
       aria-labelledby={`partnership-${config.key}`}
-      className="relative isolate flex flex-col bg-white transition-transform duration-300 will-change-transform hover:-translate-y-2 focus-visible:-translate-y-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8B7FFF]"
+      className="partnership-card relative isolate flex flex-col bg-white transition-transform duration-300 will-change-transform hover:-translate-y-2 focus-visible:-translate-y-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8B7FFF]"
       style={{
         width: "100%",
         maxWidth: "383px",
@@ -144,7 +144,7 @@ function Card({ config, index }) {
         />
       ) : null}
       <div
-        className="pointer-events-none absolute"
+        className="pointer-events-none absolute card-pattern"
         style={
           hasPattern
             ? {
@@ -257,7 +257,7 @@ export default function PartnershipModels() {
     <section className="relative bg-white py-16 px-6 md:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <div
-          className="flex w-full flex-col items-center gap-12 rounded-[40px] px-8 py-16 shadow-[0_2px_16px_rgba(0,0,0,0.04)] md:gap-16 md:px-16 md:py-20"
+          className="partnership-container flex w-full flex-col items-center gap-12 rounded-[40px] px-8 py-16 shadow-[0_2px_16px_rgba(0,0,0,0.04)] md:gap-16 md:px-16 md:py-20"
           style={{
             background:
               "linear-gradient(180deg, #F2EFFF 0%, rgba(242, 239, 255, 0.1) 100%)",
@@ -265,7 +265,7 @@ export default function PartnershipModels() {
         >
           <h2 className="text-balance text-center text-[32px] font-medium leading-[1.28] tracking-[-0.01em] text-[#122232] sm:text-[36px] md:text-[40px]">
             Choose Your
-            <br />
+            <br className="title-break" />
             <span style={{ color: "#8B7FFF" }}>Partnership Model</span>
           </h2>
 
@@ -283,22 +283,30 @@ export default function PartnershipModels() {
       </div>
 
       <style jsx>{`
-        @keyframes cardFade {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
+        @media (max-width: 768px) {
+          .card-pattern {
+            display: none !important;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
 
-        @media (prefers-reduced-motion: reduce) {
-          article,
-          article * {
-            animation: none !important;
-            transition: none !important;
+          /* Mobile Simplification: Transparent container */
+          .partnership-container {
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            gap: 2rem !important;
+          }
+
+          /* Mobile Simplification: Flexible cards */
+          .partnership-card {
+            height: auto !important;
+            padding: 1.5rem !important;
+            /* Subtle shadow for better contrast on white background */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+          }
+
+          .title-break {
+            display: none !important;
           }
         }
       `}</style>

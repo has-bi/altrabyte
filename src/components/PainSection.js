@@ -823,7 +823,26 @@ const PainSection = () => {
 
         @media (max-width: 768px) {
           .journey-flow {
-            gap: 3rem;
+            gap: 2rem;
+          }
+
+          .journey-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 2rem;
+          }
+
+          /* Hide the timeline sidebar entirely on mobile */
+          .timeline-node {
+            display: none;
+          }
+
+          /* Reset opacity/transform so content is always visible on mobile without scroll triggers if desired, 
+             or keep them but ensure they occupy full width */
+          .journey-card {
+            width: 100%;
+            margin-top: 0;
           }
 
           .timeline-title {
@@ -836,11 +855,11 @@ const PainSection = () => {
           }
 
           .image-wrapper {
-            height: 280px;
+            height: 240px;
           }
 
           .quote-overlay {
-            padding: 1.5rem;
+            padding: 1.25rem;
           }
 
           .quote-overlay blockquote {

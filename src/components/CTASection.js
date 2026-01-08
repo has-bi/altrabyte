@@ -21,8 +21,8 @@ const SERVICE_LINKS = [
 export default function FinalCTASection() {
   return (
     <section className="bg-[#F7F3FF] px-4 py-16 sm:px-10 md:px-16 lg:px-[40px]">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 rounded-[48px] bg-white/40 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
-        <div className="relative flex w-full flex-col overflow-hidden rounded-[40px] bg-[#7863FC] text-white shadow-[0px_60px_80px_rgba(63,52,130,0.35)]">
+      <div className="cta-glass-container mx-auto flex w-full max-w-[1440px] flex-col gap-6 rounded-[48px] bg-white/40 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
+        <div className="cta-purple-box relative flex w-full flex-col overflow-hidden rounded-[40px] bg-[#7863FC] text-white shadow-[0px_60px_80px_rgba(63,52,130,0.35)]">
           <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-white/15 blur-3xl" />
           <div className="absolute -right-12 bottom-0 h-72 w-72 rounded-full bg-[#A398FF]/30 blur-3xl" />
 
@@ -37,16 +37,16 @@ export default function FinalCTASection() {
                 </p>
               </div>
 
-              <div className="relative mx-auto flex w-full max-w-[500px] flex-col items-center gap-6 rounded-[16px] border-4 border-white/80 bg-[#F2EFFF] px-8 py-10 text-center text-[#122232] shadow-[20px_40px_40px_rgba(0,0,0,0.12)]">
+              <div className="cta-callout-card relative mx-auto flex w-full max-w-[500px] flex-col items-center gap-6 rounded-[16px] border-4 border-white/80 bg-[#F2EFFF] px-8 py-10 text-center text-[#122232] shadow-[20px_40px_40px_rgba(0,0,0,0.12)]">
                 <div className="text-[20px] font-semibold leading-[1.5] tracking-[-0.01em]">
                   No sales pitch. No generic proposals. Just the truth about your data reality.
                 </div>
                 <div className="h-px w-full border-t border-dashed border-[#122232]/40" />
                 <Link
                   href="/start-your-audit"
-                  className="group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white transition-all duration-300 hover:bg-[#1a2e42] hover:shadow-lg hover:-translate-y-0.5"
+                  className="cta-button group inline-flex w-full items-center justify-between rounded-full bg-[#122232] px-6 py-4 text-left text-white transition-all duration-300 hover:bg-[#1a2e42] hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <span className="text-[18px] font-semibold tracking-[-0.01em]">
+                  <span className="cta-button-text text-[18px] font-semibold tracking-[-0.01em]">
                     Book Your Foundation Audit
                   </span>
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/15">
@@ -71,9 +71,9 @@ export default function FinalCTASection() {
               {SERVICE_LINKS.map((service) => (
                 <div
                   key={service.label}
-                  className="flex flex-1 items-center justify-center rounded-full border border-white/70 bg-white/5 px-6 py-4 text-center"
+                  className="cta-service-pill flex flex-1 items-center justify-center rounded-full border border-white/70 bg-white/5 px-6 py-4 text-center"
                 >
-                  <span className="text-lg font-semibold tracking-[-0.01em]">
+                  <span className="cta-service-text text-lg font-semibold tracking-[-0.01em]">
                     {service.label}
                   </span>
                 </div>
@@ -82,6 +82,50 @@ export default function FinalCTASection() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          /* Mobile Simplification: Remove outer glass container looks */
+          .cta-glass-container {
+            padding: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+          }
+
+          .cta-purple-box {
+            border-radius: 24px !important;
+            box-shadow: none !important;
+          }
+
+          /* Mobile Simplification: Simple inner card */
+          .cta-callout-card {
+            border: none !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+            padding: 1.5rem !important;
+            border-radius: 16px !important;
+            background: #FFFFFF !important; /* Ensure crisp white */
+          }
+
+          /* Mobile Button Fix: Force 1 line */
+          .cta-button {
+            padding: 12px 16px !important; /* Reduce padding to make room */
+          }
+          .cta-button-text {
+            font-size: 15px !important; /* Smaller text */
+            white-space: nowrap !important; /* Force single line */
+          }
+
+          /* Mobile Service Pills Fix: Force 1 line */
+          .cta-service-pill {
+            padding: 10px 16px !important;
+          }
+          .cta-service-text {
+            font-size: 14px !important;
+            white-space: nowrap !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

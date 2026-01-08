@@ -65,6 +65,7 @@ export function transformToHighlightsFormat(notionStories) {
     .filter(story => !story.featured && story.status === 'Published')
     .map(story => ({
       id: slugify(story.title) || story.id, // Priority: Title Slug > Notion ID
+      notionId: story.id, // Preserve original Notion UUID for block fetching
       logo: story.clientLogoUrl || generateClientLogoPath(story.clientName || story.title), // Fallback for highlights if client name missing
       title: story.title,
       description: story.description || "Description not available",

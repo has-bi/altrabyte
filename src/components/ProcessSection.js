@@ -195,6 +195,12 @@ const ProcessSection = () => {
           z-index: 0;
         }
 
+        @media (max-width: 768px) {
+          .process-section::before {
+            display: none;
+          }
+        }
+
         .process-section::after {
           content: "";
           position: absolute;
@@ -522,14 +528,18 @@ const ProcessSection = () => {
 
           .result-callout {
             flex-direction: column;
-            padding: 1.75rem 1.5rem;
+            padding: 1.5rem;
             text-align: center;
             gap: 1rem;
+            border-width: 1px;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.95);
           }
 
           .result-content {
             flex-direction: column;
             gap: 0.375rem;
+            align-items: center;
           }
         }
       `}</style>

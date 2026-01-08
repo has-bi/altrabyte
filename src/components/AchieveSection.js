@@ -136,6 +136,13 @@ export default function ProblemSections() {
           pointer-events: none;
         }
 
+        @media (max-width: 768px) {
+          .section-glow,
+          .section-supergraphic {
+            display: none;
+          }
+        }
+
         .section-grain {
           position: absolute;
           inset: 0;
