@@ -216,6 +216,7 @@ const FoundationAuditPromises = () => {
         @media (min-width: 900px) {
           .grid-headings {
             grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
             align-items: end;
           }
 
@@ -281,7 +282,7 @@ const FoundationAuditPromises = () => {
           display: grid;
           grid-template-columns: auto 1fr;
           gap: 0.9rem;
-          align-items: start;
+          align-items: center;
           padding: 1.1rem 1.25rem;
           border-radius: 1rem;
           border: 1px solid transparent;
