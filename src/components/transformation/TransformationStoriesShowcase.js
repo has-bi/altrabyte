@@ -119,10 +119,29 @@ const TransformationStoriesShowcase = () => {
             backgroundColor: story.theme && story.theme.startsWith('#') ? story.theme : undefined,
           }}
         >
-          <div className="flex flex-1 flex-col gap-7 border-b border-dashed border-black/30 px-8 py-10 lg:border-b-0 lg:border-r">
+          <div className="flex flex-1 flex-col gap-7 p-6 lg:border-r lg:border-dashed lg:border-black/30 lg:px-8 lg:py-10">
             <h3 className="text-[24px] font-semibold leading-[1.3] text-neutral-500 md:text-[28px]">
               {story.title}
             </h3>
+
+            {/* Mobile Client Info */}
+            <div className="flex flex-col gap-2 lg:hidden">
+              <span className="flex items-center gap-2 text-[#6B7280]">
+                <span className="h-[1px] w-6 bg-[#6B7280]" />
+                <span className="text-[13px] font-semibold tracking-[0.1em]">
+                  Client
+                </span>
+              </span>
+              <div>
+                <p className="text-[18px] font-semibold text-neutral-600">
+                  {story.client.name}
+                </p>
+                <p className="text-[14px] text-neutral-400">
+                  {story.client.description}
+                </p>
+              </div>
+            </div>
+
             <div className="flex flex-col gap-5">
               {story.sections.map((section) => (
                 <div key={section.label} className="flex flex-col gap-1.5">
@@ -137,7 +156,8 @@ const TransformationStoriesShowcase = () => {
             </div>
           </div>
 
-          <div className="flex w-full max-w-[280px] flex-col justify-between gap-8 border-b border-dashed border-black/30 px-8 py-10 lg:border-b-0">
+          {/* Desktop Client Info */}
+          <div className="hidden lg:flex w-full max-w-[280px] flex-col justify-between gap-8 border-dashed border-black/30 px-8 py-10 lg:border-b-0">
             <div className="flex flex-col gap-2">
               <span className="flex items-center gap-2 text-[#6B7280]">
                 <span className="h-[1px] w-6 bg-[#6B7280]" />
