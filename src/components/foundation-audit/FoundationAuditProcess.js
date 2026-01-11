@@ -798,6 +798,9 @@ const ProcessSection = () => {
           justify-content: center;
           padding: 0.75rem;
           width: 3rem;
+        }
+
+
           height: 3rem;
           background: #ffffff;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
@@ -930,9 +933,9 @@ const ProcessSection = () => {
           }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .process-section {
-            padding: 4rem 1.25rem 5rem;
+            padding: 3rem 1.25rem 4rem;
           }
 
           .timeline-wrapper {
@@ -941,7 +944,7 @@ const ProcessSection = () => {
 
           .phases-grid {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 2rem;
           }
 
           .vertical-separator {
@@ -950,20 +953,23 @@ const ProcessSection = () => {
 
           .audit-container {
             flex-direction: column;
-            padding: 1.75rem 1.5rem;
+            padding: 1.5rem;
             gap: 2rem;
           }
 
           .audit-title {
             font-size: 1.75rem;
             text-align: center;
+            width: 100%;
           }
 
           .service-row {
             flex-direction: column;
+            gap: 1.5rem;
           }
 
           .service-card {
+            width: 100%;
             padding: 1.5rem;
           }
 

@@ -1149,6 +1149,51 @@ const FoundationAuditPaths = () => {
             transition: none !important;
           }
         }
+        /* Mobile Optimization */
+        @media (max-width: 900px) {
+          .section {
+            padding: 4rem 1.25rem 5rem;
+          }
+
+          .audit-row {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+            margin-bottom: 3rem !important;
+          }
+          
+          .audit-timeline-node {
+            display: none !important;
+          }
+          
+          .audit-card {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+            margin-bottom: 2rem;
+          }
+          
+          .audit-card-details {
+             display: flex;
+             flex-direction: column;
+             gap: 1.5rem;
+          }
+          
+          .audit-detail-item {
+             display: flex;
+             flex-direction: column;
+             gap: 0.25rem;
+             border-bottom: 1px solid #f1f5f9;
+             padding-bottom: 1rem;
+          }
+          
+          .audit-detail-item:last-child {
+             border-bottom: none;
+          }
+
+          .audit-card-title {
+             font-size: 1.5rem !important;
+             margin-bottom: 1rem !important;
+          }
+        }
       `}</style>
     </section>
   );

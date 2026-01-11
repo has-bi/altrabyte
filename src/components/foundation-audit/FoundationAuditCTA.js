@@ -475,50 +475,52 @@ const FoundationAuditCTA = () => {
 
         @media (max-width: 768px) {
           .cta-section {
-            padding: 50px 20px;
+            padding: 3rem 1.25rem 4rem;
           }
 
           .main-container {
-            padding: 40px 24px;
-            gap: 28px;
-            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            gap: 2rem;
+            border-radius: 2rem;
           }
 
           .cta-title {
-            font-size: 40px;
+            font-size: 2.25rem;
           }
 
           .cta-description {
-            font-size: 20px;
+            font-size: 1.125rem;
           }
 
           .cta-card {
-            padding: 32px 24px;
-            gap: 20px;
+            padding: 2rem 1.5rem;
+            gap: 1.5rem;
+            border-width: 1px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
           }
 
           .cta-card-text {
-            font-size: 20px;
+            font-size: 1.25rem;
           }
 
           .button-text {
-            font-size: 16px;
+            font-size: 1rem;
           }
 
           .expectations-title {
-            font-size: 20px;
+            font-size: 1.25rem;
           }
 
           .expectation-text {
-            font-size: 18px;
+            font-size: 1rem;
           }
 
           .cta-content {
-            gap: 32px;
+            gap: 2.5rem;
           }
 
           .expectations-header {
-            gap: 20px;
+            gap: 1.5rem;
           }
         }
 

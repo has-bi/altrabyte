@@ -343,7 +343,7 @@ const FoundationAuditPromises = () => {
 
         @media (max-width: 768px) {
           .audit-promises {
-            padding: 5rem 1.25rem 6rem;
+            padding: 3rem 1.25rem 4rem;
           }
 
           .audit-promises__header h2 {
@@ -358,18 +358,18 @@ const FoundationAuditPromises = () => {
             padding: 2rem 1.75rem;
           }
 
-          .grid-headings h3 {
-            font-size: 1.4rem;
+          .grid-headings {
+            display: none;
           }
 
           .promise-card,
           .dont-card {
-            padding: 1rem 1.05rem;
+            padding: 1.25rem;
           }
 
           .promise-content h4,
           .dont-content h4 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
           }
         }
 

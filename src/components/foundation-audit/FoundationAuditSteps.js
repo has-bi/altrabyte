@@ -19,7 +19,7 @@ const diagnosticPrompts = [
 
 const FoundationAuditSteps = () => {
   return (
-    <section className="relative border-t border-dashed border-neutral-500/80 bg-white py-16 md:py-24">
+    <section className="relative border-t border-dashed border-neutral-500/80 bg-white py-12 md:py-32">
       <div className="section-container">
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="text-[32px] font-semibold leading-[1.28] tracking-[-0.01em] text-[#122232] md:text-[36px] lg:text-[40px]">

@@ -14,14 +14,14 @@ const FoundationAuditHero = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#F7F9FB] to-white">
       {/* Soft gradient accents */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute -left-16 top-6 h-64 w-64 rounded-full bg-primary-100/40 blur-3xl" />
         <div className="absolute right-[-10%] top-10 h-72 w-72 rounded-full bg-primary-50/60 blur-3xl" />
         <div className="absolute left-1/2 bottom-[-15%] h-80 w-80 -translate-x-1/2 rounded-full bg-[#E0F5FF]/40 blur-[90px]" />
       </div>
 
       <div className="section-container relative z-10">
-        <div className="mx-auto flex max-w-[820px] flex-col items-center gap-7 py-20 md:py-24 lg:py-[120px]">
+        <div className="mx-auto flex max-w-[820px] flex-col items-center gap-7 py-12 md:py-24 lg:py-[120px]">
           {/* Label */}
           <div className="inline-flex items-center justify-center rounded-xl border border-[#E7E9EB] bg-white px-4 py-2 shadow-[0_2px_4px_rgba(0,0,0,0.08)]">
             <span className="text-[16px] leading-[22px] font-medium tracking-[-0.01em] text-[#9299A1]">

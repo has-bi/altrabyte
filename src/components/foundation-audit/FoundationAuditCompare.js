@@ -407,21 +407,25 @@ const FoundationAuditCompare = () => {
         /* Responsive */
         @media (max-width: 1024px) {
           .compare-section {
-            padding: 60px 40px;
+            padding: 3rem 1.25rem;
           }
 
           .content-container {
             flex-direction: column;
-            gap: 40px;
-            padding: 30px;
+            gap: 2rem;
+            padding: 2rem 1.5rem;
           }
 
           .divider {
+            position: relative;
             width: 100%;
-            height: 0px;
-            left: 0;
-            top: 50%;
-            border: 1.5px dashed #122232;
+            height: 1px;
+            left: auto;
+            top: auto;
+            border: none;
+            border-top: 1.5px dashed #122232;
+            opacity: 0.2;
+            margin: 0;
           }
 
           .left-row {
