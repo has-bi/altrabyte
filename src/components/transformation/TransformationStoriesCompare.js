@@ -170,7 +170,7 @@ const TransformationStoriesCompare = () => {
 
           <div
             ref={footerRef}
-            className={`mt-10 flex flex-col items-center justify-center gap-5 rounded-[12px] border-[1.5px] border-primary-100 bg-primary-50 px-7 py-5 transition-all duration-700 lg:flex-row lg:gap-5 ${
+            className={`mt-10 flex flex-col items-center justify-center gap-5 rounded-[12px] border-[1.5px] border-primary-100 bg-primary-50 px-7 py-5 transition-all duration-700 text-center lg:text-left lg:flex-row lg:gap-5 ${
               isFooterVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
