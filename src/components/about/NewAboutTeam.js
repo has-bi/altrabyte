@@ -141,7 +141,7 @@ function TeamCard({ config, index }) {
 
 export default function NewAboutTeam() {
   return (
-    <section className="border-t border-neutral-200 bg-white px-4 py-20 sm:px-10 md:px-16 lg:px-[120px] lg:py-24">
+    <section className="border-t border-neutral-200 bg-white px-4 py-12 sm:px-10 md:px-16 lg:px-[120px] lg:py-24">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 flex flex-col items-center gap-3 text-center">

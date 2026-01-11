@@ -437,7 +437,7 @@ const NewAboutCTA = () => {
 
         @media (max-width: 768px) {
           .cta-section {
-            padding: 3.125rem 1.25rem;
+            padding: 3rem 1.25rem;
           }
 
           .main-container {

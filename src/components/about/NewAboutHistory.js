@@ -316,7 +316,7 @@ function HistoryCard({ card }) {
 
 export default function NewAboutHistory() {
   return (
-    <section className="bg-[#F9F6FF] px-4 py-20 sm:px-10 lg:px-[120px]">
+    <section className="bg-[#F9F6FF] px-4 py-12 sm:px-10 lg:px-[120px]">
       <div className="mx-auto flex max-w-6xl flex-col gap-12">
         {historyCards.map((card) => (
           <HistoryCard key={card.id} card={card} />
