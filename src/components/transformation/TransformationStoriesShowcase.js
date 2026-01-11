@@ -91,7 +91,7 @@ const TransformationStoriesShowcase = () => {
       </div>
 
       {/* Right Column Skeleton */}
-      <div className="flex flex-1 p-2">
+      <div className="hidden lg:flex flex-1 p-2">
         <div className="w-full h-full min-h-[320px] bg-neutral-100 rounded-[12px] animate-pulse" />
       </div>
     </div>
@@ -156,7 +156,7 @@ const TransformationStoriesShowcase = () => {
             </div>
           </div>
 
-          <div className="flex flex-1 p-2">
+          <div className="hidden lg:flex flex-1 p-2">
             <div className="relative w-full h-full min-h-[320px] overflow-hidden rounded-[12px] bg-neutral-100">
               {/* Image Loading Skeleton Overlay */}
               {imageLoading && (

@@ -93,7 +93,7 @@ const TransformationStoriesCompare = () => {
   }, []);
 
   return (
-    <section className="bg-[#FBF7F6] px-4 py-20">
+    <section className="bg-[#FBF7F6] px-4 py-12 md:py-20">
       <div className="section-container flex flex-col items-center gap-12">
         <header
           ref={headerRef}

@@ -101,7 +101,7 @@ const TransformationStoriesPattern = () => {
   }, []);
 
   return (
-    <section className="bg-primary-50 px-4 py-20">
+    <section className="bg-primary-50 px-4 py-12 md:py-20">
       <div className="section-container">
         <header
           ref={headerRef}

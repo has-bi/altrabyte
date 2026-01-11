@@ -98,7 +98,7 @@ const TransformationStoriesHighlights = () => {
 
                 <Link 
                   href={`/transformation-stories/${highlight.id}`}
-                  className="relative h-[400px] w-full max-w-[594px] overflow-hidden rounded-[12px] block"
+                  className="relative h-[400px] w-full max-w-[594px] overflow-hidden rounded-[12px] hidden lg:block"
                 >
                   <Image
                     fill

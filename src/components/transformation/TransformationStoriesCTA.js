@@ -31,7 +31,7 @@ const TransformationStoriesCTA = () => {
   return (
     <section className="bg-white">
       <div className="mx-auto flex max-w-[1440px] flex-col">
-        <div className="px-4 py-20 sm:px-10">
+        <div className="px-4 py-12 sm:px-10 md:py-20">
           <div className="rounded-[40px] bg-[#7863FC] px-6 py-12 text-white shadow-[0_50px_100px_rgba(70,45,165,0.4)] md:px-12 lg:px-16">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl space-y-5">

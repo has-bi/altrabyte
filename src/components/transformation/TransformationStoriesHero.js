@@ -12,14 +12,14 @@ const TransformationStoriesHero = () => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b">
-      <div className="pointer-events-none absolute inset-0">
+      <div className="hidden md:block pointer-events-none absolute inset-0">
         <div className="absolute -left-24 top-6 h-72 w-72 rounded-full bg-primary-100/40 blur-3xl" />
         <div className="absolute right-[-5%] top-10 h-80 w-80 rounded-full bg-primary-200/50 blur-[110px]" />
         <div className="absolute left-1/2 bottom-[-20%] h-96 w-96 -translate-x-1/2 rounded-full bg-[#DDEBFF]/50 blur-[120px]" />
       </div>
 
       <div className="section-container relative z-10">
-        <div className="mx-auto flex max-w-[820px] flex-col items-center gap-7 py-20 md:py-24 lg:py-[120px]">
+        <div className="mx-auto flex max-w-[820px] flex-col items-center gap-7 py-12 md:py-24 lg:py-[120px]">
           <div className="inline-flex items-center justify-center rounded-xl border border-[#E7E9EB] bg-white px-4 py-2 text-[16px] font-medium tracking-[-0.01em] text-[#9299A1] shadow-[0_2px_4px_rgba(0,0,0,0.08)]">
             Transformation Stories
           </div>

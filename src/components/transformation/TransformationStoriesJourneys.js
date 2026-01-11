@@ -135,7 +135,7 @@ const TransformationStoriesJourneys = () => {
   }, []);
 
   return (
-    <section className="border-b border-dashed border-neutral-500 px-4 py-20">
+    <section className="border-b border-dashed border-neutral-500 px-4 py-12 md:py-20">
       <div className="section-container flex flex-col items-center gap-16">
         <header
           ref={headerRef}
