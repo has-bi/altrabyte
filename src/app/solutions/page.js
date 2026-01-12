@@ -9,6 +9,9 @@ export const metadata = {
   title: "Solutions - Data Analytics, AI Automation & Process Optimization",
   description:
     "Discover our data analytics, AI automation, and process optimization solutions. We help e-commerce, retail, logistics, and FMCG companies move faster with better data insights.",
+  alternates: {
+    canonical: '/solutions',
+  },
   openGraph: {
     title:
       "AltraByte Solutions - Data Analytics, AI Automation & Process Optimization",

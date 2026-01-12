@@ -72,6 +72,9 @@ export async function generateMetadata(props) {
     return {
       title,
       description,
+      alternates: {
+        canonical: `/transformation-stories/${slug}`,
+      },
       keywords: [
         'transformation story',
         'case study',

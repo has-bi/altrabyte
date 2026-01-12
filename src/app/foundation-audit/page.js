@@ -11,6 +11,9 @@ export const metadata = {
   title: "Foundation Audit - Validate Your Data & AI Readiness",
   description:
     "A 10-day audit that pressure-tests your data, workflows, and governance. Get a prioritized blueprint before you invest in automation or AI.",
+  alternates: {
+    canonical: '/foundation-audit',
+  },
   openGraph: {
     title: "Foundation Audit - Validate Your Data & AI Readiness",
     description:

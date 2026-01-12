@@ -10,6 +10,9 @@ export const metadata = {
   title: "About Us - Meet the AltraByte Team | AltraByte",
   description:
     "Meet the team building AltraByte. We're on a mission to help businesses transform their data infrastructure from manual chaos to intelligent automation.",
+  alternates: {
+    canonical: '/about',
+  },
   openGraph: {
     title: "About AltraByte - Building Intelligent Foundations",
     url: "https://altrabyte.com/about",

@@ -9,6 +9,9 @@ export const metadata = {
   title: "Portfolio - Real Results From Real Work",
   description:
     "See our data analytics, AI automation, and process optimization projects. Real case studies from e-commerce, retail, logistics, and FMCG clients across Southeast Asia.",
+  alternates: {
+    canonical: '/portfolio',
+  },
   openGraph: {
     title: "AltraByte Portfolio - Real Results From Real Work",
     url: "https://altrabyte.com/portfolio",

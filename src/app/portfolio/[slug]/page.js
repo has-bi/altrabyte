@@ -20,6 +20,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${project.title} - AltraByte Portfolio`,
     description: project.description || `Case study: ${project.title}`,
+    alternates: {
+      canonical: `/portfolio/${slug}`,
+    },
   };
 }
 

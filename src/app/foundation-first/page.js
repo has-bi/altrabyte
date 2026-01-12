@@ -11,6 +11,9 @@ export const metadata = {
   title: "Why Foundation First - Build AI on truth, not theater",
   description:
     "See why every successful AI or automation program starts with a foundation audit, operator ownership, and a 90-day cadence.",
+  alternates: {
+    canonical: '/foundation-first',
+  },
 };
 
 export default async function FoundationFirstPage() {

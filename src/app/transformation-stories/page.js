@@ -10,6 +10,9 @@ export const metadata = {
   title: "Transformation Stories - Proof from operators who fixed the foundations",
   description:
     "See how operators in retail, fintech, and marketplaces rebuilt their data foundations and automation loops in under 90 days.",
+  alternates: {
+    canonical: '/transformation-stories',
+  },
 };
 
 export default function TransformationStoriesPage() {
