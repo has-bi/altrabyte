@@ -78,7 +78,7 @@ const StartYourAuditHero = () => {
 
           <div className="flex w-full flex-col items-center justify-center gap-5 sm:flex-row md:w-auto">
             <Link
-              href="/contact"
+              href="#start-your-audit-form"
               className="group inline-flex min-w-[276px] items-center justify-center rounded-full bg-[#0D1B2A] px-8 py-3 text-[18px] font-semibold leading-[1.5] tracking-[-0.01em] text-white shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out whitespace-nowrap hover:bg-[#132840] hover:shadow-[0_8px_24px_rgba(13,27,42,0.25)] hover:-translate-y-0.5"
             >
               Book Your Foundation Audit
